@@ -13,7 +13,7 @@
  */
 class karmora extends CI_Controller {
 
-    public $themeUrl = "http://workspace/karmora_v5/public";
+    public $themeUrl;
     public $current_affiliate = '';
     public $currentSubid = '525659344c44e';
     public $userId = 2;
@@ -24,19 +24,23 @@ class karmora extends CI_Controller {
      * 2) user_subid as subid
      * 3) user_username as username
      */
-
     public $currentUser;
 
     public function __construct() {
         parent::__construct();
         //echo CI_VERSION;exit;
-        $this->load->helper(array('url','security'));
+        $this->setThemeUrl();
+        $this->load->helper(array('url', 'security'));
         //$this->load->model(array('homemodel','commonmodel','cartmodel'));
-        $this->load->library(array('email','cart'));
+        $this->load->library(array('email', 'cart'));
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
         //require_once(FCPATH . 'application/controllers/AuthNet.php');
         //$this->currentUser = $this->commonmodel->getFounder($this->founder);
+        }
+
+        private function setThemeUrl(){
+        $this->themeUrl = base_url('public');        
     }
 
     public function verifyUser($username = NULL) {
@@ -220,8 +224,8 @@ class karmora extends CI_Controller {
     /* ------------Load Layout Functions------------------ */
 
     public function loadLayout($data, $content_path) {
-        $html['header']  = $this->load->view('frontend/template/partials/header', $data, TRUE);
-        $html['footer']  = $this->load->view('frontend/template/partials/footer', $data, TRUE);
+        $html['header'] = $this->load->view('frontend/template/partials/header', $data, TRUE);
+        $html['footer'] = $this->load->view('frontend/template/partials/footer', $data, TRUE);
         $html['content'] = $this->load->view($content_path, $data, TRUE);
         $this->load->view('frontend/template/template', $html);
     }
@@ -470,7 +474,7 @@ class karmora extends CI_Controller {
         $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id, $email_data->email_header_text);
         $to = $userData->user_email;
         $result = $this->send_mail($to, $subject, $message);
-        $this->karmoraenotfiationmail($userData,43,'',$order_id);
+        $this->karmoraenotfiationmail($userData, 43, '', $order_id);
         return $result;
     }
 
@@ -516,7 +520,6 @@ class karmora extends CI_Controller {
         $result = $this->send_mail($to, $subject, $message);
         return $result;
     }
-
 
     public function set_session_login($row) {
         $userSessionData = array();
@@ -633,9 +636,9 @@ class karmora extends CI_Controller {
 
     ////////// ===== Authorize.Net ========== //////////////////
 
-    public function karmoraenotfiationmail($userData ,$email_id , $reffer_data=NULL, $order_id = NULL) {
+    public function karmoraenotfiationmail($userData, $email_id, $reffer_data = NULL, $order_id = NULL) {
         $html = '';
-        if($order_id != ''){
+        if ($order_id != '') {
             $user_username = $userData->user_username;
             $order_detail = $this->cartmodel->getOrderDetailById($order_id, $userData->userid);
             $Orderproduct = $this->cartmodel->getOrderProduct($order_detail->pk_order_id);
@@ -647,8 +650,8 @@ class karmora extends CI_Controller {
                                 <h2 style="font-size: 20px; ">Order Detail:</h2>
                             </td>
                             <td class="col-md-6 col-xs-6" style="text-align: right; width: 48%; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px;">
-                                <h2 style="font-size: 20px; margin: 0px;"> #'.$order_detail->order_no.' </h2>
-                                <h2 class="date-order-fa" style="font-size: 16px; margin: 0px;">'.$order_detail->order_date.'</h2>
+                                <h2 style="font-size: 20px; margin: 0px;"> #' . $order_detail->order_no . ' </h2>
+                                <h2 class="date-order-fa" style="font-size: 16px; margin: 0px;">' . $order_detail->order_date . '</h2>
                             </td>
                         </tr>
                         <tr style="border-top:1px solid #ccc;">
@@ -658,19 +661,19 @@ class karmora extends CI_Controller {
                                 <h3 style="font-size: 20px; font-weight: 600 !important; display: block; text-transform: uppercase; margin: 0px 0 20px;">Billing Address</h3>
                                 <table><tbody>
                                     <tr style="width: 100%;">
-                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Street:</b>'.$order_detail->billing_address_street.'</td>
+                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Street:</b>' . $order_detail->billing_address_street . '</td>
                                     </tr>
                                     <tr style="width: 100%;">
-                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">City:</b>'.$order_detail->billing_address_city.'</td>
+                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">City:</b>' . $order_detail->billing_address_city . '</td>
                                     </tr>
                                     <tr style="width: 100%;">
-                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">State:</b>'.$order_detail->billing_address_state.'</td>
+                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">State:</b>' . $order_detail->billing_address_state . '</td>
                                     </tr>
                                     <tr style="width: 100%;">
-                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Zip Code:</b>'.$order_detail->billing_address_zipcode.'</td>
+                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Zip Code:</b>' . $order_detail->billing_address_zipcode . '</td>
                                     </tr>
                                     <tr style="width: 100%;">
-                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Phone Number:</b>'.$order_detail->billing_address_phone_number.'</td>
+                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Phone Number:</b>' . $order_detail->billing_address_phone_number . '</td>
                                     </tr>
                                 </tbody></table>
                             </td>
@@ -678,19 +681,19 @@ class karmora extends CI_Controller {
                                 <h3 style="font-size: 20px; font-weight: 600 !important; display: block; text-transform: uppercase; margin: 0px 0 20px;">Shipping Address</h3>
                                 <table><tbody>
                                     <tr style="width: 100%;">
-                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Street:</b>'.$order_detail->shipping_address_street.'</td>
+                                        <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Street:</b>' . $order_detail->shipping_address_street . '</td>
                                         </tr>
                                         <tr style="width: 100%;">
-                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">City:</b>'.$order_detail->shipping_address_city.'</td>
+                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">City:</b>' . $order_detail->shipping_address_city . '</td>
                                         </tr>
                                         <tr style="width: 100%;">
-                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">State:</b>'.$order_detail->shipping_address_state.'</td>
+                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">State:</b>' . $order_detail->shipping_address_state . '</td>
                                         </tr>
                                         <tr style="width: 100%;">
-                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Zip Code:</b>'.$order_detail->shipping_address_zipcode.'</td>
+                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Zip Code:</b>' . $order_detail->shipping_address_zipcode . '</td>
                                         </tr>
                                         <tr style="width: 100%;">
-                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Phone Number:</b>'.$order_detail->shipping_address_phone_number.'</td>
+                                            <td style="margin-bottom: 10px; width: 100%; font-size: 12px;"><b style="margin-right: 15px;">Phone Number:</b>' . $order_detail->shipping_address_phone_number . '</td>
                                     </tr>
                                 </tbody></table>
                             </td>
@@ -706,23 +709,33 @@ class karmora extends CI_Controller {
                             </thead><tbody>';
             $total_amount = 0;
             foreach ($Orderproduct as $pr) {
-                if($pr['order_line_notes'] == 'Free Gifts'){ $qty   = 1 ; }else { $qty = $pr['order_line_qty']; }
-                if($pr['order_line_notes'] == 'Free Gifts'){ $price = 19.95 .' (Limted time offer)'; }elseif($pr['order_line_notes'] == 'coupon_used'){ $price = 5.95 .' (Coupon Used)'; } else{ $price = number_format($pr['order_line_price']*$pr['order_line_qty'], 2, ".", ",");}
+                if ($pr['order_line_notes'] == 'Free Gifts') {
+                    $qty = 1;
+                } else {
+                    $qty = $pr['order_line_qty'];
+                }
+                if ($pr['order_line_notes'] == 'Free Gifts') {
+                    $price = 19.95 . ' (Limted time offer)';
+                } elseif ($pr['order_line_notes'] == 'coupon_used') {
+                    $price = 5.95 . ' (Coupon Used)';
+                } else {
+                    $price = number_format($pr['order_line_price'] * $pr['order_line_qty'], 2, ".", ",");
+                }
                 $html.= '<tr style="text-align: left; padding: 0; margin: 0;">';
-                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">'.$pr['product_title'].'</td>'; 
-                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">'.$qty.'</td>';
-                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">'.$price.'</td>';
+                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $pr['product_title'] . '</td>';
+                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $qty . '</td>';
+                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $price . '</td>';
                 $html.= '</tr>';
-                $sum_total = number_format($pr['order_line_price']*$pr['order_line_qty'], 2, ".", ",");
+                $sum_total = number_format($pr['order_line_price'] * $pr['order_line_qty'], 2, ".", ",");
                 $total_amount = $sum_total + $total_amount;
-                if($pr['order_line_notes'] == 'Free Gifts'){
-                    $total_amount = 19.95 ;
-                }elseif($pr['order_line_notes'] == 'coupon_used'){
-                    $total_amount = 0 ;
+                if ($pr['order_line_notes'] == 'Free Gifts') {
+                    $total_amount = 19.95;
+                } elseif ($pr['order_line_notes'] == 'coupon_used') {
+                    $total_amount = 0;
                 }
             }
             $html.= '</tbody></table>';
-            $total_amount =  $total_amount + 0.0001;
+            $total_amount = $total_amount + 0.0001;
         }
         $totalnumber = $total_amount - $orderTotalDetail->order_karmora_cash_price + $orderTotalDetail->order_shiping_cost + $orderTotalDetail->order_tax_cost + $orderTotalDetail->order_upgrade_cost;
         $charged = $totalnumber - $orderTotalDetail->order_commsion_price;
@@ -736,8 +749,8 @@ class karmora extends CI_Controller {
                         <span class="clearfix"></span>
                         <ul style="list-style-type: none;">
                             <li>Every order comes with our 30 Day – No Questions Asked – Money Back Guarantee!</li>
-                            <li><a href="https://www.karmora.com/'.$user_username.'/compensation-plan" class="karmora-color-pink">Click Here</a> to learn how to build a Shopping Community and get paid!</li>
-                            <li><a href="https://www.karmora.com/'.$user_username.'/profit-sharing-program" class="karmora-color-pink">Click Here</a> to learn how to participate in our company Profit Sharing Program!</li>
+                            <li><a href="https://www.karmora.com/' . $user_username . '/compensation-plan" class="karmora-color-pink">Click Here</a> to learn how to build a Shopping Community and get paid!</li>
+                            <li><a href="https://www.karmora.com/' . $user_username . '/profit-sharing-program" class="karmora-color-pink">Click Here</a> to learn how to participate in our company Profit Sharing Program!</li>
                             <!--<li>Remember… You can earn up to $50 Karmora Kash for reviewing every Exclusive Product you purchase! </li>-->
                             <li>As always, we wish you <strong>Good Luck</strong>, <strong>Good Fortune</strong> and <strong>Good Karmora</strong>!</li>
                         </ul>
@@ -748,35 +761,35 @@ class karmora extends CI_Controller {
                                 <tbody>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Exclusive Product Total</td>
-                                        <td style="text-align: right; width: 20%;">'.number_format($total_amount, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%;">' . number_format($total_amount, 2, '.', ',') . '</td>
                                     </tr>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Karmora Kash</td>
-                                        <td style="text-align: right; width: 20%;">-'.number_format($orderTotalDetail->order_karmora_cash_price, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%;">-' . number_format($orderTotalDetail->order_karmora_cash_price, 2, '.', ',') . '</td>
                                     </tr>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Subtotal</td>
-                                        <td style="text-align: right; width: 20%;">$'.number_format(($total_amount + $orderTotalDetail->order_upgrade_cost) -$orderTotalDetail->order_karmora_cash_price, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%;">$' . number_format(($total_amount + $orderTotalDetail->order_upgrade_cost) - $orderTotalDetail->order_karmora_cash_price, 2, '.', ',') . '</td>
                                     </tr>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Shipping &amp; Handling</td>
-                                        <td style="text-align: right; width: 20%;">$'.number_format($orderTotalDetail->order_shiping_cost, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%;">$' . number_format($orderTotalDetail->order_shiping_cost, 2, '.', ',') . '</td>
                                     </tr>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Tax</td>
-                                        <td style="text-align: right; width: 20%;">$'.number_format($orderTotalDetail->order_tax_cost, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%;">$' . number_format($orderTotalDetail->order_tax_cost, 2, '.', ',') . '</td>
                                     </tr>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Order Total</td>
-                                        <td style="text-align: right; width: 20%;">$'.number_format($totalnumber, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%;">$' . number_format($totalnumber, 2, '.', ',') . '</td>
                                     </tr>
                                      <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">eWallet Funds Applied</td>
-                                        <td style="text-align: right; width: 20%; color:red;">-$'.number_format($orderTotalDetail->order_commsion_price, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%; color:red;">-$' . number_format($orderTotalDetail->order_commsion_price, 2, '.', ',') . '</td>
                                     </tr>
                                     <tr style="margin-bottom: 2px; padding: 5px 10PX; background-color: #f9f9f9; border-radius: 2px; list-style-type: none; ">
                                         <td style="width: 79%;">Total Charged</td>
-                                        <td style="text-align: right; width: 20%; color:red;">$'.number_format($charged, 2, '.', ',').'</td>
+                                        <td style="text-align: right; width: 20%; color:red;">$' . number_format($charged, 2, '.', ',') . '</td>
                                     </tr>
 
                                 </tbody>
@@ -784,18 +797,18 @@ class karmora extends CI_Controller {
                 </td>
             </tr>
         </tbody></table>';
-        $email_data   = $this->commonmodel->getemailInfo($email_id);
+        $email_data = $this->commonmodel->getemailInfo($email_id);
         $address_data = $this->commonmodel->getMemberCurrentAddress($userData->userid);
         $complete_name = $userData->user_first_name . ' ' . $userData->user_last_name;
         $user_username = $userData->user_username;
         $user_email = $userData->user_email;
         $user_phone_no = $userData->user_phone_no;
-        $address = $address_data->street_address .' '.$address_data->city.' '.$address_data->state.' '.$address_data->zipcode;
-        $tags = array("{First-Name}", "{referrer-name}", "{phone_no}", "{user_username}", "{user_email}", "{address}","{street_address}","{city}","{state}" , "{product_detail}");
-        $replace = array($complete_name, $reffer_data->user_first_name, $user_phone_no , $user_username, $user_email, $address,$address_data->street_address,$address_data->city,$address_data->state,$html);
+        $address = $address_data->street_address . ' ' . $address_data->city . ' ' . $address_data->state . ' ' . $address_data->zipcode;
+        $tags = array("{First-Name}", "{referrer-name}", "{phone_no}", "{user_username}", "{user_email}", "{address}", "{street_address}", "{city}", "{state}", "{product_detail}");
+        $replace = array($complete_name, $reffer_data->user_first_name, $user_phone_no, $user_username, $user_email, $address, $address_data->street_address, $address_data->city, $address_data->state, $html);
         $subject = $email_data->email_title;
-        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, '', $email_data->email_header_text,'withoutheader');
-        $this->send_mail('faizana@karmora.com', $subject, $message);//notifications@Karmora.com
+        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, '', $email_data->email_header_text, 'withoutheader');
+        $this->send_mail('faizana@karmora.com', $subject, $message); //notifications@Karmora.com
     }
 
 }

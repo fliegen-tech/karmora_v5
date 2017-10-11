@@ -1,0 +1,28 @@
+/* Join Now Btn Notlogin Page */
+.btn-joinnow {
+	padding: 8px 25px;
+	background-color: $scendary_color;
+	color: $white_color;
+	border: none;
+	border-radius: 0px;
+	font-family: 'Conv_TT Corals Thin-DEMO';
+	font-size: 36px;
+  	display: inline-block;
+}
+
+/* All stores btn on not login page */
+.btn-all-store {
+	width: 100%;
+	padding: 10px;
+	background-color: $primary_color;
+	color: $white_color;
+	border: none;
+	border-radius: 0px;
+	font-size: 36px;
+	font-family: 'Conv_TT Corals Thin-DEMO';
+	margin: 36px 0 0;
+
+  	&:before {
+	  background: $primary_color_text !important;
+	}
+}

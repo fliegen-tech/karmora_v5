@@ -1,0 +1,29 @@
+.karmora-table {
+
+	table {
+
+		thead {
+			background: $primary_color;
+			color: $white_color;
+			font-size: 16px;
+
+			tr {
+
+				th {
+					width: 50%;
+					padding-left: 30px;
+				}
+			}
+		}
+
+		tbody {
+
+			tr {
+
+				td {
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}

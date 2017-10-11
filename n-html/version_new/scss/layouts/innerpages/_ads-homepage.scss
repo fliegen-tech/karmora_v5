@@ -1,0 +1,184 @@
+/*<!--=========================================
+=     1:    Make Money ads            =
+==========================================-->*/
+.making-money-sec {
+
+	.title {
+		margin: 0 0 36px;
+
+		h1 {
+			font-size: 48px;
+    		text-align: center;
+    		font-family: 'Conv_TT Corals Thin-DEMO';
+    		margin: 0px;
+		}
+	}
+
+	.making-money-desp {
+		padding-bottom: 36px;
+		border-bottom: 3px solid $primary_color;
+
+		.flex-cover {
+			height: 400px;
+		}
+
+		.making-leftbar {
+
+			h2 {
+				font-size: 30px;
+				text-align: center;
+    			font-family: 'Conv_TT Corals Thin-DEMO';
+    			margin: 0 0 18px;
+			}
+
+			p {
+				font-size: 18px;
+				line-height: 36px;
+				margin: 0px;
+				text-align: center;
+
+				a {
+					color: $primary_color_text;
+				}
+			}
+		}
+
+		.making-rightbar {
+			height: 400px;
+    		width: 400px;
+    		margin: 0 auto;
+
+    		img {
+    			width: 100%;
+    			height: 100%;
+    			border-radius: 50%;
+    			object-fit: cover;
+    		}
+		}
+
+		.btn-all-store {
+			background-color: $scendary_color !important;
+
+			&:before {
+				background-color: $scendary_hover_color !important;
+			}
+		}
+	}
+
+	.pick-your-ad-cover {
+		margin: 36px 0 0;
+
+		.pick-ad-heading {
+			text-align: center;
+
+			h3 {
+				font-size: 36px;
+				color: $scendary_color;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+				margin: 0 0 18px;
+			}
+
+			h4 {
+				font-size: 30px;
+				margin: 0px;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+			}
+		}
+
+		.ads-list {
+			margin: 36px 0 36px;
+
+			ul {
+				margin: 0px;
+				padding: 0px;
+				text-align: center;
+
+				li {
+					margin-left: 45px;
+					margin-bottom: 18px;
+
+					a {
+						transition-duration: .5s;
+
+						.money-ofers {
+							height: 300px;
+						    width: 300px;
+						    background-color: $primary_color;
+						    border-radius: 50%;
+						    text-align: center;
+						    color: $white_color;
+						    display: flex;
+						    align-items: center;
+						    font-family: 'Conv_TT Corals Thin-DEMO';
+						    font-size: 36px;
+						    justify-content: center;
+						}
+
+						&:hover, &:focus {
+							text-decoration: none;
+							color: $white-color;
+
+							.money-ofers {
+								background-color: $primary_color-text;
+							}
+						}
+					}
+
+					&:first-child {
+						margin-left: 0px;
+					}
+
+					&:nth-child(4), &:nth-child(5) {
+						margin-bottom: 0px;
+					}
+				}
+			}
+		}
+
+		.ad-tracker {
+			margin: 36px 0;
+
+			.tracker-leftbar {
+
+				p {
+					font-size: 18px;
+					text-align: center;
+					line-height: 36px;
+					text-align: center;
+				}
+			}
+
+			.flex-cover {
+				height: 260px;
+			}
+
+			.tracker-rightbar {
+				text-align: center;
+
+				img {
+					width: 100%;
+				}
+
+				.w75 {
+					width: 75%;
+				}
+			}
+		}
+
+		.pay-per-click {
+
+			h2 {
+				font-size: 36px;
+				text-align: center;
+				margin: 0 0 18px;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+			}
+
+			p {
+				font-size: 18px;
+				line-height: 36px;
+				text-align: center;
+			}
+		}
+	}
+}
