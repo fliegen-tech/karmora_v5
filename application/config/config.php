@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'agyKGY125YHgVKpTkFUOhfoasfdsasfa785IuJML1';
 
 /*
 |--------------------------------------------------------------------------
@@ -448,11 +448,12 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
+
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'karmora_mikamak677';
+$config['csrf_cookie_name'] = 'karmora_mikamak677';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
+$config['csrf_regenerate'] = false;
 $config['csrf_exclude_uris'] = array();
 
 /*
@@ -521,3 +522,10 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+function __autoload($class)
+{
+    if (strpos($class, 'CI_') !== 0) {
+        //echo APPPATH . 'core/' . $class . '.php'; die;
+        @include_once(APPPATH . 'core/' . $class . '.php');
+    }
+}

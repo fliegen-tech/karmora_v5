@@ -1,0 +1,556 @@
+/*<!--=========================================
+	=     1:    Slider Section           =
+==========================================-->*/
+.product-detail {
+
+	h1 {
+		font-size: 60px;
+    	text-align: center;
+    	font-family: 'Conv_TT Corals Thin-DEMO';
+    	margin-bottom: 36px;
+    	background-color: #feefe2;
+    	padding: 15px;
+	}
+
+	.night-bg-heading {
+		background-color: #ebebeb;
+	}
+
+	.simply-bg-heading {
+		background-color: #e3f7eb;
+	}
+
+	.mist-bg-heading {
+		background-color: #ebf4fb;
+	}
+
+	.slim-bg-heading {
+		background-color: #fdf9de;
+	}
+
+	.trim-bg-heading {
+		background-color: #deecf7;
+	}
+
+	.healthy-bg-heading {
+		background-color: #c4e8c4;
+	}
+
+	.beautiful-bg-heading {
+		background-color: #feeff4;
+	}
+
+	.product-leftbar {
+
+		.app-figure {
+			text-align: center;
+			border: 1px solid $color_gray;
+			padding: 15px;
+
+			.mz-thumb {
+				text-align: center;
+				margin: 18px 0px 0;
+				padding: 0px;
+
+				img {
+					width: 120px;
+					height: 120px;
+					margin-left: 10px;
+					object-fit: cover;
+				}
+			}
+
+			.mz-hint {
+
+				.mz-hint-message {
+					display: none !important;
+				}
+			}
+		}
+	}
+
+	.product-detail-rightbar {
+
+		h2 {
+			font-size: 36px;
+			font-family: 'Conv_TT Corals Thin-DEMO';
+			margin: 0 0 27px;
+		}
+
+		.price-offers {
+			margin-bottom: 27px;
+
+			.btn-secondary {
+				background-color: #d9d9d9;
+				border: none;
+				border-radius: 0px;
+				font-size: 30px;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+				color: $lowblack;
+				cursor: pointer;
+
+				&:focus, &:focus {
+					box-shadow: inherit;
+				}
+			}
+
+			.dropdown-menu {
+				min-width: 100%;
+				font-size: 20px;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+				border-radius: 0px;
+				border: none;
+				background-color: #d9d9d9;
+				margin: 0px;
+				padding: 0px;
+
+				.dropdown-item {
+					border: none;
+					border-bottom: 1px solid $color_gray;
+					padding: 10px 15px;
+					cursor: pointer;
+					transition-duration: .3s;
+
+					&:focus, &:hover {
+						background-color: $lowblack;
+						color: $white_color;
+					}
+				}
+				.dropdown-item.active, .dropdown-item:active {
+					background-color: $lowblack;
+					color: $white_color;
+				}
+			}
+		}
+
+		.about-product {
+			margin: 0 0 27px;
+
+			h5 {
+				font-family: 'Arimo', sans-serif;
+				font-size: 24px;
+				margin: 0 0 9px;
+				line-height: 40px;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 30px;
+				margin: 0;
+			}
+		}
+
+		.product-quanity {
+			margin: 0 0 36px;
+			.input-group {
+
+				.input-group-btn {
+
+					.btn-danger {
+						background-color: $black_color;
+						border-radius: 0px;
+						border: 1px solid $black_color;
+						cursor: pointer;
+
+						&:hover, &:focus {
+							box-shadow: inherit;
+						}
+					}
+
+					.btn-success {
+						background-color: $black_color;
+						border-radius: 0px;
+						border: 1px solid $black_color;
+						cursor: pointer;
+
+						&:hover, &:focus {
+							box-shadow: inherit;
+						}
+					}
+
+					&:not(:last-child) > .btn {
+						margin-right: 0px;
+					}
+				}
+
+				.form-control {
+					text-align: center;
+				}
+			}
+
+			.btn-add-bag {
+				background-color: $lowblack;
+				color: $white_color;
+				padding: 5px 45px;
+				border: none;
+				font-size: 24px;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+				border-radius: 0px;
+
+				i {
+					margin-right: 15px;
+				}
+
+				&:before {
+					background-color: $black_color;
+				}
+			}
+		}
+
+		.product-tabs {
+
+			.nav-tabs {
+				border-bottom: none;
+
+				.nav-link {
+					border-radius: 0px;
+					padding: 10px 25px;
+					color: $lowblack;
+					font-size: 16px;
+				}
+			}
+
+			.tab-content {
+				padding: 27px 25px;
+    			border: 1px solid $color_gray;
+
+				.video-cover {
+
+					iframe {
+						width: 100%;
+						border: 1px dashed #ababab;
+					    box-shadow: 0 0 0 3px #fff, 0 0 0 5px #ababab, 0 0 0 10px #fff, 0 0 2px 10px #d5d5d5;
+					    padding: 5px;
+					}
+				}
+
+				.about-product-tab {
+					margin-bottom: 18px;
+
+					img {
+						width: 70%;
+					}
+
+					.width35 {
+						width: 35%;
+					}
+
+					.width25 {
+						width: 25%;
+					}
+
+					p {
+						font-size: 16px;
+						line-height: 30px;
+					}
+				}
+
+				.about-product-tab-supplemts {
+
+					h6 {
+						text-align: center;
+						font-size: 24px;
+						font-weight: bold;
+						margin: 0 0 18px;
+					}
+
+					ul {
+						padding: 0 15px;
+						margin: 0px;
+
+						li {
+							display: block;
+							margin-bottom: 13.5px;
+							font-size: 16px;
+						}
+					}
+				}
+
+				#ingredient-spot {
+
+					.ingredient-desp {
+
+						h3 {
+							font-size: 18px;
+							margin: 0 0 18px;
+							font-weight: bold;
+							text-align: center;
+						}
+
+						p {
+							font-size: 16px;
+							line-height: 30px;
+
+						}
+
+						a {
+							font-size: 18px;
+							color: $primary_color_text;
+							font-family: 'Conv_TT Corals Thin-DEMO';
+
+							&:hover, &:focus {
+								text-decoration: none;
+								outline: none;
+							}
+						}
+
+						img {
+							float: left;
+							width: 35%;
+							padding-right: 15px;
+							margin-bottom: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* What our Client says */
+.clent-says {
+	background-color: #feefe2;
+	padding: 50px 0;
+
+	.client-says-cover {
+		position: relative;
+
+		h4 {
+			font-size: 40px;
+			font-family: 'Conv_TT Corals Thin-DEMO';
+			text-align: left;
+
+			span {
+				display: block;
+				font-size: 24px;
+				text-align: right;
+			}
+		}
+
+		&:before {
+			position: absolute;
+			top: -21px;
+    		left: -52px;
+			content: '';
+			background: url(../images/comma-left.png);
+			width: 51px;
+			height: 42px;
+			background-repeat: no-repeat;
+		}
+
+		&:after {
+			position: absolute;
+			bottom: -21px;
+    		right: -52px;
+			content: '';
+			background: url(../images/comma-right.png);
+			width: 51px;
+			height: 42px;
+			background-repeat: no-repeat;
+		}
+	}
+}
+.nights-clients-saying {
+	background-color: #ebebeb;
+}
+.simply-clients-saying {
+	background-color: #e3f7eb;
+}
+
+.mist-clients-saying {
+	background-color: #ebf4fb;
+}
+
+.slim-clients-saying {
+	background-color: #fdf9de;
+}
+
+.trim-clients-saying {
+	background-color: #deecf7;
+}
+
+.healthy-clients-saying {
+	background-color: #c4e8c4;
+}
+
+.beautiful-clients-saying {
+	background-color: #feeff4;
+}
+
+/* Perfect Paring Section */
+.perfect-paring-sec {
+
+	.top-heading {
+
+		h2 {
+			font-family: 'Conv_Milkshake';
+			font-size: 60px;
+			text-align: center;
+			margin: 0 0 45px;
+		}
+	}
+
+	.paring-cover {
+
+		.paring-leftbar {
+			text-align: center;
+
+			img {
+				height: 450px;
+				margin: 0 auto;
+			}
+		}
+
+		.paring-rightbar {
+			position: relative;
+			height: 400px;
+
+			h3 {
+				font-size: 36px;
+				font-family: 'Conv_TT Corals Thin-DEMO';
+				margin: 0 0 18px;
+			}
+
+			h5 {
+				font-size: 20px;
+				line-height: 36px;
+				font-family: 'Arimo', sans-serif;
+				margin: 0px;
+			}
+
+			.product-quanity {
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+
+				.input-group {
+
+					.input-group-btn {
+
+						.btn-danger {
+							background-color: $black_color;
+							border-radius: 0px;
+							border: 1px solid $black_color;
+							cursor: pointer;
+
+							&:hover, &:focus {
+								box-shadow: inherit;
+							}
+						}
+
+						.btn-success {
+							background-color: $black_color;
+							border-radius: 0px;
+							border: 1px solid $black_color;
+							cursor: pointer;
+
+							&:hover, &:focus {
+								box-shadow: inherit;
+							}
+						}
+
+						&:not(:last-child) > .btn {
+							margin-right: 0px;
+						}
+					}
+
+					.form-control {
+						text-align: center;
+					}
+				}
+
+				.btn-add-bag {
+					background-color: $lowblack;
+					color: $white_color;
+					padding: 8px 25px;
+					border: none;
+					font-size: 18px;
+					font-family: 'Conv_TT Corals Thin-DEMO';
+					border-radius: 0px;
+
+					i {
+						margin-right: 15px;
+					}
+
+					&:before {
+						background-color: $black_color;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.supplemnts-paring-sec {
+
+	.paring-cover {
+
+		.paring-leftbar {
+			text-align: center;
+
+			img {
+				height: inherit;
+				margin: 0 auto;
+				width: 100%;
+			}
+		}
+
+		.paring-rightbar {
+			position: relative;
+			height: 350px;
+
+			h5 {
+				font-size: 18px;
+				line-height: 30px;
+				font-family: 'Arimo', sans-serif;
+				margin: 0px;
+			}
+		}
+	}
+
+}
+
+/* Our Leader Section */
+.our-leader-sec {
+	padding: 70px 0 0;
+
+	h2 {
+		font-size: 48px;
+		margin: 0 0 36px;
+		text-align: center;
+		font-family: 'Conv_TT Corals Thin-DEMO';
+	}
+
+	.leader-leftbar {
+		text-align: center;
+
+		.flex-cover {
+			height: 400px;
+
+			img {
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.leader-rightbar {
+
+		p {
+			font-size: 18px;
+			line-height: 36px;
+			margin-bottom: 36px;
+		}
+
+		.trim-clients-saying {
+
+			&:before {
+				background-color: #bfd6e8;
+			}
+		}
+		.btn-joinnow {
+			color: $lowblack;
+		}
+	}
+}
