@@ -40,7 +40,7 @@ class karmora extends CI_Controller {
         }
 
         private function setThemeUrl(){
-        $this->themeUrl = base_url('public');        
+        $this->themeUrl = base_url('public');
     }
 
     public function verifyUser($username = NULL) {

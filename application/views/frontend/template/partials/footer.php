@@ -88,6 +88,9 @@
 <script src="<?php echo $themeUrl ?>/frontend/js/custom-scripts.js"></script>
 <!-- Parellex-window -->
 <script src="<?php echo $themeUrl ?>/frontend/js/parallax.min.js"></script>
+<script src="<?php echo $themeUrl ?>/frontend/js/custom-scripts.js"></script>
+<script src="<?php echo $themeUrl ?>/frontend/js/magiczoom.js"></script>
+
 
 </body>
 </html>

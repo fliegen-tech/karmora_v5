@@ -49,6 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+// product routes frontent
+
+$route['flawless-product'] = "Product/flawless_product";
+$route['(:any)/flawless-product'] = "product/flawless_product/$1";
+$route['supplement-product'] = "Product/supplements";
+$route['(:any)/supplement-product'] = "product/supplements/$1";
+$route['product-detail/(:any)'] = "product/product_detail/$1";
+$route['(:any)/product-detail/(:any)'] = "product/product_detail/$2/$1";
+
+$route['product'] = "product/index";
+$route['(:any)/product'] = "product/index/$1";
+$route['product/(:any)'] = "product/$1";
+
 $route['default_controller'] = 'index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
