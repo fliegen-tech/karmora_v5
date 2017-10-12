@@ -58,9 +58,81 @@ $route['(:any)/supplement-product'] = "product/supplements/$1";
 $route['product-detail/(:any)'] = "product/product_detail/$1";
 $route['(:any)/product-detail/(:any)'] = "product/product_detail/$2/$1";
 
-$route['product'] = "product/index";
-$route['(:any)/product'] = "product/index/$1";
-$route['product/(:any)'] = "product/$1";
+// good karmora ads share routes (cask-back, cash-o-palooza, smokin hot deal, custom ad)
+$route['share'] = "share/index";
+$route['(:any)/share'] = "share/index/$1";
+
+//share product detail routes
+$route['share/exclusive-product-ads-detail/(:any)'] = "share/shareadd/$1";
+$route['(:any)/share/exclusive-product-ads-detail/(:any)'] = "share/shareadd/$2/$1";
+
+$route['share/good-karmora-ads/cash-back-ads'] = "share/cash_back_ads";
+$route['(:any)/share/good-karmora-ads/cash-back-ads'] = "share/cash_back_ads/$1";
+
+$route['share/good-karmora-ads/cash-o-palooza-ads'] = "share/cash_o_palooza_ads";
+$route['(:any)/share/good-karmora-ads/cash-o-palooza-ads'] = "share/cash_o_palooza_ads/$1";
+
+$route['share/good-karmora-ads/smokin-hot-deal-ads'] = "share/smokin_hot_deal_ads";
+$route['(:any)/share/good-karmora-ads/smokin-hot-deal-ads'] = "share/smokin_hot_deal_ads/$1";
+
+$route['share/making-money-ads'] = "share/custom_ads/make-money-ads";
+$route['(:any)/share/make-money-ads'] = "share/custom_ads/make-money-ads/$1";
+
+$route['share/saving-money-ads'] = "share/custom_ads/save-money-ads";
+$route['(:any)/share/saving-money-ads'] = "share/custom_ads/save-money-ads/$1";
+
+$route['share/exclusive-product-ads'] = "share/custom_ads/exclusive-product-ads";
+$route['(:any)/share/exclusive-product-ads'] = "share/custom_ads/exclusive-product-ads/$1";
+
+$route['share/winning-money-ads'] = "share/custom_ads/winning-money-ads";
+$route['(:any)/share/winning-money-ads'] = "share/custom_ads/winning-money-ads/$1";
+
+// run time image generate routes (cask-back, cash-o-palooza, smokin hot deal)
+$route['share/karmora-ad-image/(:any)'] = "share/generateAdImage/$1";
+$route['(:any)/share/karmora-ad-image/(:any)'] = "share/generateAdImage/$2/$1";
+
+$route['share/cash-o-palooza-ad/(:any)'] = "share/generateCashoPaloozaAdImage/$1";
+$route['(:any)/share/cash-o-palooza-ad/(:any)'] = "share/generateCashoPaloozaAdImage/$2/$1";
+$route['(:any)/share/cash-o-palooza-ad-share/(:any)'] = "share/generateCashoPaloozaAdImageShare/$2/$1";
+
+$route['share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealAdImage/$1";
+$route['(:any)/share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealAdImage/$2/$1";
+
+//good karmora video share page routes
+
+$route['share/good-karmora-videos'] = 'share/karmora_videos';
+$route['(:any)/share/good-karmora-videos'] = 'share/karmora_videos/$1';
+
+//email share page routes
+
+$route['share/good-karmora-emails'] = 'share/email';
+$route['(:any)/share/good-karmora-emails'] = 'share/email/$1';
+
+
+//share Tripple karmora Kash
+
+$route['share/triple-karmora-kash-add'] = 'share/tripple_karmora_kash';
+$route['(:any)/share/triple-karmora-kash-add'] = 'share/tripple_karmora_kash/$1';
+
+
+//share email preview route
+
+$route['share/preview'] = "share/preview";
+$route['(:any)/share/preview'] = "share/preview/$1";
+
+$route['share/hotmail_callback'] = 'share/hotmail_callback';
+$route['share/gmail_callback'] = 'share/gmail_callback';
+$route['(:any)/share/gmail_callback'] = 'share/gmail_callback/$1';
+//share main page routes
+$route['share/good-karmora-ads/custom-ads'] = "share/custom_ads";
+$route['(:any)/share/good-karmora-ads/custom-ads'] = "share/custom_ads/$1";
+
+
+$route['share/(:any)'] = "share/index/$1";
+$route['(:any)/share/(:any)'] = "share/$2/$1";
+
+$route['share/(:any)'] = 'share/$1';
+$route['(:any)/share/(:any)'] = 'share/$2/$1';
 
 $route['default_controller'] = 'index';
 $route['404_override'] = '';
