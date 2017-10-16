@@ -131,8 +131,20 @@ $route['(:any)/share/good-karmora-ads/custom-ads'] = "share/custom_ads/$1";
 $route['share/(:any)'] = "share/index/$1";
 $route['(:any)/share/(:any)'] = "share/$2/$1";
 
-$route['share/(:any)'] = 'share/$1';
-$route['(:any)/share/(:any)'] = 'share/$2/$1';
+//stores routes
+$route['store/storeSearch'] = "store/storeSearch";
+$route['store/storeSearch/(:any)'] = "store/storeSearch/$1";
+$route['(:any)/store/storeSearch/(:any)'] = "store/storeSearch/$2/$1";
+
+$route['store'] = "store/allStore/all";
+$route['(:any)/store'] = "store/allStore/all/$1";
+$route['store/(:any)'] = "store/allStore/$1";
+$route['(:any)/store/(:any)'] = "store/allStore/$2/$1";
+
+//offers routes
+$route['special-offer/(:any)'] = "store/specialDeals/$1";
+$route['(:any)/special-offer/(:any)'] = "store/specialDeals/$2/$1";
+
 
 $route['default_controller'] = 'index';
 $route['404_override'] = '';
