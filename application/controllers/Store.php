@@ -338,10 +338,5 @@ class Store extends karmora {
             return '';
         }
     }
-    public function checklogin(){
-        if ( ! isset( $this->session->userdata['front_data']['id'] ) ) {
-            redirect( base_url() );
-        }
-    }
 	
 }

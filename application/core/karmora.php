@@ -170,6 +170,13 @@ class karmora extends CI_Controller {
         return $response;
     }
 
+
+    public function checklogin(){
+        if ( ! isset( $this->session->userdata['front_data']['id'] ) ) {
+            redirect( base_url() );
+        }
+    }
+
     /* ------------Start Email Functions------------------ */
 
     public function prepEmailContent($tags, $replace, $title, $content) {
