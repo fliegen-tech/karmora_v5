@@ -145,6 +145,22 @@ $route['(:any)/store/(:any)'] = "store/allStore/$2/$1";
 $route['special-offer/(:any)'] = "store/specialDeals/$1";
 $route['(:any)/special-offer/(:any)'] = "store/specialDeals/$2/$1";
 
+/// blog route
+
+$route['blog'] = "blog/index";
+$route['(:any)/blog'] = "blog/index/$1";
+$route['blog/category-detail/(:any)'] = "blog/category_detail/$1";
+$route['(:any)/blog/category-detail/(:any)'] = "blog/category_detail/$2/$1";
+$route['blog/post-detail/(:any)'] = "blog/post_detail/$1";
+$route['(:any)/blog/post-detail/(:any)'] = "blog/post_detail/$2/$1";
+$route['savefeedbackpost'] = "blog/savefeedbackpost";
+$route['(:any)/savefeedbackpost'] = "blog/savefeedbackpost/$1";
+
+// routes for tresurechest
+$route['click2win'] = "tresurechest/index";
+$route['(:any)/click2win'] = "tresurechest/index/$1";
+
+
 
 $route['default_controller'] = 'index';
 $route['404_override'] = '';
