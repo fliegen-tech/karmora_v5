@@ -160,6 +160,9 @@ $route['(:any)/savefeedbackpost'] = "blog/savefeedbackpost/$1";
 $route['click2win'] = "tresurechest/index";
 $route['(:any)/click2win'] = "tresurechest/index/$1";
 
+// Authorize.net testing
+$route['anet_test/(:any)'] = "Anet/$1";
+$route['anet_test'] = "Anet/index";
 
 
 $route['default_controller'] = 'index';
