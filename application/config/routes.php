@@ -49,6 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+
+// login routes
+
+$route['login'] = "login/index";
+$route['(:any)/login'] = "login/index/$1";
+$route['(:any)/logout'] = "login/logout/$1";
+$route['logout'] = "login/logout";
+
 // product routes frontent
 
 $route['flawless-product'] = "Product/flawless_product";

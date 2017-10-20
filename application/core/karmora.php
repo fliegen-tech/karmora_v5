@@ -32,6 +32,7 @@ class karmora extends CI_Controller {
         $this->setThemeUrl();
         $this->load->helper(array('url', 'security'));
         //$this->load->model(array('homemodel','commonmodel','cartmodel'));
+        $this->load->model(array('commonmodel'));
         $this->load->library(array('email', 'cart'));
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
@@ -45,7 +46,7 @@ class karmora extends CI_Controller {
 
     public function verifyUser($username = NULL) {
 //        check if user is logged in set baseURL for signed in user else set baseURL for username passed in URLs
-        $userVerifySuccess = !$this->checkUserLogin() ?
+                $userVerifySuccess = !$this->checkUserLogin() ?
                 /*
                  * check if username is not null, if username is empty set user global vars to default values 
                  */
@@ -173,6 +174,11 @@ class karmora extends CI_Controller {
 
     public function checklogin(){
         if ( ! isset( $this->session->userdata['front_data']['id'] ) ) {
+            redirect( base_url() );
+        }
+    }
+    public function checknotlogin(){
+        if (isset( $this->session->userdata['front_data']['id'] ) ) {
             redirect( base_url() );
         }
     }

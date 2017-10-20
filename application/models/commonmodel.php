@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class commonmodel extends CI_Model {
+class Commonmodel extends CI_Model {
 
     /**
      * This is the constructor of a Model
