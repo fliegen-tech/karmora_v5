@@ -55,7 +55,6 @@ class Commonmodel extends CI_Model {
         }
     }
 
-
     public function isRecordAlreadyExist($record_field, $record, $record_id_field, $record_id, $table) {
         $query = 'SELECT * from ' . $table . ' WHERE ' . $record_field . '="' . $record . '" AND ' . $record_id_field . '!=' . $record_id;
 
@@ -67,7 +66,6 @@ class Commonmodel extends CI_Model {
             return 0;
         }
     }
-
 
     public function visitor_country() {
         $ip = $_SERVER["REMOTE_ADDR"];
@@ -138,7 +136,17 @@ class Commonmodel extends CI_Model {
         return $response;
     }
 
+    protected function prepQuery($query) {
+        return $this->db->conn_id->prepare($query);
+    }
 
+    protected function lastInsertId() {
+        return $this->db->conn_id->lastInsertId();
+    }
 
+    protected function errorInfo($statement) {
+        $error = $statement->errorInfo();
+        return $error[0] != 00000 ? $error[0] . ': ' . $error[2] : FALSE;
+    }
 
 }

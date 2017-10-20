@@ -169,6 +169,13 @@ $route['(:any)/savefeedbackpost'] = "blog/savefeedbackpost/$1";
 $route['click2win'] = "tresurechest/index";
 $route['(:any)/click2win'] = "tresurechest/index/$1";
 
+
+// signup routes
+$route['join-today'] = "signup/index";
+
+
+
+
 // Authorize.net testing
 $route['anet_test/(:any)'] = "Anet/$1";
 $route['anet_test'] = "Anet/index";
