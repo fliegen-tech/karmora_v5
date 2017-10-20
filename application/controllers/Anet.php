@@ -18,6 +18,18 @@ class Anet extends karmora {
         $this->authObj->creditCardInfo['exp_date'] = '2038-12';
         $this->authObj->creditCardInfo['cvc_code'] = '123';
 
+        var_dump($this->authObj->arbUpdateCC('4794875'));
+        echo '</pre>';
+        exit;
+    }
+
+    public function chargeCC() {
+        echo '<pre>';
+
+        $this->authObj->creditCardInfo['card_number'] = '4111111111111111';
+        $this->authObj->creditCardInfo['exp_date'] = '2038-12';
+        $this->authObj->creditCardInfo['cvc_code'] = '123';
+
         $this->authObj->billingAddressInfo = array(
             'firstName' => 'Ellen',
             'lastName' => 'Johnson',
@@ -41,12 +53,12 @@ class Anet extends karmora {
         $this->authObj->customerInfo = array(
             'custType' => 'individual',
             'custId' => uniqid('dummyId'),
-            'custEmail' => uniqid().'@yopmial.com'
+            'custEmail' => uniqid() . '@yopmial.com'
         );
-        
+
         $this->authObj->orderNumber = uniqid('order#');
         $this->authObj->amountToProcess = rand(10, 20);
-        
+
         var_dump($this->authObj->chargeCreditCard());
         echo '</pre>';
         exit;

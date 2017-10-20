@@ -165,7 +165,7 @@ class authorizenet {
         // Create order information
         $this->authOrder = new AnetAPI\OrderType();
         $this->authOrder->setInvoiceNumber($this->orderNumber);
-        
+
         // Set the customer's Bill & Ship To address
         $this->authBillTo = $this->setCustomerAddress($this->billingAddressInfo);
         $this->authShipTo = $this->setCustomerAddress($this->shippingAddressInfo);
@@ -175,7 +175,7 @@ class authorizenet {
 
         // Create a TransactionRequestType object and add the previous objects to it
         $this->setTransationType($this->transactionType['authCapture']);
-        
+
         // Assemble the complete transaction request
         $this->setTransactionRequest();
 
@@ -202,28 +202,22 @@ class authorizenet {
         $controller = new AnetController\ARBCreateSubscriptionController($this->authRequest);
         $response = $controller->executeWithApiResponse($this->environment);
 
-        return $this->arbSubscriptionResponse($response);
+        return $this->responseARBsubscription($response);
     }
 
-    private function arbSubscriptionResponse($response) {
-        if (($response != null) && ($response->getMessages()->getResultCode() == APIconstant\ANetEnvironment::RESPONSE_OK)) {
-            $message = $response->getMessages()->getMessage();
-            $returnResponse = array(
-                'transaction_status' => TRUE,
-                'subscription_id' => $response->getSubscriptionId(),
-                'ref_id' => $response->getRefId(),
-                'message_code' => $message[0]->getCode(),
-                'description' => $message[0]->getText()
-            );
-        } else {
-            $errorMessages = $response->getMessages()->getMessage();
-            $returnResponse = array(
-                'transaction_status' => FALSE,
-                'error_code' => $errorMessages[0]->getCode(),
-                'error_message' => $errorMessages[0]->getText()
-            );
-        }
-        return $returnResponse;
+    public function arbUpdateCC($subscriptionId) {
+
+        $this->setCreditCard();
+        $this->setPayment();
+
+        $subscription = new AnetAPI\ARBSubscriptionType();
+
+        $this->setARBupdateReqeuest($subscriptionId, $subscription->setPayment($this->authPayment));
+
+        $controller = new AnetController\ARBUpdateSubscriptionController($this->authRequest);
+        $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::SANDBOX);
+
+        return $this->responseARBsubscription($response, FALSE);
     }
 
     private function setSubscription() {
@@ -297,6 +291,13 @@ class authorizenet {
         $this->setMerchantAuth();
         $this->authRequest->setSubscription($this->authSubscription);
         return;
+    }
+
+    private function setARBupdateReqeuest($subscriptionId, $subscription) {
+        $this->authRequest = new AnetAPI\ARBUpdateSubscriptionRequest();
+        $this->setMerchantAuth();
+        $this->authRequest->setSubscriptionId($subscriptionId);
+        $this->authRequest->setSubscription($subscription);
     }
 
     private function setTransactionRequest() {
@@ -400,6 +401,27 @@ class authorizenet {
             );
         }
 
+        return $returnResponse;
+    }
+    
+    private function responseARBsubscription($response, $newSubscription = TRUE) {
+        if (($response != null) && ($response->getMessages()->getResultCode() == APIconstant\ANetEnvironment::RESPONSE_OK)) {
+            $message = $response->getMessages()->getMessage();
+            $returnResponse = array(
+                'transaction_status' => TRUE,
+                'subscription_id' => $newSubscription ? $response->getSubscriptionId() : '',
+                'ref_id' => $response->getRefId(),
+                'message_code' => $message[0]->getCode(),
+                'description' => $message[0]->getText()
+            );
+        } else {
+            $errorMessages = $response->getMessages()->getMessage();
+            $returnResponse = array(
+                'transaction_status' => FALSE,
+                'error_code' => $errorMessages[0]->getCode(),
+                'error_message' => $errorMessages[0]->getText()
+            );
+        }
         return $returnResponse;
     }
 
