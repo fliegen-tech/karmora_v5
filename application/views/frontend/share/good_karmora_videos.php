@@ -17,13 +17,14 @@
                     <div class="top-heading-cover before-animated" id="top-heading-cover">
                         <h1>Karmora Videos!</h1>
                     </div>
-                    <p>Media rich content is what gets shared most often on social media. The below are carefully crafted viral formatted videos that you can use to help build the largest, most profitable Shopping Community possible! For step-by-step instructions on how, when and where to post our videos <a href="">Click Here!</a></p>
+                    <p>Media Rich content is what gets shared most often on social media. The below are carefully crafted viral formatted videos that you can use to help build the largest, most profitable Shopping Community possible! For step-by-step instructions on how, when and where to post our videos <a href="">Click Here!</a></p>
                 </div>
             </div>
         </div>
         <?php if (!empty($videos)) { ?>
         <div class="ads-cover-img">
             <div class="row">
+                <?php foreach ($videos as $vidVal){?>
                 <div class="col-4">
                     <div class="leftbarads-cover">
                         <iframe src="<?php echo $vidVal['video_url']; ?>" frameborder="0" allowfullscreen=""></iframe>
@@ -54,6 +55,7 @@
                         </div>
                     </div>
                 </div>
+                <?php }?>
             </div>
         </div>
         <?php } ?>

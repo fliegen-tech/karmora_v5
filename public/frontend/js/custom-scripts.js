@@ -5,9 +5,9 @@ $('.smooth-scroll').click(function() {
 
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-           if (target.length) {
-             $('html,body').animate({
-                 scrollTop: target.offset().top
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: target.offset().top
             }, 1000);
             return false;
         }
@@ -75,16 +75,21 @@ $(window).scroll(function() {
         $('.supplemnts-paring-sec .rightimg').addClass('animated fadeInRight');
     }
 
+    // Supplement paring item
+    if (scroll >= 250) {
+        $('.cash-o-palooza-sec .before-animated').addClass('animated fadeInUp');
+    }
+
 });
 
 $(document).ready(function(){
-		// TOP Heading
-		$('#top-heading-cover').addClass('animated');
-		$('#top-heading-cover').addClass('fadeInLeft');
+    // TOP Heading
+    $('#top-heading-cover').addClass('animated');
+    $('#top-heading-cover').addClass('fadeInLeft');
 
     // Click2win img
     $('#top-img-cover').addClass('animated');
-		$('#top-img-cover').addClass('fadeInLeft');
+    $('#top-img-cover').addClass('fadeInLeft');
 
 });
 
@@ -94,20 +99,60 @@ $('.home-page-slider').slick({
     dots: true,
     infinite: true,
     slidesToShow: 1,
+    arrows: false,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    cssEase: 'linear'
 });
 
 
+// Slick Cashback Silder Slider
+$('.cash-back-banner').slick({
+    dots: true,
+    infinite: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: 'linear',
+});
+
+// Slick COP Silder Slider
+$('.cash-o-palooza-slider').slick({
+    dots: false,
+    infinite: true,
+    arrows: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    cssEase: 'linear',
+    prevArrow: '<i class="fa fa-chevron-left slick-left-arrow" aria-hidden="true"></i>',
+    nextArrow: '<i class="fa fa-chevron-right slick-right-arrow" aria-hidden="true"></i>'
+});
+
+// Slick SHD Silder Slider
+$('.smoking-deal-slider').slick({
+    dots: false,
+    infinite: true,
+    arrows: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    cssEase: 'linear',
+    prevArrow: '<i class="fa fa-chevron-left slick-left-arrow" aria-hidden="true"></i>',
+    nextArrow: '<i class="fa fa-chevron-right slick-right-arrow" aria-hidden="true"></i>'
+});
+
 // Ok Zoom on products
-$(function () {
+/*$(function () {
     $('.ingredient-zoom').okzoom({
         width: 400,
         height: 200,
         round: false
     });
-});
+});*/
 
 
 //plugin bootstrap minus and plus
@@ -143,7 +188,7 @@ $('.btn-number').click(function(e){
     }
 });
 $('.input-number').focusin(function(){
-   $(this).data('oldValue', $(this).val());
+    $(this).data('oldValue', $(this).val());
 });
 $('.input-number').change(function() {
 
@@ -170,15 +215,29 @@ $('.input-number').change(function() {
 $(".input-number").keydown(function (e) {
     // Allow: backspace, delete, tab, escape, enter and .
     if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-         // Allow: Ctrl+A
+        // Allow: Ctrl+A
         (e.keyCode == 65 && e.ctrlKey === true) ||
-         // Allow: home, end, left, right
+        // Allow: home, end, left, right
         (e.keyCode >= 35 && e.keyCode <= 39)) {
-             // let it happen, don't do anything
-             return;
+        // let it happen, don't do anything
+        return;
     }
     // Ensure that it is a number and stop the keypress
     if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
         e.preventDefault();
     }
+});
+
+function phonevalidation() {
+    $("#date").mask("99/99/9999");
+    $("#phone_no_mark").mask("(999) 999-9999");
+    $("#phone_no_bi").mask("(999) 999-9999");
+    $("#tin").mask("99-9999999");
+    $("#ssn").mask("999-99-9999");
+}
+
+
+// New js After starting Devlopment
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
 });

@@ -37,7 +37,7 @@ class karmora extends CI_Controller {
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
         //require_once(FCPATH . 'application/controllers/AuthNet.php');
-        //$this->currentUser = $this->commonmodel->getFounder($this->founder);
+        $this->currentUser = $this->commonmodel->getFounder($this->founder);
         }
 
         private function setThemeUrl(){

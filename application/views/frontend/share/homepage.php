@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="title">
-                    <h1>Making money online has never been easier <br>(we pinky swear)</h1>
+                    <h1>Making money online has never been easier <br> (We pinky swear) </h1>
                 </div>
             </div>
         </div>

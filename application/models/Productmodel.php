@@ -96,5 +96,17 @@ class Productmodel extends CI_Model {
             return '';
         }
     }
+    public function getproduct_price_account_type($product_id,$account_type) {
+        $queryStr = " SELECT p . * , ac.user_account_type_title
+                        FROM  `view_single_product_pricing` AS p, tbl_user_account_type AS ac
+                        WHERE p.`fk_user_account_type_id` = ac.pk_user_account_type_id 
+                        and  p.pk_product_id = $product_id And p.fk_user_account_type_id = $account_type ORDER BY p.`fk_user_account_type_id` ASC limit 1";
+        $queryRS = $this->db->query($queryStr);
+        if($queryRS->num_rows() > 0){
+            return  $queryRS->row();
+        }else{
+            return '';
+        }
+    }
  }
 

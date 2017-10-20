@@ -27,6 +27,8 @@ class Product extends karmora {
         if (empty($this->data['product_detail'])) {
             redirect(base_url());
         }
+        $this->data['product_price_cart_casual']  = $this->productmodel->getproduct_price_account_type($pk_product_id, 3);
+        $this->data['product_price_cart_premier'] = $this->productmodel->getproduct_price_account_type($pk_product_id, 5);
         $this->data['product_album'] = $this->productmodel->getproductAlbum($pk_product_id);
         $this->data['perfect_paring'] = $this->productmodel->getproductsBycat($this->data['product_detail']->fk_category_id,2);
         $this->loadLayout($this->data, 'frontend/product/product_detail');

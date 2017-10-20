@@ -11,7 +11,7 @@ class Share extends karmora
 
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
-        $this->load->model(array('sharemodel','commonmodel'));
+        $this->load->model(array('sharemodel','commonmodel' , 'storemodel'));
         $this->load->library('form_validation');
     }
 
@@ -114,26 +114,21 @@ class Share extends karmora
     }
 
     public function cash_back_ads($username = NULL){
-        $data = array();
-        //echo $username ;
         $this->verifyUser($username); //die;
         $detail = $this->currentUser;
-        $categories = $this->GetCategories($detail['user_account_type_id']);
-        $data['categories'] = $categories;
+        $categories = $this->storemodel->getATCategory($detail['user_account_type_id']);
+        $this->data['categories'] = $categories;
         $store_alias = NULL;
         if (isset($this->session->userdata['front_data']['id']) && ($store_alias === 'favourtie')) {
-            $data['category_all_stores'] = $this->storemodel->GetfavourtieStore($detail['userid']);
+            $this->data['category_all_stores'] = $this->storemodel->GetfavourtieStore($detail['userid']);
             $alias = 'favourtie';
         } else {
             $alias = $this->storemodel->CheckCatAlias($store_alias);
-            $data['category_all_stores'] = $this->storemodel->GetStore($detail['user_account_type_id'], $alias, $detail['userid']);
+            $this->data['category_all_stores'] = $this->storemodel->GetStore($detail['user_account_type_id'], $alias, $detail['userid']);
         }
-
-
         if (!empty($data['category_all_stores'])) {
-            $data['StoreArry'] = $data['category_all_stores'];
-
-            foreach ($data['StoreArry'] as $store) {
+            $this->data['StoreArry'] = $this->data['category_all_stores'];
+            foreach ($this->data['StoreArry'] as $store) {
                 $store_title = $store['store_title'] . "<br />";
                 $curr = current(str_split($store_title));
 
@@ -143,43 +138,25 @@ class Share extends karmora
                     $storeArray[strtoupper($curr)][$store_title] = $store;
                 }
             }
-            $data['storeArray'] = $storeArray;
-
+            $this->data['storeArray'] = $storeArray;
         }
-        $this->loadLayout($data, 'frontend/share/cash_back_ads');
+        $this->loadLayout($this->data, 'frontend/share/cash_back_ads');
     }
 
     public function cash_o_palooza_ads($username = NULL){
-        $data = array();
         $this->verifyUser($username);
         $detail = $this->currentUser;
-        $detail['user_account_type_id']    = 0;
-
-
-        // for Trending Store
-        $deals = $this->storemodel->getSpecialStores($detail['user_account_type_id'], 'cash_o_palooza');
-
-        $data['description'] = 'Karmora Cash-O-Palooza Deals are special cash back deals on name brand advertisers.  You won’t find higher cash back anytime, anywhere, ever!  Join Karmora for FREE and get cash back on over 1,700 stores!';
-        $data['deals'] = $deals;
-
-        $this->loadLayout($data, 'frontend/share/cash_o_palooza_ads');
+        $this->data['deals'] = $this->storemodel->getSpecialStores($detail['user_account_type_id'], 'cash_o_palooza');
+        $this->data['description'] = 'Karmora Cash-O-Palooza Deals are special cash back deals on name brand advertisers.  You won’t find higher cash back anytime, anywhere, ever!  Join Karmora for FREE and get cash back on over 1,700 stores!';
+        $this->loadLayout($this->data, 'frontend/share/cash_o_palooza_ads');
     }
 
     public function smokin_hot_deal_ads($username = NULL){
-        $data = array();
         $this->verifyUser($username);
         $detail = $this->currentUser;
-
-        $detail['user_account_type_id']    = 0;
-
-        // for Trending Store
-        $deals = $this->storemodel->getSpecialStores($detail['user_account_type_id'], 'smokin_hot_deals');
-        /*echo "<pre>";
-        print_r($deals);
-        echo "<pre>";die;*/
-        $data['description'] = 'Karmora Smokin Hot Deals make ya jump back and want to kiss yoself!  Check out these great deals combined with special online coupons for extra savings!  Join Karmora for FREE and get cash back on over 1,700 stores!';
-        $data['deals'] = $deals;
-        $this->loadLayout($data, 'frontend/share/smokin_hot_deal_ads');
+        $this->data['deals'] = $this->storemodel->getSpecialStores($detail['user_account_type_id'], 'smokin_hot_deals');
+        $this->data['description'] = 'Karmora Smokin Hot Deals make ya jump back and want to kiss yoself!  Check out these great deals combined with special online coupons for extra savings!  Join Karmora for FREE and get cash back on over 1,700 stores!';
+        $this->loadLayout($this->data, 'frontend/share/smokin_hot_deal_ads');
     }
 
     public function custom_ads( $ad_type,$username = NULL){
@@ -779,17 +756,26 @@ class Share extends karmora
 
     }
     
-    public function shareadd($add_id, $username = NULL){
+    public function shareadd($type, $username = NULL){
         $this->verifyUser($username); //die;
         $this->db->where('banner_ads_status', 1);
-        $this->db->where('banner_cat_id', $add_id);
+	    if($type == "supplements"){
+		    $this->data["main_heading"] = "B3 Supplement Ads";
+		    $cat_ids = array('119','120','121','122','123');
+	    }else{
+		    $this->data["main_heading"] = "Flawless Skincare Ads";
+		    $cat_ids = array('127','128','129','130','131');
+	    }
+        $this->db->where_in('banner_cat_id', $cat_ids);
         $this->db->order_by('pk_banner_ads_id', 'asc');
         $query = $this->db->get('tbl_banner_ads');
-        $data['custom_ads'] = array();
+	    
+        $this->data['custom_ads'] = array();
 	    if ( count( $query->result() ) > 0 ) {
-		    $data['custom_ads'] = $query->result();
+		    $this->data['custom_ads'] = $query->result();
 	    }
-        $this->loadLayout($data, 'frontend/share/exclusive_product_ads_detail');
+	    
+        $this->loadLayout($this->data, 'frontend/share/exclusive_product_ads_detail');
 }
     
 //    public function sendsharemail($id,$friend_email_address,$friends_name=NULL) {

@@ -85,11 +85,12 @@
 <!-- Bootstrap JS -->
 <script src="<?php echo $themeUrl ?>/frontend/js/bootstrap.js"></script>
 <!-- Custom Scripts -->
+<script src="<?php echo $themeUrl ?>/frontend/js/slick.min.js"></script>
 <script src="<?php echo $themeUrl ?>/frontend/js/custom-scripts.js"></script>
 <!-- Parellex-window -->
 <script src="<?php echo $themeUrl ?>/frontend/js/parallax.min.js"></script>
-<script src="<?php echo $themeUrl ?>/frontend/js/custom-scripts.js"></script>
 <script src="<?php echo $themeUrl ?>/frontend/js/magiczoom.js"></script>
+<script src="<?php echo $themeUrl ?>/frontend/js/cart.js"></script>
 
 
 </body>
