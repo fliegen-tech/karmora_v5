@@ -71,7 +71,7 @@ $route['(:any)/product-detail/(:any)'] = "product/product_detail/$2/$1";
 $route['share'] = "share/index";
 $route['(:any)/share'] = "share/index/$1";
 
-//share product detail routes and 
+//share product detail routes and
 
 $route['share/making-money-ads'] = "share/custom_ads/make-money-ads";
 $route['(:any)/share/making-money-ads'] = "share/custom_ads/make-money-ads/$1";
@@ -178,6 +178,16 @@ $route['blog/post-detail/(:any)'] = "blog/post_detail/$1";
 $route['(:any)/blog/post-detail/(:any)'] = "blog/post_detail/$2/$1";
 $route['savefeedbackpost'] = "blog/savefeedbackpost";
 $route['(:any)/savefeedbackpost'] = "blog/savefeedbackpost/$1";
+
+// routes for cart
+
+$route['cart/remove/(:any)'] = "cart/remove/$1";
+$route['(:any)/cart/remove/(:any)'] = "cart/remove/$2/$1";
+$route['cart'] = "cart/index";
+$route['(:any)/cart'] = "cart/index/$1";
+$route['cart/(:any)'] = "cart/$1";
+$route['(:any)/cart/(:any)'] = "cart/$2/$1";
+
 
 // routes for tresurechest
 $route['click2win'] = "tresurechest/index";

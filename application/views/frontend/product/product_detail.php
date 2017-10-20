@@ -3,6 +3,7 @@
     <div class="container">
         <?php echo $product_detail->product_header; ?>
         <div class="product-deail-cover">
+            <div id="cart_content"></div>
             <div class="row">
                 <div class="col-5">
                     <div class="product-leftbar">
@@ -33,7 +34,7 @@
                         <div class="price-offers">
                             <div class="btn-group">
                                 <select class="btn btn-secondary dropdown-toggle" id="shoper_type" name="shoper_type">
-                                    <option value="<?php echo $product_detail->product_price; ?>">Autual Price $<?php echo $product_detail->product_price; ?></option>
+                                    <option value="<?php echo '5 ='.$product_detail->product_price; ?>">Autual Price $<?php echo $product_detail->product_price; ?></option>
                                     <option value="<?php echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_premier->one_time_price; ?>"><?php echo $product_price_cart_premier->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_premier->one_time_percent); ?>%) $<?php echo $product_price_cart_premier->one_time_price; ?></option>
                                     <option value="<?php echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_casual->one_time_price; ?>"><?php echo $product_price_cart_casual->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_casual->one_time_percent); ?>%) $<?php echo $product_price_cart_casual->one_time_price; ?></option>
                                 </select>

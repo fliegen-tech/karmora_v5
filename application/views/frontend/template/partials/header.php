@@ -5,3 +5,4 @@
 ?>
 </header>
 <script> var baseurl = '<?php echo base_url(); ?>'; </script>
+<script> var csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>'; </script>

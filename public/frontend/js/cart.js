@@ -1,5 +1,4 @@
 $("#cart_form").submit(function () {
-    alert('aya');
     var link = baseurl + "cart/";
     var id = $(this).find('input[name=product_id]').val();
     var shoper_type = $('select[name=shoper_type]').val();
@@ -7,10 +6,6 @@ $("#cart_form").submit(function () {
     var shoper_array =  shoper_type.split('=');
     var shopper_account_type  = shoper_array[0];
     var shopper_account_type_price  = shoper_array[1];
-    console.info('shopper_account_type_price = '+shopper_account_type_price);
-    console.info('id = '+id);
-    console.info('qty = '+qty);
-    console.info('shopper_account_type = '+shopper_account_type);
     $.post(link + 'product_cart', {
         product_id: id,
         quantity: qty,
@@ -20,14 +15,11 @@ $("#cart_form").submit(function () {
         "karmora_mikamak677": csrfHash
     },
     function (data) {
-        console.info(data);//alert(shopper_recurning_time);
-        return false;
         if (data.html == 'true') {
-            $.get(link + "cart_message", function (cart) { // Get the contents of the url cart/show_cart
-                window.location.href = baseurl + "cart/show_cart";
-                //baseurl +'https://www.karmora.com/1003/cart/show_cart';
-                $("#cart_content").html(cart); // Replace the information in the div #cart_content with the retrieved data
-            });
+            $("#cart_content").html('<div class="alert alert-success"><strong>Success!</strong> You have added an Exclusive Product into your Shopping Cart. <a href="'+baseurl +'cart/show_cart">View Cart</a></div>'); // Replace the information in the div #cart_content with the retrieved data
+            $("html, body").animate({
+                scrollTop: 0
+            }, 5000);
         } else {
             alert("Product does not exist");
         }// Interact with returned data
