@@ -16,7 +16,7 @@
                     <div class="top-heading-cover before-animated" id="top-heading-cover">
                         <h1>Winning Product Ads!</h1>
                     </div>
-                    <p>Premier Shoppers can win Cash and Prizes just by surfing stores on their website in our Click2Win Program!   Who doesn’t like winning Cash & Prizes? For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="">Click Here!</a></p>
+                    <p>Premier Shoppers can win Cash And Prizes just by surfing stores on their website in our Click2Win Program!   Who doesn’t like winning Cash & Prizes? For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="">Click Here!</a></p>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                                     $url_p = $custom_ad->banner_ads_redirect_url;
                                     $url = base_url() . $url_p.'/banner--'.$custom_ad->banner_ads_image;
                                     $description = $custom_ad->banner_description;
-                                    $picture = $themeUrl . '/upload/images/banner/' . $custom_ad->banner_ads_image;
+                                    $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
                                         <a href="<?php echo base_url('karmora-join-now') ?>">

@@ -330,7 +330,6 @@ class Store extends karmora {
 	
 	// this function Get category List According To Account Type
     public function GetCategories($fk_user_account_type_id) {
-
         $row = $this->storemodel->getATCategory($fk_user_account_type_id);
         if (!empty($row)) {
             return $row;

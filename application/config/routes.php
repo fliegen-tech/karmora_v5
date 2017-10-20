@@ -71,27 +71,22 @@ $route['(:any)/product-detail/(:any)'] = "product/product_detail/$2/$1";
 $route['share'] = "share/index";
 $route['(:any)/share'] = "share/index/$1";
 
-//share product detail routes
-$route['share/exclusive-product-ads-detail/(:any)'] = "share/shareadd/$1";
-$route['(:any)/share/exclusive-product-ads-detail/(:any)'] = "share/shareadd/$2/$1";
-
-$route['share/good-karmora-ads/cash-back-ads'] = "share/cash_back_ads";
-$route['(:any)/share/good-karmora-ads/cash-back-ads'] = "share/cash_back_ads/$1";
-
-$route['share/good-karmora-ads/cash-o-palooza-ads'] = "share/cash_o_palooza_ads";
-$route['(:any)/share/good-karmora-ads/cash-o-palooza-ads'] = "share/cash_o_palooza_ads/$1";
-
-$route['share/good-karmora-ads/smokin-hot-deal-ads'] = "share/smokin_hot_deal_ads";
-$route['(:any)/share/good-karmora-ads/smokin-hot-deal-ads'] = "share/smokin_hot_deal_ads/$1";
+//share product detail routes and
 
 $route['share/making-money-ads'] = "share/custom_ads/make-money-ads";
-$route['(:any)/share/make-money-ads'] = "share/custom_ads/make-money-ads/$1";
+$route['(:any)/share/making-money-ads'] = "share/custom_ads/make-money-ads/$1";
 
 $route['share/saving-money-ads'] = "share/custom_ads/save-money-ads";
 $route['(:any)/share/saving-money-ads'] = "share/custom_ads/save-money-ads/$1";
 
 $route['share/exclusive-product-ads'] = "share/custom_ads/exclusive-product-ads";
 $route['(:any)/share/exclusive-product-ads'] = "share/custom_ads/exclusive-product-ads/$1";
+
+$route['share/karmora-flawless-skincare-ads'] = "share/shareadd/flawless";
+$route['(:any)/share/karmora-flawless-skincare-ads'] = "share/shareadd/flawless/$1";
+
+$route['share/karmora-b3-supplements-ads'] = "share/shareadd/supplements";
+$route['(:any)/share/karmora-b3-supplements-ads'] = "share/shareadd/supplements/$1";
 
 $route['share/winning-money-ads'] = "share/custom_ads/winning-money-ads";
 $route['(:any)/share/winning-money-ads'] = "share/custom_ads/winning-money-ads/$1";
@@ -106,6 +101,25 @@ $route['(:any)/share/cash-o-palooza-ad-share/(:any)'] = "share/generateCashoPalo
 
 $route['share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealAdImage/$1";
 $route['(:any)/share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealAdImage/$2/$1";
+
+//Track Advertisment
+$route['(:any)/track/(:any)/(:any)/(:any)'] = 'Landing_pages/AddtrackRequest/$1/$2/$3/$4';
+$route['making-money-offer'] = "landing_pages/index/making-money";
+$route['(:any)/making-money-offer'] = "landing_pages/index/making-money/$1";
+$route['(:any)/(:any)/making-money-offer'] = "landing_pages/index/making-money/$1";
+$route['(:any)/making-money-offer/(:any)/(:any)'] = "landing_pages/index/making-money/$1/$2/$3";
+$route['winning-money-offer'] = "landing_pages/index/winning-money";
+$route['(:any)/winning-money-offer'] = "landing_pages/index/winning-money/$1";
+$route['(:any)/(:any)/winning-money-offer'] = "landing_pages/index/winning-money/$1";
+$route['(:any)/winning-money-offer/(:any)/(:any)'] = "landing_pages/index/winning-money/$1/$2/$3";
+$route['saving-money-offer'] = "landing_pages/index/saving-money";
+$route['saving-money-offer'] = "landing_pages/index/saving-money";
+$route['(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
+$route['(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
+$route['(:any)/(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
+$route['(:any)/(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
+$route['(:any)/saving-money-offer/(:any)/(:any)'] = "landing_pages/index/saving-money/$1/$2/$3";
+$route['(:any)/saving-money-offer/(:any)/(:any)'] = "landing_pages/index/saving-money/$1/$2/$3";
 
 //good karmora video share page routes
 
@@ -165,6 +179,16 @@ $route['(:any)/blog/post-detail/(:any)'] = "blog/post_detail/$2/$1";
 $route['savefeedbackpost'] = "blog/savefeedbackpost";
 $route['(:any)/savefeedbackpost'] = "blog/savefeedbackpost/$1";
 
+// routes for cart
+
+$route['cart/remove/(:any)'] = "cart/remove/$1";
+$route['(:any)/cart/remove/(:any)'] = "cart/remove/$2/$1";
+$route['cart'] = "cart/index";
+$route['(:any)/cart'] = "cart/index/$1";
+$route['cart/(:any)'] = "cart/$1";
+$route['(:any)/cart/(:any)'] = "cart/$2/$1";
+
+
 // routes for tresurechest
 $route['click2win'] = "tresurechest/index";
 $route['(:any)/click2win'] = "tresurechest/index/$1";
@@ -180,6 +204,10 @@ $route['join-today'] = "signup/index";
 $route['anet_test/(:any)'] = "Anet/$1";
 $route['anet_test'] = "Anet/index";
 
+
+// general routes {keep this section always at last}
+$route['(:any)/index'] = "index/index/$1";
+$route['(:any)'] = "index/index/$1";
 
 $route['default_controller'] = 'index';
 $route['404_override'] = '';

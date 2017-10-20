@@ -135,6 +135,19 @@ class Commonmodel extends CI_Model {
         }
         return $response;
     }
+    public function checkGrace($userId) {
+        $query = "SELECT *, grace_period_days - abs( datediff( now( ) , grace_start_date ) ) AS 'days_left' "
+            . "FROM tbl_user_recurring_billing_declined_grace WHERE fk_user_id = :userId AND grace = 'Active' ";
+        $statement = $this->db->conn_id->prepare($query);
+
+        $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
+
+        $statement->execute();
+
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return count($result) > 0 ? $result[0] : FALSE;
+
+    }
 
     protected function prepQuery($query) {
         return $this->db->conn_id->prepare($query);

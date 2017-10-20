@@ -17,7 +17,7 @@
                         <h1>Making Money Ads</h1>
                     </div>
                     <p>Would your friends and followers appreciate learning more about how
-                        to make some extra cash sharing our premade Ads?   Choose from our Money Making Library and post away! For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="">Click Here!</a></p>
+                        to make some extra Cash sharing our premade Ads?   Choose from our Money Making Library and post away! For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="">Click Here!</a></p>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <div class="col-6">
                     <div class="leftbarads-cover">
                         <a href="<?php echo base_url($custom_ad->banner_ads_redirect_url)?>">
-                            <img src="<?php echo $themeUrl; ?>/upload/images/banner/<?php echo $custom_ad->banner_ads_image; ?>" />
+                            <img src="<?php echo $themeUrl; ?>/images/banner/<?php echo $custom_ad->banner_ads_image; ?>" />
                         </a>
                         <div class="social-media-icon">
                             <ul class="list-inline">
