@@ -163,11 +163,22 @@ $route['(:any)/share/(:any)'] = "share/$2/$1";
 $route['store/storeSearch'] = "store/storeSearch";
 $route['store/storeSearch/(:any)'] = "store/storeSearch/$1";
 $route['(:any)/store/storeSearch/(:any)'] = "store/storeSearch/$2/$1";
-
 $route['store'] = "store/allStore/all";
 $route['(:any)/store'] = "store/allStore/all/$1";
 $route['store/(:any)'] = "store/allStore/$1";
 $route['(:any)/store/(:any)'] = "store/allStore/$2/$1";
+
+
+// stores detail and favoutte
+$route['store-visit/(:any)'] = "store/storeVisit/$1";
+$route['(:any)/store-visit/(:any)'] = "store/storeVisit/$2/$1";
+$route['store-detail/(:any)'] = "store/storeDetail/$1";
+$route['(:any)/store-detail/(:any)'] = "store/storeDetail/$2/$1";
+$route['(:any)/store-detail/(:any)/(:any)/(:any)'] = "store/storeDetail/$2/$1/$3/$4";
+$route['(:any)/storefavourtie/(:any)/(:any)'] = "store/storefavourtie/$2/$3/$1";
+$route['(:any)/my-favorite'] = "myfavorites/index/$1";
+$route['(:any)/my-favorite/(:any)'] = "myfavorites/$2/$1";
+
 
 //offers routes
 $route['special-offer/(:any)'] = "store/specialDeals/$1";
@@ -215,9 +226,14 @@ $route['join-today'] = "signup/index";
 $route['(:any)/join-today'] = "signup/index/$1";
 $route['join-today-casual'] = "signup/casualSignup";
 $route['(:any)/join-today-casual'] = "signup/casualSignup/$1";
+$route['join-casual'] = "signup/casualPost";
+$route['(:any)/join-casual'] = "signup/casualPost/$1";
 $route['join-today-premier'] = "signup/index";
 $route['(:any)/join-today-premier'] = "signup/index";
 
+
+// Signup successful signup
+$route['(:any)/welcome'] = "signup/welcome/$1";
 
 
 // Authorize.net testing
