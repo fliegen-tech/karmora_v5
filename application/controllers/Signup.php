@@ -17,8 +17,8 @@ class Signup extends karmora {
         $this->data['themeUrl'] = $this->themeUrl;
         $this->load->model(array('commonmodel', 'usermodel', 'Loginmodel'));
 
-        $this->load->library(array('security', 'form_validation'));
-        $this->load->helper('form');
+        $this->load->library(array('form_validation'));
+        $this->load->helper(array('form'));
 
         $this->userObj = new Usermodel;
         $this->loginObj = new Loginmodel;
@@ -42,6 +42,8 @@ class Signup extends karmora {
             $userData['user_id'] = $newUser['user_id'];
             $userData['username'] = 1000 + $newUser['user_id'];
             $this->userSignupSuccessful($userData);
+        }else{
+            var_dump('signup failed');
         }
     }
 

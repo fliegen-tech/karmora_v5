@@ -20,7 +20,7 @@ class Usermodel extends commonmodel {
     public function insertUserBasic($param) {
         $query = "INSERT INTO tbl_users 
             ( user_username , user_email ,user_password ,user_registration_ip_address , user_status , user_subid , fk_user_id_referrer  , user_registration_date) 
-            VALUES (:username, :email, :pass, :ip_address, :status, :subid, :referrId, NOW())";
+            VALUES (:username, :email, MD5(:pass), :ip_address, :status, :subid, :referrId, NOW())";
         $statement = $this->prepQuery($query);
         $statement->bindParam(':username', $param['username'], PDO::PARAM_STR);
         $statement->bindParam(':email', $param['email'], PDO::PARAM_STR);
@@ -41,10 +41,10 @@ class Usermodel extends commonmodel {
     }
     
     public function updateUsername($userId, $username) {
-        $query = "";
+        $query = "UPDATE tbl_users SET user_username = :username WHERE pk_user_id = :userId";
         $statement = $this->prepQuery($query);
-        $statement->bindParam(':', $userId, PDO::PARAM_INT);
-        $statement->bindParam(':', $username, PDO::PARAM_STR);
+        $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $statement->bindParam(':username', $username, PDO::PARAM_STR);
         
         if ($statement->execute()) {
             $response['query_status'] = TRUE;
