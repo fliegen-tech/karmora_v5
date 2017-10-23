@@ -58,6 +58,12 @@ $route['(:any)/login'] = "login/index/$1";
 $route['(:any)/logout'] = "login/logout/$1";
 $route['logout'] = "login/logout";
 
+// karmora kash back routes
+
+$route['karmora-cash-back'] = "karmora_cash_back/index";
+$route['(:any)/karmora-cash-back'] = "karmora_cash_back/index/$1";
+
+
 // product routes frontent
 
 $route['flawless-product'] = "Product/flawless_product";
@@ -66,12 +72,6 @@ $route['supplement-product'] = "Product/supplements";
 $route['(:any)/supplement-product'] = "product/supplements/$1";
 $route['product-detail/(:any)'] = "product/product_detail/$1";
 $route['(:any)/product-detail/(:any)'] = "product/product_detail/$2/$1";
-
-// karmora kash back routes
-
-$route['karmora-cash-back'] = "karmora_cash_back/index";
-$route['(:any)/karmora-cash-back'] = "karmora_cash_back/index/$1";
-
 
 // good karmora ads share routes (cask-back, cash-o-palooza, smokin hot deal, custom ad)
 $route['share'] = "share/index";
@@ -174,8 +174,6 @@ $route['(:any)/store/(:any)'] = "store/allStore/$2/$1";
 $route['special-offer/(:any)'] = "store/specialDeals/$1";
 $route['(:any)/special-offer/(:any)'] = "store/specialDeals/$2/$1";
 
-
-
 /// blog route
 
 $route['blog'] = "blog/index";
@@ -215,6 +213,7 @@ $route['(:any)/click2win'] = "tresurechest/index/$1";
 
 // signup routes
 $route['join-today'] = "signup/index";
+$route['join-today/(:any)'] = "signup/index/$1";
 
 
 
