@@ -18,10 +18,24 @@ class Usermodel extends commonmodel {
     }
     
     public function insertUserBasic($param) {
-        $query = "INSERT INTO tbl_users 
-            ( user_username , user_email ,user_password ,user_registration_ip_address , user_status , user_subid , fk_user_id_referrer  , user_registration_date) 
-            VALUES (:username, :email, MD5(:pass), :ip_address, :status, :subid, :referrId, NOW())";
+        $query = "INSERT INTO tbl_users (user_first_name, user_last_name, user_username , user_email ,user_password ,user_registration_ip_address , user_status , user_subid , fk_user_id_referrer  , user_registration_date) 
+            VALUES (:fname, :lname, :username, :email, MD5(:pass), :ip_address, :status, :subid, :referrId, NOW())";
         $statement = $this->prepQuery($query);
+        $this->bindParamUserBasic($statement, $param);
+        if ($statement->execute()) {
+            $response['query_status'] = TRUE;
+            $response['user_id'] = $this->lastInsertId();
+            $this->insertUserAccountType(array('user_id' => $response['user_id'], 'acc_type_id' => $param['acc_type'], 'status' => 'active'));
+        } else {
+            $response['query_status'] = FALSE;
+            $response['error_info'] = $this->errorInfo($statement);
+        }
+        return $response;
+    }
+    
+    private function bindParamUserBasic($statement, $param){
+        $statement->bindParam(':fname', $param['fname'], PDO::PARAM_STR);
+        $statement->bindParam(':lname', $param['lname'], PDO::PARAM_STR);
         $statement->bindParam(':username', $param['username'], PDO::PARAM_STR);
         $statement->bindParam(':email', $param['email'], PDO::PARAM_STR);
         $statement->bindParam(':pass', $param['password'], PDO::PARAM_STR);
@@ -29,15 +43,20 @@ class Usermodel extends commonmodel {
         $statement->bindParam(':status', $param['status'], PDO::PARAM_STR);
         $statement->bindParam(':subid', $param['subid'], PDO::PARAM_STR);
         $statement->bindParam(':referrId', $param['referr_id'], PDO::PARAM_STR);
-
-        if ($statement->execute()) {
-            $response['query_status'] = TRUE;
-            $response['user_id'] = $this->lastInsertId();
-        } else {
-            $response['query_status'] = FALSE;
-            $response['error_info'] = $statement->errorInfo();
-        }
-        return $response;
+        return;
+    }
+    
+    public function insertUserAccountType($param) {
+        $query = "INSERT INTO tbl_user_to_user_account_type_log 
+            (fk_user_id,  fk_user_account_type_id ,  user_account_log_status ,  user_account_log_create_date ) 
+            VALUES (:userId, :accTypeId, :status, NOW())";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':userId', $param['user_id'], PDO::PARAM_INT);
+        $statement->bindParam(':accTypeId', $param['acc_type_id'], PDO::PARAM_INT);
+        $statement->bindParam(':status', $param['status'], PDO::PARAM_STR);
+        
+        $statement->execute();
+        return;
     }
     
     public function updateUsername($userId, $username) {

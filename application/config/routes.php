@@ -58,6 +58,11 @@ $route['(:any)/login'] = "login/index/$1";
 $route['(:any)/logout'] = "login/logout/$1";
 $route['logout'] = "login/logout";
 
+// karmora kash back routes
+
+$route['karmora-cash-back'] = "KarmoraCashBack";
+$route['(:any)/karmora-cash-back'] = "KarmoraCashBack/index/$1";
+
 // product routes frontent
 
 $route['flawless-product'] = "Product/flawless_product";
@@ -188,6 +193,17 @@ $route['(:any)/cart'] = "cart/index/$1";
 $route['cart/(:any)'] = "cart/$1";
 $route['(:any)/cart/(:any)'] = "cart/$2/$1";
 
+//route for checkout
+
+$route['checkout'] = "checkout/index";
+$route['order-confirmation'] = "checkout/order_conframtion";
+$route['(:any)/order-confirmation'] = "checkout/order_conframtion/$1";
+$route['(:any)/checkout'] = "checkout/index/$1";
+$route['(:any)/(:any)/checkout'] = "checkout/index/$1";
+$route['checkout/(:any)'] = "checkout/$1";
+$route['(:any)/checkout/(:any)'] = "checkout/$2/$1";
+
+
 
 // routes for tresurechest
 $route['click2win'] = "tresurechest/index";
@@ -196,8 +212,17 @@ $route['(:any)/click2win'] = "tresurechest/index/$1";
 
 // signup routes
 $route['join-today'] = "signup/index";
+$route['(:any)/join-today'] = "signup/index/$1";
+$route['join-today-casual'] = "signup/casualSignup";
+$route['(:any)/join-today-casual'] = "signup/casualSignup/$1";
+$route['join-casual'] = "signup/casualPost";
+$route['(:any)/join-casual'] = "signup/casualPost/$1";
+$route['join-today-premier'] = "signup/index";
+$route['(:any)/join-today-premier'] = "signup/index";
 
 
+// Signup successful signup
+$route['(:any)/welcome'] = "signup/welcome/$1";
 
 
 // Authorize.net testing

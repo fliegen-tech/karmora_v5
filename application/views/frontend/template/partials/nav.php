@@ -9,7 +9,7 @@
         <div class="navbar-collapse collapse leftbar-content">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Karmora</a>
@@ -58,7 +58,7 @@
                     <a class="nav-link" href="#">Cash Back Shopping</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Join Today</a>
+                    <a class="nav-link" href="<?php echo base_url('join-today'); ?>">Join Today</a>
                 </li>
             </ul>
         </div>
