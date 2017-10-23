@@ -67,6 +67,12 @@ $route['(:any)/supplement-product'] = "product/supplements/$1";
 $route['product-detail/(:any)'] = "product/product_detail/$1";
 $route['(:any)/product-detail/(:any)'] = "product/product_detail/$2/$1";
 
+// karmora kash back routes
+
+$route['karmora-cash-back'] = "karmora_cash_back/index";
+$route['(:any)/karmora-cash-back'] = "karmora_cash_back/index/$1";
+
+
 // good karmora ads share routes (cask-back, cash-o-palooza, smokin hot deal, custom ad)
 $route['share'] = "share/index";
 $route['(:any)/share'] = "share/index/$1";
@@ -167,6 +173,8 @@ $route['(:any)/store/(:any)'] = "store/allStore/$2/$1";
 //offers routes
 $route['special-offer/(:any)'] = "store/specialDeals/$1";
 $route['(:any)/special-offer/(:any)'] = "store/specialDeals/$2/$1";
+
+
 
 /// blog route
 
