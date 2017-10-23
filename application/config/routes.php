@@ -60,9 +60,8 @@ $route['logout'] = "login/logout";
 
 // karmora kash back routes
 
-$route['karmora-cash-back'] = "karmora_cash_back/index";
-$route['(:any)/karmora-cash-back'] = "karmora_cash_back/index/$1";
-
+$route['karmora-cash-back'] = "KarmoraCashBack";
+$route['(:any)/karmora-cash-back'] = "KarmoraCashBack/index/$1";
 
 // product routes frontent
 
@@ -213,8 +212,11 @@ $route['(:any)/click2win'] = "tresurechest/index/$1";
 
 // signup routes
 $route['join-today'] = "signup/index";
-$route['join-today/(:any)'] = "signup/index/$1";
-
+$route['(:any)/join-today'] = "signup/index/$1";
+$route['join-today-casual'] = "signup/casualSignup";
+$route['(:any)/join-today-casual'] = "signup/casualSignup/$1";
+$route['join-today-premier'] = "signup/index";
+$route['(:any)/join-today-premier'] = "signup/index";
 
 
 

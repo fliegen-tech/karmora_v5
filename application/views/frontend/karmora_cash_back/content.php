@@ -1,32 +1,12 @@
-<?php $this->load->view('frontend/template/partials/category-nav'); ?>
 <section class="cash-back-sec page-spacing">
     <div class="container">
         <div class="cashback-cover">
             <div class="row">
+                <div class="col-3">
+                    <?php $this->load->view('frontend/template/partials/category_nav'); ?>
+                </div>
                 <div class="col-9 p-l-0">
-                    <div class="cash-back-banner">
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-1.jpg" alt="">
-                        </div>
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-2.jpg" alt="">
-                        </div>
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-3.jpg" alt="">
-                        </div>
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-4.jpg" alt="">
-                        </div>
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-5.jpg" alt="">
-                        </div>
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-6.jpg" alt="">
-                        </div>
-                        <div class="cash-back-cover">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cashback-7.jpg" alt="">
-                        </div>
-                    </div>
+                    <?php $this->load->view('frontend/template/partials/karmora_cash_back_slider'); ?>
                 </div>
             </div>
         </div>
