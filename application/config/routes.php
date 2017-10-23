@@ -188,6 +188,17 @@ $route['(:any)/cart'] = "cart/index/$1";
 $route['cart/(:any)'] = "cart/$1";
 $route['(:any)/cart/(:any)'] = "cart/$2/$1";
 
+//route for checkout
+
+$route['checkout'] = "checkout/index";
+$route['order-confirmation'] = "checkout/order_conframtion";
+$route['(:any)/order-confirmation'] = "checkout/order_conframtion/$1";
+$route['(:any)/checkout'] = "checkout/index/$1";
+$route['(:any)/(:any)/checkout'] = "checkout/index/$1";
+$route['checkout/(:any)'] = "checkout/$1";
+$route['(:any)/checkout/(:any)'] = "checkout/$2/$1";
+
+
 
 // routes for tresurechest
 $route['click2win'] = "tresurechest/index";
