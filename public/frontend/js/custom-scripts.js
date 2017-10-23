@@ -1,3 +1,6 @@
+
+
+
 // Smooth Scrolling
 $('.smooth-scroll').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')

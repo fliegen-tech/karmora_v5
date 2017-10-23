@@ -19,7 +19,7 @@ class Store extends karmora {
 		$this->verifyUser( $username );
 		$detail = $this->currentUser;
         $this->data['store_alis_url'] = $store_alias;
-		$categories = $this->GetCategories( $detail['user_account_type_id'] );
+		$categories = $this->storemodel->getATCategory( $detail['user_account_type_id'] );
         $this->data['categories'] = $categories;
 		if ( isset( $this->session->userdata['front_data']['id'] ) && ( $store_alias === 'favourtie' ) ) {
             $this->data['category_all_stores'] = $this->storemodel->GetfavourtieStore( $detail['userid'] );
@@ -131,7 +131,7 @@ class Store extends karmora {
 		if ( ! empty( $favoutieStore ) ) {
             $this->data['alredyFavourite'] = 'alredyFavourite';
 		}
-		$categories         = $this->GetCategories( $acc_type_id );
+		$categories         = $this->storemodel->getATCategory( $acc_type_id );
         $this->data['categories'] = $categories;
 		$categories_top_stores = $this->storemodel->getTopCategoryStores( $acc_type_id );
 		if ( empty( $categories_top_stores ) ) {
@@ -234,26 +234,18 @@ class Store extends karmora {
 		
 		$this->verifyUser( $username );
 		$detail = $this->currentUser;
-		if ( $alias === 'smokin_hot_deals' ) {
-            $this->data['description'] = 'Karmora Smokin Hot Deals make ya jump back and want to kiss yoself!  Check out these great deals combined with special online coupons for extra savings!  Join Karmora for FREE and get cash back on over 1,700 stores!';
-		} else if ( $alias === 'cash_o_palooza' ) {
-            $this->data['description'] = 'Karmora Cash-O-Palooza Deals are special cash back deals on name brand advertisers.  You won’t find higher cash back anytime, anywhere, ever!  Join Karmora for FREE and get cash back on over 1,700 stores!';
-		}
 		// for Trending Store
-		$deals = $this->storemodel->getSpecialStores( $detail['user_account_type_id'], $alias );
-        $this->data['categories'] = $this->GetCategories( $detail['user_account_type_id'] );
-		// category top stores
+        $this->data['deals'] = $this->storemodel->getSpecialStores( $detail['user_account_type_id'], $alias );
+        $this->data['categories'] = $this->storemodel->getATCategory( $detail['user_account_type_id'] );
+        // category top stores
 		$categories_top_stores = $this->storemodel->getTopCategoryStores( $detail['user_account_type_id'] );
 		if ( empty( $categories_top_stores ) ) {
             $this->data['top_stores'] = false;
 		} else {
             $this->data['top_stores'] = $this->sortStoreByCategory( $categories_top_stores );
 		}
-        $this->data['deals']           = $deals;
-        $this->data['alias']           = $alias;
-		$category_detail         = $this->storemodel->categoryDetails( $alias );
-        $this->data['category_detail'] = $category_detail;
-		$this->loadLayout( $this->data, 'frontend/store/offers' );
+        $this->data['category_detail']         = $this->storemodel->categoryDetails( $alias );
+        $this->loadLayout( $this->data, 'frontend/store/offers' );
 	}
 	
 	public function storefavourtie( $storeId = null, $type = null, $username = null ) {
@@ -328,14 +320,6 @@ class Store extends karmora {
 		}
 	}
 	
-	// this function Get category List According To Account Type
-    public function GetCategories($fk_user_account_type_id) {
-        $row = $this->storemodel->getATCategory($fk_user_account_type_id);
-        if (!empty($row)) {
-            return $row;
-        } else {
-            return '';
-        }
-    }
+
 	
 }
