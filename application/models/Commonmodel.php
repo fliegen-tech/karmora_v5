@@ -46,13 +46,9 @@ class Commonmodel extends CI_Model {
 
         $staement->execute();
 
-        $data = $staement->fetchAll(PDO::FETCH_ASSOC);
+        $data = $staement->fetch(PDO::FETCH_ASSOC);
 
-        if (count($data) > 0) {
-            return $data;
-        } else {
-            return FALSE;
-        }
+        return $staement->rowCount() > 0 ? $data : FALSE;
     }
 
     public function isRecordAlreadyExist($record_field, $record, $record_id_field, $record_id, $table) {

@@ -24,11 +24,13 @@
                             <div class="stores-cover">
                                 <div class="col-12">
                                     <?php if ($this->session->userdata('front_data')){ ?>
-                                        <?php if ($favoriteStore) { ?>
+                                        <span id="fav-<?php echo $store_detail->store_id; ?>">
+                                        <?php if (!empty($favoutieStore)) { ?>
                                             <a href="javascript:void(0)" onClick="favourtie(<?php echo $store_detail->store_id ?>, 'unfvrt')"><i class="fa fa-heart"></i></a>
                                             <?php } else { ?>
                                                 <a href="javascript:void(0)" onClick="favourtie(<?php echo $store_detail->store_id ?>, 'fvrt')" ><i class="fa fa-heart-o"></i></a>
                                             <?php } ?>
+                                        </span>
                                     <?php } ?>
                                     <img src="<?php echo $themeUrl ?>/images/<?php echo $store_detail->store_image; ?>" alt="">
                                     <p><?php echo $store_detail->store_description; ?></p>

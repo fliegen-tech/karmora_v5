@@ -1,7 +1,6 @@
 
 <script>
     function favourtie(storeId, option_type) {
-
         jQuery.ajax({
             type: 'POST',
             dataType: 'JSON',
@@ -12,6 +11,7 @@
                 alert("Sorry, the operation is failed.");
             },
             success: function (data) {
+                console.info(data);
                 $('#fav-' + storeId).html('');
                 if (option_type === 'fvrt') {
                     var onclick_condation = "favourtie(" + storeId + ",'unfvrt')";
@@ -23,6 +23,4 @@
             }
         });
     }
-
-
 </script>

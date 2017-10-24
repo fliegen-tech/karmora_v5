@@ -14,7 +14,15 @@ class Signup extends karmora {
 
     function __construct() {
         parent::__construct(); //call to parent constructor
-        $this->data['themeUrl'] = $this->themeUrl;
+        
+        $this->checknotlogin();
+        
+        $this->data = array(
+            'themeUrl' => $this->themeUrl,
+            'view' => 'frontend/signup/',
+            'flashKey' => 'message_signup'
+        );
+
         $this->load->model(array('commonmodel', 'usermodel', 'Loginmodel'));
 
         $this->load->library(array('form_validation'));
@@ -27,24 +35,63 @@ class Signup extends karmora {
     public function index($username = NULL) {
         $this->verifyUser($username);
 
-        $userData = array(
-            'username' => uniqid('temp-'),
-            'email' => uniqid() . '@yopmail.com',
-            'password' => $this->generatePassword(),
-            'ip_address' => $this->input->ip_address(),
-            'status' => 'active',
-            'subid' => uniqid(),
-            'referr_id' => $this->currentUser['userid']
-        );
+        $this->loadLayout($this->data, $this->data['view'] . 'join_today');
+    }
 
+    public function casualSignup($username = NULL) {
+        $this->verifyUser($username);
+        $this->data['username'] = $username;
+        $this->loadLayout($this->data, $this->data['view'] . 'join_today_casual');
+    }
+
+    public function casualPost($username = NULL) {
+        $this->verifyUser($username);
+        if ($this->input->post('submit')) {
+            $this->validateCasualPost();
+            $post = $this->input->post();
+            $referrer = $this->userObj->getUserDetails($post['referrer']);
+            $post['ref_id'] = !$referrer ? $this->currentUser['userid'] : $referrer['pk_user_id'];
+            $this->casualSignupSave($post);
+        } else {
+            $message = str_replace($this->alertMessages['str_replace'], 'Something went wrong. Please try again', $this->alertMessages['warning']);
+            $this->session->set_flashdata($this->data['flashKey'], $message);
+            return redirect(base_url('join-today-casual'));
+        }
+    }
+
+    private function validateCasualPost() {
+//        set validation rules here for casual signup.
+        return TRUE;
+    }
+
+    public function casualSignupSave($data) {
+        $userData = $this->setUserData($data);
+        $userData['acc_type'] = 3;
         $newUser = $this->userObj->insertUserBasic($userData);
         if ($newUser['query_status']) {
             $userData['user_id'] = $newUser['user_id'];
             $userData['username'] = 1000 + $newUser['user_id'];
             $this->userSignupSuccessful($userData);
-        }else{
-            var_dump('signup failed');
+        } else {
+            $message = str_replace($this->alertMessages['str_replace'], $newUser['error_info'], $this->alertMessages['warning']);
+            $this->session->set_flashdata($this->data['flashKey'], $message);
+            return redirect(base_url('join-today-casual'));
         }
+    }
+    
+    private function setUserData($data){
+        $fullName = isset($data['fullname']) ? explode(' ', $data['fullname']) : '';
+        return array(
+            'username' => uniqid('temp-'),
+            'fname' => isset($fullName[0]) ? $fullName[0] : '',
+            'lname' => isset($fullName[1]) ? $fullName[1] : '',
+            'email' => $data['email'],
+            'password' => $this->generatePassword(),
+            'ip_address' => $this->input->ip_address(),
+            'status' => 'active',
+            'subid' => uniqid(),
+            'referr_id' => $data['ref_id']
+        );
     }
 
     private function updateUsername($userId, $username) {
@@ -60,14 +107,17 @@ class Signup extends karmora {
         $userDetail = $this->loginObj->frontendVerifyUser($newUser['username'], md5($newUser['password']));
         if ($userDetail) {
             $this->cart->destroy();
-            $username = $userDetail[0]['user_username'];
-            $this->verifyUser($username);
             $userSessionData = $this->set_session_login($userDetail);
             $this->session->set_userdata('front_data', $userSessionData);
-            redirect(base_url());
+            $this->session->set_flashdata('first_login', $newUser);
+            $message = str_replace($this->alertMessages['str_replace'], 'Signup Successful', $this->alertMessages['success']);
+            $redirectUrl = 'welcome';
         } else {
-            $this->data['message'] = 'Invalid Username Or Password .';
+            $message = str_replace($this->alertMessages['str_replace'], 'Invalid Username Or Password', $this->alertMessages['warning']);
+            $redirectUrl = 'login';
         }
+        $this->session->set_flashdata($this->data['flashKey'], $message);
+        return redirect(base_url($redirectUrl));
     }
 
     private function generatePassword($length = 8) {
@@ -80,6 +130,16 @@ class Signup extends karmora {
         }
 
         return $result;
+    }
+
+    public function welcome($username) {
+        if ($this->session->flashdata('first_login')) {
+            $this->verifyUser($username);
+            $this->data['userDetail'] = $this->session->flashdata('first_login');
+            $this->loadLayout($this->data, $this->data['view'] . 'welcome');
+        } else {
+            redirect(base_url());
+        }
     }
 
     /*

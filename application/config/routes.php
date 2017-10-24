@@ -58,6 +58,17 @@ $route['(:any)/login'] = "login/index/$1";
 $route['(:any)/logout'] = "login/logout/$1";
 $route['logout'] = "login/logout";
 
+// routes for user
+$route['profile'] = "user/profile/$1";
+$route['(:any)/profile'] = "user/profile/$1";
+$route['(:any)/editprofile'] = "user/editProfile/$1";
+$route['(:any)/profile/upload'] = "user/uploadPicture/$1";
+$route['(:any)/profile/emails'] = "user/manageemail/$1";
+$route['(:any)/profile/subscription'] = "user/manageSubscription/$1";
+$route['(:any)/profile/update_subscription'] = "user/updateSubscriptionAction/$1";
+
+
+
 // karmora kash back routes
 
 $route['karmora-cash-back'] = "KarmoraCashBack";
@@ -234,6 +245,8 @@ $route['(:any)/join-today-premier'] = "signup/index";
 
 // Signup successful signup
 $route['(:any)/welcome'] = "signup/welcome/$1";
+
+
 // Authorize.net testing
 $route['anet_test/(:any)'] = "Anet/$1";
 $route['anet_test'] = "Anet/index";

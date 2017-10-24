@@ -110,13 +110,10 @@ class Store extends karmora {
 		$this->loadLayout( $this->data, 'frontend/store/thanku' );
 	}
 	// function for store details
-	public function storeDetail( $storeId, $username = NULL, $type = NULL, $advertisement_id = NULL ) {
+	public function storeDetail( $storeId, $username = NULL) {
 		$this->verifyUser( $username );
 		$detail            = $this->currentUser;
-		$favoutieStore = $this->storemodel->GetfavourtiesStores( $storeId, $detail['userid'] );
-		if ( ! empty( $favoutieStore ) ) {
-            $this->data['alredyFavourite'] = 'alredyFavourite';
-		}
+        $this->data['favoutieStore'] = $this->storemodel->GetfavourtiesStores( $storeId, $detail['userid'] );
 		$categories         = $this->storemodel->getATCategory($detail['user_account_type_id']);
         $this->data['categories'] = $categories;
 		$categories_top_stores = $this->storemodel->getTopCategoryStores($detail['user_account_type_id']);
@@ -126,6 +123,9 @@ class Store extends karmora {
             $this->data['top_stores'] = $this->sortStoreByCategory( $categories_top_stores );
 		}
         $this->data['store_detail']              = $this->storemodel->GetStoreInfo($storeId,$detail['user_account_type_id']);
+        if(empty($this->data['store_detail'])){
+            redirect(base_url('store'));
+        }
         $commission                              = $this->storemodel->getCommissionPercentage( $storeId, $detail['user_account_type_id']);
         $this->data['comm_percentage']           = $commission[0]['store_to_user_account_type_commission_percentage'];
 		$this->loadLayout( $this->data, 'frontend/store/store_detail' );
@@ -190,7 +190,7 @@ class Store extends karmora {
         $this->loadLayout( $this->data, 'frontend/store/offers' );
 	}
 	
-	public function storefavourtie( $storeId = null, $type = null, $username = null ) {
+	public function storefavourtie( $storeId = NULL, $type = NULL, $username = NULL ) {
 		$this->verifyUser( $username );
 		$detail   = $this->currentUser;
 		$response = array (
@@ -213,55 +213,7 @@ class Store extends karmora {
 		die;
 	}
 	
-	function karmora_dollar_account( $userId, $amount, $dollar_description ) {
-		$datas = array (
-			'fk_user_id'         => $userId,
-			'fk_user_id_from'    => 0,
-			'dollar_amount'      => $amount,
-			'dollar_type'        => 'Deposit',
-			'dollar_description' => $dollar_description
-		);
-		$this->db->insert( 'tbl_karmora_dollar_account', $datas );
-	}
-	
-	function karmora_kash_account( $userId, $amount, $dollar_description ) {
-		$datas = array (
-			'fk_user_id'       => $userId,
-			'fk_user_id_from'  => 0,
-			'kash_amount'      => $amount,
-			'kash_type'        => 'Deposit',
-			'kash_description' => $dollar_description
-		);
-		$this->db->insert( 'tbl_karmora_kash_account', $datas );
-	}
-	
-	public function casualtresure( $detail, $store_id ) {
-		
-		$Alltresure = $this->storemodel->GetallChest( $store_id );
-		if ( ! empty( $Alltresure ) ) {
-			$oneDimensionalArray = array_map( 'current', $Alltresure );
-			$rand_keys           = array_rand( $oneDimensionalArray, 1 );
-			$tc_id               = $oneDimensionalArray[ $rand_keys ];
-			$GetAlltresure       = $this->storemodel->GettresureDetail( $tc_id, $store_id );
-		} else {
-			$GetAlltresure = '';
-		}
-		if ( ! empty( $GetAlltresure ) ) {
-			$setting = $GetAlltresure->setting;
-			$userId  = $detail['userid'];
-			if ( isset( $this->session->userdata['front_data']['id'] ) ) { //echo 12; die;
-				$userAlredy = $this->storemodel->GetAlredayDetail( $store_id, $tc_id, $userId, $setting );
-				//echo '<pre>';                    print_r($userAlredy); die;
-				if ( $userAlredy == 'true' ) {
-					return $GetAlltresure;
-				} else {
-					return '';
-				}
-				//echo '<pre>';                print_r($GetAlltresure); die;
-			}
-		}
-	}
-	
+
 
 	
 }

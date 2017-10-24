@@ -18,6 +18,8 @@ class karmora extends CI_Controller {
     public $currentSubid = '525659344c44e';
     public $userId = 2;
     private $founder = 2;
+    protected $alertMessages;
+
     /*
      * $currentUser contain below information for the current user
      * 1) pk_user_id as userid
@@ -38,15 +40,34 @@ class karmora extends CI_Controller {
         $this->data['currentSubid'] = $this->currentSubid;
         //require_once(FCPATH . 'application/controllers/AuthNet.php');
         $this->currentUser = $this->commonmodel->getFounder($this->founder);
-        }
+        $this->setAlertMessages();
+    }
 
-        private function setThemeUrl(){
+    private function setThemeUrl() {
         $this->themeUrl = base_url('public');
+    }
+
+    private function setAlertMessages() {
+        $this->alertMessages = array(
+            'str_replace' => '{{message}}',
+            'success' => '<div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}</div>',
+            'info' => '<div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}</div>',
+            'warning' => '<div class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}</div>',
+            'danger' => '<div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}</div>'
+        );
     }
 
     public function verifyUser($username = NULL) {
 //        check if user is logged in set baseURL for signed in user else set baseURL for username passed in URLs
-                $userVerifySuccess = !$this->checkUserLogin() ?
+        $userVerifySuccess = !$this->checkUserLogin() ?
                 /*
                  * check if username is not null, if username is empty set user global vars to default values 
                  */
@@ -132,13 +153,7 @@ class karmora extends CI_Controller {
     }
 
     public function getUserDetails($username) {
-
-        $data = $this->commonmodel->getUserDetails($username);
-        if (count($data) > 0) {
-            return $data;
-        } else {
-            return FALSE;
-        }
+        return $this->commonmodel->getUserDetails($username);
     }
 
     // this function check user_account type id
@@ -171,15 +186,15 @@ class karmora extends CI_Controller {
         return $response;
     }
 
-
-    public function checklogin(){
-        if ( ! isset( $this->session->userdata['front_data']['id'] ) ) {
-            redirect( base_url() );
+    public function checklogin() {
+        if (!isset($this->session->userdata['front_data']['id'])) {
+            redirect(base_url());
         }
     }
-    public function checknotlogin(){
-        if (isset( $this->session->userdata['front_data']['id'] ) ) {
-            redirect( base_url() );
+
+    public function checknotlogin() {
+        if (isset($this->session->userdata['front_data']['id'])) {
+            redirect(base_url());
         }
     }
 
@@ -656,7 +671,7 @@ class karmora extends CI_Controller {
             $order_detail = $this->cartmodel->getOrderDetailById($order_id, $userData->userid);
             $Orderproduct = $this->cartmodel->getOrderProduct($order_detail->pk_order_id);
             $orderTotalDetail = !empty($order_detail->pk_order_id) ? $this->cartmodel->getOrderDetailTotalsSummery_row($order_detail->pk_order_id) : FALSE;
-            $html.= '<table style="width: 100%; max-width: 100%; border: 1px solid #ccc; padding: 10px 0px;height: auto; overflow: hidden; border-bottom: none;">
+            $html .= '<table style="width: 100%; max-width: 100%; border: 1px solid #ccc; padding: 10px 0px;height: auto; overflow: hidden; border-bottom: none;">
                     <tbody>
                         <tr style="padding:0px; overflow: hidden; clear: both;">
                             <td class="col-md-6 col-xs-6" style="width: 45%; position: relative; min-height: 1px; padding-left: 15px;">
@@ -712,7 +727,7 @@ class karmora extends CI_Controller {
                             </td>
                         </tr>
                     </tbody></table>';
-            $html.= '<table style="width: 100%; max-width: 100%; margin-bottom: 20px;" border="1" cellspacing="0">
+            $html .= '<table style="width: 100%; max-width: 100%; margin-bottom: 20px;" border="1" cellspacing="0">
                             <thead style="text-align: left; padding: 0; margin: 0;">
                                 <tr style="text-align: left; padding: 0; margin: 0;">
                                     <th style="text-align: left; padding: 10px; margin: 0;"><b>Product Description</b></th>
@@ -734,11 +749,11 @@ class karmora extends CI_Controller {
                 } else {
                     $price = number_format($pr['order_line_price'] * $pr['order_line_qty'], 2, ".", ",");
                 }
-                $html.= '<tr style="text-align: left; padding: 0; margin: 0;">';
-                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $pr['product_title'] . '</td>';
-                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $qty . '</td>';
-                $html.= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $price . '</td>';
-                $html.= '</tr>';
+                $html .= '<tr style="text-align: left; padding: 0; margin: 0;">';
+                $html .= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $pr['product_title'] . '</td>';
+                $html .= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $qty . '</td>';
+                $html .= '<td style="text-align: left; padding: 5px 10px; margin: 0;">' . $price . '</td>';
+                $html .= '</tr>';
                 $sum_total = number_format($pr['order_line_price'] * $pr['order_line_qty'], 2, ".", ",");
                 $total_amount = $sum_total + $total_amount;
                 if ($pr['order_line_notes'] == 'Free Gifts') {
@@ -747,12 +762,12 @@ class karmora extends CI_Controller {
                     $total_amount = 0;
                 }
             }
-            $html.= '</tbody></table>';
+            $html .= '</tbody></table>';
             $total_amount = $total_amount + 0.0001;
         }
         $totalnumber = $total_amount - $orderTotalDetail->order_karmora_cash_price + $orderTotalDetail->order_shiping_cost + $orderTotalDetail->order_tax_cost + $orderTotalDetail->order_upgrade_cost;
         $charged = $totalnumber - $orderTotalDetail->order_commsion_price;
-        $html.= '<table class="col-md-12" id="main-order" style="width: 100%; max-width: 100%; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; border: 1px solid #ccc;"><tbody>
+        $html .= '<table class="col-md-12" id="main-order" style="width: 100%; max-width: 100%; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; border: 1px solid #ccc;"><tbody>
             <tr>
                 <td class="col-md-6 pull-left col-sm-6 col-xs-12" style="float: left!important; width: 35%; position: relative;min-height: 1px; padding-right: 15px; padding-left: 15px;" >
                     <span class="thanku-bussiness">
