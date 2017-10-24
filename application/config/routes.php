@@ -234,8 +234,6 @@ $route['(:any)/join-today-premier'] = "signup/index";
 
 // Signup successful signup
 $route['(:any)/welcome'] = "signup/welcome/$1";
-
-
 // Authorize.net testing
 $route['anet_test/(:any)'] = "Anet/$1";
 $route['anet_test'] = "Anet/index";
