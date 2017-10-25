@@ -16,7 +16,7 @@ class Usermodel extends commonmodel {
     public function __construct() {
         parent::__construct();
     }
-    
+
     public function insertUserBasic($param) {
         $query = "INSERT INTO tbl_users (user_first_name, user_last_name, user_username , user_email ,user_password ,user_registration_ip_address , user_status , user_subid , fk_user_id_referrer  , user_registration_date) 
             VALUES (:fname, :lname, :username, :email, MD5(:pass), :ip_address, :status, :subid, :referrId, NOW())";
@@ -32,8 +32,8 @@ class Usermodel extends commonmodel {
         }
         return $response;
     }
-    
-    private function bindParamUserBasic($statement, $param){
+
+    private function bindParamUserBasic($statement, $param) {
         $statement->bindParam(':fname', $param['fname'], PDO::PARAM_STR);
         $statement->bindParam(':lname', $param['lname'], PDO::PARAM_STR);
         $statement->bindParam(':username', $param['username'], PDO::PARAM_STR);
@@ -45,7 +45,7 @@ class Usermodel extends commonmodel {
         $statement->bindParam(':referrId', $param['referr_id'], PDO::PARAM_STR);
         return;
     }
-    
+
     public function insertUserAccountType($param) {
         $query = "INSERT INTO tbl_user_to_user_account_type_log 
             (fk_user_id,  fk_user_account_type_id ,  user_account_log_status ,  user_account_log_create_date ) 
@@ -54,17 +54,17 @@ class Usermodel extends commonmodel {
         $statement->bindParam(':userId', $param['user_id'], PDO::PARAM_INT);
         $statement->bindParam(':accTypeId', $param['acc_type_id'], PDO::PARAM_INT);
         $statement->bindParam(':status', $param['status'], PDO::PARAM_STR);
-        
+
         $statement->execute();
         return;
     }
-    
+
     public function updateUsername($userId, $username) {
         $query = "UPDATE tbl_users SET user_username = :username WHERE pk_user_id = :userId";
         $statement = $this->prepQuery($query);
         $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
-        
+
         if ($statement->execute()) {
             $response['query_status'] = TRUE;
         } else {
@@ -72,7 +72,17 @@ class Usermodel extends commonmodel {
             $response['error_info'] = $statement->errorInfo();
         }
         return $response;
-        
+    }
+
+
+    
+    public function getSignupPromo($promoId) {
+        $query = "SELECT * FROM tbl_signup_promo WHERE pk_promo_id = :promoId";
+        echo $query;
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':promoId', $promoId, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount() ? $statement->fetch(PDO::FETCH_ASSOC) : FALSE;
     }
 
     public function getuser_main_summary($user_id) {
@@ -82,11 +92,43 @@ class Usermodel extends commonmodel {
         $response = $queryRS->num_rows() > 0 ? $queryRS->row() : '';
         return $response;
     }
+    public function getuser_exective_summary($user_id) {
+
+        $query = "SELECT * from view_my_account_exective_summary where pk_user_id = $user_id";
+        $queryRS = $this->db->query($query);
+
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->row();
+        } else {
+            return '';
+        }
+    }
+    public function getUserorders($user_id) {
+
+        $sql = "select * from view_my_orders where fk_user_id ='" . $user_id . "'";
+        $queryRS = $this->db->query($sql);
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->result_array();
+        } else {
+            return '';
+        }
+    }
+
+    public function getuser_trackingdetail($user_id) {
+        $queryStr = "SELECT *
+                        FROM tbl_user_tracker 
+                     WHERE fk_user_id = $user_id  
+                     order by pk_user_tracker_id desc"; //die;
+        $queryRS = $this->db->query($queryStr);
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->result_array();
+        } else {
+            return '';
+        }
+    }
     /*
      * Old usermodel start
      */
-
-    
 
     public function editProfile($data) {
         $fname = $data['fname'];
@@ -260,55 +302,6 @@ class Usermodel extends commonmodel {
           print_r($response);
           exit; */
 
-        return $response;
-    }
-
-    public function getCountries() {
-        $query = "SELECT *
-					FROM tbl_user_address_country AS country
-					WHERE country.user_address_status = 'active' 
-					ORDER BY country.user_address_country_title";
-        return $this->runDbQuery($query);
-    }
-
-    public function getCountrieslistAll() {
-        $query = "SELECT *
-                    FROM tbl_user_address_country AS country
-                    WHERE country.user_address_status = 'active' 
-                    ORDER BY country.user_address_country_title";
-        $queryRS = $this->db->query($query);
-        if ($queryRS->num_rows() > 0) {
-            return $queryRS->result_array();
-        } else {
-            return '';
-        }
-    }
-
-    public function getStatesofCountry($countryId = null) {
-        if ($countryId !== null) {
-            $query = "SELECT *
-					FROM tbl_user_address_state AS state
-					WHERE state.fk_user_address_country_id = $countryId
-					ORDER BY state.user_address_state_title
-					";
-            $response = $this->runDbQuery($query);
-            if (!empty($response)) {
-                $first = true;
-                foreach ($response as $state) {
-                    if ($first === true) {
-                        reset($response);
-                        $first = false;
-                    }
-                    $response[key($response)]['optionVal'] = $countryId . '-.-' . $state['pk_user_address_state_id'];
-                    next($response);
-                }
-            }
-        } else {
-            $response = false;
-        }
-        /* echo '<pre>';
-          print_r($response);
-          exit; */
         return $response;
     }
 

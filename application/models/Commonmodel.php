@@ -131,9 +131,10 @@ class Commonmodel extends CI_Model {
         }
         return $response;
     }
+
     public function checkGrace($userId) {
         $query = "SELECT *, grace_period_days - abs( datediff( now( ) , grace_start_date ) ) AS 'days_left' "
-            . "FROM tbl_user_recurring_billing_declined_grace WHERE fk_user_id = :userId AND grace = 'Active' ";
+                . "FROM tbl_user_recurring_billing_declined_grace WHERE fk_user_id = :userId AND grace = 'Active' ";
         $statement = $this->db->conn_id->prepare($query);
 
         $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
@@ -142,8 +143,13 @@ class Commonmodel extends CI_Model {
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return count($result) > 0 ? $result[0] : FALSE;
-
     }
+
+    /*
+     * 
+     * NEW ADDITIONS START HERE
+     * 
+     */
 
     protected function prepQuery($query) {
         return $this->db->conn_id->prepare($query);
@@ -156,6 +162,23 @@ class Commonmodel extends CI_Model {
     protected function errorInfo($statement) {
         $error = $statement->errorInfo();
         return $error[0] != 00000 ? $error[0] . ': ' . $error[2] : FALSE;
+    }
+
+    public function getStatesofCountry($countryId) {
+        $query = "SELECT * FROM tbl_user_address_state AS state WHERE state.fk_user_address_country_id = :countryId "
+                . "ORDER BY state.user_address_state_title";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':countryId', $countryId, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount() ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
+    }
+    
+    public function getCountries() {
+        $query = "SELECT * FROM tbl_user_address_country WHERE user_address_status = 'active' "
+                . "ORDER BY user_address_country_title";
+        $statement = $this->prepQuery($query);
+        $statement->execute();
+        return $statement->rowCount() ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
     }
 
 }

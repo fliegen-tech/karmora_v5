@@ -67,7 +67,27 @@ $route['(:any)/profile/emails'] = "user/manageemail/$1";
 $route['(:any)/profile/subscription'] = "user/manageSubscription/$1";
 $route['(:any)/profile/update_subscription'] = "user/updateSubscriptionAction/$1";
 
+//dashbord routes
 
+$route['(:any)/dashboard'] = "dashboard/index/$1";
+$route['(:any)/my-community'] = "dashboard/mycommunity/$1";
+$route['(:any)/my-ewallet'] = "dashboard/myewallet/$1";
+$route['(:any)/my-karmora-kash'] = "dashboard/myKarmoraKash/$1";
+$route['(:any)/downloadAllData'] = "dashboard/downloadAllData/$1";
+$route['(:any)/profitsharing'] = "dashboard/profitSharing/$1";
+$route['(:any)/adtracker'] = "dashboard/adTracker/$1";
+$route['(:any)/my-orders'] = "dashboard/orders/$1";
+$route['(:any)/my-orders/(:any)'] = "dashboard/order_detail/$2/$1";
+$route['(:any)/karmora-my-charities'] = "mycharities/index/$1";
+
+// cashme out
+$route['cashmeout/savew9form'] = "cashmeout/savew9form";
+$route['(:any)/cashmeout/savew9form'] = "cashmeout/savew9form/$1";
+$route['cashmeout/ajexresponce'] = "cashmeout/ajexresponce";
+$route['(:any)/cashmeout/ajexresponce'] = "cashmeout/ajexresponce/$1";
+$route['(:any)/cashmeout/gift'] = "cashmeout/gift";
+$route['cashmeout'] = "cashmeout/index";
+$route['(:any)/cashmeout'] = "cashmeout/index/$1";
 
 // karmora kash back routes
 
@@ -174,6 +194,7 @@ $route['(:any)/share/(:any)'] = "share/$2/$1";
 $route['store/storeSearch'] = "store/storeSearch";
 $route['store/storeSearch/(:any)'] = "store/storeSearch/$1";
 $route['(:any)/store/storeSearch/(:any)'] = "store/storeSearch/$2/$1";
+
 $route['store'] = "store/allStore/all";
 $route['(:any)/store'] = "store/allStore/all/$1";
 $route['store/(:any)'] = "store/allStore/$1";
@@ -239,13 +260,13 @@ $route['join-today-casual'] = "signup/casualSignup";
 $route['(:any)/join-today-casual'] = "signup/casualSignup/$1";
 $route['join-casual'] = "signup/casualPost";
 $route['(:any)/join-casual'] = "signup/casualPost/$1";
-$route['join-today-premier'] = "signup/index";
-$route['(:any)/join-today-premier'] = "signup/index";
-
+$route['join-today-premier'] = "signup/primierSignup";
+$route['(:any)/join-today-premier'] = "signup/primierSignup";
+$route['join-premier'] = "signup/primierPost";
+$route['(:any)/join-premier'] = "signup/primierPost/$1";
 
 // Signup successful signup
 $route['(:any)/welcome'] = "signup/welcome/$1";
-
 
 // Authorize.net testing
 $route['anet_test/(:any)'] = "Anet/$1";
