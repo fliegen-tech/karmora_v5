@@ -58,6 +58,50 @@ $route['(:any)/login'] = "login/index/$1";
 $route['(:any)/logout'] = "login/logout/$1";
 $route['logout'] = "login/logout";
 
+// routes for user
+$route['profile'] = "user/profile/$1";
+$route['(:any)/profile'] = "user/profile/$1";
+$route['(:any)/editprofile'] = "user/editProfile/$1";
+$route['(:any)/profile/upload'] = "user/uploadPicture/$1";
+$route['(:any)/profile/emails'] = "user/manageemail/$1";
+$route['(:any)/profile/subscription'] = "user/manageSubscription/$1";
+$route['(:any)/profile/update_subscription'] = "user/updateSubscriptionAction/$1";
+
+//dashbord routes
+
+$route['(:any)/dashboard'] = "dashboard/index/$1";
+$route['(:any)/my-community'] = "dashboard/mycommunity/$1";
+$route['(:any)/my-ewallet'] = "dashboard/myewallet/$1";
+$route['(:any)/my-karmora-kash'] = "dashboard/myKarmoraKash/$1";
+$route['(:any)/downloadAllData'] = "dashboard/downloadAllData/$1";
+$route['(:any)/profitsharing'] = "dashboard/profitSharing/$1";
+$route['(:any)/adtracker'] = "dashboard/adTracker/$1";
+$route['(:any)/my-orders'] = "dashboard/orders/$1";
+$route['(:any)/my-orders/(:any)'] = "dashboard/order_detail/$2/$1";
+$route['(:any)/karmora-my-charities'] = "mycharities/index/$1";
+
+// Trainings fronend route
+
+$route['karmora-training'] = "training/index";
+$route['(:any)/karmora-training'] = "training/index/$1";
+$route['(:any)/download-training/(:any)/(:any)'] = "training/downloadtraining/$2/$3/$1";
+$route['karmora-about-training'] = "training/aboutkarmoratraining";
+$route['(:any)/karmora-about-training'] = "training/aboutkarmoratraining/$1";
+$route['karmora-exclusive-products-training'] = "training/karmoraproducttraining";
+$route['(:any)/karmora-exclusive-products-training'] = "training/karmoraproducttraining/$1";
+$route['karmora-training-making-money'] = "training/karmoramakingmoneytraining";
+$route['(:any)/karmora-training-making-money'] = "training/karmoramakingmoneytraining/$1";
+
+
+// cashme out
+$route['cashmeout/savew9form'] = "cashmeout/savew9form";
+$route['(:any)/cashmeout/savew9form'] = "cashmeout/savew9form/$1";
+$route['cashmeout/ajexresponce'] = "cashmeout/ajexresponce";
+$route['(:any)/cashmeout/ajexresponce'] = "cashmeout/ajexresponce/$1";
+$route['(:any)/cashmeout/gift'] = "cashmeout/gift";
+$route['cashmeout'] = "cashmeout/index";
+$route['(:any)/cashmeout'] = "cashmeout/index/$1";
+
 // karmora kash back routes
 
 $route['karmora-cash-back'] = "KarmoraCashBack";
@@ -169,6 +213,18 @@ $route['(:any)/store'] = "store/allStore/all/$1";
 $route['store/(:any)'] = "store/allStore/$1";
 $route['(:any)/store/(:any)'] = "store/allStore/$2/$1";
 
+
+// stores detail and favoutte
+$route['store-visit/(:any)'] = "store/storeVisit/$1";
+$route['(:any)/store-visit/(:any)'] = "store/storeVisit/$2/$1";
+$route['store-detail/(:any)'] = "store/storeDetail/$1";
+$route['(:any)/store-detail/(:any)'] = "store/storeDetail/$2/$1";
+$route['(:any)/store-detail/(:any)/(:any)/(:any)'] = "store/storeDetail/$2/$1/$3/$4";
+$route['(:any)/storefavourtie/(:any)/(:any)'] = "store/storefavourtie/$2/$3/$1";
+$route['(:any)/my-favorite'] = "myfavorites/index/$1";
+$route['(:any)/my-favorite/(:any)'] = "myfavorites/$2/$1";
+
+
 //offers routes
 $route['special-offer/(:any)'] = "store/specialDeals/$1";
 $route['(:any)/special-offer/(:any)'] = "store/specialDeals/$2/$1";
@@ -217,9 +273,10 @@ $route['join-today-casual'] = "signup/casualSignup";
 $route['(:any)/join-today-casual'] = "signup/casualSignup/$1";
 $route['join-casual'] = "signup/casualPost";
 $route['(:any)/join-casual'] = "signup/casualPost/$1";
-$route['join-today-premier'] = "signup/index";
-$route['(:any)/join-today-premier'] = "signup/index";
-
+$route['join-today-premier'] = "signup/primierSignup";
+$route['(:any)/join-today-premier'] = "signup/primierSignup";
+$route['join-premier'] = "signup/primierPost";
+$route['(:any)/join-premier'] = "signup/primierPost/$1";
 
 // Signup successful signup
 $route['(:any)/welcome'] = "signup/welcome/$1";

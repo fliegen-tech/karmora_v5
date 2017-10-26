@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Productmodel extends CI_Model {
+class Productmodel extends Commonmodel {
 
     /**
      * This is the constructor of a Model
@@ -23,14 +23,12 @@ class Productmodel extends CI_Model {
             return '';
         }
     }
-    public function getproducts() {
-        $queryStr = " SELECT * FROM tbl_product";
-        $queryRS = $this->db->query($queryStr);
-        if ($queryRS->num_rows() > 0) {
-            return $queryRS->result_array();
-        } else {
-            return '';
-        }
+    public function getproducts($status = '%') {
+        $query = "SELECT * FROM tbl_product WHERE product_status LIKE :status";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':status', $status, PDO::PARAM_STR);
+        $statement->execute();
+        return $statement->rowCount() > 0 ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
     }
 
 

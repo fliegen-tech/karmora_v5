@@ -19,6 +19,9 @@ class karmora extends CI_Controller {
     public $userId = 2;
     private $founder = 2;
     protected $alertMessages;
+    protected $active = 'active';
+    protected $signupPromo = 1;
+    private $authObj;
 
     /*
      * $currentUser contain below information for the current user
@@ -33,13 +36,11 @@ class karmora extends CI_Controller {
         //echo CI_VERSION;exit;
         $this->setThemeUrl();
         $this->load->helper(array('url', 'security'));
-        //$this->load->model(array('homemodel','commonmodel','cartmodel'));
         $this->load->model(array('commonmodel'));
-        $this->load->library(array('email', 'cart'));
+        $this->load->library(array('email', 'cart', 'Authorizenet'));
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
-        //require_once(FCPATH . 'application/controllers/AuthNet.php');
-        $this->currentUser = $this->commonmodel->getFounder($this->founder);
+//        $this->currentUser = $this->commonmodel->getFounder($this->founder);
         $this->setAlertMessages();
     }
 
@@ -198,6 +199,133 @@ class karmora extends CI_Controller {
         }
     }
 
+
+    /* ------------Load Layout Functions start------------------ */
+
+    public function loadLayout($data, $content_path) {
+        $html['header'] = $this->load->view('frontend/template/partials/header', $data, TRUE);
+        $html['footer'] = $this->load->view('frontend/template/partials/footer', $data, TRUE);
+        $html['content'] = $this->load->view($content_path, $data, TRUE);
+        $this->load->view('frontend/template/template', $html);
+    }
+    
+    /* ------------Load Layout Functions end ------------------ */
+
+    public function set_session_login($row) {
+        $userSessionData = array();
+        $user_detail = $this->commonmodel->getFounder($row[0]['pk_user_id']);
+        foreach ($row as $userData) {
+            $userSessionData['id'] = $userData['pk_user_id'];
+            $userSessionData['user_account_type_id'] = $user_detail['user_account_type_id'];
+            $userSessionData['user_account_type_title'] = $user_detail['user_account_type_title'];
+            $userSessionData['username'] = $userData['user_username'];
+            $userSessionData['email'] = $userData['user_email'];
+            $userSessionData['user_phone_no'] = $userData['user_phone_no'];
+            $userSessionData['status'] = $userData['user_status'];
+            $userSessionData['user_first_name'] = $userData['user_first_name'];
+            $userSessionData['user_last_name'] = $userData['user_last_name'];
+            $userSessionData['subid'] = $userData['user_subid'];
+        }
+        return $userSessionData;
+    }
+    
+    private function setupAuthLib(){
+        $this->authObj = new Authorizenet;
+        $this->authObj->activateSandboxMode(TRUE);
+    }
+    
+    protected function createARB($userData, $subscription, $card) {
+        $this->setupAuthLib();
+        $this->authObj->creditCardInfo['card_number'] = $card['number'];
+        $this->authObj->creditCardInfo['exp_date'] = $card['exp_date'];
+        $this->authObj->creditCardInfo['cvc_code'] = $card['cvv'];
+
+        $this->authObj->billingAddressInfo = array(
+            'firstName' => $userData['fname'],
+            'lastName' => $userData['lname'],
+            'address' => $userData['address'],
+            'city' => $userData['city'],
+            'state' => $userData['state'],
+            'zip' => $userData['zip'],
+            'country' => $userData['country']
+        );
+        $this->authObj->subscriptionInfo = array(
+            'title' => $subscription['user_account_billing_properties_title'],
+            'descp' => $subscription['user_account_billing_properties_title'],
+            'amount' => $subscription['user_account_billing_properties_amount'],
+            'trialAmount' => $subscription['user_account_billing_properties_trial_amount'],
+            'startDate' => date('Y-m-d'), //format YYYY-MM-DD
+            'intervalLength' => $subscription['user_account_billing_properties_interval_length'],
+            'intervalUnit' => $subscription['user_account_billing_properties_arb_type'],
+            'totalOccurence' => 9999,
+            'trialOccurence' => $subscription['user_account_billing_properties_trial_occurance']
+        );
+        return $this->authObj->arbCreate();
+    }
+
+    
+    public function CCtransection($data) {
+        $this->setupAuthLib();
+        
+        $this->authObj->creditCardInfo['card_number'] = $data['number'];
+        $this->authObj->creditCardInfo['exp_date'] = $data['exp_date'];
+        $this->authObj->creditCardInfo['cvc_code'] = $data['cvv'];
+
+        $this->authObj->billingAddressInfo = array(
+            'firstName' => $data['fname'],
+            'lastName' =>$data['lname'],
+            'address' => $data['billing_address'],
+            'city' => $data['billing_city'],
+            'state' => $data['billing_state'],
+            'zip' => $data['billing_zip'],
+            'country' => $data['billing_country']
+        );
+
+        $this->authObj->shippingAddressInfo = array(
+            'firstName' => $data['fname'],
+            'lastName' => $data['lname'],
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip'],
+            'country' => $data['country']
+        );
+
+        $this->authObj->customerInfo = array(
+            'custType' => 'individual',
+            'custId' => $data['user_id'],
+            'custEmail' => $data['email']
+        );
+
+        $this->authObj->orderNumber = $data['order_number'];
+        $this->authObj->amountToProcess = $data['totalAmount'];
+
+        return $this->authObj->chargeCreditCard();
+    }
+
+    
+    function runauthrioze($data) {
+        $this->setupAuthLib();
+        $this->authObj->creditCardInfo['card_number'] = $data['number'];
+        $this->authObj->creditCardInfo['exp_date'] = $data['exp_date'];
+        $this->authObj->creditCardInfo['cvc_code'] = $data['cvv'];
+
+        $this->authObj->amountToProcess = 0.01;
+        $this->authObj->amountTrial = 0;
+        return $this->authObj->runAuthorization();
+    }
+
+    function Voidauthrioze($trans_id) {
+        $this->setupAuthLib();
+        return $this->authObj->voidTransaction($trans_id);
+    }
+
+    /*
+     * 
+     * OLD KARMORA FUNCTIONS
+     * 
+     */
+
     /* ------------Start Email Functions------------------ */
 
     public function prepEmailContent($tags, $replace, $title, $content) {
@@ -244,120 +372,6 @@ class karmora extends CI_Controller {
                 $this->db->insert('tbl_email_queue', $data);
             }
         }
-    }
-
-    /* ------------End Email Functions------------------ */
-
-
-    /* ------------Load Layout Functions------------------ */
-
-    public function loadLayout($data, $content_path) {
-        $html['header'] = $this->load->view('frontend/template/partials/header', $data, TRUE);
-        $html['footer'] = $this->load->view('frontend/template/partials/footer', $data, TRUE);
-        $html['content'] = $this->load->view($content_path, $data, TRUE);
-        $this->load->view('frontend/template/template', $html);
-    }
-
-    ////////// ===== Authorize.Net ========== //////////////////
-
-    public function CCtransection($amount, $userOrder, $userid, $postz) {
-        $UserData = $this->commonmodel->getuserdetail($userid);
-        $sameshipaddress = $this->input->post('sameshipaddress');
-        if ($sameshipaddress != 1 || !isset($sameshipaddress)) {
-            $Bpost = $this->security->xss_clean($postz['shipping_detail']);
-        } else {
-            $Bpost = $this->security->xss_clean($postz['biling_detail']);
-        }
-        $post = $this->security->xss_clean($postz);
-        $card_code = $post['card_code'];
-        $month = $post['month'];
-        $year = $post['year'];
-        $exp_date = $month . '-' . $year;
-        $card_number = str_replace(' ', '', $post['card_number']);
-        $auth = new AuthNet();
-        $auth->transectionProps = array(
-            #order detail
-            "po_num" => $userOrder->order_no,
-            "amount" => $amount,
-            "freight" => $userOrder->order_shiping_cost,
-            "tax" => $userOrder->order_tax_cost,
-            "description" => "Order Placed number = $userOrder->order_no",
-            # cc Info
-            "card_num" => "'$card_number'",
-            "card_code" => "'$card_code'",
-            "exp_date" => "'$exp_date'",
-            #Customer Details
-            "cust_id" => $userid,
-            "customer_ip" => $_SERVER['REMOTE_ADDR'],
-            "first_name" => $UserData->user_first_name,
-            "last_name" => empty($UserData->user_last_name) ? $UserData->user_first_name : $UserData->user_last_name,
-            "email" => $UserData->user_email,
-            #ship to address
-            "ship_to_first_name" => $UserData->user_first_name,
-            "ship_to_last_name" => empty($UserData->user_last_name) ? $UserData->user_first_name : $UserData->user_last_name,
-            "ship_to_address" => empty($Bpost['street_address']) ? $userOrder->shipping_address_street : $Bpost['street_address'],
-            "ship_to_city" => empty($Bpost['city']) ? $userOrder->shipping_address_city : $Bpost['city'],
-            "ship_to_state" => empty($Bpost['region']) ? $userOrder->shipping_address_state : $Bpost['region'],
-            "ship_to_zip" => empty($Bpost['zipcode']) ? $userOrder->billing_address_zipcode : $Bpost['zipcode'],
-            "ship_to_country" => 'US',
-            "phone" => empty($Bpost['phone']) ? $userOrder->shipping_address_phone_number : $Bpost['phone'],
-        );
-        $responce = $auth->processCCtransection();
-        return $responce;
-    }
-
-    public function Recuringtransection($userOrder, $UserData, $userid, $responce) {
-        $card_numberS = $this->security->xss_clean($this->input->post('card_number'));
-        $card_code = $this->security->xss_clean($this->input->post('card_code'));
-        $month = $this->security->xss_clean($this->input->post('month'));
-        $year = $this->security->xss_clean($this->input->post('year'));
-        $exp_date = $month . '-' . $year;
-        $card_number = str_replace(' ', '', $card_numberS);
-        $aut2 = new AuthNet();
-        if ($responce['success'] == 1) {
-            $aut2->subscriptionProps = array(
-                'upgrade_billing_title' => 'Premier',
-                'interval' => 1,
-                'interval_unit' => 'months',
-                'start_date' => date('Y-m-d'),
-                'total_Occurrences' => '9999',
-                'trialAmount' => '0',
-                'trialOccurrences' => '1',
-                'arb_amount' => '9.95',
-                'cc_number' => $card_number,
-                'cvc' => $card_code,
-                'expiration_date' => $exp_date,
-                'bill_to_firstName' => $UserData->user_first_name,
-                'bill_to_lastName' => empty($UserData->user_last_name) ? $UserData->user_first_name : $UserData->user_last_name,
-                'bill_to_address' => $userOrder->billing_address_street,
-                'bill_to_city' => $userOrder->billing_address_city,
-                'bill_to_zip' => $userOrder->billing_address_zipcode,
-                'bill_to_state' => $userOrder->billing_address_state,
-                'bill_to_country' => 'USA'
-            );
-            $responceArb = $aut2->createArb();
-            if ($responce['success'] == 1 && isset($responceArb['subscription_id'])) {
-                $dataUpgrade = array(
-                    'upgrade_request_auth_sub_id' => $responceArb['subscription_id'],
-                    'fk_user_id' => $userid,
-                    'upgrade_request_requester_name' => $UserData->user_first_name . ' ' . $UserData->user_last_name,
-                    'upgrade_request_arb_type' => 'Premier',
-                    'upgrade_request_address' => $userOrder->billing_address_street,
-                    'upgrade_request_city' => $userOrder->billing_address_city,
-                    'upgrade_request_zipcode' => $userOrder->billing_address_zipcode,
-                    'upgrade_request_state' => $userOrder->billing_address_state,
-                    'upgrade_request_country' => 'US',
-                    'upgrade_request_ipaddress' => $_SERVER['REMOTE_ADDR']
-                );
-                $this->db->insert('tbl_upgrade_request', $dataUpgrade);
-
-                $dataUpdate = array('user_authorize_net_sub_id' => $responceArb['subscription_id']);
-                $this->db->where('pk_user_id', $userid);
-                $this->db->update('tbl_users', $dataUpdate);
-                //echo $this->db->last_query();die;
-            }
-        }
-        return $responceArb;
     }
 
     public function checkrespoce($responce, $user_id, $order_id, $userOrder, $UserData) {
@@ -506,32 +520,6 @@ class karmora extends CI_Controller {
         return $result;
     }
 
-    function runauthrioze($postz) {
-        $post = $this->security->xss_clean($postz);
-        $card_number = str_replace(' ', '', $post['card_number']);
-
-        $month = $post['month'];
-        $year = $post['year'];
-        $exp_date = $month . '-' . $year;
-        if ($card_number == '' || $month == '' || $year == '') {
-            return false;
-        } else {
-            $auth = new AuthNet();
-            $responce = $auth->runAuthorization($card_number, $exp_date);
-            if ($responce->approved == '' || $responce->trans_id == '') {
-                return false;
-            } else {
-                return $responce;
-            }
-        }
-    }
-
-    function Voidauthrioze($trans_id) {
-        $aut3 = new AuthNet();
-        $responce = $aut3->voidAuthorization($trans_id);
-        return $responce;
-    }
-
     public function sendupgrademail($id) {
         $userData = $this->commonmodel->getuserdetail($id);
         $email_data = $this->commonmodel->getemailInfo(2);
@@ -547,24 +535,6 @@ class karmora extends CI_Controller {
         $to = $userData->user_email;
         $result = $this->send_mail($to, $subject, $message);
         return $result;
-    }
-
-    public function set_session_login($row) {
-        $userSessionData = array();
-        $user_detail = $this->commonmodel->getFounder($row[0]['pk_user_id']);
-        foreach ($row as $userData) {
-            $userSessionData['id'] = $userData['pk_user_id'];
-            $userSessionData['user_account_type_id'] = $user_detail['user_account_type_id'];
-            $userSessionData['user_account_type_title'] = $user_detail['user_account_type_title'];
-            $userSessionData['username'] = $userData['user_username'];
-            $userSessionData['email'] = $userData['user_email'];
-            $userSessionData['user_phone_no'] = $userData['user_phone_no'];
-            $userSessionData['status'] = $userData['user_status'];
-            $userSessionData['user_first_name'] = $userData['user_first_name'];
-            $userSessionData['user_last_name'] = $userData['user_last_name'];
-            $userSessionData['subid'] = $userData['user_subid'];
-        }
-        return $userSessionData;
     }
 
     public function calculateTax($Region, $type, $taxprice = NULL) {

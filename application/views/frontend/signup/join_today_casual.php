@@ -18,9 +18,9 @@
             echo $this->session->flashdata($flashKey);
             echo form_open(base_url('join-casual'));
 
-            $this->load->view($view. 'partials/signup_form');
+            $this->load->view($viewForm. 'signup_form');
             
-            is_null($username) ? $this->load->view($view. 'partials/referrer_form') : '';
+            is_null($username) ? $this->load->view($viewForm. 'referrer_form') : '';
             ?>
 
             <div class="col-12 text-center">

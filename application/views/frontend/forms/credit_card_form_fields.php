@@ -1,39 +1,30 @@
-<div class="single-field-cover text-left">
-    <div class="col-md-4 col-sm-4 revamp-padding field-labels">
-        <label for="input-id">Expiration Date <span
-                class="danger">*</span></label>
-    </div>
-    <div class="col-md-4 col-sm-4 revamp-padding field-input">
-        <div class="select-state-dropdown">
-            <select name="" id="input" class="form-control" autocomplete="off">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
+<div class="payment-icons text-center">
+    <img src="<?php echo $themeUrl; ?>/public/images/payment-icons.png" alt="">
+</div> 
+<div class="form-group">
+    <div class="row">
+        <label class="col-sm-4 col-form-label">Card Number <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+            <input type="text" name="payment_detail[number]" class="form-control" id="card-number" aria-describedby="addresHelp" placeholder="">
         </div>
     </div>
-    <div class="col-md-4 col-sm-4 revamp-padding field-input">
-        <div class="select-state-dropdown">
-            <select name="" id="input" class="form-control" autocomplete="off">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </div>
-    </div>
-    <div class="col-md-1"></div>
 </div>
-<div class="clearfix"></div>
-<!-- Single Field Cover -->
-<div class="single-field-cover text-left">
-    <div class="col-md-4 col-sm-4 revamp-padding field-labels">
-        <label for="input-id"><span data-toggle="tooltip"
-                                    title="There is some description...">CVV</span>
-            <span class="danger">*</span></label>
+<div class="form-group">
+    <div class="row">
+        <label class="col-sm-4 col-form-label">Expiration Date <span class="text-danger">*</span></label>
+        <div class="col-sm-4">
+            <input type="text" name="payment_detail[month]" class="form-control" id="card-number" aria-describedby="addresHelp" placeholder="MM">
+        </div>
+        <div class="col-sm-4 p-l-0">
+            <input type="text" name="payment_detail[year]" class="form-control" id="card-number" aria-describedby="addresHelp" placeholder="YYYY">
+        </div>
     </div>
-    <div class="col-md-8 col-sm-8 revamp-padding field-input">
-        <input type="text" name="" id="input1" class="form-control" value=""
-               pattern="" title="" placeholder="Three digits on back of card" autocomplete="off">
+</div>
+<div class="form-group">
+    <div class="row">
+        <label class="col-sm-4 col-form-label">CVV <span class="text-danger">*</span></label>
+        <div class="col-sm-8">
+            <input type="text" name="payment_detail[cvv]" class="form-control" id="card-number" aria-describedby="addresHelp" placeholder="">
+        </div>
     </div>
-    <div class="col-md-1"></div>
 </div>
