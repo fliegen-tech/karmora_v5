@@ -537,7 +537,7 @@ class karmora extends CI_Controller {
         return $result;
     }
 
-    public function calculateTax($Region, $type, $taxprice = NULL) {
+    /*public function calculateTax($Region, $type, $taxprice = NULL) {
         $total_payed_calculate = $this->input->post('total_payed_calculate');
         $amount = str_replace(',', '', $total_payed_calculate);
         $street_adrees = $_POST['shipping_detail']['street_address'];
@@ -595,7 +595,7 @@ class karmora extends CI_Controller {
         } else {
             return $tax_Cost;
         }
-    }
+    }*/
 
     public function returnresponceTaxApi($resultArray, $type) {
         if (!empty($resultArray)) {

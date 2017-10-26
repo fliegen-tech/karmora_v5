@@ -284,8 +284,8 @@ $route['(:any)/welcome'] = "signup/welcome/$1";
 
 //ajax call routes
 
-$route['calculateTax'] = "Ajaxcallz/calculateTax";
-$route['(:any)/calculateTax'] = "Ajaxcallz/calculateTax/$1";
+$route['calculateTax'] = "Ajaxcallz/calculatetax";
+$route['(:any)/calculateTax'] = "Ajaxcallz/calculatetax/$1";
 
 
 // Authorize.net testing

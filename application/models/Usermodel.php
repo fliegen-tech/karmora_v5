@@ -25,7 +25,8 @@ class Usermodel extends commonmodel {
         if ($statement->execute()) {
             $response['query_status'] = TRUE;
             $response['user_id'] = $this->lastInsertId();
-            $this->insertUserAccountType(array('user_id' => $response['user_id'], 'acc_type_id' => $param['acc_type'], 'status' => 'active'));
+            in_array($param['acc_type'], array(3)) ?
+                            $this->insertUserAccountType(array('user_id' => $response['user_id'], 'acc_type_id' => $param['acc_type'], 'status' => 'active')) : '';
         } else {
             $response['query_status'] = FALSE;
             $response['error_info'] = $this->errorInfo($statement);
@@ -74,11 +75,22 @@ class Usermodel extends commonmodel {
         return $response;
     }
 
+    public function updateAuthId($userId, $authId) {
+        $query = "UPDATE tbl_users SET user_authorize_net_sub_id = :authId WHERE pk_user_id = :userId";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':userId', $userId, PDO::PARAM_INT);
+        $statement->bindParam(':authId', $authId, PDO::PARAM_STR);
+        if ($statement->execute()) {
+            $response['query_status'] = TRUE;
+        } else {
+            $response['query_status'] = FALSE;
+            $response['error_message'] = $this->errorInfo($statement);
+        }
+        return $response;
+    }
 
-    
     public function getSignupPromo($promoId) {
         $query = "SELECT * FROM tbl_signup_promo WHERE pk_promo_id = :promoId";
-        echo $query;
         $statement = $this->prepQuery($query);
         $statement->bindParam(':promoId', $promoId, PDO::PARAM_INT);
         $statement->execute();
@@ -92,6 +104,7 @@ class Usermodel extends commonmodel {
         $response = $queryRS->num_rows() > 0 ? $queryRS->row() : '';
         return $response;
     }
+
     public function getuser_exective_summary($user_id) {
 
         $query = "SELECT * from view_my_account_exective_summary where pk_user_id = $user_id";
@@ -103,6 +116,7 @@ class Usermodel extends commonmodel {
             return '';
         }
     }
+
     public function getUserorders($user_id) {
 
         $sql = "select * from view_my_orders where fk_user_id ='" . $user_id . "'";
@@ -112,6 +126,29 @@ class Usermodel extends commonmodel {
         } else {
             return '';
         }
+    }
+
+    public function InsertAddress($userId, $data) {
+        $query = "INSERT INTO tbl_user_address
+            SET fk_users_id = :userId, user_address_street_address = :streeAddress, user_address_street_address_2 = :streeAddress_2,
+            user_address_city_name = :city, user_address_zip_code = :zipCode, fk_user_address_state_id = :stateId,
+            fk_user_address_country_id = :countryId, user_address_create_date = NOW(), user_address_current = 'false'";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':userId', $userId, PDO::PARAM_STR);
+        $statement->bindParam(':streeAddress', $data['address1'], PDO::PARAM_STR);
+        $statement->bindParam(':streeAddress_2', $data['address2'], PDO::PARAM_STR);
+        $statement->bindParam(':city', $data['city'], PDO::PARAM_STR);
+        $statement->bindParam(':zipCode', $data['zip_code'], PDO::PARAM_STR);
+        $statement->bindParam(':stateId', $data['state'], PDO::PARAM_STR);
+        $statement->bindParam(':countryId', $data['country'], PDO::PARAM_STR);
+        if ($statement->execute()) {
+            $response['query_status'] = TRUE;
+            $response['address_id'] = $this->lastInsertId();
+        } else {
+            $response['query_status'] = FALSE;
+            $response['error_message'] = $this->errorInfo($statement);
+        }
+        return $response;
     }
 
     public function getuser_trackingdetail($user_id) {
@@ -262,7 +299,7 @@ class Usermodel extends commonmodel {
     }
 
     public function getMemberCurrentAddress($member_id = null) {
-        $response = '';
+        $response = array();
         if ($member_id !== null) {
             $query = "SELECT *
                         FROM view_member_address AS addr
@@ -273,7 +310,7 @@ class Usermodel extends commonmodel {
 
             if (count($data) > 0) {
                 $response['address'] = $data[0];
-                //var_dump($response['address']);exit;
+                //var_dump($data[0]);exit;
             } else {
 
                 $response['address'] = FALSE;

@@ -5,16 +5,12 @@ if (!defined('BASEPATH'))
 
 class Ajaxcallz extends karmora {
 
-    public $data;
-    function __construct() {
-        parent::__construct(); //call to parent constructor
+    public $data = array();
+    public function __construct(){
+        parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
-        $this->load->helper('url');
-        $this->load->model('commonmodel');
-        $this->load->model('usermodel');
-        require_once('AuthNet.php');
+        $this->load->model(array('usermodel','commonmodel'));
     }
-
     function authrioze($username = null){
             //$this->session->unset_userdata('landing_data'); // unset your sessions
         $postLim = $this->input->post();
@@ -79,8 +75,11 @@ class Ajaxcallz extends karmora {
             
     }
 
-    function calculateTaxCheckout($user_name = NULL) {
-        ($var > 2 ? true : false);
+    function calculatetax($user_name = NULL) {
+        $posts              = $this->input->post();
+        $sameshipaddress    = $posts['sameshipaddress'];
+        $address_post    = ($sameshipaddress == 1 ? $posts['shipping_address'] : $posts['billing_address']);
+        echo '<pre>'; print_r($address_post); die;
         $street_adrees = $_POST['shipping_detail']['street_address'];
         $city = $_POST['shipping_detail']['city'];
         $zipcode = $_POST['shipping_detail']['zipcode'];
