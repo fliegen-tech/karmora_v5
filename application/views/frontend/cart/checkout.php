@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" id="form" name="form">
 <section class="premier-signup-sec page-spacing">
     <div class="container">
         <div class="row">
@@ -72,7 +72,7 @@
             <div class="paynow">
                 <div class="col-12">
                     <div class="pay-now text-center">
-                        <a href="" class="btn btn-joinnow left-right-hover">Pay Now</a>
+                        <a onclick="getname()"  class="btn btn-joinnow left-right-hover">Pay Now</a>
                         <a href=""><img src="<?php echo $themeUrl ?>/frontend/images/money-back.png" alt=""></a>
                     </div>
                 </div>
@@ -94,6 +94,12 @@
 <input type="hidden" name="karmora_commsion" id="karmora_commsion" value="<?php echo $commsion_value; ?>">
 
 </form>
+<script>
+    function getname(){
+        var value = $("#form").serializeArray();
+        console.log(value);
+    }
+</script>
 <!--====  End of Join Now ====-->
 
 
@@ -542,100 +548,14 @@
     </div>
   </div>
 </div> 
-<script>
-function calucaltetax(){
-    if($('#sameshipaddress').is(":checked")){
-        var result = $("[name='shipping_detail[street_address]']");
-        var Line1  = result.val();
-        var result = $("[name='shipping_detail[city]']");
-        var City   = result.val();
-        var result = $("[name='shipping_detail[zipcode]']");
-        var PostalCode = result.val();
-        var RegionStr   = $("#statesList_as_billing").find("option:selected").text();
-        var RegionArray = RegionStr.split("-");
-        var region = RegionArray[0].replace(/\s/g, '');
-        var result = $("[name='shipping_detail[phone]']");
-        var PhoneNo = result.val();
-        
-    }else{
-       var result = $("[name='biling_detail[street_address]']");
-        var Line1  = result.val();
-        var result = $("[name='biling_detail[city]']");
-        var City   = result.val();
-        var result = $("[name='biling_detail[zipcode]']");
-        var PostalCode = result.val();
-        var RegionStr   = $("#statesList").find("option:selected").text();
-        var RegionArray = RegionStr.split("-");
-        var region = RegionArray[0].replace(/\s/g, '');
-        var result = $("[name='biling_detail[phone]']");
-        var PhoneNo = result.val(); 
-        
-    }
-        if(PhoneNo.length < 7){
-           PhoneNo = '';
-        }
-        if(PostalCode.length < 5){
-           PostalCode = '';
-        }
-        if(Line1.length < 2){
-           Line1 = '';
-        }
-        if(City.length < 2){
-           City = '';
-        }
-        jQuery('#region_hidden').val(region);
-        if(Line1!='' && City!='' && PostalCode!='' & region!='' & PhoneNo!=''){
-            var form = jQuery("#form");
-            var data = form.serialize();
-                jQuery.ajax({
-                 type: 'POST', 
-                 url: baseurl+'calculateTax/'+region+'/ajax',
-                 data:data,
-                 form: form,
-                 context: document.body,
-                 error: function(data, transport) { },
-                 success: function(data){
-                     console.info(data);
-                     if(data == 'erroronaddress'){
-                            jQuery('#tax_price_hidden').val(0);
-                            $("#submit_button").hide();
-                            getproductfinal();
-                            $("#sameshipaddresshide").show();
-                            $('#error_message_tax').focus();
-                            $('#sameshipaddress').attr('checked',false);
-                            $("#error_message_tax").html('<div class="alert alert-danger">The Provided Address Is incorrect </div>');
-                    }else{
-                            var tax_price = parseFloat(data).toFixed(2);
-                            jQuery('#karmora_tax_price').html('$'+tax_price);
-                            jQuery('#tax_price_hidden').val(data);
-                            $("#submit_button").show();
-                            $("#error_message_tax").html('');
-                            getproductfinal();
-                            
-                }       }
-              });
-        }else{
-            //$("#error_message_tax").html('<div class="alert alert-danger">Please insert complete address. </div>');
-            jQuery('#tax_price_hidden').val(0);
-            getproductfinal();                        
-        }    
-}
-</script>
+
 <?php //$this->load->view('frontend/cart/checkout_js'); ?>
 
 
 <!-- End karmora-refund-policy -->
 
 
-<script>
-function getname(name_value){
-    if (name_value !== '') {
-            $("#billing_address_name").val(name_value);
-    }else{
-          $("#billing_address_name").val();  
-    }
-}
-</script>
+
 
 
 <script>

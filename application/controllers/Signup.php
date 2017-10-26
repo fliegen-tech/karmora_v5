@@ -12,6 +12,7 @@ class Signup extends karmora {
     private $userObj;
     private $loginObj;
     private $prdObj;
+    private $orderObj;
 
     function __construct() {
         parent::__construct(); //call to parent constructor
@@ -33,6 +34,7 @@ class Signup extends karmora {
         $this->userObj = new Usermodel;
         $this->loginObj = new Loginmodel;
         $this->prdObj = new Productmodel;
+        $this->orderObj = new Ordermodel;
     }
 
     public function index($username = NULL) {
@@ -75,7 +77,13 @@ class Signup extends karmora {
             $this->session->set_flashdata($this->data['flashKey'], $message);
             $userData['user_id'] = $newUser['user_id'];
             $userData['username'] = 1000 + $newUser['user_id'];
+            in_array($userData['acc_type'], array(3)) ? 
+                    $this->userObj->updateUsername($userData['user_id'], $userData['username']) : '';
             in_array($userData['acc_type'], array(3)) ? $this->userSignupSuccessful($userData) : '';
+        } elseif (!$newUser['query_status'] && in_array($data['acc_type'], array(5))) {
+            $message = str_replace($this->alertMessages['str_replace'], $newUser['error_info'], $this->alertMessages['warning']);
+            $this->session->set_flashdata($this->data['flashKey'], $message);
+            return redirect(base_url('join-today-premier'));
         } else {
             $message = str_replace($this->alertMessages['str_replace'], $newUser['error_info'], $this->alertMessages['warning']);
             $this->session->set_flashdata($this->data['flashKey'], $message);
@@ -108,7 +116,7 @@ class Signup extends karmora {
 
     private function getPrimierSignupData() {
         $this->data['productList'] = $this->prdObj->getproducts($this->active);
-        $this->data['statesList']  = $this->userObj->getStatesofCountry(1);
+        $this->data['statesList'] = $this->userObj->getStatesofCountry(1);
         $this->data['countryList'] = $this->userObj->getCountries();
         $this->data['signupPromo'] = $this->userObj->getSignupPromo($this->signupPromo);
     }
@@ -117,6 +125,7 @@ class Signup extends karmora {
         $this->verifyUser($username);
         if ($this->input->post('submit')) {
             $this->validatePremierPost();
+            $this->checkCard($this->input->post());
             $post = $this->input->post();
             $referrer = $this->userObj->getUserDetails($post['referrer']);
             $post['ref_id'] = !$referrer ? $this->currentUser['userid'] : $referrer['pk_user_id'];
@@ -130,30 +139,39 @@ class Signup extends karmora {
         }
     }
 
+    private function checkCard($data) {
+        $runAuth = $this->runauthrioze($data);
+        if ($runAuth['transaction_status']) {
+            $this->Voidauthrioze($runAuth['transaction_id']);
+        } else {
+            $message = str_replace($this->alertMessages['str_replace'], $runAuth['error_message'], $this->alertMessages['danger']);
+            $this->session->set_flashdata($this->data['flashKey'], $message);
+            redirect(base_url('join-today-premier'));
+        }
+        return;
+    }
+
     private function processPremierSignup($userData) {
         $arrData = array(
             'card' => $this->setCardInfo($userData),
             'userData' => $this->setUserInfoForARB($userData),
             'subscription' => $this->userObj->getSubscriptionInfowithId(1),
+            'premierPromo' => $this->userObj->getSignupPromo($this->signupPromo),
             'orderData' => $userData['product'],
             'shippingAddress' => $userData['shipping_address'],
             'same_as_shipping' => $userData['same_as_shiping'],
             'billingAddress' => $userData['same_as_shipping'] ? FALSE : $userData['shipping_address'],
         );
-        $arbResult = $this->processARB($arrData);
-        $arrData['shippingAddress']['id']= $this->saveAddress($arrData['userData']['user_id'], $arrData['shippingAddress'], 'shipping');
-        $arrData['billingAddress']['id'] = !$arrData['billingAddress'] ? $arrData['shippingAddress']['id'] : $this->saveAddress($arrData['userData']['user_id'], $arrData['billing_address'], 'billing');
-        $arrData['taxAmount'] = 0;
-        $arrData['totalAmount'] = $arrData['subscription']['']+$arrData['subscription']['']+ $arrData['taxAmount'];
-        $orderResult = $this->saveOrder($arrData);
+
+        $this->processARB($arrData);
+        $this->saveOrder($arrData);
+        $this->userSignupSuccessful($userData['user_data']);
     }
-    
-    
 
     private function setCardInfo($userData) {
         return array(
             'number' => $userData['payment_detail']['number'],
-            'exp_date' => $userData['payment_detail']['month'] . '-' . $userData['payment_detail']['year'],
+            'exp_date' => $userData['payment_detail']['year'] . '-' . $userData['payment_detail']['month'],
             'cvv' => $userData['payment_detail']['cvv']
         );
     }
@@ -173,6 +191,7 @@ class Signup extends karmora {
         if ($result['transaction_status']) {
             $message .= str_replace($this->alertMessages['str_replace'], "Recurring billing has been setup", $this->alertMessages['success']);
             $authSubidUpdate = $this->userObj->updateAuthId($data['userData']['user_id'], $result['subscription_id']);
+            $this->userObj->insertUserAccountType(array('user_id' => $data['user_id'], 'acc_type_id' => $data['acc_type'], 'status' => 'active'));
             $message .= $authSubidUpdate['query_status'] ? '' : str_replace($this->alertMessages['str_replace'], 'Subscription Id update failed. Send email to support@karmora.com with username:' . $data['userData']['username'] . ', email:' . $data['userData']['email'] . ' and subsctription ID:' . $data['subscription']['subscription_id'] . ' to update your record.', $this->alertMessages['danger']);
         } else {
             $message .= str_replace($this->alertMessages['str_replace'], $result['error_code'] . ' : ' . $result['error_message'], $this->alertMessages['danger']);
@@ -181,15 +200,62 @@ class Signup extends karmora {
         return $result;
     }
 
-    private function saveOrder($data) {
+    private function saveOrder($arrdata) {
         $message = $this->session->flashdata($this->data['flashKey']);
-        $billingAddress = $data['same_as_shipping'] ? $data['shippingAddress'] : $data['billingAddress'];
-        $addResult = $this->setAddressForOrder($billingAddress);
-        $data['order_number'] = hexdec(uniqid());
-        $result = $this;
+        $arrData['shipping_id'] = $this->saveAddress($arrData['userData']['user_id'], $arrData['shippingAddress'], 'shipping');
+        $arrData['billing_id'] = !$arrData['billingAddress'] ? $arrData['shippingAddress']['id'] : $this->saveAddress($arrData['userData']['user_id'], $arrData['billing_address'], 'billing');
+        $arrData['shipping_amount'] = $arrData['premierPromo']['promo_shipping'];
+        $arrData['upgrade_amount'] = $arrData['premierPromo']['promo_price'];
+        $arrData['comm_amount'] = 0;
+        $arrData['taxAmount'] = 0;
+        $arrData['kash_amount'] = 0;
+        $arrData['totalAmount'] = $arrData['premierPromo']['promo_price'] + $arrData['premierPromo']['promo_shipping'] + $arrData['taxAmount'];
+        $arrData['order_number'] = hexdec(uniqid());
+        $arrData['resultOrder'] = $this->orderObj->insertOrderBeforeAuthorization($arrData);
+        if ($arrData['resultOrder']['query_status']) {
+            $message .= str_replace($this->alertMessages['str_replace'], 'Order# ' . $arrData['order_number'] . ' saved.', $this->alertMessages['success']);
+            $billingAddress = $arrData['same_as_shipping'] ? $arrData['shippingAddress'] : $arrData['billingAddress'];
+            $arrData['billingAddress_cc'] = $this->setAddressForOrder($billingAddress);
+            $arrData['ccCharged'] = $this->chargeCC($arrData);
+            $this->updateOrderAuthId($arrData['resultOrder']['order_id'], $arrData['ccCharged']['transaction_id']);
+            $this->saveOrderLine($arrData);
+        } else {
+            $message .= str_replace($this->alertMessages['str_replace'], 'Could not save order.', $this->alertMessages['danger']);
+            $this->session->set_flashdata($this->data['flashKey'], $message);
+        }
+        return $arrData;
     }
-    
-    private function setAddressForOrder($address){
+
+    private function chargeCC($data) {
+        $message = $this->session->flashdata($this->data['flashKey']);
+        $data['billing_address'] = $data['billingAddress_cc']['address'];
+        $data['billing_city'] = $data['billingAddress_cc']['city'];
+        $data['billing_state'] = $data['billingAddress_cc']['state'];
+        $data['billing_zip'] = $data['billingAddress_cc']['zip'];
+        $data['billing_country'] = $data['billingAddress_cc']['country'];
+        $transResult = $this->CCtransection($data);
+        if ($transResult['transaction_status']) {
+            $message .= str_replace($this->alertMessages['str_replace'], 'Card charged for amount $' . number_format($data['totalAmount'], 2, '.', ','), $this->alertMessages['success']);
+        } else {
+            $message .= str_replace($this->alertMessages['str_replace'], $transResult['error_message'], $this->alertMessages['danger']);
+        }
+        $this->session->set_flashdata($this->data['flashKey'], $message);
+        return $transResult;
+    }
+
+    private function saveOrderLine($lineData) {
+        $line1 = array(
+            'order_id' => $lineData['resultOrder']['order_id'],
+            'line_number' => 10,
+            'product_id' => $lineData['product'],
+            'acc_type_id' => $lineData['acc_type'],
+            'line_price' => 0,
+            'qty' => 1
+        );
+        return $this->orderObj->insertOrderLine($line1);
+    }
+
+    private function setAddressForOrder($address) {
         $addressState = $this->userObj->getStateWithId($address['state']);
         $addressCountry = $this->userObj->getCountryWithId($address['country']);
         return array(
@@ -210,7 +276,14 @@ class Signup extends karmora {
         $this->session->set_flashdata($this->data['flashKey'], $message);
         return $addResult['query_status'] ? $addResult['address_id'] : FALSE;
     }
-    
+
+    private function updateOrderAuthId($orderId, $authId) {
+        $message = $this->session->flashmessage($this->data['flashKey']);
+        $result = $this->orderObj->updateOrderAuthId($orderId, $authId);
+        $message .= !$result ? '' : str_replace($this->alertMessages['str_replace'], $result, $this->alertMessages['warning']);
+        return;
+    }
+
     private function validatePremierPost() {
 //        write valiadte for premier signup;
         return TRUE;
@@ -221,7 +294,7 @@ class Signup extends karmora {
     }
 
     private function userSignupSuccessful($newUser) {
-        $this->userObj->updateUsername($newUser['user_id'], $newUser['username']);
+        
 
 //        send email to user and referral pending.
 //        
