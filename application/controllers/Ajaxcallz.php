@@ -78,36 +78,29 @@ class Ajaxcallz extends karmora {
     function calculatetax($user_name = NULL) {
         $posts              = $this->input->post();
         $sameshipaddress    = $posts['sameshipaddress'];
-        $address_post    = ($sameshipaddress == 1 ? $posts['shipping_address'] : $posts['billing_address']);
-        echo '<pre>'; print_r($address_post); die;
-        $street_adrees = $_POST['shipping_detail']['street_address'];
-        $city = $_POST['shipping_detail']['city'];
-        $zipcode = $_POST['shipping_detail']['zipcode'];
+        $address_post       = ($sameshipaddress == 1 ? $posts['shipping_address'] : $posts['billing_address']);
+        $state_detail       = $this->usermodel->getstatename($address_post['state']);
+        $address_state_code = $state_detail->user_address_state_code;
+        $karmora_cash       = str_replace(',', '', $posts['karmora_cash']);
+        $ordertotal         = str_replace(',', '', $posts['ordertotal']);
+        $amount             = ($posts['karmora_cash_check'] == 1 ? ($ordertotal - $karmora_cash) : $ordertotal);
 
-
-        $karmora_cash = str_replace(',', '', $_POST['karmora_cash']);
-        $total_payed = str_replace(',', '', $_POST['total_payed']);
-        if (isset($_POST['karmora_cash_check']) && $_POST['karmora_cash_check'] == 1) {
-            $amount = $total_payed - $karmora_cash;
-        } else {
-            $amount = $total_payed;
-        }
         $condation = "SalesOrder";
         $number = 'Karma-' . date('i-s') . '-' . rand();
         $fields = array(
-            "CompanyCode" => 'karmora',//live
-            //"CompanyCode" => 'karma',//staging
+            //"CompanyCode" => 'karmora',//live
+            "CompanyCode" => 'karma',//staging
             "CustomerCode" => $number,
             "DocCode" => $number,
             "DocType" => $condation,
             "DocDate" => date('Y-m-d'),
             "Addresses" => array(array(
                 "AddressCode" => "01",
-                "Line1" => $street_adrees,
-                "City" => $city,
-                "Region" => $Region,
+                "Line1" => $address_post['address1'],
+                "City" => $address_post['city'],
+                "Region" => $address_state_code,
                 "Country" => "US",
-                "PostalCode" => $zipcode,
+                "PostalCode" => $address_post['zip_code'],
             )),
             "Lines" => array(array(
                 "LineNo" => "1",
@@ -119,52 +112,29 @@ class Ajaxcallz extends karmora {
         );
         $jason = json_encode($fields);
         $headers = array();
-        $headers[] = 'authorization=> Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw';//live
-        //$headers[] = 'authorization=> Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy';//staging
-        $ch = curl_init('https://avatax.avalara.net/1.0/tax/get');//live
-        //$ch = curl_init('https://development.avalara.net/1.0/tax/get');//staging
+        //$headers[] = 'authorization=> Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw';//live
+        $headers[] = 'authorization=> Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy';//staging
+        //$ch = curl_init('https://avatax.avalara.net/1.0/tax/get');//live
+        $ch = curl_init('https://development.avalara.net/1.0/tax/get');//staging
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jason);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
-                'authorization : Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw', //live
-                //'authorization : Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy',//staging
+                //'authorization : Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw', //live
+                'authorization : Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy',//staging
                 'Content-Length: ' . strlen($jason))
         );
         $result = curl_exec($ch);
         $resultArray = json_decode($result);
         if (!empty($resultArray)) {
-            if ($resultArray->ResultCode == 'Error') {
-                if ($type == 'ajax') {
-                    echo 'erroronaddress';
-                    die;
-                } else {
-                    return 'error';
-                }
-            }
             if ($resultArray->ResultCode == 'Success') {
-                if ($type == 'ajax') {
-                    echo $resultArray->TotalTaxCalculated;
-                    die;
-                } else {
-                    return $resultArray->TotalTaxCalculated;
-                }
+                echo $resultArray->TotalTaxCalculated; exit();
             } else {
-                if ($type == 'ajax') {
-                    echo 0;
-                    die;
-                } else {
-                    return 0;
-                }
+                echo 'error'; exit();
             }
         } else {
-            if ($type == 'ajax') {
-                echo 0;
-                die;
-            } else {
-                return 0;
-            }
+            echo 'error'; exit();
         }
     }
 

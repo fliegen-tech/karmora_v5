@@ -80,14 +80,6 @@
         </div>
     </div>
 </section>
-<input type="hidden" id="actualCost_without_shipping_cost" value="<?php echo  $actualCost_without_shipping_cost; ?>" />
-<input type="hidden" id="actual_cost" value="<?php echo  $actualCost; ?>" />
-<input type="hidden" name="actual_cost_non_edit" id="actual_cost_non_edit" value="<?php echo  $actualCost; ?>" />
-<input type="hidden" name="order_shipping_cost" id="order_shipping_cost" value="<?php echo  $shipping_cost; ?>" />
-<input type="hidden" name="total_payed" value="<?php echo $actualCost; ?>" id="total_payed_value">
-<input type="hidden" name="total_payed_calculate" value="<?php echo $actualCost; ?>" id="total_payed_calculate">
-<input type="hidden" name="region" value="" id="region_hidden">
-<input type="hidden" name="tax_price_hidden" id="tax_price_hidden" value="0" />
 <input type="hidden" id="ordertotal" value="<?php echo $actualCost ?>" />
 <input type="hidden" id="tax" value="0" />
 <input type="hidden" id="karmora_kash_use" value="0" />
