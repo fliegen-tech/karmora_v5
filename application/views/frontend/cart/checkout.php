@@ -80,7 +80,7 @@
         </div>
     </div>
 </section>
-<input type="hidden" id="ordertotal" value="<?php echo $actualCost ?>" />
+<input type="hidden" name="ordertotal" id="ordertotal" value="200<?php //echo $actualCost ?>" />
 <input type="hidden" id="tax" value="0" />
 <input type="hidden" id="karmora_kash_use" value="0" />
 <input type="hidden" name="karmora_commsion" id="karmora_commsion" value="<?php echo $commsion_value; ?>">

@@ -84,7 +84,6 @@ class Ajaxcallz extends karmora {
         $karmora_cash       = str_replace(',', '', $posts['karmora_cash']);
         $ordertotal         = str_replace(',', '', $posts['ordertotal']);
         $amount             = ($posts['karmora_cash_check'] == 1 ? ($ordertotal - $karmora_cash) : $ordertotal);
-
         $condation = "SalesOrder";
         $number = 'Karma-' . date('i-s') . '-' . rand();
         $fields = array(
@@ -127,6 +126,7 @@ class Ajaxcallz extends karmora {
         );
         $result = curl_exec($ch);
         $resultArray = json_decode($result);
+        echo '<pre>'; print_r($resultArray); die;
         if (!empty($resultArray)) {
             if ($resultArray->ResultCode == 'Success') {
                 echo $resultArray->TotalTaxCalculated; exit();

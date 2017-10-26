@@ -13,7 +13,7 @@
                     <div class="alert alert-warning">
                         <?php echo $message; ?>
                     </div>
-                <?php } ?>
+                <?php } ?> 
                 <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="input-field-label">Email Address <span class="text-danger">*</span></label>
