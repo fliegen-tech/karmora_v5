@@ -1,6 +1,3 @@
-<?php $exclusiveProductTotal = 0; $shipping_cost = 0; ?>
-<?php $actualCost_without_shipping_cost = number_format($this->cart->total()  , 2, '.', ',');?>
-<?php $actualCost = number_format($this->cart->total() + $shipping_cost , 2, '.', ',');?>
 <div class="cart-table">
     <div class="topbar-table">
         <h5>Cart Items <a class="edit-btn" href="#">Edit</a></h5>
@@ -39,24 +36,28 @@
             <td scope="row">Exclusive Products</td>
             <td>$<?php echo number_format($exclusiveProductTotal, 2, '.', ','); ?></td>
         </tr>
+        <tr id="karmora_kash_disply">
+            <td scope="row">Karmora Kash</td>
+            <td style="color: red;" id="karmora_kash_use_html"></td>
+        </tr>
         <tr>
             <td scope="row"><strong>Subtotal</strong></td>
-            <td><strong>$<?php echo number_format($exclusiveProductTotal, 2, '.', ','); ?></strong></td>
+            <td><strong id="product_total_with_karmora_Kash">$<?php echo number_format($exclusiveProductTotal, 2, '.', ','); ?></strong></td>
         <tr>
             <td scope="row">Shipping & Handling</td>
-            <td>$<?php echo number_format($shipping_cost, 2, '.', ','); ?></td>
+            <td>$<?php echo number_format($cart_info['shipping_cost'], 2, '.', ','); ?></td>
         </tr>
         <tr>
             <td scope="row">Tax</td>
-            <td>$<?php echo number_format(0, 2, '.', ','); ?></td>
+            <td id="tax_price_html">$<?php echo number_format(0, 2, '.', ','); ?></td>
         </tr>
         <tr>
             <td scope="row"><strong>Order Total:</strong></td>
-            <td><strong>$<?php echo $actualCost; ?></strong></td>
+            <td><strong id="order_total_html">$<?php echo $cart_info['actualCost']; ?></strong></td>
         </tr>
         <tr>
             <td scope="row"><strong>Charge Amount:</strong></td>
-            <td><strong>$<?php echo $actualCost; ?></strong></td>
+            <td><strong id="charge_amount_html">$<?php echo $cart_info['actualCost']; ?></strong></td>
         </tr>
         </tbody>
     </table>

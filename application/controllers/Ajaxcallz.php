@@ -84,14 +84,14 @@ class Ajaxcallz extends karmora {
         $karmora_cash       = str_replace(',', '', $posts['karmora_cash']);
         $ordertotal         = str_replace(',', '', $posts['ordertotal']);
         $amount             = ($posts['karmora_cash_check'] == 1 ? ($ordertotal - $karmora_cash) : $ordertotal);
-        $condation = "SalesOrder";
+        $DocType            = "SalesOrder";
         $number = 'Karma-' . date('i-s') . '-' . rand();
         $fields = array(
             //"CompanyCode" => 'karmora',//live
-            "CompanyCode" => 'karma',//staging
+            "CompanyCode" => '	karmora',//staging
             "CustomerCode" => $number,
             "DocCode" => $number,
-            "DocType" => $condation,
+            "DocType" => $DocType,
             "DocDate" => date('Y-m-d'),
             "Addresses" => array(array(
                 "AddressCode" => "01",
@@ -111,22 +111,21 @@ class Ajaxcallz extends karmora {
         );
         $jason = json_encode($fields);
         $headers = array();
-        //$headers[] = 'authorization=> Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw';//live
-        $headers[] = 'authorization=> Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy';//staging
-        //$ch = curl_init('https://avatax.avalara.net/1.0/tax/get');//live
-        $ch = curl_init('https://development.avalara.net/1.0/tax/get');//staging
+        $headers[] = 'authorization=> Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw';//live
+        //$headers[] = 'authorization=> Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy';//staging
+        $ch = curl_init('https://avatax.avalara.net/1.0/tax/get');//live
+        //$ch = curl_init('https://development.avalara.net/1.0/tax/get');//staging
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jason);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
-                //'authorization : Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw', //live
-                'authorization : Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy',//staging
+                'authorization : Basic MjAwMDAwMzk2Nzo2MUQyRDFCRTlBRTg0RkQw', //live
+                //'authorization : Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy',//staging
                 'Content-Length: ' . strlen($jason))
         );
         $result = curl_exec($ch);
         $resultArray = json_decode($result);
-        echo '<pre>'; print_r($resultArray); die;
         if (!empty($resultArray)) {
             if ($resultArray->ResultCode == 'Success') {
                 echo $resultArray->TotalTaxCalculated; exit();

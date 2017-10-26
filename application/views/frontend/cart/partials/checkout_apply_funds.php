@@ -9,10 +9,10 @@
         </div>
         <div class="col-3">
             <div class="switch">
-                <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
-                <label for="cmn-toggle-4"></label>
+                <input id="karmora_kash_checkBox" name="karmora_kash_checkBox" value="1" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                <label for="karmora_kash_checkBox"></label>
             </div>
-            <input type="hidden" name="karmora_cash" id="karmora_cash" value="<?php echo $redum_value; ?>">
+            <input type="hidden" name="karmora_kash" id="karmora_kash" value="<?php echo $redum_value; ?>">
         </div>
     </div>
     <?php } ?>
@@ -20,16 +20,16 @@
         <div class="col-9">
             <div class="funds-leftbar">
                 <h3>Apply eWallet Funds</h3>
-                <p>You have <span>$<?php echo number_format($available_commsion, 2, '.', ','); ?></span> of Karmora Kash available. You can use up to <span>$59.95</span> towards this purchase. Would you like to apply Karmora Kash?</p>
+                <p>You have <span>$<?php echo number_format($available_commsion, 2, '.', ','); ?></span> of Karmora Kash available. You can use up to <span>$<?php echo number_format($commsion_value, 2, '.', ','); ?></span> towards this purchase. Would you like to apply Karmora Kash?</p>
             </div>
         </div>
         <?php if (isset($commsion_value) && $commsion_value > 0 ) { ?>
         <div class="col-3">
             <div class="switch">
-                <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
-                <label for="cmn-toggle-4"></label>
+                <input id="karmora_commsion_checkBox" name="karmora_commsion_checkBox" value="1" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+                <label for="karmora_commsion_checkBox"></label>
             </div>
-            <input type="hidden" name="karmora_cash" id="karmora_cash" value="<?php echo $redum_value; ?>">
+            <input type="hidden" name="karmora_commsion" id="karmora_commsion" value="<?php echo $commsion_value; ?>">
         </div>
         <?php } ?>
     </div>

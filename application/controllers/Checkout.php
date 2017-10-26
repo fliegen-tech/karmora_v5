@@ -17,7 +17,8 @@ class Checkout extends karmora {
             'themeUrl' => $this->themeUrl,
             'view' => 'frontend/signup/',
             'viewForm' => 'frontend/forms/',
-            'flashKey' => 'message_signup'
+            'flashKey' => 'message_signup',
+            'shipping_cost' => 0
         );
         $this->load->model(array('usermodel', 'cartmodel', 'productmodel'));
         $this->load->library(array('form_validation'));
@@ -38,11 +39,30 @@ class Checkout extends karmora {
         $this->data['statesList']  = $this->userObj->getStatesofCountry(1);
         $this->data['countryList'] = $this->userObj->getCountries();
         $this->data['signupPromo'] = $this->userObj->getSignupPromo($this->signupPromo);
+        $this->data['cart_info'] = $this->getproducttotal();
         $this->getLoginData($detail);
         if (isset($_POST['submit'])) {
             $this->savedata($username);
         }
         $this->loadLayout($this->data, 'frontend/cart/checkout');
+    }
+
+    /**
+     * @return string
+     */
+    public function getproducttotal(){
+        $exclusiveProductTotal = 0;
+        $actualCost            = number_format($this->cart->total() + $this->data['shipping_cost'] , 2, '.', ',');
+        foreach ($this->cart->contents() as $items) {
+            $exclusiveProductTotal = $exclusiveProductTotal + ($items['qty'] * $items['price']) ;
+        }
+                $return_array = array(
+                                'exclusiveProductTotal'=> $exclusiveProductTotal,
+                                'shipping_cost'        => $this->data['shipping_cost'],
+                                'actualCost'           => $actualCost,
+                                'cartAmount'           => $this->cart->total()
+                                );
+        return $return_array;
     }
 
     /**
@@ -278,7 +298,8 @@ class Checkout extends karmora {
         }
         $total_price = $this->cart->total() + $shiiping_cost;// + $upgrade_price; //100
         $karmora_price = $price_qty_total + $shiiping_cost;// + $upgrade_price; //100
-        $karmora_cash_val = ($karmora_price-10) * 100;
+        //$karmora_cash_val = ($karmora_price-10) * 100;
+        $karmora_cash_val = ($karmora_price) * 100;
         $karmora_cash = $karmora_cash_val / 100; // 80
         ($karmora_cash_amount > $karmora_cash ? $karmora_cash = $karmora_cash : $karmora_cash = $karmora_cash_amount);
         $karmora_commsion = $total_price; //- $karmora_cash; // 20

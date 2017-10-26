@@ -25,6 +25,7 @@
                     <h2>Step 2 - Billing Details</h2>
                 </div>
             </div>
+            <div id="tax_error"></div>
             <div class="join-now-step-one">
                 <div class="join-now-step-cover">
                     <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'sameAsBilling' => TRUE, 'askName' => TRUE)); ?>
@@ -42,9 +43,9 @@
                     <div class="available-funds-cover">
                         <div class="row">
 
-                            <?php echo $this->load->view('frontend/cart/partials/checkout_apply_funds'); ?>
+                            <?php $this->load->view('frontend/cart/partials/checkout_apply_funds'); ?>
                             <div class="col-5">
-                                <?php echo $this->load->view('frontend/cart/partials/checkout_order_summary'); ?>
+                                <?php $this->load->view('frontend/cart/partials/checkout_order_summary'); ?>
                             </div>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="order-leftbar">
-                                <?php echo $this->load->view($viewForm . 'credit_card_form_fields'); ?>
+                                <?php $this->load->view($viewForm . 'credit_card_form_fields'); ?>
                             </div>
                         </div>
                     </div>
@@ -80,11 +81,12 @@
         </div>
     </div>
 </section>
-<input type="hidden" name="ordertotal" id="ordertotal" value="200<?php //echo $actualCost ?>" />
-<input type="hidden" id="tax" value="0" />
-<input type="hidden" id="karmora_kash_use" value="0" />
-<input type="hidden" name="karmora_commsion" id="karmora_commsion" value="<?php echo $commsion_value; ?>">
+<input type="hidden" name="karmora_kash_use" id="karmora_kash_use" value="" />
+<input type="hidden" name="karmora_commission_use" id="karmora_commission_use" value="" />
+<input type="hidden" name="ordertotal" id="ordertotal" value="<?php echo $cart_info['actualCost']; ?>" />
+<input type="hidden" name="tax_price"  id="tax" value="0" />
 <input type="hidden" name="karmora_mikamak677" value="<?php echo $this->security->get_csrf_hash();?>" />
+<input type="hidden" name="ordertotal" id="ordertotal" value="<?php echo $cart_info['actualCost']; ?>" />
 </form>
 <!--====  End of Join Now ====-->
 
