@@ -40,6 +40,7 @@ class karmora extends CI_Controller {
         $this->load->library(array('email', 'cart', ''));//Authorizenet
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
+        $this->currentUser = $this->commonmodel->getFounder($this->founder);
 //        $this->currentUser = $this->commonmodel->getFounder($this->founder);
         $this->setAlertMessages();
     }

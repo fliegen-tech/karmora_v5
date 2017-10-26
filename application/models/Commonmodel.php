@@ -170,7 +170,7 @@ class Commonmodel extends CI_Model {
         $statement = $this->prepQuery($query);
         $statement->bindParam(':countryId', $countryId, PDO::PARAM_INT);
         $statement->execute();
-        return $statement->rowCount() ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
+        return $statement->rowCount() > 0 ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
     }
     
     public function getCountries() {
@@ -178,7 +178,30 @@ class Commonmodel extends CI_Model {
                 . "ORDER BY user_address_country_title";
         $statement = $this->prepQuery($query);
         $statement->execute();
-        return $statement->rowCount() ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
+        return $statement->rowCount() > 0 ? $statement->fetchAll(PDO::FETCH_ASSOC) : FALSE;
+    }
+    
+    public function getStateWithId($id) {
+        $query = "SELECT * FROM tbl_user_address_state WHERE pk_user_address_state_id = :id ";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount() > 0 ? $statement->fetch(PDO::FETCH_ASSOC) : FALSE;
     }
 
+    public function getCountryWithId($id) {
+        $query = "SELECT * FROM tbl_user_address_country WHERE pk_user_address_country_id = :id";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount() > 0 ? $statement->fetch(PDO::FETCH_ASSOC) : FALSE;
+    }
+    
+    public function getSubscriptionInfowithId($id) {
+        $query = "SELECT * FROM tbl_user_account_billing_properties WHERE pk_user_account_billing_properties = :id";
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount() > 0 ? $statement->fetch(PDO::FETCH_ASSOC) : FALSE;
+    }
 }

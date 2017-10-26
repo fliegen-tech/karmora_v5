@@ -1,5 +1,4 @@
 <h4>Order Summary</h4>
-
 <table class="table table-bordered ">
     <tbody>
         <tr>

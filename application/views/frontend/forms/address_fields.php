@@ -10,14 +10,18 @@ if(isset($address) && $address){
 <div class="col-12">
     <div class="row">
 
-        <?php if (isset($askName) && $askName) { ?>
+        <?php
+        if (isset($askName) && $askName) {
+            ?>
             <div class="col-6">
                 <div class="form-group">
                     <label class="input-field-label">Full Name <span class="text-danger">*</span></label>
                     <input type="text" name="<?php echo $addressForm ?>[name]" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Full Name">
                 </div>
             </div>
-            <?php }  ?>
+            <?php
+        }
+        ?>
 
         <div class="col-6">
             <div class="form-group">

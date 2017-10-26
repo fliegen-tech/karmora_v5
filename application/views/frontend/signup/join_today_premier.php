@@ -10,6 +10,9 @@
             </div>
         </div>
         <div class="signup-cover">
+            <?php
+            echo form_open(base_url('join-premier'));
+            ?>
             <div class="row">
                 <div class="col-12 no-padding">
                     <h2>STEP 1: Choose Your Exclusive Product!</h2>
@@ -34,7 +37,7 @@
 
             <div class="join-now-step-one">
                 <h4>Please Enter Your Billing Address</h4>
-                <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'sameAsBilling' => TRUE, 'askName' => TRUE)); ?>
+                <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'billingAddress' => TRUE, 'askName' => TRUE)); ?>
             </div>
 
             <div class="row">
@@ -56,14 +59,14 @@
                                             <h3>Total Charged</h3>
                                         </div>
                                         <div class="col-6 text-right">
-                                            <a href="" class="btn btn-joinnow left-right-hover">$<?php echo number_format($signupPromo['promo_price'] + $signupPromo['promo_shipping'], 2, '.', ',')?></a>
+                                            <a href="" class="btn btn-joinnow left-right-hover">$<?php echo number_format($signupPromo['promo_price'] + $signupPromo['promo_shipping'], 2, '.', ',') ?></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="privacy-policy-cover">
                                     <div class="form-group">
                                         <label class="">
-                                            <input  type="checkbox" value="" name="read_agreement" required="">
+                                            <input  type="checkbox" value="accept" name="read_agreement" required="">
                                             I have read, understand and agree to the below documents:
                                         </label>
                                         <a href="">Premier Shopper Trial Membership Agreement</a>
@@ -73,6 +76,7 @@
                                 <div class="paynow">
                                     <div class="row">
                                         <div class="col-4">
+                                            <button class="btn btn-joinnow left-right-hover" value="submit" type="submit"> Pay Now </button>
                                             <a href="" class="btn btn-joinnow left-right-hover">Pay Now</a>
                                         </div>
                                         <div class="col-8 text-right">
@@ -98,6 +102,9 @@
                     </div>
                 </div>
             </div>
+            <?php
+            echo form_close();
+            ?>
         </div>
     </div>
 </section>

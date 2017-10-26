@@ -84,7 +84,7 @@ class Anet extends karmora {
             'descp' => 'Monthly Subscrtiption',
             'amount' => rand(10, 20),
             'trialAmount' => 0,
-            'startDate' => '2017-10-20', //format YYYY-MM-DD
+            'startDate' => date('Y-m-d'), //format YYYY-MM-DD
             'intervalLength' => 1,
             'intervalUnit' => 'months',
             'totalOccurence' => 9999,
