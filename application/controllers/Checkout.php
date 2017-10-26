@@ -6,10 +6,25 @@ if (!defined('BASEPATH'))
 class Checkout extends karmora {
 
     public $data = array();
+    private $userObj;
+    private $cartObj;
+    private $prdObj;
+
     public function __construct(){
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
-        $this->load->model(array('cartmodel','commonmodel' , 'usermodel', 'productmodel'));
+        $this->data = array(
+            'themeUrl' => $this->themeUrl,
+            'view' => 'frontend/signup/',
+            'viewForm' => 'frontend/forms/',
+            'flashKey' => 'message_signup'
+        );
+        $this->load->model(array('usermodel', 'cartmodel', 'productmodel'));
+        $this->load->library(array('form_validation'));
+        $this->load->helper(array('form'));
+        $this->userObj = new Usermodel;
+        $this->cartObj = new Cartmodel;
+        $this->prdObj = new Productmodel;
         $this->load->library('form_validation');
     }
 
@@ -19,16 +34,28 @@ class Checkout extends karmora {
         }
         $this->verifyUser($username);
         $detail = $this->currentUser;
-        $this->data['address'] = '';
-        $this->data['countriesList'] = $this->usermodel->getCountries();
-        $this->data['statesList']    = $this->usermodel->getStatesofCountry(1);
+        $this->data['productList'] = $this->prdObj->getproducts($this->active);
+        $this->data['statesList']  = $this->userObj->getStatesofCountry(1);
+        $this->data['countryList'] = $this->userObj->getCountries();
+        $this->data['signupPromo'] = $this->userObj->getSignupPromo($this->signupPromo);
+        $this->getLoginData($detail);
+        if (isset($_POST['submit'])) {
+            $this->savedata($username);
+        }
+        $this->loadLayout($this->data, 'frontend/cart/checkout');
+    }
+
+    /**
+     * @return string
+     */
+    public function getLoginData($detail){
         if ($this->session->userdata('front_data')) {
-            $mainsummery = $this->commonmodel->getuser_main_summary($detail['userid']);
+            $mainsummery = $this->userObj->getuser_main_summary($detail['userid']);
             $this->data['available_commsion'] = $mainsummery->available_cash;
             $this->data['available_karmora_cash'] = $mainsummery->available_karmora_kash;
             $commsion_array = $this->calculate_karmora_cash_back($detail);
             $KarmoracashArray = explode('==', $commsion_array);
-            $data['redum_value'] = $KarmoracashArray[0];
+            $this->data['redum_value'] = $KarmoracashArray[0];
             if ($KarmoracashArray[1] == 0) {
                 $this->data['commsion_value'] = $KarmoracashArray[1];
             } else {
@@ -39,16 +66,11 @@ class Checkout extends karmora {
                     $this->data['commsion_value'] = $KarmoracashArray[1] ; //die;
                 }
             }
-            $userAddress = $this->usermodel->getMemberCurrentAddress($detail['userid']);
+            $userAddress = $this->userObj->getMemberCurrentAddress($detail['userid']);
             $this->data['address'] = $userAddress['address'];
-            $this->data['countriesList'] = $userAddress['countriesList'];
+            $this->data['countryList'] = $userAddress['countriesList'];
             $this->data['statesList'] = $userAddress['statesOfCurrentAddressCountry'];
         }
-        $this->data['userData'] = $detail;
-        if (isset($_POST['submit'])) {
-            $this->savedata($username);
-        }
-        $this->loadLayout($this->data, 'frontend/cart/checkout');
     }
 
     public function savedata() {
@@ -239,39 +261,32 @@ class Checkout extends karmora {
     }
 
     public function calculate_karmora_cash_back($detail) {
-        $prensatage = $this->commonmodel->getuser_persantage_summary($detail['user_account_type_id']);
+        $prensatage = $this->usermodel->getuser_persantage_summary($detail['user_account_type_id']);
         if (empty($prensatage)) {
             $perstange = 50;
         } else {
             $perstange = $prensatage->user_acc_kash_settings_get_on_redemption_purchases_amount;
         }
-        $mainsummery = $this->commonmodel->getuser_main_summary($detail['userid']);
+        $mainsummery = $this->usermodel->getuser_main_summary($detail['userid']);
         $commsion = $mainsummery->available_cash;
         $karmora_cash_amount = $mainsummery->available_karmora_kash;
         $shiiping_cost = 0; //$this->data['shipping_cost'];
-        //$upgrade_price = $this->getupgradeprice();
         // for every product - 10
-        $qty = 0;
         $price_qty_total = 0;
         foreach ($this->cart->contents() as $item) {
-             //$qty = $item['qty'] + $qty;
-            // $price_qty_total = (( $item['price'] * $item['qty'] ) -10 ) + $price_qty_total;
              $price_qty_total = $item['subtotal'];
         }
         $total_price = $this->cart->total() + $shiiping_cost;// + $upgrade_price; //100
         $karmora_price = $price_qty_total + $shiiping_cost;// + $upgrade_price; //100
         $karmora_cash_val = ($karmora_price-10) * 100;
         $karmora_cash = $karmora_cash_val / 100; // 80
-        //$karmora_cash = ceil($karmora_cash);
         ($karmora_cash_amount > $karmora_cash ? $karmora_cash = $karmora_cash : $karmora_cash = $karmora_cash_amount);
         $karmora_commsion = $total_price; //- $karmora_cash; // 20
-        //$karmora_commsion = ceil($karmora_commsion);
         if ($commsion > $karmora_commsion) {
             $commsion_amount = $karmora_commsion;
         } else {
             $commsion_amount = $commsion;
         }
-        //echo $commsion_amount; die;
         return $return_varibale = ($karmora_cash) . '==' . ($commsion_amount);
     }
 

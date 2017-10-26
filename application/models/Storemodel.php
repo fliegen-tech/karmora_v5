@@ -499,5 +499,21 @@ class Storemodel extends CI_Model {
         $result = $this->db->query($query);
         return $result->result_array();
     }
+    public function GetfavourtiesStoresCheck($fk_user_id) {
+
+        $query = "SELECT tbl_favorties.*,view_stores_list_stores.store_title 
+					FROM tbl_favorties,view_stores_list_stores WHERE tbl_favorties.fk_user_id = ".$fk_user_id." 
+					AND tbl_favorties.fk_store_id = view_stores_list_stores.store_id
+					GROUP BY tbl_favorties.fk_store_id ORDER BY tbl_favorties.pk_favortie_id DESC LIMIT 5 ";
+
+        $QueryR = $this->db->query($query);
+
+        if ($QueryR->num_rows() > 0) {
+            $array = $QueryR->result_array();
+            return $array;
+        } else {
+            return false;
+        }
+    }
 
 }

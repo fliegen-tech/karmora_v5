@@ -11,7 +11,7 @@ class Store extends karmora {
     public function __construct() {
 		parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
-        $this->load->model(array('storemodel','commonmodel'));
+        $this->load->model(array('storemodel','commonmodel' ,'homemodel'));
     }
 	
 	public function allStore( $store_alias = null, $username = null ) {
@@ -89,7 +89,7 @@ class Store extends karmora {
 		return $result;
 	}
 	
-	public function storeVisit( $store_id = null, $username = null ) {
+	public function storeVisit( $store_id = NULL, $username = NULL ) {
 		
 		$this->verifyUser( $username );
 		$detail              = $this->currentUser;
@@ -110,82 +110,24 @@ class Store extends karmora {
 		$this->loadLayout( $this->data, 'frontend/store/thanku' );
 	}
 	// function for store details
-	public function storeDetail( $storeId, $username = null, $type = null, $advertisement_id = null ) {
-		
+	public function storeDetail( $storeId, $username = NULL) {
 		$this->verifyUser( $username );
 		$detail            = $this->currentUser;
-		$userId            = $detail['userid'];
-		$acc_type_id       = is_null( $username ) ? 0 : $detail['user_account_type_id'];
-        $this->data['fet_deals'] = $this->homemodel->getfetureddeals_with_cat( 111 );
-		$favoutieStored    = $this->homemodel->GetfavourtiesStoresCheck( $userId );
-        $this->data['favoriteStore'] = false;
-		if ( isset( $this->session->userdata['front_data']['id'] ) && ( ! empty( $favoutieStored ) ) ) {
-			foreach ( $favoutieStored as $store => $value ) {
-				if ( in_array( $storeId, $value ) ) {
-                    $this->data['favoriteStore'] = true;
-					break;
-				}
-			}
-		}
-		$favoutieStore = $this->storemodel->GetfavourtiesStores( $storeId, $userId );
-		if ( ! empty( $favoutieStore ) ) {
-            $this->data['alredyFavourite'] = 'alredyFavourite';
-		}
-		$categories         = $this->storemodel->getATCategory( $acc_type_id );
+        $this->data['favoutieStore'] = $this->storemodel->GetfavourtiesStores( $storeId, $detail['userid'] );
+		$categories         = $this->storemodel->getATCategory($detail['user_account_type_id']);
         $this->data['categories'] = $categories;
-		$categories_top_stores = $this->storemodel->getTopCategoryStores( $acc_type_id );
+		$categories_top_stores = $this->storemodel->getTopCategoryStores($detail['user_account_type_id']);
 		if ( empty( $categories_top_stores ) ) {
             $this->data['top_stores'] = false;
 		} else {
             $this->data['top_stores'] = $this->sortStoreByCategory( $categories_top_stores );
 		}
-		$storeTitle              = $this->storemodel->GetStoreInfo( $storeId, $acc_type_id );
-        $this->data['tripple_karmora'] = $this->storemodel->tripplecashbackstoredetail( $storeId );
-		$commission              = $this->storemodel->getCommissionPercentage( $storeId, $acc_type_id );
-        $this->data['comm_percentage'] = $commission[0]['store_to_user_account_type_commission_percentage'];
-		$title = !$storeTitle ?   '' : $storeTitle->coupon_title;
-		$networkId  = !$storeTitle ?   '' : $storeTitle->fk_affiliate_network_id;
-		$couponData = TRUE ? FALSE : $this->storemodel->GetCoupons( $title, $networkId, $userId );
-		if ( $storeTitle != false ) {
-            $this->data['title']                  = $storeTitle->store_title;
-            $this->data['url']                    = $storeTitle->store_url;
-            $this->data['affiliateNetworkId']     = $storeTitle->fk_affiliate_network_id;
-            $this->data['image']                  = $storeTitle->store_image;
-            $this->data['category_id']            = $storeTitle->category_id;
-            $this->data['store_not_login_banner'] = $storeTitle->store_not_login_banner;
-            $this->data['description']            = $storeTitle->store_description;
-		} else {
-			redirect( base_url() );
-		}
-		if ( isset( $type ) ) {
-			if ( $type == 'banner' ) {
-				$banner                = $this->bannermodel->getEditBanner( $advertisement_id );
-				$tracker_advertisement = $this->themeUrl . '/images/banner/' . $banner->banner_ads_image;
-				$title                 = $banner->banner_ads_title;
-				$description           = $banner->banner_description;
-                $this->data['fb_image']      = $tracker_advertisement;
-			}
-			if ( $type == 'product' ) {
-				$banner                = $this->bannermodel->getEditBanner( $advertisement_id );
-				$tracker_advertisement = $this->themeUrl . '/images/banner/' . $banner->banner_ads_image;
-				$title                 = $banner->banner_ads_title;
-				$description           = $banner->banner_description;
-                $this->data['fb_image']      = $tracker_advertisement;
-			}
-			if ( $type == 'store-ad' ) {
-				$title            = "EARN UP TO 30% CASH BACK!";
-				$description      = 'Earn up to 30% Cash Back at over 2,000 Name Brand Stores at Karmora.com!  Karmora offers much more than just Cash Back for our Shoppers. Click the Ad to learn more about the next generation of online shopping at Karmora.com!';
-				$data['fb_image'] = base_url() . 'share/karmora-ad-image/' . $storeId;
-				
-			}
-            $this->data['fb_title']       = $title;
-            $this->data['fb_description'] = $description;
-
-            $this->data['fb_url'] = $type . '/' . $advertisement_id;
-		}
-        $this->data['storeId'] = $storeId;
-        $this->data['coupon']  = $couponData;
-		//echo "<pre>";print_r($couponData);die;
+        $this->data['store_detail']              = $this->storemodel->GetStoreInfo($storeId,$detail['user_account_type_id']);
+        if(empty($this->data['store_detail'])){
+            redirect(base_url('store'));
+        }
+        $commission                              = $this->storemodel->getCommissionPercentage( $storeId, $detail['user_account_type_id']);
+        $this->data['comm_percentage']           = $commission[0]['store_to_user_account_type_commission_percentage'];
 		$this->loadLayout( $this->data, 'frontend/store/store_detail' );
 	}
 	// function for store search
@@ -248,7 +190,7 @@ class Store extends karmora {
         $this->loadLayout( $this->data, 'frontend/store/offers' );
 	}
 	
-	public function storefavourtie( $storeId = null, $type = null, $username = null ) {
+	public function storefavourtie( $storeId = NULL, $type = NULL, $username = NULL ) {
 		$this->verifyUser( $username );
 		$detail   = $this->currentUser;
 		$response = array (
@@ -271,55 +213,7 @@ class Store extends karmora {
 		die;
 	}
 	
-	function karmora_dollar_account( $userId, $amount, $dollar_description ) {
-		$datas = array (
-			'fk_user_id'         => $userId,
-			'fk_user_id_from'    => 0,
-			'dollar_amount'      => $amount,
-			'dollar_type'        => 'Deposit',
-			'dollar_description' => $dollar_description
-		);
-		$this->db->insert( 'tbl_karmora_dollar_account', $datas );
-	}
-	
-	function karmora_kash_account( $userId, $amount, $dollar_description ) {
-		$datas = array (
-			'fk_user_id'       => $userId,
-			'fk_user_id_from'  => 0,
-			'kash_amount'      => $amount,
-			'kash_type'        => 'Deposit',
-			'kash_description' => $dollar_description
-		);
-		$this->db->insert( 'tbl_karmora_kash_account', $datas );
-	}
-	
-	public function casualtresure( $detail, $store_id ) {
-		
-		$Alltresure = $this->storemodel->GetallChest( $store_id );
-		if ( ! empty( $Alltresure ) ) {
-			$oneDimensionalArray = array_map( 'current', $Alltresure );
-			$rand_keys           = array_rand( $oneDimensionalArray, 1 );
-			$tc_id               = $oneDimensionalArray[ $rand_keys ];
-			$GetAlltresure       = $this->storemodel->GettresureDetail( $tc_id, $store_id );
-		} else {
-			$GetAlltresure = '';
-		}
-		if ( ! empty( $GetAlltresure ) ) {
-			$setting = $GetAlltresure->setting;
-			$userId  = $detail['userid'];
-			if ( isset( $this->session->userdata['front_data']['id'] ) ) { //echo 12; die;
-				$userAlredy = $this->storemodel->GetAlredayDetail( $store_id, $tc_id, $userId, $setting );
-				//echo '<pre>';                    print_r($userAlredy); die;
-				if ( $userAlredy == 'true' ) {
-					return $GetAlltresure;
-				} else {
-					return '';
-				}
-				//echo '<pre>';                print_r($GetAlltresure); die;
-			}
-		}
-	}
-	
+
 
 	
 }
