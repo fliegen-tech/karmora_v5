@@ -180,6 +180,18 @@ class Usermodel extends commonmodel {
         }
     }
 
+    public function getstatename($state_id) {
+
+        $query = "SELECT * FROM  tbl_user_address_state
+                    WHERE us.pk_user_address_state_id = $state_id LIMIT 1";
+        $queryRS = $this->db->query($query);
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->row();
+        } else {
+            return '';
+        }
+    }
+
     /*
      * Old usermodel start
      */
