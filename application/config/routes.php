@@ -80,6 +80,19 @@ $route['(:any)/my-orders'] = "dashboard/orders/$1";
 $route['(:any)/my-orders/(:any)'] = "dashboard/order_detail/$2/$1";
 $route['(:any)/karmora-my-charities'] = "mycharities/index/$1";
 
+// Trainings fronend route
+
+$route['karmora-training'] = "training/index";
+$route['(:any)/karmora-training'] = "training/index/$1";
+$route['(:any)/download-training/(:any)/(:any)'] = "training/downloadtraining/$2/$3/$1";
+$route['karmora-about-training'] = "training/aboutkarmoratraining";
+$route['(:any)/karmora-about-training'] = "training/aboutkarmoratraining/$1";
+$route['karmora-exclusive-products-training'] = "training/karmoraproducttraining";
+$route['(:any)/karmora-exclusive-products-training'] = "training/karmoraproducttraining/$1";
+$route['karmora-training-making-money'] = "training/karmoramakingmoneytraining";
+$route['(:any)/karmora-training-making-money'] = "training/karmoramakingmoneytraining/$1";
+
+
 // cashme out
 $route['cashmeout/savew9form'] = "cashmeout/savew9form";
 $route['(:any)/cashmeout/savew9form'] = "cashmeout/savew9form/$1";

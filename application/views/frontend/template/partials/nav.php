@@ -3,7 +3,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             Menu
         </button>
-        <a class="navbar-brand mx-auto" href="#">
+        <a class="navbar-brand mx-auto" href="<?php echo base_url(); ?>">
             <img src="<?php echo $themeUrl ?>/frontend/images/karmora-logo.png" class="img-fluid" alt="...">
         </a>
         <div class="navbar-collapse collapse leftbar-content">
@@ -18,7 +18,7 @@
                     <a class="nav-link" href="#">Karmora Kash</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Click2Win</a>
+                    <a class="nav-link" href="<?php echo base_url().'click2win'; ?>">Click2Win</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto ">
@@ -28,9 +28,9 @@
                     </a>
                     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                         <li class="dropdown-submenu">
-                            <a  class="dropdown-item" tabindex="-1" href="#">Dietary Supplements</a>
+                            <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'supplement-product'; ?>">Dietary Supplements</a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a tabindex="-1" href="#">B3 Home</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'supplement-product'; ?>">B3 Home</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Healthy</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Slim</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Beautiful</a></li>
@@ -40,9 +40,9 @@
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
-                            <a  class="dropdown-item" tabindex="-1" href="#">Flawless Skincare</a>
+                            <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Skincare</a>
                             <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a tabindex="-1" href="#">Flawless Home</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Home</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Flawless Days</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Flawless Nights</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Simply Flawless</a></li>
@@ -52,10 +52,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Make Money</a>
+                    <a class="nav-link" href="<?php echo base_url().'share/'; ?>">Make Money</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cash Back Shopping</a>
+                    <a class="nav-link" href="<?php echo base_url().'karmora-cash-back'; ?>">Cash Back Shopping</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('join-today'); ?>">Join Today</a>

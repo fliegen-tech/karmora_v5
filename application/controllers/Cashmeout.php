@@ -10,6 +10,7 @@ class Cashmeout extends karmora {
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
         $this->checklogin();
+        $this->load->library('form_validation');
         $this->load->model(array('commonmodel','cashmeoutmodel','mycharitiesmodel','usermodel'));
     }
 
@@ -46,7 +47,7 @@ class Cashmeout extends karmora {
             $this->form_validation->set_rules('member_name', 'Member Name', 'required|min_length[5]|max_length[50]|trim');
             $this->form_validation->set_rules('street_address', 'Street Address', 'required|trim');
             $this->form_validation->set_rules('city', 'CIty', 'required|min_length[5]|trim');
-            $this->form_validation->set_rules('state', 'State', 'required|is_present[tbl_user_address_state.pk_user_address_state_id]|trim');
+            $this->form_validation->set_rules('state', 'State', 'required|trim');
             $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|exact_length[5]|numeric|trim');
             $this->form_validation->set_rules('phone_no', 'Phone Number', 'required|min_length[7]|trim');
             $this->form_validation->set_rules('check_out_amount', 'Check out Amount', 'required|greater_than_equal_to['.$data['minCashout'].']|less_than_equal_to[' . $data['TotalAvailable'] . ']|trim');
@@ -77,7 +78,7 @@ class Cashmeout extends karmora {
                         'amount' => -1 * $post['check_out_amount'],
                         'type' => 'Withdraw',
                         'description' => 'Reuqest Cheque of amount: $' . number_format($post['check_out_amount'], 2),);
-                    $withdrawId = $this->commonmodel->insertDollarAccountWithdraw($withdrawRequest);
+                    $withdrawId = $this->cashmeoutmodel->insertDollarAccountWithdraw($withdrawRequest);
 //                    $withdrawId = 2;
                     if ($withdrawId != FALSE) {
                         $cashOutRequest = array(
@@ -150,7 +151,7 @@ class Cashmeout extends karmora {
 
     private function processGift($userDetail, $data) {
         $message = '';
-        $this->form_validation->set_rules('charity', 'Organization', 'required|numeric|is_present[tbl_charity.pk_charity_id]|trim');
+        $this->form_validation->set_rules('charity', 'Organization', 'required|numeric|trim');
         $this->form_validation->set_rules('amount', 'Gift amount', 'required|numeric|less_than_equal_to[' . $data['TotalAvailable'] . ']|trim');
         if ($this->form_validation->run()) {
             $post = $this->input->post();
@@ -193,7 +194,7 @@ class Cashmeout extends karmora {
                 'amount' => -1 * $post['amount'],
                 'type' => 'Withdraw',
                 'description' => 'Gift to Charity: ' . $charityName,);
-                $withdrawId = $this->commonmodel->insertDollarAccountWithdraw($withdraw);
+                $withdrawId = $this->cashmeoutmodel->insertDollarAccountWithdraw($withdraw);
                 //echo $withdrawId.'usman'; die;
             if ($withdrawId != FALSE) {
                 $donate = array(
@@ -350,7 +351,7 @@ class Cashmeout extends karmora {
         //echo '<pre>';
         $post_data = http_build_query($dataArray);
 
-        echo '<pre>';
+        //echo '<pre>';
 
 
         $xml = new DOMDocument();
@@ -366,11 +367,11 @@ class Cashmeout extends karmora {
         $savedXml = $xml->saveXML();
         //echo "<pre>";
         $newXml = new SimpleXMLElement($savedXml);
-        print_r($newXml);
+        //print_r($newXml);
         $payment_id = (array) $newXml->payment->payment_id;
 
-        var_dump($payment_id);
-        exit;
+        //var_dump($payment_id);
+        //exit;
         return $payment_id[0];
     }
 

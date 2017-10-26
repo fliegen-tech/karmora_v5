@@ -126,6 +126,23 @@ class Usermodel extends commonmodel {
             return '';
         }
     }
+
+    public function getuser_persantage_summary($account_type) {
+
+        $query = "SELECT us.user_acc_kash_settings_get_on_redemption_purchases_amount
+                    FROM  `tbl_user_acc_kash_settings` AS us, tbl_user_account_type ac
+                    WHERE us.user_acc_kash_settings_get_on_redemption_purchases =1
+                    AND ac.fk_user_acc_kash_settings_id = us.`Pk_user_acc_kash_settings_id` 
+                    AND ac.pk_user_account_type_id = $account_type LIMIT 1";
+        $queryRS = $this->db->query($query);
+
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->row();
+        } else {
+            return '';
+        }
+    }
+
     /*
      * Old usermodel start
      */

@@ -158,39 +158,39 @@
             <?php } ?>
             <!-- Gifts -->
             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name()?>" value="<?php echo $this->security->get_csrf_hash();?>">
+            <div class="modal fade popup-gift-fai" id="showpopupformdata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content model-save-money">
+                        <div class="modal-header">
+                            <button type="button" class="close popup-close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
+                            <h4 class="modal-title karmora-save-title" id="myModalLabel">ALMOST DONE!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h3>Please confirm your request:</h3>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class=" col-md-12 ">
+                                        <table class="table table-user-information" id="summaryTable">
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="con-btn-cash">
+                                <input class="btn btn-joinnow left-right-hover " type="submit" name="submit" value="Approve" />
+                                <button type="button" class="btn btn-joinnow left-right-hover" data-dismiss="modal" aria-hidden="true">Back</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </section>
 <?php $this->load->view('frontend/cashmeout/cashmeout_js'); ?>
-<?php $this->load->view('frontend/cashmeout/partial_report_key'); ?>
 
 <!--====  End of Dashbaord====-->
-    <div class="modal fade popup-gift-fai" id="showpopupformdata" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content model-save-money">
-                <div class="modal-header">
-                    <button type="button" class="close popup-close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
-                    <h4 class="modal-title karmora-save-title" id="myModalLabel">ALMOST DONE!</h4>
-                </div>
-                <div class="modal-body">
-                    <h3>Please confirm your request:</h3>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class=" col-md-12 ">
-                                <table class="table table-user-information" id="summaryTable">
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="con-btn-cash">
-                        <input class="unregister-join btn-br" style="border: none;" type="submit" name="submit" value="Approve" />
-                        <button type="button" class="unregister-join btn-br" data-dismiss="modal" aria-hidden="true" style="background-color: #ccc;">Back</button>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </div>

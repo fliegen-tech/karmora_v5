@@ -443,5 +443,18 @@ class Cashmeoutmodel extends commonmodel {
             return '';
         }
     }
+    public function insertDollarAccountWithdraw($param) {
+        $query = "INSERT INTO tbl_karmora_dollar_account
+            ( fk_user_id, fk_user_id_from, dollar_amount, dollar_type, dollar_description)
+            VALUES (:userId, :fUserId, :amount, :type, :description)";
+        $statement = $this->db->conn_id->prepare($query);
+        $statement->bindParam(':userId', $param['user_id'], PDO::PARAM_INT);
+        $statement->bindParam(':fUserId', $param['ref_user'], PDO::PARAM_INT);
+        $statement->bindParam(':amount', $param['amount'], PDO::PARAM_STR);
+        $statement->bindParam(':type', $param['type'], PDO::PARAM_STR);
+        $statement->bindParam(':description', $param['description'], PDO::PARAM_STR);
+        return $statement->execute() ? $this->db->conn_id->lastInsertId() : FALSE;
+    }
+
 
 }

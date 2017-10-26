@@ -71,6 +71,7 @@
         }
     }
     function validateForm() {
+        alert('aya');
 
         $("#error_fname").html("");
         $("#error_address").html("");

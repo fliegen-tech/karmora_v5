@@ -10,7 +10,7 @@
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'profit_sharing'){ echo 'active'; } ?>"><a href="<?php echo base_url().'profitsharing'; ?>">Bonus Pool</a></li>
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'ad_tracker'){ echo 'active'; } ?>"><a href="<?php echo base_url().'adtracker'; ?>">Ad Tracker</a></li>
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'Cashmeout'){ echo 'active'; } ?>"><a href="<?php echo base_url().'cashmeout'; ?>">Cash Me Out</a></li>
-            <li class="list-inline <?php if(isset($active_page) && $active_page == ''){ echo 'active'; } ?>"><a href="">Training</a></li>
+            <li class="list-inline <?php if(isset($active_page) && $active_page == 'training'){ echo 'active'; } ?>"><a href="<?php echo base_url().'karmora-training'; ?>">Training</a></li>
         </ul>
     </div>
 </div>
