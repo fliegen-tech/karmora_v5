@@ -22,8 +22,8 @@
                         <li><a href="<?php echo base_url().'karmora-terms-conditions'; ?>">Terms of Use</a></li>
                         <li><a href="<?php echo base_url().'karmora-privacy-policy'; ?>">Privacy Policy</a></li>
                         <li><a href="<?php echo base_url().'karmora-return-policy'; ?>">Refund Policy</a></li>
-                        <li><a href="#">Income Disclosure Statement</a></li>
-                        <li><a href="#">Cash Back Disclosure Statement</a></li>
+                        <li><a href="<?php echo base_url().'income-disclosure-statement'; ?>">Income Disclosure Statement</a></li>
+                        <li><a href="<?php echo base_url().'cash-back-disclosure-statement'; ?>">Cash Back Disclosure Statement</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,10 +31,9 @@
                 <div class="footer-link-box">
                     <h2>Premier Shopper Program</h2>
                     <ul class="list-unstyled services-footer">
-                        <li><a href="#">It Pays to Share Good Karmora!</a></li>
+                        <li><a href="<?php echo base_url().'compensation-plan'; ?>">It Pays to Share Good Karmora!</a></li>
                         <li><a href="<?php echo base_url().'profit-sharing-program'; ?>">Profit Sharing Pool</a></li>
                         <li><a href="#">Best Cash Back Guarantee</a></li>
-                        <li><a href="#">Join</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,15 +42,15 @@
                     <h2>Connect</h2>
                     <div class="footer-social">
                         <ul class="connect-social list-unstyled">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://twitter.com/Shopkarmora"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-bold" aria-hidden="true"></i></a></li>
-                            <li><a  href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a  href="#"><i class="fa fa-youtube-play"></i></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/karmora"><i class="fa fa-facebook"></i></a></li>
+                            <li><a target="_blank" href="https://twitter.com/Shopkarmora"><i class="fa fa-twitter"></i></a></li>
+                            <li><a target="_blank"  href="https://plus.google.com/u/0/+ShopKarmora/posts"><i class="fa fa-bold" aria-hidden="true"></i></a></li>
+                            <li><a target="_blank" href="https://www.pinterest.com/shopkarmora/"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/user/ShopKarmora"><i class="fa fa-youtube-play"></i></a></li>
                         </ul>
                         <div class="get-toolbar-footer">
-                            <a href="#" class="btn btn-toobar">Get the Cash Back Toolbar</a>
-                            <a href="#" class="btn work-cash-back">How Cash Back Shopping Works</a>
+                            <a href="<?php echo base_url().'kash-back-toolbar'; ?>" class="btn btn-toobar">Get the Cash Back Toolbar</a>
+                            <a href="<?php echo base_url().'how-cashback-works'; ?>" class="btn work-cash-back">How Cash Back Shopping Works</a>
                         </div>
                     </div>
                 </div>

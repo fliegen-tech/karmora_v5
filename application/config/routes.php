@@ -282,20 +282,6 @@ $route['(:any)/join-premier'] = "signup/primierPost/$1";
 $route['(:any)/welcome'] = "signup/welcome/$1";
 
 // routes for staichtmlpages
-
-$route['karmora-kash'] = "statichtml/karmorakash";
-$route['(:any)/karmora-kash'] = "statichtml/karmorakash/$1";
-$route['about-us'] = "statichtml/aboutus";
-$route['(:any)/about-us'] = "statichtml/aboutus/$1";
-$route['signup-test'] = "statichtml/signuptest";
-$route['(:any)/signup-test'] = "statichtml/signuptest/$1";
-$route['receipt'] = "statichtml/receipt";
-$route['(:any)/receipt'] = "statichtml/receipt/$1";
-$route['receipt-back'] = "statichtml/receiptback";
-$route['(:any)/receipt-back'] = "statichtml/receiptback/$1";
-$route['kash-back-toolbar'] = "statichtml/kashbacktoolbar";
-$route['(:any)/kash-back-toolbar'] = "statichtml/kashbacktoolbar/$1";
-//n
 $route['karmora-cares'] = "statichtml/karmoracares";
 $route['(:any)/karmora-cares'] = "statichtml/karmoracares/$1";
 $route['contact-us'] = "statichtml/contactus";
@@ -312,6 +298,12 @@ $route['income-disclosure-statement'] = "statichtml/footerpages/income-disclosur
 $route['(:any)/income-disclosure-statement'] = "statichtml/footerpages/income-disclosure-statement/$1";
 $route['cash-back-disclosure-statement'] = "statichtml/footerpages/cash-back-disclosure-statement";
 $route['(:any)/cash-back-disclosure-statement'] = "statichtml/footerpages/cash-back-disclosure-statement/$1";
+$route['compensation-plan'] = "statichtml/compensationplan";
+$route['(:any)/compensation-plan'] = "statichtml/compensationplan/$1";
+$route['how-cashback-works'] = "statichtml/howcashbackworks";
+$route['(:any)/how-cashback-works'] = "statichtml/howcashbackworks/$1";
+$route['kash-back-toolbar'] = "statichtml/kashbacktoolbar";
+$route['(:any)/kash-back-toolbar'] = "statichtml/kashbacktoolbar/$1";
 
 
 //ajax call routes
