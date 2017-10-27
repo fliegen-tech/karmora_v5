@@ -304,7 +304,8 @@ $route['how-cashback-works'] = "statichtml/howcashbackworks";
 $route['(:any)/how-cashback-works'] = "statichtml/howcashbackworks/$1";
 $route['kash-back-toolbar'] = "statichtml/kashbacktoolbar";
 $route['(:any)/kash-back-toolbar'] = "statichtml/kashbacktoolbar/$1";
-
+$route['karmora-kash'] = "statichtml/karmorakash";
+$route['(:any)/karmora-kash'] = "statichtml/karmorakash/$1";
 
 //ajax call routes
 

@@ -49,6 +49,11 @@ class Statichtml extends karmora {
         $this->loadLayout($this->data,'frontend/statichtml/kash-back-toolbar');
 
     }
+    public function karmorakash($username = NULL) {
+        $this->verifyUser($username);
+        $this->loadLayout($this->data,'frontend/statichtml/karmorakash');
+
+    }
 
     public function getBrowser() {
         $u_agent = $_SERVER['HTTP_USER_AGENT'];

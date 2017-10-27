@@ -15,7 +15,7 @@
                     <a class="nav-link" href="#">About Karmora</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Karmora Kash</a>
+                    <a class="nav-link" href="<?php echo base_url().'karmora-kash'; ?>">Karmora Kash</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'click2win'; ?>">Click2Win</a>
@@ -31,10 +31,10 @@
                             <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'supplement-product'; ?>">Dietary Supplements</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'supplement-product'; ?>">B3 Home</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Healthy</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Slim</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Beautiful</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> B<sup>3</sup> Trim</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/55'; ?>"><img src="#"> B<sup>3</sup> Healthy</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/56'; ?>"><img src="#"> B<sup>3</sup> Slim</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/57'; ?>"><img src="#"> B<sup>3</sup> Beautiful</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/58'; ?>"><img src="#"> B<sup>3</sup> Trim</a></li>
                                 <li class="dropdown-item wlp-menu"><a tabindex="-1" href="#">Weight Loss Planner</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#">Weight Loss Tips</a></li>
                             </ul>
@@ -43,10 +43,10 @@
                             <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Skincare</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Home</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Flawless Days</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Flawless Nights</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Simply Flawless</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="#"> Flawless Mist</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/4'; ?>"> Flawless Days</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/6'; ?>"> Flawless Nights</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/7'; ?>"> Simply Flawless</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/8'; ?>"> Flawless Mist</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -58,7 +58,11 @@
                     <a class="nav-link" href="<?php echo base_url().'karmora-cash-back'; ?>">Cash Back Shopping</a>
                 </li>
                 <li class="nav-item">
+                    <?php if ($this->session->userdata('front_data')) { ?>
+                    <a class="nav-link" href="<?php echo base_url() . 'profile' ?>">My Account</a>
+                    <?php }else{ ?>
                     <a class="nav-link" href="<?php echo base_url('join-today'); ?>">Join Today</a>
+                    <?php } ?>
                 </li>
             </ul>
         </div>
