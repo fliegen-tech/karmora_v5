@@ -310,6 +310,8 @@ $route['karmora-return-policy'] = "statichtml/footerpages/refund-policy";
 $route['(:any)/karmora-return-policy'] = "statichtml/footerpages/refund-policy/$1";
 $route['income-disclosure-statement'] = "statichtml/footerpages/income-disclosure-statement";
 $route['(:any)/income-disclosure-statement'] = "statichtml/footerpages/income-disclosure-statement/$1";
+$route['cash-back-disclosure-statement'] = "statichtml/footerpages/cash-back-disclosure-statement";
+$route['(:any)/cash-back-disclosure-statement'] = "statichtml/footerpages/cash-back-disclosure-statement/$1";
 
 
 //ajax call routes
