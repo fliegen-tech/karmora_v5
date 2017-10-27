@@ -14845,6 +14845,25 @@ h1 {
   background: #CD1D65 !important;
 }
 
+/* Proceed To checkout */
+.btn-checkout {
+  background-color: #f69747;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #ffffff;
+}
+.btn-checkout img {
+  margin-right: 5px;
+  max-width: 30px;
+  margin-top: -2px;
+}
+.btn-checkout:hover {
+  color: #ffffff;
+}
+
 /* Join Now Btn Notlogin Page */
 .left-right-hover {
   -webkit-transform: perspective(1px) translateZ(0);
@@ -15209,11 +15228,8 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   font-family: 'Conv_TT Corals Thin-DEMO';
   margin-bottom: 36px;
 }
-.bto-shopping .slider-cover {
+.bto-shopping .slider-portion img {
   width: 100%;
-  background-size: cover;
-  height: 600px;
-  background-image: url(../images/best-thing-shopping.jpg);
 }
 .bto-shopping .premier-casual-cover {
   padding: 45px 0;
@@ -17001,7 +17017,6 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   position: relative;
   border-bottom: 1px solid #cdcdcd;
   box-shadow: 0 0 5px 0 #cdcdcd;
-  height: 100%;
   margin-bottom: 18px;
   padding: 15px;
 }
@@ -17382,6 +17397,9 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   vertical-align: middle;
   padding-left: 15px;
 }
+.bonus-poll-sec .example-working .bouns-poll-list li span a {
+  color: #CD1D65;
+}
 .bonus-poll-sec .example-working .bouns-poll-list li:before {
   width: 20px;
   height: 20px;
@@ -17394,7 +17412,7 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   vertical-align: middle;
 }
 
-/* 16: Bonus pool */
+/* 17: Cash me out */
 .cash-me-out-sec .step-heading {
   margin: 0 0 36px;
 }
@@ -17498,7 +17516,7 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   margin-left: 0px;
 }
 
-/* 17: Karmora Training */
+/* 18: Karmora Training */
 .training-sec .training-cover {
   padding: 0px 15px;
   position: relative;
@@ -17611,7 +17629,7 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   text-decoration: none;
 }
 
-/* 18: Karmora Charities */
+/* 19: Karmora Charities */
 .my-cahrities-sec .karmora-cares-cover .cares-righbar {
   width: 580px;
   height: 320px;
@@ -17729,7 +17747,7 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   font-size: 18px;
 }
 
-/* 18: Karmora Login */
+/* 20: Karmora Login */
 .karmora-login-sec .top-heading-cover h1 {
   font-size: 36px;
   padding: 10px;
@@ -17796,25 +17814,966 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
   background-color: #CD1D65;
 }
 
-/* 9: Karmora tables */
-.karmora-table table thead {
-  background: #f05398;
-  color: #ffffff;
-  font-size: 16px;
+/* 21: Karmora Cart */
+.cart-sec .checkout-tobar {
+  margin: 0 0 36px;
 }
-.karmora-table table thead tr th {
-  padding-left: 15px;
+.cart-sec .checkout-tobar h3 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  margin: 0px;
+  font-size: 48px;
+  color: #f05398;
 }
-.karmora-table table tbody tr td {
-  padding-left: 15px;
+.cart-sec .checkout-tobar .btn-checkout img {
+  margin-right: 5px;
+  max-width: 30px;
+  margin-top: -2px;
+}
+.cart-sec .checkout-tobar .btn-checkout:before {
+  border-radius: 25px;
+}
+.cart-sec .cart-table {
+  margin: 0 0 18px;
+}
+.cart-sec .cart-table table tbody tr td img {
+  width: 25%;
+}
+.cart-sec .cart-table table tbody tr td small {
+  display: block;
+}
+.cart-sec .cart-table table tbody tr td a {
+  color: #CD1D65;
+}
+.cart-sec .updatecart .btn-checkout {
+  background-color: #f05398;
+}
+.cart-sec .updatecart .btn-checkout-1 {
+  background-color: #000;
+}
+.cart-sec .grand-total-table-2 {
+  margin: 18px 0;
+}
+.cart-sec .grand-total-table-2 td {
+  padding: 10px 10px;
+  border: 1px solid #cdcdcd;
+  width: 200px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.community-table table thead tr th {
-  width: auto;
+/* 22: Karmora Cart */
+.cart-sec .checkout-tobar {
+  margin: 0 0 36px;
+}
+.cart-sec .checkout-tobar h3 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  margin: 0px;
+  font-size: 48px;
+  color: #f05398;
+}
+.cart-sec .checkout-tobar .btn-checkout img {
+  margin-right: 5px;
+  max-width: 30px;
+  margin-top: -2px;
+}
+.cart-sec .checkout-tobar .btn-checkout:before {
+  border-radius: 25px;
+}
+.cart-sec .cart-table {
+  margin: 0 0 18px;
+}
+.cart-sec .cart-table table tbody tr td img {
+  width: 25%;
+}
+.cart-sec .cart-table table tbody tr td small {
+  display: block;
+}
+.cart-sec .cart-table table tbody tr td a {
+  color: #CD1D65;
+}
+.cart-sec .updatecart .btn-checkout {
+  background-color: #f05398;
+}
+.cart-sec .updatecart .btn-checkout-1 {
+  background-color: #000;
+}
+.cart-sec .grand-total-table-2 {
+  margin: 18px 0;
+}
+.cart-sec .grand-total-table-2 td {
+  padding: 10px 10px;
+  border: 1px solid #cdcdcd;
+  width: 200px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* 23: Karmora Checkout */
+.available-funds-cover .funds-leftbar {
+  margin-bottom: 18px;
+}
+.available-funds-cover .funds-leftbar h3 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  font-size: 30px;
+  margin: 0 0 18px;
+  text-decoration: underline;
+  color: #CD1D65;
+}
+.available-funds-cover .funds-leftbar p {
+  font-size: 16px;
+  margin: 0px;
+}
+.available-funds-cover .funds-leftbar p span {
+  color: #CD1D65;
+}
+.available-funds-cover .switch .cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.available-funds-cover .switch .cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.available-funds-cover .switch input.cmn-toggle-round-flat + label {
+  padding: 2px;
+  width: 100px;
+  height: 40px;
+  background-color: #cdcdcd;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: background 0.4s;
+  -moz-transition: background 0.4s;
+  -o-transition: background 0.4s;
+  transition: background 0.4s;
+}
+.available-funds-cover .switch input.cmn-toggle-round-flat + label:before, .available-funds-cover .switch input.cmn-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+.available-funds-cover .switch label {
+  margin: 0 auto;
+}
+.available-funds-cover .switch input.cmn-toggle-round-flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  -webkit-transition: background 0.4s;
+  -moz-transition: background 0.4s;
+  -o-transition: background 0.4s;
+  transition: background 0.4s;
+}
+.available-funds-cover .switch input.cmn-toggle-round-flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 32px;
+  background-color: #dddddd;
+  -webkit-border-radius: 52px;
+  -moz-border-radius: 52px;
+  -ms-border-radius: 52px;
+  -o-border-radius: 52px;
+  border-radius: 52px;
+  -webkit-transition: margin 0.4s, background 0.4s;
+  -moz-transition: margin 0.4s, background 0.4s;
+  -o-transition: margin 0.4s, background 0.4s;
+  transition: margin 0.4s, background 0.4s;
+}
+.available-funds-cover .switch input.cmn-toggle-round-flat:checked + label {
+  background-color: #f69747;
+}
+.available-funds-cover .switch input.cmn-toggle-round-flat:checked + label:after {
+  margin-left: 60px;
+  background-color: #f69747;
+}
+.available-funds-cover .cart-table .topbar-table {
+  background-color: #f69747;
+  margin: 0px;
+  position: relative;
+}
+.available-funds-cover .cart-table h5 {
+  font-size: 16px;
+  font-weight: bolder;
+  color: #ffffff;
+  padding: 10px;
+  margin: 0px;
+  text-transform: uppercase;
+}
+.available-funds-cover .cart-table h5 .edit-btn {
+  background-color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: #333333;
+  float: right;
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  font-size: 14px;
+  text-decoration: none;
+}
+.available-funds-cover .cart-table table thead {
+  background-color: #cdcdcd;
+}
+.available-funds-cover .cart-table table thead tr th {
+  font-size: 14px;
+  padding: 10px;
+}
+.available-funds-cover .cart-table table tbody tr td {
+  font-size: 14px;
+  padding: 10px;
+}
+
+.pay-now .btn-joinnow {
+  background-color: #f05398;
+  margin-right: 15px;
+}
+.pay-now .btn-joinnow:before {
+  background-color: #CD1D65;
+}
+
+/* 24: Karmora Cares */
+.karmora-cares-sec .coverbar {
+  margin: 36px 0 0;
+}
+.karmora-cares-sec .coverbar .cover-cares-img {
+  height: 315px;
+}
+.karmora-cares-sec .coverbar .cover-cares-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.karmora-cares-sec .coverbar h3 {
+  font-size: 30px;
+  text-align: center;
+  margin: 18px 0 0;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+}
+.karmora-cares-sec .coverbar h3 span {
+  color: #CD1D65;
+}
+.karmora-cares-sec .fundraising-cover {
+  margin: 36px 0 0;
+}
+.karmora-cares-sec .fundraising-cover h3 {
+  font-size: 36px;
+  text-align: center;
+  margin: 0 0 18px;
+  color: #CD1D65;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+}
+.karmora-cares-sec .fundraising-cover p {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 30px;
+}
+.karmora-cares-sec .fundraising-steps {
+  margin: 36px 0 0;
+}
+.karmora-cares-sec .fundraising-steps h2 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  background-color: #f69747;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 36px;
+  margin: 0px 0 18px;
+}
+.karmora-cares-sec .fundraising-steps p {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 30px;
+}
+.karmora-cares-sec .fundraising-steps span {
+  margin: 18px 0 0;
+  display: inline-block;
+  font-style: italic;
+  font-weight: bold;
+}
+.karmora-cares-sec .fundraising-steps .btn-joinnow {
+  margin: 36px 0 0;
+}
+.karmora-cares-sec .fundraising-steps .btn-joinnow img {
+  margin-right: 15px;
+}
+
+/* 25: Karmora Condition pages */
+.conditions-karmora-pages .top-heading-cover {
+  margin-bottom: 18px;
+}
+.conditions-karmora-pages .top-heading-cover h1 {
+  font-size: 48px;
+}
+.conditions-karmora-pages .top-heading-cover h1 small {
+  font-size: 24px;
+}
+.conditions-karmora-pages .cover-karmora-pages {
+  margin: 27px 0 0;
+}
+.conditions-karmora-pages .cover-karmora-pages h2 {
+  font-size: 24px;
+  margin: 0 0 13.5px;
+  font-family: 'Conv_BebasNeue Bold';
+}
+.conditions-karmora-pages .cover-karmora-pages h3 {
+  font-size: 24px;
+  margin: 0 0 13.5px;
+  font-family: 'Conv_BebasNeue Bold';
+}
+.conditions-karmora-pages .cover-karmora-pages h5 {
+  margin: 0px;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  font-size: 30px;
+}
+.conditions-karmora-pages .cover-karmora-pages p {
+  font-size: 16px;
+  line-height: 30px;
+  margin: 0px;
+}
+.conditions-karmora-pages .cover-karmora-pages p a {
+  color: #CD1D65;
+  text-decoration: underline;
+}
+.conditions-karmora-pages .cover-karmora-pages h6 {
+  font-size: 24px;
+  line-height: 40px;
+  font-style: italic;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  margin: 18px 0 0;
+}
+.conditions-karmora-pages .cover-karmora-pages ol {
+  margin: 18px 0 0;
+  font-family: 'Arimo', sans-serif;
+}
+.conditions-karmora-pages .cover-karmora-pages ol li {
+  font-family: 'Arimo', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  margin: 0 0 13.5px;
+}
+.conditions-karmora-pages .cover-karmora-pages .m13 {
+  margin-top: 13.5px;
+}
+
+/* 26: Karmora Contact us */
+.contact-us-sec {
+  padding-bottom: 0px;
+}
+.contact-us-sec .live-cover {
+  margin: 36px 0 0;
+  background-color: #f9f9f9;
+  padding: 36px 0;
+}
+.contact-us-sec .live-cover .karmora-support-cover img {
+  width: 100%;
+}
+.contact-us-sec .live-cover .karmora-support-cover:after {
+  height: calc(100% - 30px);
+  width: calc(100% - 60px);
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  background: transparent;
+  border: 3px solid #f69747;
+  pointer-events: none;
+  transition-duration: .3s;
+}
+.contact-us-sec .live-cover .karmora-support-rightbar p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 36px;
+}
+.contact-us-sec .live-cover .karmora-support-rightbar .btn-joinnow {
+  font-size: 24px;
+}
+.contact-us-sec .live-cover .karmora-support-rightbar .btn-joinnow img {
+  margin-right: 15px;
+}
+.contact-us-sec .contact-info-cover {
+  background-image: url(../images/address-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 70px 0;
+}
+.contact-us-sec .contact-info-cover h2 {
+  font-size: 36px;
+  color: #ffffff;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+}
+.contact-us-sec .contact-info-cover .contact-boxes {
+  margin: 54px 0 0;
+}
+.contact-us-sec .contact-info-cover .contact-boxes .contact-box-1 {
+  border: 4px solid #f69747;
+  position: relative;
+  padding: 45px 0;
+  text-align: center;
+  height: 190px;
+}
+.contact-us-sec .contact-info-cover .contact-boxes .contact-box-1 h5 {
+  font-size: 18px;
+  margin: 15px 0 0;
+  color: #ffffff;
+  position: relative;
+}
+.contact-us-sec .contact-info-cover .contact-boxes .contact-box-1 h5:before {
+  background-color: #f69747;
+  content: "";
+  height: 3px;
+  left: 40%;
+  position: absolute;
+  top: 25px;
+  width: 70px;
+}
+.contact-us-sec .contact-info-cover .contact-boxes .contact-box-1 p {
+  margin: 18px 0 0;
+  font-size: 16px;
+  color: #ffffff;
+}
+.contact-us-sec .contact-info-cover .contact-boxes .contact-box-1 .icon-box-contact {
+  background-color: #f69747;
+  color: #ffffff;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  top: -20%;
+  left: 42%;
+  width: 60px;
+  border-radius: 50%;
+}
+
+/* 27: Karmora Profit Sharing Page */
+.profit-sharing-sec {
+  padding-bottom: 0px;
+}
+.profit-sharing-sec .profit-sharing-cover .profit-img-cover {
+  text-align: center;
+}
+.profit-sharing-sec .profit-sharing-cover .profit-img-cover img {
+  width: 100%;
+}
+.profit-sharing-sec .profit-sharing-cover .profit-img-cover:after {
+  height: calc(100% - 30px);
+  width: calc(100% - 60px);
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 30px;
+  background: transparent;
+  border: 3px solid #f05398;
+  pointer-events: none;
+  transition-duration: .3s;
+}
+.profit-sharing-sec .profit-sharing-cover .profit-sharing-content h3 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  font-size: 30px;
+  color: #CD1D65;
+  margin: 0 0 18px;
+}
+.profit-sharing-sec .profit-sharing-cover .profit-sharing-content p {
+  font-size: 16px;
+  line-height: 30px;
+}
+.profit-sharing-sec .profit-sharing-cover .profit-sharing-content p a {
+  color: #CD1D65;
+}
+.profit-sharing-sec .qulify-cover {
+  margin: 36px 0 0;
+}
+.profit-sharing-sec .qulify-cover h3 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  font-size: 30px;
+  color: #CD1D65;
+  margin: 0 0 18px;
+}
+.profit-sharing-sec .qulify-cover ul {
+  margin: 0px;
+  padding: 0px;
+}
+.profit-sharing-sec .qulify-cover ul li {
+  font-size: 16px;
+  line-height: 30px;
+  font-family: 'Arimo', sans-serif;
+  padding-left: 0;
+  margin-bottom: 18px;
+}
+.profit-sharing-sec .qulify-cover ul li:last-child {
+  margin-bottom: 0px;
+}
+.profit-sharing-sec .qulify-cover ul li span {
+  vertical-align: middle;
   padding-left: 15px;
 }
-.community-table table tbody tr td {
+.profit-sharing-sec .qulify-cover ul li span a {
+  color: #CD1D65;
+}
+.profit-sharing-sec .qulify-cover ul li:before {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  content: '';
+  background-color: #f05398;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 .2em 0 -1.5em;
+  vertical-align: middle;
+}
+
+.profit-sharing-pool {
+  padding-top: 36px;
+}
+
+.compensation-page-sec .profit-sharing-cover {
+  margin: 0 0 36px;
+}
+.compensation-page-sec .profit-sharing-cover .top-heading-cover {
+  margin-bottom: 36px;
+}
+.compensation-page-sec .profit-sharing-cover .top-heading-cover h1 {
+  font-size: 48px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-img-cover {
+  display: flex;
+  align-items: center;
+  height: 380px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-img-cover:after {
+  display: none;
+}
+.compensation-page-sec .profit-sharing-cover .recurring-cover img {
+  width: 100%;
+}
+.compensation-page-sec .profit-sharing-cover .recurring-cover:after {
+  height: calc(100% - 30px);
+  width: calc(100% - 60px);
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  background: transparent;
+  border: 3px solid #f05398;
+  pointer-events: none;
+  transition-duration: .3s;
+}
+.compensation-page-sec .profit-sharing-cover .profit-cover {
+  height: 500px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-cover img {
+  height: 100%;
+  object-fit: cover;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content ul {
+  margin: 0px;
+  padding: 0px 0 0 25px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content ul li {
+  font-size: 16px;
+  line-height: 30px;
+  font-family: 'Arimo', sans-serif;
+  padding-left: 0;
+  margin-bottom: 18px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content ul li:last-child {
+  margin-bottom: 0px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content ul li span {
+  vertical-align: middle;
   padding-left: 15px;
+  display: inline-block;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content ul li span a {
+  color: #CD1D65;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content ul li:before {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  content: '';
+  background-color: #f05398;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 .2em 0 -1.5em;
+  vertical-align: middle;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content .list-profit li:first-child span {
+  display: initial;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content .list-profit li span strong {
+  margin-right: 10px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content .btn-joinnow {
+  background-color: #f05398;
+  margin-top: 36px;
+}
+.compensation-page-sec .profit-sharing-cover .profit-sharing-content .btn-joinnow:before {
+  background-color: #CD1D65;
+}
+
+/* 28: Karmora How Cash Back works & Karmora Tool Bar */
+.cash-back-works h2 {
+  font-size: 30px;
+  text-align: center;
+  margin: 0 0 9px;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+}
+.cash-back-works p {
+  font-size: 16px;
+  text-align: center;
+  margin: 0px;
+}
+.cash-back-works .cash-back-step {
+  margin: 36px 0 0;
+  padding: 0 0 36px;
+  border-bottom: 2px solid #f05398;
+}
+.cash-back-works .cash-back-step .cash-back-img-work {
+  text-align: center;
+}
+.cash-back-works .cash-back-step p {
+  margin-top: 36px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+.cash-back-works .cash-back-step:last-child {
+  border-bottom: 0;
+}
+
+.karmora-tool-bar h2 {
+  font-family: 'Conv_BebasNeue Bold';
+  font-size: 60px;
+  text-align: center;
+  margin: 0 0 9px;
+}
+.karmora-tool-bar p {
+  font-size: 18px;
+  text-align: center;
+  margin: 0px;
+}
+.karmora-tool-bar .toobar-cover {
+  margin: 36px 0 0;
+}
+.karmora-tool-bar .toobar-cover .tool-img-cover {
+  text-align: center;
+}
+.karmora-tool-bar .toobar-cover .tool-img-cover img {
+  width: 100%;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content {
+  margin: 36px 0 0;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content h3 {
+  font-family: 'Conv_BebasNeue Bold';
+  font-size: 48px;
+  text-align: center;
+  margin: 0 0 27px;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content p {
+  font-size: 16px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 18px;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content p span {
+  text-align: right;
+  display: block;
+  font-style: italic;
+  font-weight: bolder;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content .toolbar-video img {
+  width: 100%;
+  border: 1px solid #f05398;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content .btn-joinnow {
+  background-color: #f05398;
+  margin: 36px 0 18px;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content .btn-joinnow:before {
+  background-color: #CD1D65;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content img {
+  display: block;
+  margin: 0 auto;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 18px;
+}
+.karmora-tool-bar .toobar-cover .tool-bar-content p a {
+  color: #CD1D65;
+  text-decoration: underline;
+}
+
+/* 29: Karmora landing Pages */
+.landing-page-sec {
+  padding-bottom: 0px;
+}
+.landing-page-sec .winning-money-offer h1 {
+  font-family: 'Conv_BebasNeue Bold';
+  font-size: 72px;
+  margin: 0 0 18px;
+  text-align: center;
+}
+.landing-page-sec .winning-money-offer h3 {
+  font-size: 48px;
+  text-align: center;
+  margin: 0px;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+}
+.landing-page-sec .winning-money-offer .click-2-win-video {
+  margin: 36px 0;
+}
+.landing-page-sec .winning-money-offer .click-2-win-video iframe {
+  width: 49%;
+  border: 1px dashed #cdcdcd;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #ababab, 0 0 0 10px #fff, 0 0 2px 10px #d5d5d5;
+  padding: 5px;
+}
+.landing-page-sec .supplemts-money-offer h1 {
+  font-family: 'Conv_BebasNeue Bold';
+  font-size: 72px;
+  margin: 0 0 18px;
+  text-align: center;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover {
+  margin-bottom: 36px;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover {
+  text-align: center;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-image {
+  height: 280px;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-image img {
+  height: 100%;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-desp {
+  text-align: center;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-desp h4 {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 15px 0;
+  color: #333333;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-desp .btn-shopnow {
+  padding: 10px 20px;
+  background-color: transparent;
+  font-size: 24px;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  border-radius: 3px;
+  color: #333333;
+  transition-duration: .3s;
+}
+.landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-desp .btn-shopnow:hover, .landing-page-sec .supplemts-money-offer .landing-product-cover .produt-one-cover .product-desp .btn-shopnow:focus {
+  background-color: #333333;
+  color: #ffffff;
+}
+.landing-page-sec .landing-categories {
+  border-top: 2px solid #f69747;
+  padding-top: 36px;
+  margin: 36px 0 0;
+}
+.landing-page-sec .landing-categories h2 {
+  font-size: 60px;
+  margin: 0px 0 36px;
+  font-family: 'Conv_BebasNeue Bold';
+  text-align: center;
+}
+.landing-page-sec .landing-categories h2 span {
+  color: #CD1D65;
+}
+.landing-page-sec .landing-categories .category-cover {
+  background-color: #f69747;
+  padding: 15px 0;
+}
+.landing-page-sec .landing-categories .category-cover .category-leftbar {
+  padding-left: 15px;
+}
+.landing-page-sec .landing-categories .category-cover .category-leftbar img {
+  width: 100%;
+}
+.landing-page-sec .landing-categories .category-cover .category-rightbar {
+  display: flex;
+  padding-right: 15px;
+  align-items: center;
+  height: 335px;
+  align-items: center;
+  justify-content: center;
+}
+.landing-page-sec .landing-categories .category-cover .category-rightbar h4 {
+  font-family: 'Conv_TT Corals Thin-DEMO';
+  font-size: 46px;
+  color: #ffffff;
+  text-align: center;
+  margin: 0px;
+}
+.landing-page-sec .landing-categories .category-cover .category-rightbar h4 span {
+  font-family: 'Conv_BebasNeue Bold';
+  display: block;
+}
+.landing-page-sec .landing-categories .category-cover .category-saving {
+  height: 223px;
+}
+.landing-page-sec .landing-categories .category-cover .supplemt-rightbar {
+  height: 300px;
+}
+.landing-page-sec .landing-categories .category-cover .supplemt-rightbar h4 {
+  font-size: 40px;
+}
+.landing-page-sec .landing-categories .category-cover .flawless-rightbar {
+  height: 225px;
+}
+.landing-page-sec .landing-categories .categor-desp {
+  padding: 0 150px;
+  margin: 36px 0 0;
+}
+.landing-page-sec .landing-categories .categor-desp p {
+  font-size: 18px;
+  line-height: 36px;
+  margin: 0px;
+}
+.landing-page-sec .landing-categories .categor-desp p a {
+  color: #CD1D65;
+}
+.landing-page-sec .landing-categories .categor-desp .btn-joinnow {
+  margin-top: 36px;
+}
+.landing-page-sec .landing-categories .winning-money-list .cover-leftbar {
+  text-align: center;
+}
+.landing-page-sec .landing-categories .winning-money-list .cover-leftbar img {
+  width: 90%;
+}
+.landing-page-sec .landing-categories .winning-money-list .cover-leftbar .btn-joinnow {
+  margin-top: 18px;
+  font-size: 24px;
+}
+.landing-page-sec .landing-categories .winning-money-list .winning-list ul {
+  margin: 0px;
+  padding: 0px 0 0 35px;
+}
+.landing-page-sec .landing-categories .winning-money-list .winning-list ul li {
+  font-size: 16px;
+  line-height: 30px;
+  font-family: 'Arimo', sans-serif;
+  padding-left: 0;
+  display: inherit;
+  margin-bottom: 18px;
+}
+.landing-page-sec .landing-categories .winning-money-list .winning-list ul li:before {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  content: '';
+  background-color: #f05398;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin: 0 .2em 0 -1.5em;
+  vertical-align: middle;
+}
+.landing-page-sec .landing-categories .winning-money-list .winning-list ul li span {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 15px;
+}
+.landing-page-sec .landing-categories .winning-money-list .winning-list h4 {
+  font-size: 24px;
+  color: #f69747;
+  margin: 18px 0 0;
+  font-family: 'Conv_TT Corals Thin-DEMO';
+}
+.landing-page-sec .landing-categories .customer-timeline ul {
+  margin: 0;
+  padding: 20px 0 0;
+  position: relative;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li {
+  margin-bottom: 70px;
+  position: relative;
+  min-height: 177px;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li:after {
+  content: " ";
+  display: table;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li:after {
+  clear: both;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li .timeline-badge {
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.4em;
+  left: 50%;
+  line-height: 50px;
+  margin-left: -85px;
+  position: absolute;
+  text-align: center;
+  top: -22px;
+  z-index: 100;
+  width: 177px;
+  height: 177px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #eeeeee;
+  background-color: #ffffff;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li .timeline-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li .timeline-panel {
+  width: 40%;
+  float: left;
+  border-radius: 2px;
+  padding: 0 20px;
+  position: relative;
+  text-align: right;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li .timeline-panel p {
+  font-size: 16px;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li .timeline-panel p span {
+  display: block;
+  color: #CD1D65;
+}
+.landing-page-sec .landing-categories .customer-timeline ul li:last-child {
+  margin-bottom: 0px;
+}
+.landing-page-sec .landing-categories .customer-timeline ul .timeline-inverted .timeline-panel {
+  float: right;
+  text-align: left;
+}
+.landing-page-sec .landing-categories .customer-timeline ul:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 4px;
+  background-color: #cdcdcd;
+  left: 50%;
+  margin-left: -1.5px;
+  height: 650px;
 }
 
 /* 9: Popup File */
@@ -17862,6 +18821,27 @@ header .navbar-header .navbar .leftbar-content .nav-item:first-child {
 .modal .modal-dialog .modal-content .modal-body .model-cover .ingredient-cover img {
   width: 100%;
   border: 1px solid #cdcdcd;
+}
+
+/* 9: Popup File */
+.karmora-table table thead {
+  background: #f05398;
+  color: #ffffff;
+  font-size: 16px;
+}
+.karmora-table table thead tr th {
+  padding-left: 15px;
+}
+.karmora-table table tbody tr td {
+  padding-left: 15px;
+}
+
+.community-table table thead tr th {
+  width: auto;
+  padding-left: 15px;
+}
+.community-table table tbody tr td {
+  padding-left: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */

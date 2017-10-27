@@ -1,0 +1,167 @@
+.available-funds-cover {
+
+	.funds-leftbar {
+		margin-bottom: 18px;
+
+		h3 {
+			font-family: 'Conv_TT Corals Thin-DEMO';
+			font-size: 30px;
+			margin: 0 0 18px;
+			text-decoration: underline;
+			color: $primary_color-text;
+		}
+
+		p {
+			font-size: 16px;
+			margin: 0px;
+
+			span {
+				color: $primary_color-text;
+			}
+		}
+	}
+
+	.switch {
+		.cmn-toggle {
+		  position: absolute;
+		  margin-left: -9999px;
+		  visibility: hidden;
+		}
+		.cmn-toggle + label {
+		  display: block;
+		  position: relative;
+		  cursor: pointer;
+		}
+		input.cmn-toggle-round-flat + label {
+		  padding: 2px;
+		  width: 100px;
+		  height: 40px;
+		  background-color: $color_gray;
+		  -webkit-border-radius: 30px;
+		  -moz-border-radius: 30px;
+		  -ms-border-radius: 30px;
+		  -o-border-radius: 30px;
+		  border-radius: 30px;
+		  -webkit-transition: background 0.4s;
+		  -moz-transition: background 0.4s;
+		  -o-transition: background 0.4s;
+		  transition: background 0.4s;
+		}
+		input.cmn-toggle-round-flat + label:before, input.cmn-toggle-round-flat + label:after {
+		  display: block;
+		  position: absolute;
+		  content: "";
+		}
+		label {
+			margin: 0 auto;
+		}
+		input.cmn-toggle-round-flat + label:before {
+		  top: 2px;
+		  left: 2px;
+		  bottom: 2px;
+		  right: 2px;
+		  background-color: #fff;
+		  -webkit-border-radius: 60px;
+		  -moz-border-radius: 60px;
+		  -ms-border-radius: 60px;
+		  -o-border-radius: 60px;
+		  border-radius: 60px;
+		  -webkit-transition: background 0.4s;
+		  -moz-transition: background 0.4s;
+		  -o-transition: background 0.4s;
+		  transition: background 0.4s;
+		}
+		input.cmn-toggle-round-flat + label:after {
+		  top: 4px;
+		  left: 4px;
+		  bottom: 4px;
+		  width: 32px;
+		  background-color: #dddddd;
+		  -webkit-border-radius: 52px;
+		  -moz-border-radius: 52px;
+		  -ms-border-radius: 52px;
+		  -o-border-radius: 52px;
+		  border-radius: 52px;
+		  -webkit-transition: margin 0.4s, background 0.4s;
+		  -moz-transition: margin 0.4s, background 0.4s;
+		  -o-transition: margin 0.4s, background 0.4s;
+		  transition: margin 0.4s, background 0.4s;
+		}
+		input.cmn-toggle-round-flat:checked + label {
+		  background-color: $scendary_color;
+		}
+		input.cmn-toggle-round-flat:checked + label:after {
+		  margin-left: 60px;
+		  background-color: $scendary_color;
+		}
+	}
+
+	.cart-table {
+
+		.topbar-table {
+			background-color: $scendary_color;
+			margin: 0px;
+			position: relative;
+		}
+
+		h5 {
+			font-size: 16px;
+			font-weight: bolder;
+			color: $white_color;
+			padding: 10px;
+			margin: 0px;
+			text-transform: uppercase;
+
+			.edit-btn {
+				background-color: $white_color;
+		    padding: 6px 12px;
+		    border-radius: 5px;
+		    color: $lowblack;
+		    float: right;
+		    position: absolute;
+		    right: 5px;
+		    top: 6px;
+		    font-size: 14px;
+		    text-decoration: none;
+			}
+		}
+
+		table {
+
+			thead {
+				background-color: $color_gray;
+
+				tr  {
+
+					th {
+						font-size: 14px;
+						padding: 10px;
+					}
+				}
+			}
+
+			tbody {
+
+				tr {
+
+					td {
+						font-size: 14px;
+						padding: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.pay-now {
+
+	.btn-joinnow {
+		background-color: $primary_color;
+		margin-right: 15px;
+		
+		&:before {
+			background-color: $primary_color-text;
+		}
+	}
+}
