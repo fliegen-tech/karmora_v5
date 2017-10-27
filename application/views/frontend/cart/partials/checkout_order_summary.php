@@ -55,6 +55,10 @@
             <td scope="row"><strong>Order Total:</strong></td>
             <td><strong id="order_total_html">$<?php echo $cart_info['actualCost']; ?></strong></td>
         </tr>
+        <tr id="karmora_commsion_disply">
+            <td scope="row">Karmora Commsion</td>
+            <td style="color: red;" id="karmora_commsion_use_html"></td>
+        </tr>
         <tr>
             <td scope="row"><strong>Charge Amount:</strong></td>
             <td><strong id="charge_amount_html">$<?php echo $cart_info['actualCost']; ?></strong></td>

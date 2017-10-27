@@ -9,10 +9,9 @@
                     <h2>Company info</h2>
                     <ul class="list-unstyled services-footer">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Karmora Cares</a></li>
-                        <li><a href="#">Q&amp;A</a></li>
-                        <li><a href="javascript: void(0)">Live Support</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="<?php echo base_url().'karmora-cares'; ?>">Karmora Cares</a></li>
+                        <li><a onclick="window.open('https://www.karmora.com/liveSupport/', 'sharer', 'toolbar=0,status=0,width=600,height=600');" target="_parent" href="javascript: void(0)">Live Support</a></li>
+                        <li><a href="<?php echo base_url().'contact-us'; ?>">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

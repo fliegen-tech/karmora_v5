@@ -1,50 +1,51 @@
 <script>
-        var shiping_cost            = '<?php echo $cart_info['shipping_cost']; ?>';
-        var exclusiveProductTotal   = '<?php echo $cart_info['exclusiveProductTotal']; ?>';
-        var actualCost              = '<?php echo $cart_info['actualCost']; ?>';
-        var cartAmount              = '<?php echo $cart_info['cartAmount']; ?>';
+    var shiping_cost = '<?php echo $cart_info['shipping_cost']; ?>';
+    var exclusiveProductTotal = '<?php echo $cart_info['exclusiveProductTotal']; ?>';
+    var actualCost = '<?php echo $cart_info['actualCost']; ?>';
+    var cartAmount = '<?php echo $cart_info['cartAmount']; ?>';
 </script>
 <script>
-    function calucaltetax(){
+    function calucaltetax() {
         paymentcalcualtion();
         return false;
-        alert(baseurl+'calculateTax');
+        alert(baseurl + 'calculateTax');
         jQuery('#tax_price_html').html('');
         jQuery('#tax').val(0);
         jQuery('#tax_error').html(0);
         var form = jQuery("#form");
-            var data = form.serialize();
-            jQuery.ajax({
-                type: 'POST',
-                url: baseurl+'calculateTax',
-                data:data,
-                form: form,
-                context: document.body,
-                error: function(data, transport) { },
-                success: function(data){
-                    if(data == 'error'){
-                        jQuery('#tax_error').focus();
-                        jQuery("#tax_error").html('<div class="alert alert-danger">The Provided Address Is incorrect </div>');
-                    }else {
-                        var tax_price = parseFloat(data).toFixed(2);
-                        jQuery('#tax_price_html').html('$' + tax_price);
-                        jQuery('#tax').val(data);
-                    }
+        var data = form.serialize();
+        jQuery.ajax({
+            type: 'POST',
+            url: baseurl + 'calculateTax',
+            data: data,
+            form: form,
+            context: document.body,
+            error: function (data, transport) {
+            },
+            success: function (data) {
+                if (data == 'error') {
+                    jQuery('#tax_error').focus();
+                    jQuery("#tax_error").html('<div class="alert alert-danger">The Provided Address Is incorrect </div>');
+                } else {
+                    var tax_price = parseFloat(data).toFixed(2);
+                    jQuery('#tax_price_html').html('$' + tax_price);
+                    jQuery('#tax').val(data);
                 }
-            });
+            }
+        });
     }
 </script>
 <script>
     function paymentcalcualtion() {
         // get hidden fileds values
-        var tax                  = ($('#tax').val() > 0 ) ? $('#tax').val() : 0;
-        var karmora_kash         = ($('#karmora_kash_checkBox').is(":checked")) ? $('#karmora_kash_use').val() : 0;
-        var karmora_commsion     = ($('#karmora_commsion_checkBox').is(":checked")) ? $('#karmora_commission_use').val() : 0;
-        var amount_for_minus     = karmora_kash + karmora_commsion;
-        var amount_with_tax      = exclusiveProductTotal + tax;
-        var total_amount         = amount_with_tax - amount_for_minus;
-        $("#order_total_html").html('$'+ (amount_with_tax - karmora_kash ).toFixed(2));
-        $("#charge_amount_html").html('$'+total_amount.toFixed(2));
+        var tax = ($('#tax').val() > 0 ) ? $('#tax').val() : 0;
+        var karmora_kash = ($('#karmora_kash_checkBox').is(":checked")) ? $('#karmora_kash_use').val() : 0;
+        var karmora_commsion = ($('#karmora_commsion_checkBox').is(":checked")) ? $('#karmora_commission_use').val() : 0;
+        var amount_for_minus = karmora_kash + karmora_commsion;
+        var amount_with_tax = exclusiveProductTotal + tax;
+        var total_amount = amount_with_tax - amount_for_minus;
+        $("#order_total_html").html('$' + (amount_with_tax - karmora_kash ).toFixed(2));
+        $("#charge_amount_html").html('$' + total_amount.toFixed(2));
 
     }
 </script>
@@ -52,18 +53,23 @@
 
 <script>
     $('#karmora_kash_checkBox').click(function (event) {
+        setKarmoraCommission();
         setKarmoraKash();
+    });
+    $('#karmora_commsion_checkBox').click(function (event) {
+        setKarmoraKash();
+        setKarmoraCommission();
     });
     // set karmora kash
     function setKarmoraKash() {
         if ($('#karmora_kash_checkBox').is(":checked")) {
-            $("#karmora_kash_disply").show();
             var karmora_kash = $('#karmora_kash').val().split(',').join('');
             var exclusiveproductTotal_karmora_cash = cartAmount - karmora_kash;
-            var karmora_kash  = parseFloat(karmora_kash);
+            var karmora_kash = parseFloat(karmora_kash);
+            $("#karmora_kash_disply").show();
             $("#karmora_kash_use").val(karmora_kash.toFixed(2));
-            $("#karmora_kash_use_html").html('$'+karmora_kash.toFixed(2));
-            $("#product_total_with_karmora_Kash").html('$'+exclusiveproductTotal_karmora_cash.toFixed(2));
+            $("#karmora_kash_use_html").html('$' + karmora_kash.toFixed(2));
+            $("#product_total_with_karmora_Kash").html('$' + exclusiveproductTotal_karmora_cash.toFixed(2));
             paymentcalcualtion();
         }
         else {
@@ -75,15 +81,20 @@
 
     // set Karmora Commisison
     function setKarmoraCommission() {
-        if ($('#karmora_commsion_check').is(":checked")) {
-            $("#karmora_commsion_disply").show();
-            $("#karmora_commsion_price").show();
+        if ($('#karmora_commsion_checkBox').is(":checked")) {
             var karmora_commission = parseFloat($('#karmora_commsion').val().split(',').join(''));
-            $('#karmora_commission_use').val(karmora_commission.toFixed(2));
+            var exclusiveproductTotal_karmora_commission = cartAmount - karmora_commission;
+            var karmora_commission = parseFloat(karmora_commission);
+            $("#karmora_commsion_disply").show();
+            $("#karmora_commission_use").val(karmora_commission.toFixed(2));
+            $("#karmora_commsion_use_html").html('$' + karmora_commission.toFixed(2));
+            paymentcalcualtion();
+
         } else {
             $("#karmora_commsion_disply").hide();
-            $("#karmora_commsion_price").hide();
-            $('#karmora_commission_use').val(0.00);
+            $("#karmora_commission_use").val(0.00);
+            paymentcalcualtion();
+
         }
     }
 </script>

@@ -281,6 +281,28 @@ $route['(:any)/join-premier'] = "signup/primierPost/$1";
 // Signup successful signup
 $route['(:any)/welcome'] = "signup/welcome/$1";
 
+// routes for staichtmlpages
+
+$route['karmora-kash'] = "statichtml/karmorakash";
+$route['(:any)/karmora-kash'] = "statichtml/karmorakash/$1";
+$route['about-us'] = "statichtml/aboutus";
+$route['(:any)/about-us'] = "statichtml/aboutus/$1";
+$route['signup-test'] = "statichtml/signuptest";
+$route['(:any)/signup-test'] = "statichtml/signuptest/$1";
+$route['receipt'] = "statichtml/receipt";
+$route['(:any)/receipt'] = "statichtml/receipt/$1";
+$route['receipt-back'] = "statichtml/receiptback";
+$route['(:any)/receipt-back'] = "statichtml/receiptback/$1";
+$route['kash-back-toolbar'] = "statichtml/kashbacktoolbar";
+$route['(:any)/kash-back-toolbar'] = "statichtml/kashbacktoolbar/$1";
+//n
+$route['karmora-cares'] = "statichtml/karmoracares";
+$route['(:any)/karmora-cares'] = "statichtml/karmoracares/$1";
+$route['contact-us'] = "statichtml/contactus";
+$route['(:any)/contact-us'] = "statichtml/contactus/$1";
+$route['profit-sharing-program'] = "statichtml/profitsharingprogram";
+$route['(:any)/profit-sharing-program'] = "statichtml/profitsharingprogram/$1";
+
 
 //ajax call routes
 
