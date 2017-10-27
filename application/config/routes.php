@@ -302,6 +302,14 @@ $route['contact-us'] = "statichtml/contactus";
 $route['(:any)/contact-us'] = "statichtml/contactus/$1";
 $route['profit-sharing-program'] = "statichtml/profitsharingprogram";
 $route['(:any)/profit-sharing-program'] = "statichtml/profitsharingprogram/$1";
+$route['karmora-terms-conditions'] = "statichtml/footerpages/terms-conditions";
+$route['(:any)/karmora-terms-conditions'] = "statichtml/footerpages/terms-conditions/$1";
+$route['karmora-privacy-policy'] = "statichtml/footerpages/privacy-policy";
+$route['(:any)/karmora-privacy-policy'] = "statichtml/footerpages/privacy-policy/$1";
+$route['karmora-return-policy'] = "statichtml/footerpages/refund-policy";
+$route['(:any)/karmora-return-policy'] = "statichtml/footerpages/refund-policy/$1";
+$route['income-disclosure-statement'] = "statichtml/footerpages/income-disclosure-statement";
+$route['(:any)/income-disclosure-statement'] = "statichtml/footerpages/income-disclosure-statement/$1";
 
 
 //ajax call routes

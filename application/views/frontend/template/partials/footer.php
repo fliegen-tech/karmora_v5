@@ -19,9 +19,9 @@
                 <div class="footer-link-box">
                     <h2>Disclosures</h2>
                     <ul class="list-unstyled services-footer">
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="<?php echo base_url().'karmora-terms-conditions'; ?>">Terms of Use</a></li>
+                        <li><a href="<?php echo base_url().'karmora-privacy-policy'; ?>">Privacy Policy</a></li>
+                        <li><a href="<?php echo base_url().'karmora-return-policy'; ?>">Refund Policy</a></li>
                         <li><a href="#">Income Disclosure Statement</a></li>
                         <li><a href="#">Cash Back Disclosure Statement</a></li>
                     </ul>
@@ -32,7 +32,7 @@
                     <h2>Premier Shopper Program</h2>
                     <ul class="list-unstyled services-footer">
                         <li><a href="#">It Pays to Share Good Karmora!</a></li>
-                        <li><a href="#">Profit Sharing Pool</a></li>
+                        <li><a href="<?php echo base_url().'profit-sharing-program'; ?>">Profit Sharing Pool</a></li>
                         <li><a href="#">Best Cash Back Guarantee</a></li>
                         <li><a href="#">Join</a></li>
                     </ul>

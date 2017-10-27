@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="profit-img-cover">
-                        <img src="images/profie-sharing.jpg" alt="">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/profie-sharing.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-6">

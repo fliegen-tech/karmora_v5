@@ -28,6 +28,12 @@ class Statichtml extends karmora {
         $this->loadLayout($this->data,'frontend/statichtml/profitsharingprogram');
     }
 
+    public function footerpages($alias,$username = NULL) {
+        $this->verifyUser($username);
+        $this->data['footerpages'] = $this->pagemodel->getpagedetail($alias);
+        $this->loadLayout($this->data,'frontend/statichtml/karmorafooterpages');
+
+    }
     public function karmorajoinnow($username = NULL) {
             $data           =  '';
             $this->verifyUser($username);
@@ -49,13 +55,7 @@ class Statichtml extends karmora {
             
     }
     
-    public function footerpages($alias,$username = NULL) {
-            $data           =  '';
-            $this->verifyUser($username);
-            $data['footerpages'] = $this->pagemodel->getpagedetail($alias);
-            $this->loadLayout($data,'frontend/statichtml/karmorafooterpages');
-            
-    }
+
     public function join_today_sec($alias,$username = NULL) {
             $data           =  '';
             $this->verifyUser($username);
