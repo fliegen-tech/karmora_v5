@@ -1,0 +1,116 @@
+@import "common/variables";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+//@import "../../bower_components/bootstrap/scss/bootstrap.scss";
+// endbower
+
+@import "vendors/bootstrap.";
+@import "vendors/fontawesome";
+@import "vendors/animate";
+@import "vendors/magiczoom";
+@import "vendors/slick";
+@import "common/global";
+@import "components/buttons";
+@import "components/buttons-hover";
+@import "components/comments";
+@import "components/forms";
+@import "components/grid";
+@import "layouts/header";
+@import "layouts/header-new";
+@import "layouts/footer";
+/* Karmora Pages */
+
+/* 1: homepage-not-login */
+@import "layouts/innerpages/homepage-not-login";
+
+/* 2: homepage-login */
+@import "layouts/innerpages/homepage-login";
+
+/* 3: Product-homepage */
+@import "layouts/innerpages/product-homepage";
+
+/* 4: Flawless Detail Page */
+@import "layouts/innerpages/product-detailpage";
+
+/* 5: Ads Homepage */
+@import "layouts/innerpages/ads-homepage";
+
+/* 6: Ads Homepage */
+@import "layouts/innerpages/ads-pages";
+
+/* 7: Karmora Kash */
+@import "layouts/innerpages/karmora-kash";
+
+/* 8: Karmora Click-2-win */
+@import "layouts/innerpages/click-2-win";
+
+/* 9: Karmora Cash Back */
+@import "layouts/innerpages/cash-back-shopping";
+
+/* 10: About Us */
+@import "layouts/innerpages/about-us";
+
+/* 11: Blog Homepage */
+@import "layouts/innerpages/blog-homepage";
+
+/* 12: Karmora Join Now */
+@import "layouts/innerpages/karmora-join-now";
+
+/* 13: Karmora Signup */
+@import "layouts/innerpages/karmora-signup";
+
+/* 14: Karmora Dashboard */
+@import "layouts/innerpages/dashboard";
+
+/* 15: User Profile */
+@import "layouts/innerpages/user-profile";
+
+/* 16: Bonus pool */
+@import "layouts/innerpages/bonus-pool";
+
+/* 17: Cash me out */
+@import "layouts/innerpages/cash-me-out";
+
+/* 18: Karmora Training */
+@import "layouts/innerpages/karmora-training";
+
+/* 19: Karmora Charities */
+@import "layouts/innerpages/my-charities";
+
+/* 20: Karmora Login */
+@import "layouts/innerpages/karmora-login";
+
+/* 21: Karmora Cart */
+@import "layouts/innerpages/karmora-cart";
+
+/* 22: Karmora Cart */
+@import "layouts/innerpages/karmora-cart";
+
+/* 23: Karmora Checkout */
+@import "layouts/innerpages/karmora-checkout";
+
+/* 24: Karmora Cares */
+@import "layouts/innerpages/karmora-cares";
+
+/* 25: Karmora Condition pages */
+@import "layouts/innerpages/conditions-pages";
+
+/* 26: Karmora Contact us */
+@import "layouts/innerpages/contact-us";
+
+/* 27: Karmora Profit Sharing Page */
+@import "layouts/innerpages/profit-sharing-program";
+
+/* 28: Karmora How Cash Back works & Karmora Tool Bar */
+@import "layouts/innerpages/cash-back-works";
+
+/* 29: Karmora landing Pages */
+@import "layouts/innerpages/landing-pages";
+
+/* 9: Popup File */
+@import "layouts/innerpages/popup";
+
+
+/* 9: Popup File */
+@import "layouts/innerpages/karmora-table";
