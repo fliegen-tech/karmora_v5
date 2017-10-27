@@ -26,7 +26,7 @@ class Signup extends karmora {
             'flashKey' => 'message_signup'
         );
 
-        $this->load->model(array('usermodel', 'Loginmodel', 'productmodel'));
+        $this->load->model(array('usermodel', 'Loginmodel', 'productmodel' ,'ordermodel'));
 
         $this->load->library(array('form_validation'));
         $this->load->helper(array('form'));
