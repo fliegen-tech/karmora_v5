@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-    'dsn' => 'mysql:host=192.168.136.100;dbname=db_enterprize_v1',
+    'dsn' => 'mysql:host=192.168.136.100;dbname=karmora_v5_0',
     'hostname' => '192.168.136.100',
     'username' => 'karmoralive',
     'password' => 'guniev999D',
