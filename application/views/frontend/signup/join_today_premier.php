@@ -4,6 +4,7 @@
 <section class="premier-signup-sec page-spacing">
     <div class="container">
         <div class="row">
+            <?php echo $this->session->flashdata($flashKey); ?>
             <div class="col-12">
                 <h1>Let’s Get THIS Party Started</h1>
                 <p class="premier-desp1">And get you on your way to building the biggest and best shopping Community!</p>
@@ -76,8 +77,7 @@
                                 <div class="paynow">
                                     <div class="row">
                                         <div class="col-4">
-                                            <button class="btn btn-joinnow left-right-hover" value="submit" type="submit"> Pay Now </button>
-                                            <a href="" class="btn btn-joinnow left-right-hover">Pay Now</a>
+                                            <input class="btn btn-joinnow left-right-hover" type="submit" name="submit" value="Pay Now">
                                         </div>
                                         <div class="col-8 text-right">
                                             <ul class="list-inline">

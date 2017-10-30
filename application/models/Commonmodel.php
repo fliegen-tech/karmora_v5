@@ -204,4 +204,17 @@ class Commonmodel extends CI_Model {
         $statement->execute();
         return $statement->rowCount() > 0 ? $statement->fetch(PDO::FETCH_ASSOC) : FALSE;
     }
+    public function adminloadLayout($content_path,$data) {
+
+        $data['header'] = $this->load->view('admin/layout/header', $data, TRUE);
+        $data['footer'] = $this->load->view('admin/layout/footer', $data, TRUE);
+        $data['content'] = $this->load->view($content_path, $data, TRUE);
+        $data['sidebar'] = $this->load->view('admin/layout/sidebar', $data, TRUE);
+        $this->load->view('admin/layout/template', $data);
+    }
+    public function checkAdminlogin(){
+        if (!isset($this->session->userdata) || !$this->session->userdata('admin_data')) {
+            redirect('admin/index');
+        }
+    }
 }

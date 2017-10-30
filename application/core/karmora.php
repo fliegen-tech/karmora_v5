@@ -37,7 +37,7 @@ class karmora extends CI_Controller {
         $this->setThemeUrl();
         $this->load->helper(array('url', 'security'));
         $this->load->model(array('commonmodel'));
-        $this->load->library(array('email', 'cart', ''));//Authorizenet
+        $this->load->library(array('email', 'cart', 'Authorizenet'));//
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
         $this->currentUser = $this->commonmodel->getFounder($this->founder);
@@ -242,8 +242,8 @@ class karmora extends CI_Controller {
         $this->authObj->creditCardInfo['cvc_code'] = $card['cvv'];
 
         $this->authObj->billingAddressInfo = array(
-            'firstName' => $userData['fname'],
-            'lastName' => $userData['lname'],
+            'firstName' => $userData['firstName'],
+            'lastName' => $userData['lastName'],
             'address' => $userData['address'],
             'city' => $userData['city'],
             'state' => $userData['state'],
@@ -268,9 +268,9 @@ class karmora extends CI_Controller {
     public function CCtransection($data) {
         $this->setupAuthLib();
         
-        $this->authObj->creditCardInfo['card_number'] = $data['number'];
-        $this->authObj->creditCardInfo['exp_date'] = $data['exp_date'];
-        $this->authObj->creditCardInfo['cvc_code'] = $data['cvv'];
+        $this->authObj->creditCardInfo['card_number'] = $data['card']['number'];
+        $this->authObj->creditCardInfo['exp_date'] = $data['card']['exp_date'];
+        $this->authObj->creditCardInfo['cvc_code'] = $data['card']['cvv'];
 
         $this->authObj->billingAddressInfo = array(
             'firstName' => $data['fname'],

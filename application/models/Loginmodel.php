@@ -21,9 +21,7 @@ class Loginmodel extends CI_Model {
      * @return Boolean true in case of exists else return false
      */
     public function verifyUser($username, $password) {
-
         $sql = "SELECT * FROM tbl_admin_operator where admin_operator_username =  :username  AND admin_operator_password =  :password ";
-
         $statement = $this->db->conn_id->prepare($sql);
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
         $statement->bindParam(':password', $password, PDO::PARAM_STR);
@@ -82,10 +80,7 @@ class Loginmodel extends CI_Model {
     public function getuserDetail($user_id) {
         $queryStr = " SELECT u.*,lg.fk_user_account_type_id as account_type_id FROM tbl_users u, tbl_user_to_user_account_type_log lg
 	   				 WHERE u.pk_user_id=lg.fk_user_id AND u.pk_user_id = $user_id
-					 "; 
-
-
-
+					 ";
         $statement = $this->db->conn_id->prepare($queryStr);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);

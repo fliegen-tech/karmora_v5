@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center before-animated" id="top-img-cover">
-                <img src="images/click2win.png" class="img-fluid" alt="...">
+                <img src="<?php echo $themeUrl ?>/frontend/images/click2win.png" class="img-fluid" alt="...">
             </div>
             <div class="click2win-desp">
                 <div class="col-10 mx-auto">
                     <?php if (!isset($this->session->userdata['front_data']['id'])) {  ?>
-                        <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! <a href="">Click Here</a> to become a Premier Shopper TODAY!</p>
+                        <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! <a href="<?php echo base_url('join-today'); ?>">Click Here</a> to become a Premier Shopper TODAY!</p>
                         <span class="line-spc"></span>
                     <?php }else if ($this->session->userdata['front_data']['user_account_type_id'] != 5){?>
                         <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! &nbsp; Premier Shoppers TODAY!</p>
@@ -30,7 +30,7 @@
                         <div class="hardcash1 text-center">
                             <h4><?php echo $cash['winner_chest_gift_amount']; ?></h4>
                             <h5>Cash</h5>
-                            <img src="<?php echo $themeUrl ?>/images/gift-box.png" class="img-fluid">
+                            <img src="<?php echo $themeUrl ?>/frontend/images/gift-box.png" class="img-fluid">
                             <p><?php echo $cash['quantity']; ?> Remaining</p>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                         <div class="hardcash1 text-center">
                             <h4>$<?php echo $karmora_cash['winner_chest_gift_amount']; ?></h4>
                             <h5>KARMORA KASH</h5>
-                            <img src="<?php echo $themeUrl ?>/images/gift-box.png">
+                            <img src="<?php echo $themeUrl ?>/frontend/images/gift-box.png">
                     <p><?php echo $karmora_cash['quantity']; ?> Remaining</p>
                         </div>
                     </div>

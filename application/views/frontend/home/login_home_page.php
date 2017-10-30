@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/images/grap-bestie.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/grap-bestie.jpg">
                     </div>
                 </div>
                 <div class="col-6">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/images/happy-dance.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/happy-dance.jpg">
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/images/one-day-one.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/one-day-one.jpg">
                     </div>
                 </div>
                 <div class="col-6">
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/images/flawless-journey.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/flawless-journey.jpg">
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/images/winner-winner.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/winner-winner.jpg">
                     </div>
                 </div>
                 <div class="col-6">
@@ -156,7 +156,7 @@
                 </div>
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/images/those-needed.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/those-needed.jpg">
                     </div>
                 </div>
             </div>

@@ -37,7 +37,7 @@ class Store extends karmora {
 		}
 		if ( ! empty( $this->data['category_all_stores'] ) ) {
             $this->data['StoreArry'] = $this->data['category_all_stores'];
-			foreach ( $this->data['StoreArry'] as $store ) {
+            foreach ( $this->data['StoreArry'] as $store ) {
 				$store_title = $store['store_title'] . "<br />";
 				$curr        = current( str_split( $store_title ) );
 				if ( ! preg_match( "/^[a-zA-Z]$/", $curr ) ) {

@@ -43,7 +43,7 @@
                                     $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -55,7 +55,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png">
                                         </a>
                                     <?php } else { ?>
@@ -67,7 +67,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>

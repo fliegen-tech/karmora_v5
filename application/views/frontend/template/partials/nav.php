@@ -31,22 +31,22 @@
                             <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'supplement-product'; ?>">Dietary Supplements</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'supplement-product'; ?>">B3 Home</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/55'; ?>"><img src="#"> B<sup>3</sup> Healthy</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/56'; ?>"><img src="#"> B<sup>3</sup> Slim</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/57'; ?>"><img src="#"> B<sup>3</sup> Beautiful</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/58'; ?>"><img src="#"> B<sup>3</sup> Trim</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/55'; ?>"><img src="<?php echo $themeUrl ?>/images/product/55/product_no_55.png"> B<sup>3</sup> Healthy</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/56'; ?>"><img src="<?php echo $themeUrl ?>/images/product/56/product_no_56.png"> B<sup>3</sup> Slim</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/57'; ?>"><img src="<?php echo $themeUrl ?>/images/product/57/product_no_57.png"> B<sup>3</sup> Beautiful</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/58'; ?>"><img src="<?php echo $themeUrl ?>/images/product/58/product_no_58.png"> B<sup>3</sup> Trim</a></li>
                                 <li class="dropdown-item wlp-menu"><a tabindex="-1" href="#">Weight Loss Planner</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="#">Weight Loss Tips</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown-submenu">
+                        <li>
                             <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Skincare</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Home</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/4'; ?>"> Flawless Days</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/6'; ?>"> Flawless Nights</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/7'; ?>"> Simply Flawless</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#"><img src="<?php echo base_url().'product-detail/8'; ?>"> Flawless Mist</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/4'; ?>"><img src="<?php echo $themeUrl ?>/images/product/4/product_no_4.png"> Flawless Days</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/6'; ?>"><img src="<?php echo $themeUrl ?>/images/product/6/product_no_6.png"> Flawless Nights</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/7'; ?>"><img src="<?php echo $themeUrl ?>/images/product/7/product_no_7.png"> Simply Flawless</a></li>
+                                <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/8'; ?>"><img src="<?php echo $themeUrl ?>/images/product/8/product_no_8.png"> Flawless Mist</a></li>
                             </ul>
                         </li>
                     </ul>

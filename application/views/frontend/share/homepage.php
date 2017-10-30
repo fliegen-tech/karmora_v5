@@ -13,7 +13,7 @@
                     <div class="flex-cover">
                         <div class="making-leftbar">
                             <h2>Earning an extra $50, $100, $1000</h2>
-                            <p>or more every month shouldn't take you more than 15 minutes a day with our Social Media Marketing System. You can earn up to <a href="">20% Recurring Commission</a> on every purchase made by every Shopper in your Shopping Community! And, refer just 5 Premier Shoppers and qualify to earn a percentage of every purchase… made by every Shopper Companywide in our <a href="">Premier Shopper Bonus Pool!</a></p>
+                            <p>or more every month shouldn't take you more than 15 minutes a day with our Social Media Marketing System. You can earn up to <a href="">20% Recurring Commission</a> on every purchase made by every Shopper in your Shopping Community! And, refer just 5 Premier Shoppers and qualify to earn a percentage of every purchase… made by every Shopper Companywide in our <a target="_blank" href="<?php echo base_url('profit-sharing-program'); ?>">Premier Shopper Bonus Pool!</a></p>
                         </div>
                     </div>
                 </div>

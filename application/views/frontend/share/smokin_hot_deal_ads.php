@@ -7,11 +7,11 @@
                 <div class="col-md-10 col-md-offset-1">
                     <?php // echo $description; ?>
                     <?php if (!isset($this->session->userdata['front_data']['id'])) {  ?>
-                    <p>Share these Smokin Hot Deals daily on Social Media and watch your Shopping Community grow! &nbsp;  Our <a class="under-line-text" href="<?php echo base_url().'karmora-join-now'; ?>">Premier Shoppers</a> are building massive Shopping Communities and are earning HUGE commissions!</p>
+                    <p>Share these Smokin Hot Deals daily on Social Media and watch your Shopping Community grow! &nbsp;  Our <a class="under-line-text" href="<?php echo base_url().'join-today'; ?>">Premier Shoppers</a> are building massive Shopping Communities and are earning HUGE commissions!</p>
                     <?php }else if ($this->session->userdata['front_data']['user_account_type_id'] != 5){?>
                         <p>Share these Smokin Hot Deals daily on Social Media and watch your Shopping Community grow!  Our Premier Shoppers are building massive Shopping Communities and are earning HUGE commissions!</p>
                     <?php  } else if ($this->session->userdata['front_data']['user_account_type_id'] == 5){?>
-                        <p>Share these Smokin Hot Deals daily on Social Media and watch your Shopping Community grow!  Our <a class="under-line-text" href="<?php echo base_url().'karmora-join-now'; ?>">Premier Shoppers</a> are building massive Shopping Communities and are earning HUGE commissions!</p>
+                        <p>Share these Smokin Hot Deals daily on Social Media and watch your Shopping Community grow!  Our <a class="under-line-text" href="<?php echo base_url().'join-today'; ?>">Premier Shoppers</a> are building massive Shopping Communities and are earning HUGE commissions!</p>
                     <?php  } ?> 
                 </div>
                 <div class="clearfix"></div>
@@ -95,7 +95,7 @@
                                     $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -107,7 +107,7 @@
                                 </li>
                                 <li>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/pinit.png">
                                         </a>
                                     <?php } else { ?>
@@ -119,7 +119,7 @@
                                 </li>
                                 <li>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>

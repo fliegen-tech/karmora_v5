@@ -36,7 +36,7 @@
                         <div class="produt-one-cover">
                             <div class="product-image">
                                 <a href="<?php echo base_url().'product-detail/'.$pro['pk_product_id']; ?>">
-                                    <img src="<?php echo $themeUrl ?>/upload/images/product/<?php echo $pro['product_image']; ?>">
+                                    <img src="<?php echo $themeUrl ?>/images/product/<?php echo $pro['product_image']; ?>">
                                 </a>
                             </div>
                             <div class="product-desp">

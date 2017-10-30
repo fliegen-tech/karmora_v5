@@ -66,7 +66,7 @@ if(isset($address) && $address){
             <div class="form-group">
                 <label class="input-field-label">Country <span class="text-danger">*</span></label>
                 <select class="form-control" name="<?php echo $addressForm ?>[country]" id="exampleFormControlSelect2">
-                    <option value="1-.-1"> US - United States </option>
+                    <option value="1"> US - United States </option>
                     <?php
                     foreach ($countriesList as $country) {
                         ?>

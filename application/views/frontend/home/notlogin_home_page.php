@@ -3,11 +3,12 @@
         <div class="row">
             <div class="col-12">
                 <h1>The Next Best Thing in Online Shopping</h1>
+                <div class="slider-portion">
+                    <a href="<?php echo base_url().'join-today' ;?>"><img src="<?php echo $themeUrl ?>/frontend/images/best-thing-shopping.jpg" alt=""></a>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="slider-cover"></div>
 
     <div class="container">
         <div class="row">
@@ -51,14 +52,14 @@
                                     </ul>
                                 </div>
                                 <div class="text-center">
-                                    <a href="" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
+                                    <a href="<?php echo base_url().'join-today' ;?>" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-10 m-auto">
-                        <a href="" class="btn btn-all-store left-right-hover">CLICK HERE TO SEE OUR STORES</a>
+                        <a href="<?php echo base_url().'karmora-cash-back' ;?>" class="btn btn-all-store left-right-hover">CLICK HERE TO SEE OUR STORES</a>
                     </div>
                     <div class="clearfix"></div>
                     <div class="save-money" id="make-money">
@@ -83,7 +84,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="join-cover-btn text-center">
-                                    <a href="" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
+                                    <a href="<?php echo base_url().'join-today' ;?>" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -110,7 +111,7 @@
                                     </ul>
                                 </div>
                                 <div class="text-center">
-                                    <a href="" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
+                                    <a href="<?php echo base_url().'join-today' ;?>" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +135,7 @@
                                     </ul>
                                 </div>
                                 <div class="text-center">
-                                    <a href="" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
+                                    <a href="<?php echo base_url().'join-today' ;?>" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
                                 </div>
                             </div>
                         </div>
@@ -170,12 +171,12 @@
                     <div class="row">
                         <div class="col">
                             <div class="join-as-cover text-center">
-                                <a href="" class="btn btn-joinnow left-right-hover">JOIN AS A<br> PREIMER SHOPPER</a>
+                                <a href="<?php echo base_url().'join-today-casual' ;?>" class="btn btn-joinnow left-right-hover">JOIN AS A<br> PREIMER SHOPPER</a>
                             </div>
                         </div>
                         <div class="col">
                             <div class="join-as-cover text-center">
-                                <a href="" class="btn btn-joinnow left-right-hover">JOIN AS A<br> CASUAL SHOPPER</a>
+                                <a href="<?php echo base_url().'join-today-premier' ;?>" class="btn btn-joinnow left-right-hover">JOIN AS A<br> CASUAL SHOPPER</a>
                             </div>
                         </div>
                     </div>

@@ -36,6 +36,7 @@ class Ordermodel extends Commonmodel{
     }
     
     private function bindStatementOrder($statement, $data){
+        $full_name = $data['firstName'] .''.$data['lastName'];
         $statement->bindParam(':userId', $data['user_id'], PDO::PARAM_INT);
         $statement->bindParam(':orderNumber', $data['order_number'], PDO::PARAM_STR);
         $statement->bindParam(':totalPrice', $data['totalAmount'], PDO::PARAM_STR);
@@ -47,7 +48,7 @@ class Ordermodel extends Commonmodel{
         $statement->bindParam(':karmoraKashAmount', $data['kash_amount'], PDO::PARAM_STR);
         $statement->bindParam(':shippingAddressId', $data['shipping_id'], PDO::PARAM_STR);
         $statement->bindParam(':billingAddressId', $data['billing_id'], PDO::PARAM_STR);
-        $statement->bindParam(':fullName', $data['firstName'].' '. $data['lastName'], PDO::PARAM_STR);
+        $statement->bindParam(':fullName', $full_name, PDO::PARAM_STR);//.' '. $data['lastName']
         return;
     }
     

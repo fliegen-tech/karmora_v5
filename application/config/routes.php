@@ -318,6 +318,24 @@ $route['anet_test/(:any)'] = "Anet/$1";
 $route['anet_test'] = "Anet/index";
 
 
+//admin routes start
+
+// banner
+$route['admin/banner'] = "admin/banner/index";
+$route['admin/banner/(:any)'] = "admin/banner/$1";
+$route['admin/banner/(:any)/(:any)/(:any)'] = "admin/banner/$1/$2/$3";
+
+// Product routes admin
+
+$route['admin/product'] = "admin/manageproduct/index";
+$route['admin/product/(:any)'] = "admin/manageproduct/$1";
+$route['admin/product/(:any)/(:any)'] = "admin/manageproduct/$1/$2";
+$route['admin/product/(:any)/(:any)/(:any)'] = "admin/manageproduct/$1/$2/$3";
+
+
+$route['admin/(:any)'] = "admin/admin/$1";
+
+
 // general routes {keep this section always at last}
 $route['(:any)/index'] = "index/index/$1";
 $route['(:any)'] = "index/index/$1";

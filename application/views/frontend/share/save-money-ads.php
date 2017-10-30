@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="top-ads-categories">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="<?php echo base_url().'share/saving-money-ads'; ?>"><div class="money-ofers">Saving <br>Money Ads </div></a></li>
+                        <li class="list-inline-item"><a href="<?php echo base_url().'share/making-money-ads'; ?>"><div class="money-ofers">Making <br>Money Ads </div></a></li>
                         <li class="list-inline-item"><a href="<?php echo base_url().'share/winning-money-ads'; ?>"><div class="money-ofers">Winning <br>Money Ads </div></a></li>
                         <li class="list-inline-item"><a href="<?php echo base_url().'share/exclusive-product-ads'; ?>"><div class="money-ofers">Exclusive <br>Product Ads </div></a></li>
                         <li class="list-inline-item"><a href="<?php echo base_url().'share/good-karmora-videos'; ?>"><div class="money-ofers">Karmora  <br>Videos</div></a></li>
@@ -42,7 +42,7 @@
                                     $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('premier-shopper-signup') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('premier-shopper-signup') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png">
                                         </a>
                                     <?php } else { ?>
@@ -66,7 +66,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('premier-shopper-signup') ?>">
+                                        <a href="<?php echo base_url('join-today') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend//images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>
