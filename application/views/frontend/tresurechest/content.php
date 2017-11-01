@@ -7,7 +7,7 @@
             <div class="click2win-desp">
                 <div class="col-10 mx-auto">
                     <?php if (!isset($this->session->userdata['front_data']['id'])) {  ?>
-                        <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! <a href="<?php echo base_url('join-today'); ?>">Click Here</a> to become a Premier Shopper TODAY!</p>
+                        <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! <a href="<?php echo base_url('join-today-premier'); ?>">Click Here</a> to become a Premier Shopper TODAY!</p>
                         <span class="line-spc"></span>
                     <?php }else if ($this->session->userdata['front_data']['user_account_type_id'] != 5){?>
                         <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! &nbsp; Premier Shoppers TODAY!</p>

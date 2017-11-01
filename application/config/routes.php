@@ -332,6 +332,18 @@ $route['admin/product/(:any)'] = "admin/manageproduct/$1";
 $route['admin/product/(:any)/(:any)'] = "admin/manageproduct/$1/$2";
 $route['admin/product/(:any)/(:any)/(:any)'] = "admin/manageproduct/$1/$2/$3";
 
+// category routes
+
+$route['admin/category'] = "admin/category/index";
+$route['admin/category/(:any)'] = "admin/category/$1";
+$route['admin/category/(:any)/(:any)/(:any)'] = "admin/category/$1/$2/$3";
+
+// store admin route
+
+$route['admin/managestore'] = "admin/managestore/index";
+$route['admin/managestore/(:any)'] = "admin/managestore/$1";
+$route['admin/managestore/index/(:any)'] = "admin/managestore/index/$1/$2";
+
 
 $route['admin/(:any)'] = "admin/admin/$1";
 

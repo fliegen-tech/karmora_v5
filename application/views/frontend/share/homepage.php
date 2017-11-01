@@ -79,7 +79,7 @@
             </div>
             <div class="pay-per-click">
                 <h2>What is Pay-Per-Click?</h2>
-                <p>Our Social Media Marketing System pays you $0.10 cents Karmora Kash for every click through on every advertisement that you post regardless of whether the clicker makes a purchase or not! Depending on the size of your social network and how often you post ads, it’s a fantastic way to purchase any of our fantabulous Exclusive Products at extraordinary prices</p>
+                <p>Our Social Media Marketing System pays our Premier Shoppers $0.10 cents Karmora Kash for every click through and $0.05 cents Karmora Kash for our Casual Shoppers. You are paid on every advertisement that you post regardless of whether the clicker makes a purchase or not! Depending on the size of your social network and how often you post ads, it’s a fantastic way to purchase any of our fantabulous Exclusive Products at extraordinary prices.</p>
             </div>
         </div>
     </div>

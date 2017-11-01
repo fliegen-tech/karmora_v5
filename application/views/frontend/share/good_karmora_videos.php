@@ -5,10 +5,10 @@
             <div class="col-12">
                 <div class="top-ads-categories">
                     <ul class="list-inline">
+                        <li class="list-inline-item"><a href="<?php echo base_url().'share/making-money-ads'; ?>"><div class="money-ofers">Making  <br>Money Ads</div></a></li>
                         <li class="list-inline-item"><a href="<?php echo base_url().'share/saving-money-ads'; ?>"><div class="money-ofers">Saving <br>Money Ads </div></a></li>
                         <li class="list-inline-item"><a href="<?php echo base_url().'share/winning-money-ads'; ?>"><div class="money-ofers">Winning <br>Money Ads </div></a></li>
                         <li class="list-inline-item"><a href="<?php echo base_url().'share/exclusive-product-ads'; ?>"><div class="money-ofers">Exclusive <br>Product Ads </div></a></li>
-                        <li class="list-inline-item"><a href="<?php echo base_url().'share/good-karmora-videos'; ?>"><div class="money-ofers">Karmora  <br>Videos</div></a></li>
                     </ul>
                 </div>
             </div>
@@ -40,16 +40,41 @@
                                     $description = 'Karmora Cash-O-Palooza Deals are special cash back deals on name brand advertisers.  You won’t find higher cash back anytime, anywhere, ever!  Join Karmora for FREE and get cash back on over 1,700 stores!';
                                     $picture = $themeUrl . '/images/video_cover_image/' . $vidVal['video_cover_photo'];
                                     ?>
-                                    <a onClick="sharepost('<?php echo $caption ?>','<?php echo $url ?>','<?php echo $picture ?>','<?php echo $description ?>')"
-                                       target="_parent" href="javascript: void(0)">
-                                        <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
-                                    </a>
+                                    <?php if (!isset($this->session->userdata['front_data'])) { ?>
+                                        <a href="<?php echo base_url('join-today') ?>">
+                                            <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
+                                        </a>
+                                    <?php } else { ?>
+                                        <a onClick="sharepost('<?php echo $caption ?>','<?php echo $url ?>','<?php echo $picture ?>','<?php echo $description ?>')"
+                                           target="_parent" href="javascript: void(0)">
+                                            <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
+                                        </a>
+                                    <?php } ?>
+
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#"><img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png" alt="Facebook"></a>
+                                    <?php if (!isset($this->session->userdata['front_data'])) { ?>
+                                        <a href="<?php echo base_url('join-today') ?>">
+                                            <img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png">
+                                        </a>
+                                    <?php } else { ?>
+                                        <a onClick="window.open('http://www.pinterest.com/pin/create/button/?url=<?php echo $url; ?>&media=<?php echo $picture; ?>&description=<?php echo $caption; ?>', 'sharer', 'toolbar=0,status=0,width=548,height=325');"
+                                           target="_parent" href="javascript: void(0)">
+                                            <img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png">
+                                        </a>
+                                    <?php } ?>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#"><img src="<?php echo $themeUrl; ?>/frontend/images/tweeticons.png" alt="Facebook"></a>
+                                    <?php if (!isset($this->session->userdata['front_data'])) { ?>
+                                        <a href="<?php echo base_url('join-today') ?>">
+                                            <img src="<?php echo $themeUrl; ?>/frontend/images/tweeticons.png">
+                                        </a>
+                                    <?php } else { ?>
+                                        <a onclick="window.open('https://twitter.com/intent/tweet?url=<?php echo $url; ?>&amp;hashtags=TrendingOnKarmora&amp;text=<?php echo urlencode($caption); ?>&amp;via=Shopkarmora', 'sharer', 'toolbar=0,status=0,width=548,height=325');"
+                                           target="_parent" href="javascript: void(0)">
+                                            <img src="<?php echo $themeUrl; ?>/frontend/images/tweeticons.png">
+                                        </a>
+                                    <?php } ?>
                                 </li>
                             </ul>
                         </div>
