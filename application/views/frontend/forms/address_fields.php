@@ -16,7 +16,7 @@ if(isset($address) && $address){
             <div class="col-6">
                 <div class="form-group">
                     <label class="input-field-label">Full Name <span class="text-danger">*</span></label>
-                    <input type="text" name="<?php echo $addressForm ?>[name]" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Full Name">
+                    <input type="text" name="<?php echo $addressForm ?>[name]" class="form-control <?php echo $addressForm ?>" id="name" aria-describedby="nameHelp" placeholder="Full Name">
                 </div>
             </div>
             <?php
@@ -26,25 +26,25 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Address 1 <span class="text-danger">*</span></label>
-                <input type="text" name="<?php echo $addressForm ?>[address1]" class="form-control" id="address" value="<?php echo $street_address; ?>" aria-describedby="addresHelp" placeholder="Address1">
+                <input required="required" type="text" name="<?php echo $addressForm ?>[address1]" class="form-control <?php echo $addressForm ?>" id="address" value="<?php echo $street_address; ?>" aria-describedby="addresHelp" placeholder="Address1">
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Address 2 <span class="text-danger">*</span></label>
-                <input type="text" name="<?php echo $addressForm ?>[address2]" class="form-control" id="address" value="<?php echo $street_address_2; ?>" aria-describedby="addresHelp" placeholder="Address2">
+                <input type="text" name="<?php echo $addressForm ?>[address2]" class="form-control <?php echo $addressForm ?>" id="address" value="<?php echo $street_address_2; ?>" aria-describedby="addresHelp" placeholder="Address2">
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">City <span class="text-danger">*</span></label>
-                <input type="text" name="<?php echo $addressForm ?>[city]" class="form-control" id="city" value="<?php echo $city; ?>" aria-describedby="addresHelp" placeholder="City">
+                <input required="required" type="text" name="<?php echo $addressForm ?>[city]" class="form-control <?php echo $addressForm ?>" id="city" value="<?php echo $city; ?>" aria-describedby="addresHelp" placeholder="City">
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">State <span class="text-danger">*</span></label>
-                <select class="form-control" name="<?php echo $addressForm ?>[state]" id="exampleFormControlSelect2">
+                <select required="required" class="form-control <?php echo $addressForm ?>" name="<?php echo $addressForm ?>[state]" id="exampleFormControlSelect2">
                     <option selected="" disabled=""> --- Select State --- </option>
                     <?php
                     foreach ($statesList as $state) {
@@ -59,13 +59,13 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Zip Code <span class="text-danger">*</span></label>
-                <input type="text" value="<?php echo $zipcode; ?>" name="<?php echo $addressForm ?>[zip_code]" class="form-control" id="city" aria-describedby="addresHelp" placeholder="Zip Code">
+                <input required="required" type="text" value="<?php echo $zipcode; ?>" name="<?php echo $addressForm ?>[zip_code]" class="form-control <?php echo $addressForm ?>" id="city" aria-describedby="addresHelp" placeholder="Zip Code">
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Country <span class="text-danger">*</span></label>
-                <select class="form-control" name="<?php echo $addressForm ?>[country]" id="exampleFormControlSelect2">
+                <select required="required" class="form-control <?php echo $addressForm ?>" name="<?php echo $addressForm ?>[country]" id="exampleFormControlSelect2">
                     <option value="1"> US - United States </option>
                     <?php
                     foreach ($countriesList as $country) {
@@ -81,7 +81,7 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Phone <span class="text-danger">*</span></label>
-                <input type="text" name="<?php echo $addressForm ?>[phone]" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Phone">
+                <input required="required" type="text" name="<?php echo $addressForm ?>[phone]" class="form-control <?php echo $addressForm ?>" id="phone" aria-describedby="phoneHelp" placeholder="Phone">
             </div>
         </div>                
     </div>

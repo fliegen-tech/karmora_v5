@@ -7,9 +7,11 @@ class Cart extends karmora {
 
 
     public $data = array();
+    public $upgrade_amount = '';
     public function __construct(){
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
+        $this->upgrade_amount  =  99;
         $this->load->model(array('cartmodel','commonmodel' , 'productmodel'));
     }
 
@@ -46,8 +48,12 @@ class Cart extends karmora {
     }
     function show_cart($username = NULL){
         $this->verifyUser($username);
-        $detail = $this->currentUser;
+        if (!$this->cart->contents()){
+            redirect(base_url());
+        }
         $this->data['cate_array'] = array();
+        $this->data['upgrde_data'] = $this->checkcartupgrade();
+        $this->data['upgrade_amount'] = ($this->data['upgrde_data'])?$this->upgrade_amount:0;
         $this->loadLayout($this->data,'frontend/cart/product_cart');
     }
     function cart_message($username = NULL){
@@ -82,7 +88,6 @@ class Cart extends karmora {
                     );
            }
        }
-
        $this->cart->destroy();
        $this->cart->insert($data);
        redirect(base_url().'cart/show_cart');

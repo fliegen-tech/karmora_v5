@@ -153,22 +153,17 @@ $route['(:any)/share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealA
 
 //Track Advertisment
 $route['(:any)/track/(:any)/(:any)/(:any)'] = 'Landingpages/AddtrackRequest/$1/$2/$3/$4';
-$route['making-money-offer'] = "Landingpages/index/making-money";
 $route['(:any)/making-money-offer'] = "Landingpages/index/making-money/$1";
-$route['(:any)/(:any)/making-money-offer'] = "Landingpages/index/making-money/$1";
 $route['(:any)/making-money-offer/(:any)/(:any)'] = "Landingpages/index/making-money/$1/$2/$3";
-$route['winning-money-offer'] = "Landingpages/index/winning-money";
 $route['(:any)/winning-money-offer'] = "Landingpages/index/winning-money/$1";
-$route['(:any)/(:any)/winning-money-offer'] = "Landingpages/index/winning-money/$1";
 $route['(:any)/winning-money-offer/(:any)/(:any)'] = "Landingpages/index/winning-money/$1/$2/$3";
-$route['saving-money-offer'] = "Landingpages/index/saving-money";
-$route['saving-money-offer'] = "Landingpages/index/saving-money";
 $route['(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
-$route['(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
-$route['(:any)/(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
-$route['(:any)/(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
 $route['(:any)/saving-money-offer/(:any)/(:any)'] = "Landingpages/index/saving-money/$1/$2/$3";
-$route['(:any)/saving-money-offer/(:any)/(:any)'] = "Landingpages/index/saving-money/$1/$2/$3";
+$route['(:any)/flawless-offer'] = "Landingpages/index/flawless-offer/$1";
+$route['(:any)/flawless-offer/(:any)/(:any)'] = "Landingpages/index/flawless-offer/$1/$2/$3";
+$route['(:any)/supplements-offer'] = "Landingpages/index/supplements-offer/$1";
+$route['(:any)/supplements-offer/(:any)/(:any)'] = "Landingpages/index/supplements-offer/$1/$2/$3";
+
 
 //good karmora video share page routes
 
@@ -306,7 +301,8 @@ $route['kash-back-toolbar'] = "statichtml/kashbacktoolbar";
 $route['(:any)/kash-back-toolbar'] = "statichtml/kashbacktoolbar/$1";
 $route['karmora-kash'] = "statichtml/karmorakash";
 $route['(:any)/karmora-kash'] = "statichtml/karmorakash/$1";
-
+$route['about-us'] = "statichtml/aboutus";
+$route['(:any)/about-us'] = "statichtml/aboutus/$1";
 //ajax call routes
 
 $route['calculateTax'] = "Ajaxcallz/calculatetax";
@@ -351,6 +347,10 @@ $route['admin/(:any)'] = "admin/admin/$1";
 // general routes {keep this section always at last}
 $route['(:any)/index'] = "index/index/$1";
 $route['(:any)'] = "index/index/$1";
+
+// routes for Webinar
+$route['webinar/(:any)'] = "websession/$1";
+$route['(:any)/webinar/(:any)'] = "websession/$2/$1";
 
 $route['default_controller'] = 'index';
 $route['404_override'] = '';

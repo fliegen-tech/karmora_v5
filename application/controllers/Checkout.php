@@ -9,18 +9,20 @@ class Checkout extends karmora {
     private $userObj;
     private $cartObj;
     private $prdObj;
+    public $upgrade_amount = '';
 
     public function __construct(){
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data = array(
             'themeUrl' => $this->themeUrl,
-            'view' => 'frontend/signup/',
+            'view' => 'frontend/checkout/',
             'viewForm' => 'frontend/forms/',
             'flashKey' => 'message_signup',
             'shipping_cost' => 0
         );
         $this->load->model(array('usermodel', 'cartmodel', 'productmodel'));
+        $this->upgrade_amount  =  99;
         $this->load->library(array('form_validation'));
         $this->load->helper(array('form'));
         $this->userObj = new Usermodel;
@@ -35,11 +37,14 @@ class Checkout extends karmora {
         }
         $this->verifyUser($username);
         $detail = $this->currentUser;
+        $this->data['username'] = $username;
         $this->data['productList'] = $this->prdObj->getproducts($this->active);
         $this->data['statesList']  = $this->userObj->getStatesofCountry(1);
         $this->data['countryList'] = $this->userObj->getCountries();
         $this->data['signupPromo'] = $this->userObj->getSignupPromo($this->signupPromo);
         $this->data['cart_info'] = $this->getproducttotal();
+        $this->data['upgrde_data'] = $this->checkcartupgrade();
+        $this->data['upgrade_amount'] = ($this->data['upgrde_data'])?$this->upgrade_amount:0;
         $this->getLoginData($detail);
         if (isset($_POST['submit'])) {
             $this->savedata($username);

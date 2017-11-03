@@ -105,6 +105,7 @@ class karmora extends CI_Controller {
          * if not false remove the top array from the returned value.
          */
         $userDetail = is_null($username) ? FALSE : $this->getUserDetails($username);
+        //echo '<pre>'; print_r($userDetail); echo '</pre>';
         $this->currentUser = $userDetail !== FALSE ? $this->setGlobalValArrayFromUserDetail($userDetail) : $this->setDefaultValues();
         // echo $this->currentUser; die;
         return $userDetail == FALSE ? FALSE : TRUE;
@@ -217,10 +218,11 @@ class karmora extends CI_Controller {
     public function set_session_login($row) {
         $userSessionData = array();
         $user_detail = $this->commonmodel->getFounder($row[0]['pk_user_id']);
+       // echo '<pre>';print_r($user_detail);//die;
         foreach ($row as $userData) {
             $userSessionData['id'] = $userData['pk_user_id'];
-            $userSessionData['user_account_type_id'] = $user_detail['user_account_type_id'];
-            $userSessionData['user_account_type_title'] = $user_detail['user_account_type_title'];
+            $userSessionData['user_account_type_id'] = $user_detail[0]['user_account_type_id'];
+            $userSessionData['user_account_type_title'] = $user_detail[0]['user_account_type_title'];
             $userSessionData['username'] = $userData['user_username'];
             $userSessionData['email'] = $userData['user_email'];
             $userSessionData['user_phone_no'] = $userData['user_phone_no'];
@@ -321,6 +323,25 @@ class karmora extends CI_Controller {
     function Voidauthrioze($trans_id) {
         $this->setupAuthLib();
         return $this->authObj->voidTransaction($trans_id);
+    }
+
+    /**
+     * @return string
+     */
+    public function checkcartupgrade(){
+        if(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 3){
+            if (!$this->cart->contents()){
+                return false;
+            }else{
+                foreach ($this->cart->contents() as $cart_d){
+                    if($cart_d['shopper_account_type'] == 5){
+                        return true;
+                    }
+                }
+            }
+        }else{
+            return false;
+        }
     }
 
     /*

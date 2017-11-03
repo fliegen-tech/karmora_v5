@@ -40,6 +40,7 @@
                             <td class="text-center"><a href="<?php echo base_url() . 'cart/remove/' . $items['rowid']; ?>"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
                         <?php endforeach; ?>
+                        <?php if($upgrde_data){ $this->load->view('frontend/cart/partials/product_upgrade'); } ?>
                         </tbody>
                     </table>
                     <!-- End My Cummunity Table -->
@@ -61,7 +62,7 @@
                         <tbody>
                         <tr>
                             <td>Grand Total</td>
-                            <td>$<?php echo $this->cart->format_number($this->cart->total() + $shipping_cost, 2, '.', ','); ?></td>
+                            <td>$<?php echo $this->cart->format_number($this->cart->total() + $shipping_cost + $upgrade_amount, 2, '.', ','); ?></td>
                         </tr>
                         </tbody>
                     </table>

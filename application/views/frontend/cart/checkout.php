@@ -28,7 +28,7 @@
             <div id="tax_error"></div>
             <div class="join-now-step-one">
                 <div class="join-now-step-cover">
-                    <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'sameAsBilling' => TRUE, 'askName' => TRUE)); ?>
+                    <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'billingAddress' => TRUE, 'askName' => TRUE)); ?>
                 </div>
             </div>
 
@@ -73,6 +73,7 @@
             <div class="paynow">
                 <div class="col-12">
                     <div class="pay-now text-center">
+                        <input type="submit" name="submit" value="submit check">
                         <a onclick="calucaltetax()"  class="btn btn-joinnow left-right-hover">Pay Now</a>
                         <a href=""><img src="<?php echo $themeUrl ?>/frontend/images/money-back.png" alt=""></a>
                     </div>
@@ -83,10 +84,9 @@
 </section>
 <input type="hidden" name="karmora_kash_use" id="karmora_kash_use" value="" />
 <input type="hidden" name="karmora_commission_use" id="karmora_commission_use" value="" />
-<input type="hidden" name="ordertotal" id="ordertotal" value="<?php echo $cart_info['actualCost']; ?>" />
+<input type="hidden" name="ordertotal" id="ordertotal" value="<?php echo $cart_info['actualCost'] + $upgrade_amount; ?>" />
 <input type="hidden" name="tax_price"  id="tax" value="0" />
 <input type="hidden" name="karmora_mikamak677" value="<?php echo $this->security->get_csrf_hash();?>" />
-<input type="hidden" name="ordertotal" id="ordertotal" value="<?php echo $cart_info['actualCost']; ?>" />
 </form>
 <!--====  End of Join Now ====-->
 

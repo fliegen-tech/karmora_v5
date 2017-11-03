@@ -1,5 +1,5 @@
 <div class="payment-icons text-center">
-    <img src="<?php echo $themeUrl; ?>/public/frontend/images/payment-icons.png" alt="">
+    <img src="<?php echo $themeUrl; ?>/frontend/images/payment-icons.png" alt="">
 </div> 
 <div class="form-group">
     <div class="row">

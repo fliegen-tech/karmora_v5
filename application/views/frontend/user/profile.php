@@ -166,7 +166,8 @@
                                                 $first = false;
                                             }
                                             ?>
-                                            <option value="<?php echo $state['optionVal'] ?>" <?php if ($state['pk_user_address_state_id'] === $address['state_id']) { ?> selected="selected" <?php } ?>> <?php echo $state['user_address_state_code'] . ' - ' . $state['user_address_state_title']; ?> </option>
+
+                                            <option value="<?php echo $state['pk_user_address_state_id'] ?>" <?php if ($state['pk_user_address_state_id'] === $address['state_id']) { ?> selected="selected" <?php } ?>> <?php echo $state['user_address_state_code'] . ' - ' . $state['user_address_state_title']; ?> </option>
                                     <?php } } ?>
                                 </select>
                             </div>

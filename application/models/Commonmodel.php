@@ -25,7 +25,7 @@ class Commonmodel extends CI_Model {
                         GROUP BY u.pk_user_id"; //die;
         $queryRS = $this->db->query($query);
         $response = $queryRS->result_array();
-        //echo '<pre>';        print_r($response); //die;
+        //echo '<pre>';        print_r($response); echo '</pre>'; //die;
         return $response;
     }
 
@@ -47,7 +47,6 @@ class Commonmodel extends CI_Model {
         $staement->execute();
 
         $data = $staement->fetch(PDO::FETCH_ASSOC);
-
         return $staement->rowCount() > 0 ? $data : FALSE;
     }
 

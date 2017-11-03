@@ -6,7 +6,7 @@
 </script>
 <script>
     function calucaltetax() {
-        paymentcalcualtion();
+        //paymentcalcualtion();
         return false;
         alert(baseurl + 'calculateTax');
         jQuery('#tax_price_html').html('');
@@ -24,6 +24,7 @@
             },
             success: function (data) {
                 if (data == 'error') {
+                    $('#sameshipaddress').checked = false;
                     jQuery('#tax_error').focus();
                     jQuery("#tax_error").html('<div class="alert alert-danger">The Provided Address Is incorrect </div>');
                 } else {
@@ -95,6 +96,18 @@
             $("#karmora_commission_use").val(0.00);
             paymentcalcualtion();
 
+        }
+    }
+</script>
+<script>
+    function makeRequieedOnSameAs() {
+        alert('aya');
+        if($('#sameshipaddress').is(":checked")) {
+                $('#address-form-billing_address').hide();
+                $(".billing_address").prop('required',false);
+        }else{
+            $('#address-form-billing_address').show();
+            $(".billing_address").prop('required',true);
         }
     }
 </script>
@@ -256,50 +269,12 @@
             }
     }
 
-    function setshppingcost(){
-        if ($('#karmora_cash_check').is(":checked")) {
-            var cost = $('#actualCost_without_shipping_cost').val().split(',').join('');
-            var karmora_cash = $('#karmora_cash').val().split(',').join('');
-            var exclusiveproductTotal_karmora_cash = cost - karmora_cash;
-            if(exclusiveproductTotal_karmora_cash < 75){
-                $("#shipping_html").html('$'+7.95);
-                $("#order_shipping_cost").val(7.95);
-            }else{
-                $("#shipping_html").html('$'+0.00);
-                $("#order_shipping_cost").val(0);
-            }
-        }
-        
-    }
+
     
 </script>
 
 
 
-<script>
-    function getqty(price,product_title){
-                    var tax_price = $('#tax_price_hidden').val();
-                    tax_price = parseFloat(tax_price);
-                    price = parseFloat(price);
-                    var sum = 397 + price + tax_price;
-                    sum = sum.toFixed(2);
-                    sum = parseFloat(sum);
-                    var you_pay = sum - 79.95;
-                    $("#nona_mae_detail").show();
-                    $('#sub_total_view').html('$'+sum);
-                    var total_price = 79.95 + 5 + tax_price;
-                    total_price = total_price.toFixed(2);
-                    
-                    $('#total_payed_calculate').val(total_price);
-                    $('#total_coupon_code_price').html('$'+total_price);
-                    $('#total_product_payment').val(sum);
-                    $('#sub_total_view_la').html('$'+sum);
-                    $('#total_save').html('$'+you_pay);
-                    $('#total_product').html(4);
-                    $('#non_mae_product_name').html(product_title);
-                    $('#non_mae_product_price').html('$'+price+'.00');
-    }
-</script>
 -->
 
     

@@ -54,6 +54,10 @@ class Statichtml extends karmora {
         $this->loadLayout($this->data,'frontend/statichtml/karmorakash');
 
     }
+    public function aboutus($username = NULL) {
+        $this->verifyUser($username);
+        $this->loadLayout($this->data,'frontend/statichtml/aboutus');
+    }
 
     public function getBrowser() {
         $u_agent = $_SERVER['HTTP_USER_AGENT'];

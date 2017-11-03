@@ -12,7 +12,7 @@
                     <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Karmora</a>
+                    <a class="nav-link" href="<?php echo base_url().'about-us'; ?>">About Karmora</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url().'karmora-kash'; ?>">Karmora Kash</a>

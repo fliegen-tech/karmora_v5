@@ -22,6 +22,7 @@
     </tr>
     <?php $exclusiveProductTotal = $exclusiveProductTotal + ($items['qty'] * $items['price']); ?>
     <?php } ?>
+    <?php if($upgrde_data){ $this->load->view('frontend/cart/partials/product_upgrade_checkout'); } ?>
 
     </tbody>
 </table>
@@ -32,6 +33,12 @@
     </div>
     <table class="table table-striped table-bordered">
         <tbody>
+        <?php if($upgrde_data){ ?>
+            <tr>
+                <td scope="row">Member Ship Price</td>
+                <td>$<?php echo number_format($upgrade_amount, 2, '.', ','); ?></td>
+            </tr>
+        <?php } ?>
         <tr>
             <td scope="row">Exclusive Products</td>
             <td>$<?php echo number_format($exclusiveProductTotal, 2, '.', ','); ?></td>
@@ -42,7 +49,7 @@
         </tr>
         <tr>
             <td scope="row"><strong>Subtotal</strong></td>
-            <td><strong id="product_total_with_karmora_Kash">$<?php echo number_format($exclusiveProductTotal, 2, '.', ','); ?></strong></td>
+            <td><strong id="product_total_with_karmora_Kash">$<?php echo number_format($exclusiveProductTotal+$upgrade_amount, 2, '.', ','); ?></strong></td>
         <tr>
             <td scope="row">Shipping & Handling</td>
             <td>$<?php echo number_format($cart_info['shipping_cost'], 2, '.', ','); ?></td>
@@ -53,7 +60,7 @@
         </tr>
         <tr>
             <td scope="row"><strong>Order Total:</strong></td>
-            <td><strong id="order_total_html">$<?php echo $cart_info['actualCost']; ?></strong></td>
+            <td><strong id="order_total_html">$<?php echo number_format($cart_info['actualCost']+$upgrade_amount, 2, '.', ','); ?></strong></td>
         </tr>
         <tr id="karmora_commsion_disply">
             <td scope="row">Karmora Commsion</td>
@@ -61,7 +68,7 @@
         </tr>
         <tr>
             <td scope="row"><strong>Charge Amount:</strong></td>
-            <td><strong id="charge_amount_html">$<?php echo $cart_info['actualCost']; ?></strong></td>
+            <td><strong id="charge_amount_html">$<?php echo number_format($cart_info['actualCost']+$upgrade_amount, 2, '.', ','); ?></strong></td>
         </tr>
         </tbody>
     </table>

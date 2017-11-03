@@ -22,7 +22,7 @@ class Product extends karmora {
 
     public function product_detail($pk_product_id, $username = NULL) {
         $this->verifyUser($username);
-        $detail = $this->currentUser;
+        $this->data['detail'] = $this->currentUser;
         $this->data['product_detail'] = $this->productmodel->getproductdetail_withAccountType($pk_product_id);
         if (empty($this->data['product_detail'])) {
             redirect(base_url());

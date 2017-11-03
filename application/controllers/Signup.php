@@ -73,8 +73,8 @@ class Signup extends karmora {
         $userData = $this->setUserData($data);
         $newUser = $this->userObj->insertUserBasic($userData);
         if ($newUser['query_status']) {
-            $message = str_replace($this->alertMessages['str_replace'], 'Signup successful', $this->alertMessages['success']);
-            $this->session->set_flashdata($this->data['flashKey'], $message);
+            //$message = str_replace($this->alertMessages['str_replace'], 'Signup successful', $this->alertMessages['success']);
+            //$this->session->set_flashdata($this->data['flashKey'], $message);
             $userData['user_id'] = $newUser['user_id'];
             $userData['username'] = 1000 + $newUser['user_id'];
             $this->userObj->updateUsername($userData['user_id'], $userData['username']);
@@ -101,6 +101,7 @@ class Signup extends karmora {
             'password' => $this->generatePassword(),
             'ip_address' => $this->input->ip_address(),
             'status' => 'active',
+            'acc_type' => isset($data['acc_type']) ? $data['acc_type'] : 3,
             'subid' => uniqid(),
             'referr_id' => $data['ref_id']
         );
@@ -321,10 +322,10 @@ class Signup extends karmora {
             $userSessionData = $this->set_session_login($userDetail);
             $this->session->set_userdata('front_data', $userSessionData);
             $this->session->set_flashdata('first_login', $newUser);
-            $message = str_replace($this->alertMessages['str_replace'], 'Signup Successful', $this->alertMessages['success']);
+            //$message = str_replace($this->alertMessages['str_replace'], 'Signup Successful', $this->alertMessages['success']);
             $redirectUrl = 'welcome';
         } else {
-            $message = str_replace($this->alertMessages['str_replace'], 'Invalid Username Or Password', $this->alertMessages['warning']);
+            //$message = str_replace($this->alertMessages['str_replace'], 'Invalid Username Or Password', $this->alertMessages['warning']);
             $redirectUrl = 'login';
         }
         $this->session->set_flashdata($this->data['flashKey'], $message);
