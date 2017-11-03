@@ -152,23 +152,23 @@ $route['share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealAdImage/
 $route['(:any)/share/smokin-hot-deal-ad/(:any)'] = "share/generateSmokinHotDealAdImage/$2/$1";
 
 //Track Advertisment
-$route['(:any)/track/(:any)/(:any)/(:any)'] = 'Landing_pages/AddtrackRequest/$1/$2/$3/$4';
-$route['making-money-offer'] = "landing_pages/index/making-money";
-$route['(:any)/making-money-offer'] = "landing_pages/index/making-money/$1";
-$route['(:any)/(:any)/making-money-offer'] = "landing_pages/index/making-money/$1";
-$route['(:any)/making-money-offer/(:any)/(:any)'] = "landing_pages/index/making-money/$1/$2/$3";
-$route['winning-money-offer'] = "landing_pages/index/winning-money";
-$route['(:any)/winning-money-offer'] = "landing_pages/index/winning-money/$1";
-$route['(:any)/(:any)/winning-money-offer'] = "landing_pages/index/winning-money/$1";
-$route['(:any)/winning-money-offer/(:any)/(:any)'] = "landing_pages/index/winning-money/$1/$2/$3";
-$route['saving-money-offer'] = "landing_pages/index/saving-money";
-$route['saving-money-offer'] = "landing_pages/index/saving-money";
-$route['(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
-$route['(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
-$route['(:any)/(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
-$route['(:any)/(:any)/saving-money-offer'] = "landing_pages/index/saving-money/$1";
-$route['(:any)/saving-money-offer/(:any)/(:any)'] = "landing_pages/index/saving-money/$1/$2/$3";
-$route['(:any)/saving-money-offer/(:any)/(:any)'] = "landing_pages/index/saving-money/$1/$2/$3";
+$route['(:any)/track/(:any)/(:any)/(:any)'] = 'Landingpages/AddtrackRequest/$1/$2/$3/$4';
+$route['making-money-offer'] = "Landingpages/index/making-money";
+$route['(:any)/making-money-offer'] = "Landingpages/index/making-money/$1";
+$route['(:any)/(:any)/making-money-offer'] = "Landingpages/index/making-money/$1";
+$route['(:any)/making-money-offer/(:any)/(:any)'] = "Landingpages/index/making-money/$1/$2/$3";
+$route['winning-money-offer'] = "Landingpages/index/winning-money";
+$route['(:any)/winning-money-offer'] = "Landingpages/index/winning-money/$1";
+$route['(:any)/(:any)/winning-money-offer'] = "Landingpages/index/winning-money/$1";
+$route['(:any)/winning-money-offer/(:any)/(:any)'] = "Landingpages/index/winning-money/$1/$2/$3";
+$route['saving-money-offer'] = "Landingpages/index/saving-money";
+$route['saving-money-offer'] = "Landingpages/index/saving-money";
+$route['(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
+$route['(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
+$route['(:any)/(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
+$route['(:any)/(:any)/saving-money-offer'] = "Landingpages/index/saving-money/$1";
+$route['(:any)/saving-money-offer/(:any)/(:any)'] = "Landingpages/index/saving-money/$1/$2/$3";
+$route['(:any)/saving-money-offer/(:any)/(:any)'] = "Landingpages/index/saving-money/$1/$2/$3";
 
 //good karmora video share page routes
 

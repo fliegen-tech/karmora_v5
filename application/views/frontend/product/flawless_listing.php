@@ -87,7 +87,7 @@ if (empty($this->session->userdata('front_data'))) {
                 <div class="leftbar-toxia">
                     <img src="<?php echo $themeUrl ?>/frontend/images/money-back-gurantee.png">
                     <h4>Good Karmora 100% Money Back Guarantee</h4>
-                    <p>All Karmora Exclusive Products are backed by our 30 Day - No Questions Asked - Money Back Guarantee. If you would like to return a product for any reason, simply open a <a href="">live chat</a> with a Good Karmora Specialist and they will guide you on how you can return the product for a full refund. <a href="">Click Here</a> to review our refund policy.</p>
+                    <p>All Karmora Exclusive Products are backed by our 30 Day - No Questions Asked - Money Back Guarantee. If you would like to return a product for any reason, simply open a <a href="javascript: void(0)" onclick="window.open('https://www.karmora.com/liveSupport/', 'sharer', 'toolbar=0,status=0,width=600,height=600');">live chat</a> with a Good Karmora Specialist and they will guide you on how you can return the product for a full refund. <a href="<?php echo base_url('karmora-return-policy')?>">Click Here</a> to review our refund policy.</p>
                 </div>
             </div>
         </div>

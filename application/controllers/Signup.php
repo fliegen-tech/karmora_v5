@@ -96,7 +96,7 @@ class Signup extends karmora {
         return array(
             'username' => uniqid('temp-'),
             'fname' => isset($fullName[0]) ? $fullName[0] : $data['fullname'],
-            'lname' => isset($fullName[1]) ? $fullName[1] : '',
+            'lname' => isset($fullName[1]) ? $fullName[1] : $data['fullname'],
             'email' => $data['email'],
             'password' => $this->generatePassword(),
             'ip_address' => $this->input->ip_address(),
@@ -166,7 +166,7 @@ class Signup extends karmora {
             'same_as_shipping' => $userData['same_as_shiping'],
             'billingAddress' => $userData['same_as_shipping'] ?  $userData['shipping_address'] : FALSE,
         );
-
+		
         $this->processARB($arrData);
         $this->saveOrder($arrData);
         $this->userSignupSuccessful($userData['user_data']);
@@ -185,8 +185,16 @@ class Signup extends karmora {
             $this->setAddressForOrder($userData['shipping_address']):
             $this->setAddressForOrder($userData['billing_address']);
         $response['user_id'] = $userData['user_data']['user_id'];
-        $response['firstName'] = $userData['same_as_shipping'] ? $userData['user_data']['fname']: explode(' ',$userData['billing_address']['name'])[0];
-        $response['lastName'] = $userData['same_as_shipping']? $userData['user_data']['lname']:  explode(' ',$userData['billing_address']['name'])[1];
+	    if($userData['same_as_shipping']){
+		    $fname = $userData['user_data']['fname'];
+		    $lname = $userData['user_data']['lname'];
+	    }else{
+		    $fullname = $userData['billing_address']['name'];
+		    $fname = (isset(explode(' ',$fullname)[0]))?explode(' ',$fullname)[0]:$fullname;
+		    $lname = (isset(explode(' ',$fullname)[1]))?explode(' ',$fullname)[1]:$fullname;
+	    }
+        $response['firstName'] = $fname;
+        $response['lastName'] = $lname;
         $response['email'] = $userData['user_data']['email'];
         return $response;
     }
@@ -194,6 +202,7 @@ class Signup extends karmora {
     private function processARB($data) {
         $message = $this->session->flashdata($this->data['flashKey']);
         $result = $this->createARB($data['userData'],  $data['subscription'],$data['card']);
+	   
         if ($result['transaction_status']) {
             $message .= str_replace($this->alertMessages['str_replace'], "Recurring billing has been setup", $this->alertMessages['success']);
             $authSubidUpdate = $this->userObj->updateAuthId($data['userData']['user_id'], $result['subscription_id']);
@@ -202,6 +211,7 @@ class Signup extends karmora {
         } else {
             $message .= str_replace($this->alertMessages['str_replace'], $result['error_code'] . ' : ' . $result['error_message'], $this->alertMessages['danger']);
         }
+        
         $this->session->set_flashdata($this->data['flashKey'], $message);
         return $result;
     }

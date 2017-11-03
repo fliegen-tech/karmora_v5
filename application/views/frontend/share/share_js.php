@@ -21,14 +21,11 @@
     /**
      * FaceBook Share function
      */
-    function sharepost(name, url, img, des) {
+    function sharepost(redirectURL) {
 
         FB.ui({
             method: 'feed',
-            name: name,
-            link: url,
-            picture: img,
-            description: des,
+            link: redirectURL,
         }, function (response) {
         });
     }

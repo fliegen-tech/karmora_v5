@@ -14,6 +14,7 @@ class KarmoraCashBack extends karmora {
     public function index($username = NULL) {
             $this->verifyUser($username); //die;
             $detail = $this->currentUser;
+            $detail = reset($detail);
             $this->data['sliders']           = $this->getslider($detail['user_account_type_id']);
             $this->data['categories']        = $this->storemodel->getATCategory($detail['user_account_type_id']);
             $categories_top_stores           = $this->homemodel->getTopCategoryStores($detail['user_account_type_id']);

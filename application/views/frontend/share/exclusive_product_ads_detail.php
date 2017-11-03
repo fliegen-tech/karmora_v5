@@ -54,17 +54,17 @@
                                         $title       = '' . $custom_ad->banner_ads_title;
                                         $caption     = $title;
                                         $url_p       = $custom_ad->banner_ads_redirect_url;
-                                        $url         = base_url() . $url_p;
-                                        $url2        = base_url() . 'track/' . str_replace( '/', '_', $url_p ) . '/product/' . $custom_ad->pk_banner_ads_id;
+                                        $url2        = base_url() . 'track/' . $url_p . '/product/' . $custom_ad->pk_banner_ads_id;
                                         $description = $custom_ad->banner_description;
                                         $picture     = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
+                                        
                                         ?>
                                         <li class="list-inline-item"><?php if (!isset($this->session->userdata['front_data'])) { ?>
                                                 <a href="<?php echo base_url('join-today') ?>">
                                                     <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                                 </a>
                                             <?php } else { ?>
-                                                <a onClick="sharepost('<?php echo $caption ?>', '<?php echo $url ?>', '<?php echo $picture ?>', '<?php echo $description ?>')"
+                                                <a onClick="sharepost('<?php echo $url2 ?>')"
                                                    target="_parent" href="javascript: void(0)">
                                                     <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                                 </a>
@@ -101,3 +101,5 @@
         </div>
     </div>
 </section>
+<div id="fb-root"></div>
+<?php $this->load->view('frontend/share/share_js'); ?>

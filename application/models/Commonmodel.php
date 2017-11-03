@@ -25,8 +25,8 @@ class Commonmodel extends CI_Model {
                         GROUP BY u.pk_user_id"; //die;
         $queryRS = $this->db->query($query);
         $response = $queryRS->result_array();
-//        echo '<pre>';        var_dump(reset($response)); die;
-        return reset($response);
+        //echo '<pre>';        print_r($response); //die;
+        return $response;
     }
 
     // function to get user details
@@ -216,5 +216,20 @@ class Commonmodel extends CI_Model {
         if (!isset($this->session->userdata) || !$this->session->userdata('admin_data')) {
             redirect('admin/index');
         }
+    }
+    public function getAffiliateNetworkSubidElement($affiliateNetworkId) {
+        $query = "SELECT an.affiliate_network_base_url AS url_var
+					FROM tbl_affiliate_network AS an
+					WHERE an.pk_affiliate_network_id = $affiliateNetworkId";
+
+        $rsQuery = $this->db->query($query);
+
+        if ($rsQuery->num_rows() > 0) {
+            $response = $rsQuery->row();
+        } else {
+            redirect(base_url());
+        }
+
+        return $response;
     }
 }

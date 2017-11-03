@@ -40,6 +40,7 @@ class karmora extends CI_Controller {
         $this->load->library(array('email', 'cart', 'Authorizenet'));//
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
+	    $this->data['modals'] = array('best-cash-back-guarantee');
         $this->currentUser = $this->commonmodel->getFounder($this->founder);
 //        $this->currentUser = $this->commonmodel->getFounder($this->founder);
         $this->setAlertMessages();
@@ -71,11 +72,11 @@ class karmora extends CI_Controller {
 //        check if user is logged in set baseURL for signed in user else set baseURL for username passed in URLs
         $userVerifySuccess = !$this->checkUserLogin() ?
                 /*
-                 * check if username is not null, if username is empty set user global vars to default values 
+                 * check if username is not null, if username is empty set user global vars to default values
                  */
                 (is_null($username) ? TRUE : $this->checkUsername($username) ) :
                 /*
-                 * if user is logged in user is verified already, set value to TRUE 
+                 * if user is logged in user is verified already, set value to TRUE
                  */
                 TRUE;
         // echo base_url(); die;
@@ -100,7 +101,7 @@ class karmora extends CI_Controller {
     private function checkUsername($username) {
         // echo '<br> checking uesrname in checkUaw'.$username; //die;
         /*
-         * check if username is valid and is active in database also check if return is false. 
+         * check if username is valid and is active in database also check if return is false.
          * if not false remove the top array from the returned value.
          */
         $userDetail = is_null($username) ? FALSE : $this->getUserDetails($username);
@@ -111,7 +112,7 @@ class karmora extends CI_Controller {
 
 //    set values from user detail array
     private function setGlobalValArrayFromUserDetail($data) {
-        $vals = reset($data);
+        $vals = $data;
         //echo '<pre>';        print_r($vals); die;
         $response = array(
             'userid' => $vals ['pk_user_id'],
@@ -155,7 +156,8 @@ class karmora extends CI_Controller {
     }
 
     public function getUserDetails($username) {
-        return $this->commonmodel->getUserDetails($username);
+         $user_detail = $this->commonmodel->getUserDetails($username);
+         return $user_detail ;
     }
 
     // this function check user_account type id
@@ -209,7 +211,7 @@ class karmora extends CI_Controller {
         $html['content'] = $this->load->view($content_path, $data, TRUE);
         $this->load->view('frontend/template/template', $html);
     }
-    
+
     /* ------------Load Layout Functions end ------------------ */
 
     public function set_session_login($row) {
@@ -229,12 +231,12 @@ class karmora extends CI_Controller {
         }
         return $userSessionData;
     }
-    
+
     private function setupAuthLib(){
         $this->authObj = new Authorizenet;
         $this->authObj->activateSandboxMode(TRUE);
     }
-    
+
     protected function createARB($userData, $subscription, $card) {
         $this->setupAuthLib();
         $this->authObj->creditCardInfo['card_number'] = $card['number'];
@@ -264,10 +266,10 @@ class karmora extends CI_Controller {
         return $this->authObj->arbCreate();
     }
 
-    
+
     public function CCtransection($data) {
         $this->setupAuthLib();
-        
+
         $this->authObj->creditCardInfo['card_number'] = $data['card']['number'];
         $this->authObj->creditCardInfo['exp_date'] = $data['card']['exp_date'];
         $this->authObj->creditCardInfo['cvc_code'] = $data['card']['cvv'];
@@ -304,7 +306,7 @@ class karmora extends CI_Controller {
         return $this->authObj->chargeCreditCard();
     }
 
-    
+
     function runauthrioze($data) {
         $this->setupAuthLib();
         $this->authObj->creditCardInfo['card_number'] = $data['number'];
@@ -322,9 +324,9 @@ class karmora extends CI_Controller {
     }
 
     /*
-     * 
+     *
      * OLD KARMORA FUNCTIONS
-     * 
+     *
      */
 
     /* ------------Start Email Functions------------------ */

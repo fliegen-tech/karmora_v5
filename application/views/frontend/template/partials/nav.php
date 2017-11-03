@@ -35,11 +35,9 @@
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/56'; ?>"><img src="<?php echo $themeUrl ?>/images/product/56/product_no_56.png"> B<sup>3</sup> Slim</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/57'; ?>"><img src="<?php echo $themeUrl ?>/images/product/57/product_no_57.png"> B<sup>3</sup> Beautiful</a></li>
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'product-detail/58'; ?>"><img src="<?php echo $themeUrl ?>/images/product/58/product_no_58.png"> B<sup>3</sup> Trim</a></li>
-                                <li class="dropdown-item wlp-menu"><a tabindex="-1" href="#">Weight Loss Planner</a></li>
-                                <li class="dropdown-item"><a tabindex="-1" href="#">Weight Loss Tips</a></li>
                             </ul>
                         </li>
-                        <li>
+                        <li class="dropdown-submenu">
                             <a  class="dropdown-item" tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Skincare</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a tabindex="-1" href="<?php echo base_url().'flawless-product'; ?>">Flawless Home</a></li>

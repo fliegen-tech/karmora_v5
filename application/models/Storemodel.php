@@ -667,5 +667,21 @@ class Storemodel extends CI_Model {
 
         return $array;
     }
+    public function insertKarmoraMemberExfil($memberId, $store_id, $storeTitle, $storeUrl, $memberIp) {
+
+        //echo $memberId.'<br>'.$storeTitle.'<br>'.$storeUrl.'<br>'.$memberIp;exit;
+
+        $data = array(
+            'fk_user_id' => $memberId,
+            'user_exit_karmora_redirect_to_store_name' => $storeTitle,
+            'user_exit_karmora_redirect_to_store_url' => $storeUrl,
+            'user_exit_karmora_redirect_to_store_id' => $store_id,
+            'user_exit_karmora_redirect_to_store_user_ip_address' => $memberIp
+        );
+
+        $this->db->insert('tbl_user_exit_karmora_redirect_to_store', $data);
+        return;
+    }
+
 
 }

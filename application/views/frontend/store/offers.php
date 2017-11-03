@@ -15,19 +15,23 @@
                             <div class="row">
                                 <?php foreach($deals as $deal) { ?>
                                     <?php
-                                        if (!$this->session->userdata('front_data')) {
-                                            $loadimage = $deal['store_not_login_banner'];
-                                        }else{
-                                            $loadimage = $deal['store_image'];
-                                        }
+                                    if (!$this->session->userdata('front_data')) {
+                                        $loadimage = $deal['store_not_login_banner'];
+                                        $link = base_url('join-today');
+                                        $caption = 'Join Now';
+                                    }else{
+                                        $loadimage = $deal['store_image'];
+                                        $link = base_url('store-detail/'.$deal['store_id']);
+                                        $caption = 'Visit Store';
+                                    }
                                     ?>
                                     <div class="col-4">
                                         <div class="shd-cover">
-                                            <a href="">
+                                            <a href="<?php echo $link;?>">
                                                 <img src="<?php echo $themeUrl?>/images/<?php echo $loadimage;?>" alt="">
                                             </a>
                                             <div class="text-center">
-                                                <a href="" class="btn btn-joinnow left-right-hover">Join Now</a>
+                                                <a href="<?php echo $link;?>" class="btn btn-joinnow left-right-hover"><?php echo $caption;?></a>
                                             </div>
                                         </div>
                                     </div>

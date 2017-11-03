@@ -36,8 +36,7 @@
                                     $title = addslashes('EARN UP TO 30% CASH BACK!');
                                     $caption = $title;
                                     $url_p = $custom_ad->banner_ads_redirect_url;
-                                    $url = base_url() .$url_p.'/banner--'.$custom_ad->banner_ads_image;
-                                    $url2= base_url() . 'track/'.$url_p.'/banner/'.$custom_ad->pk_banner_ads_id;
+                                    $url2= base_url() . 'track/'.str_replace('/','_',$url_p).'/banner/'.$custom_ad->pk_banner_ads_id;
                                     $description = addslashes('Earn up to 30% Cash Back at over 2,000 Name Brand Stores at Karmora.com!  Karmora offers much more than just Cash Back for our Shoppers. Click the Ad to learn more about the next generation of online shopping at Karmora.com!');
                                     $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
@@ -46,7 +45,7 @@
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
-                                        <a onClick="sharepost('<?php echo $caption ?>', '<?php echo $url2 ?>', '<?php echo $picture ?>', '<?php echo $description ?>')"
+                                        <a onClick="sharepost('<?php echo $url2 ?>')"
                                            target="_parent" href="javascript: void(0)">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                         </a>

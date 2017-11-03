@@ -9,17 +9,17 @@
                     <div class="product-leftbar">
                         <div class="app-figure" id="zoom-fig">
                             <a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom." href="<?php echo $themeUrl ?>/frontend/images/day3.jpg" >
-                                <img src="<?php echo $themeUrl ?>/upload/images/product/<?php echo $product_detail->product_image; ?>?scale.height=400" alt=""/>
+                                <img src="<?php echo $themeUrl ?>/images/product/<?php echo $product_detail->product_image; ?>?scale.height=400" alt=""/>
                             </a>
                             <?php if(!empty($product_album)){ ?>
                             <div class="selectors">
                                 <?php foreach ($product_album as $pl){ ?>
                                 <a
                                     data-zoom-id="Zoom-1"
-                                    href="<?php echo $themeUrl ?>/upload/images/product/<?php echo $pl['product_album_image']; ?>"
-                                    data-image="<?php echo $themeUrl ?>/upload/images/product/<?php echo $pl['product_album_image']; ?>?scale.height=400"
+                                    href="<?php echo $themeUrl ?>/images/product/<?php echo $pl['product_album_image']; ?>"
+                                    data-image="<?php echo $themeUrl ?>/images/product/<?php echo $pl['product_album_image']; ?>?scale.height=400"
                                 >
-                                    <img srcset="<?php echo $themeUrl ?>/upload/images/product/<?php echo $pl['product_album_image']; ?>?scale.width=112 2x" src="<?php echo $themeUrl ?>/upload/images/product/<?php echo $pl['product_album_image']; ?>?scale.width=56"/>
+                                    <img srcset="<?php echo $themeUrl ?>/images/product/<?php echo $pl['product_album_image']; ?>?scale.width=112 2x" src="<?php echo $themeUrl ?>/images/product/<?php echo $pl['product_album_image']; ?>?scale.width=56"/>
                                 </a>
                                 <?php } ?>
                             </div>

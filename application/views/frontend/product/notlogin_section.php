@@ -22,7 +22,7 @@
         </div>
         <div class="col-12">
             <div class="join-cover text-center">
-                <a href="" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
+                <a href="<?php echo base_url('join-today')?>" class="btn btn-joinnow left-right-hover">JOIN TODAY</a>
             </div>
         </div>
     </div>

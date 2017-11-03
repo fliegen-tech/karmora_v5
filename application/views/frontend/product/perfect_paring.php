@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="paring-leftbar">
-                                <img src="<?php echo $themeUrl ?>/upload/images/product/<?php echo $pro['product_image']; ?>" class="before-animated">
+                                <img src="<?php echo $themeUrl ?>/images/product/<?php echo $pro['product_image']; ?>" class="before-animated">
                             </div>
                         </div>
                         <div class="col-8">
