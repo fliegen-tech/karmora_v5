@@ -83,7 +83,7 @@
                         <div class="row">
                             <label for="staticEmail" class="col-sm-4 col-form-label">Current Password:</label>
                             <div class="col-sm-8">
-                                <input type="text" required="required" class="form-control" id="inputPassword" name="curr_password">
+                                <input type="password" required="required" class="form-control" id="inputPassword" name="curr_password">
                             </div>
                         </div>
                     </div>
