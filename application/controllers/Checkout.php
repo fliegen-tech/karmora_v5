@@ -297,12 +297,9 @@ class Checkout extends karmora {
         $karmora_cash_amount = $mainsummery->available_karmora_kash;
         $shiiping_cost = 0; //$this->data['shipping_cost'];
         // for every product - 10
-        $price_qty_total = 0;
-        foreach ($this->cart->contents() as $item) {
-             $price_qty_total = $item['subtotal'];
-        }
+        $price_price_total = $this->cart->total();
         $total_price = $this->cart->total() + $shiiping_cost;// + $upgrade_price; //100
-        $karmora_price = $price_qty_total + $shiiping_cost;// + $upgrade_price; //100
+        $karmora_price = $price_price_total + $shiiping_cost;// + $upgrade_price; //100
         //$karmora_cash_val = ($karmora_price-10) * 100;
         $karmora_cash_val = ($karmora_price) * 100;
         $karmora_cash = $karmora_cash_val / 100; // 80

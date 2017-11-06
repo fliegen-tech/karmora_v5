@@ -34,18 +34,7 @@ class Cart extends karmora {
             echo json_encode($response); die;
         //echo '<pre>';            print_r($_POST); die;
     }
-    public function deal_cart($username = NULL) {
-            $this->verifyUser($username);
-            if($this->cartmodel->validate_add_cart_item() == TRUE){
-                // Check if user has javascript enabled
-                if($this->input->post('ajax') != '1'){
-                    redirect(base_url().'cart/show_cart');// If javascript is not enabled, reload the page with new data
-                }else{
-                    echo 'true'; die; // If javascript is enabled, return true, so the cart gets updated
-                }
-            }
-            //echo '<pre>';            print_r($_POST); die;
-    }
+
     function show_cart($username = NULL){
         $this->verifyUser($username);
         if (!$this->cart->contents()){
@@ -73,8 +62,7 @@ class Cart extends karmora {
         redirect(base_url().'cart/show_cart');
     }
     function remove($rowid,$username = NULL){
-       //$this->verifyUser($username);
-       $data = array();
+       $this->verifyUser($username);
        foreach($this->cart->contents() as $items){
            if($items['rowid'] != $rowid){
                $data[] = array('id' => $items['id'],
@@ -82,15 +70,13 @@ class Cart extends karmora {
                                'price' => $items['price'],
                                'name' => $items['name'],
                                'shopper_account_type'   => $items['shopper_account_type'],
-                               'shopper_account_type_price'     => $items['shopper_account_type_price'],
-                               'shopper_recurning_time' =>$items['shopper_recurning_time'],
-                               'pic'      => $items['pic'],                
+                               'pic'      => $items['pic'],
                     );
            }
        }
-       $this->cart->destroy();
-       $this->cart->insert($data);
-       redirect(base_url().'cart/show_cart');
+        $this->cart->destroy();
+        $this->cart->insert($data);
+    redirect(base_url().'cart/show_cart');
 } 
     
 
