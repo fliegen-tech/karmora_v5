@@ -82,7 +82,7 @@
                                             <td class="text-center">
                                                 <?php if (!$this->session->userdata('front_data')) {
                                                     ?>
-                                                    <a  class="btn btn-joinnow left-right-hover" href="<?php echo base_url() . 'premier-shopper-signup' ?>">Join Today</a>
+                                                    <a  class="btn btn-joinnow left-right-hover" href="<?php echo base_url('join-today') ?>">Join Today</a>
                                                 <?php } else { ?>
                                                     <a href="<?php echo base_url() ?>store-visit/<?php echo $store['store_id'] ?>" target="_blank" class="btn btn-joinnow left-right-hover">Shop Now</a>
                                                 <?php } ?>
