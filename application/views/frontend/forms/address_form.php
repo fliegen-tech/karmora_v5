@@ -5,7 +5,7 @@
                 <div class="form-group">
                     <div class="form-check">
                         <label class="input-field-label">
-                            <input name="same_as_shipping" id="sameshipaddress" onclick="makeRequieedOnSameAs()"  type="checkbox" value="1">
+                            <input name="same_as_shipping" id="sameshipaddress" onclick="calucaltetax()"  type="checkbox" value="1">
                             Same As Shipping Address
                         </label>
                     </div>

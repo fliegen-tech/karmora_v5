@@ -311,7 +311,7 @@ class Signup extends karmora {
     }
 
     private function userSignupSuccessful($newUser) {
-        
+        $message = '';
 
 //        send email to user and referral pending.
 //        

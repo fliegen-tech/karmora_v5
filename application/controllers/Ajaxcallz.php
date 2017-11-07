@@ -81,9 +81,9 @@ class Ajaxcallz extends karmora {
         $address_post       = ($sameshipaddress == 1 ? $posts['shipping_address'] : $posts['billing_address']);
         $state_detail       = $this->usermodel->getstatename($address_post['state']);
         $address_state_code = $state_detail->user_address_state_code;
-        $karmora_cash       = str_replace(',', '', $posts['karmora_cash']);
+        $karmora_cash       = str_replace(',', '', $posts['karmora_kash_use']);
         $ordertotal         = str_replace(',', '', $posts['ordertotal']);
-        $amount             = ($posts['karmora_cash_check'] == 1 ? ($ordertotal - $karmora_cash) : $ordertotal);
+        $amount             = ($posts['karmora_kash_checkBox'] == 1 ? ($ordertotal - $karmora_cash) : $ordertotal);
         $DocType            = "SalesOrder";
         $number = 'Karma-' . date('i-s') . '-' . rand();
         $fields = array(

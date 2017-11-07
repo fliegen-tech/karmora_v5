@@ -8,6 +8,10 @@
             </div>
         </div>
         <div class="signup-cover">
+            <?php
+            $this->load->view($viewForm . 'signup_form');
+            is_null($username) ? $this->load->view($viewForm . 'referrer_form') : '';
+            ?>
             <div class="row">
                 <div class="col-12 no-padding">
                     <h2>Step 1 - Shipping Details</h2>
@@ -58,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="join-now-step-one">
+            <div class="join-now-step-one" id="eleminte">
                 <div class="join-now-step-cover">
                     <div class="row">
                         <div class="col-6">
@@ -73,9 +77,8 @@
             <div class="paynow">
                 <div class="col-12">
                     <div class="pay-now text-center">
-                        <input type="submit" name="submit" value="submit check">
-                        <a onclick="calucaltetax()"  class="btn btn-joinnow left-right-hover">Pay Now</a>
-                        <a href=""><img src="<?php echo $themeUrl ?>/frontend/images/money-back.png" alt=""></a>
+                        <input type="submit" id="pay_now" name="submit" class="btn btn-joinnow left-right-hover" value="Pay Now">
+                        <a href="#"><img src="<?php echo $themeUrl ?>/frontend/images/money-back.png" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -92,6 +95,6 @@
 
 
 
-
+<script>var is_checkout = 1; </script>
 <?php $this->load->view('frontend/cart/checkout_js'); ?>
 

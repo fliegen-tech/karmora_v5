@@ -325,22 +325,25 @@ class karmora extends CI_Controller {
         return $this->authObj->voidTransaction($trans_id);
     }
 
-    /**
-     * @return string
-     */
     public function checkcartupgrade(){
         if(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 3){
-            if (!$this->cart->contents()){
-                return false;
-            }else{
-                foreach ($this->cart->contents() as $cart_d){
-                    if($cart_d['shopper_account_type'] == 5){
-                        return true;
-                    }
+            $this->checkupgradecart();
+        }elseif(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 5){
+            return false;
+        }else{
+            return $this->checkupgradecart();
+        }
+    }
+
+    public function checkupgradecart(){
+        if (!$this->cart->contents()){
+            return false;
+        }else{
+            foreach ($this->cart->contents() as $cart_d){
+                if($cart_d['shopper_account_type'] == 5){
+                    return true;
                 }
             }
-        }else{
-            return false;
         }
     }
 

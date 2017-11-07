@@ -38,7 +38,7 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">City <span class="text-danger">*</span></label>
-                <input required="required" type="text" name="<?php echo $addressForm ?>[city]" class="form-control <?php echo $addressForm ?>" id="city" value="<?php echo $city; ?>" aria-describedby="addresHelp" placeholder="City">
+                <input required="required" onfocusout="calucaltetax()" type="text" name="<?php echo $addressForm ?>[city]" class="form-control <?php echo $addressForm ?>" id="city" value="<?php echo $city; ?>" aria-describedby="addresHelp" placeholder="City">
             </div>
         </div>
         <div class="col-6">
@@ -59,7 +59,7 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Zip Code <span class="text-danger">*</span></label>
-                <input required="required" type="text" value="<?php echo $zipcode; ?>" name="<?php echo $addressForm ?>[zip_code]" class="form-control <?php echo $addressForm ?>" id="city" aria-describedby="addresHelp" placeholder="Zip Code">
+                <input required="required" onfocusout="calucaltetax()" type="text" value="<?php echo $zipcode; ?>" name="<?php echo $addressForm ?>[zip_code]" class="form-control <?php echo $addressForm ?>" id="city" aria-describedby="addresHelp" placeholder="Zip Code">
             </div>
         </div>
         <div class="col-6">
@@ -81,7 +81,7 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Phone <span class="text-danger">*</span></label>
-                <input required="required" type="text" name="<?php echo $addressForm ?>[phone]" class="form-control <?php echo $addressForm ?>" id="phone" aria-describedby="phoneHelp" placeholder="Phone">
+                <input required="required" onfocusout="calucaltetax()" type="text" name="<?php echo $addressForm ?>[phone]" class="form-control <?php echo $addressForm ?>" id="phone" aria-describedby="phoneHelp" placeholder="Phone">
             </div>
         </div>                
     </div>
