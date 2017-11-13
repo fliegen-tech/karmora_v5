@@ -13,14 +13,14 @@ class Homemodel extends CI_Model {
         parent::__construct();
     }
 
-    public function getACSliders($acc_type_id) {
-         $queryStr = " SELECT * FROM view_slider WHERE acc_type_id = :acc_type_id  ORDER BY banner_position ASC";
-         $statment = $this->db->conn_id->prepare($queryStr);
-         $statment->bindParam(':acc_type_id', $acc_type_id, PDO::PARAM_INT);
-         $statment->execute();
-         $result = $statment->fetchAll(PDO::FETCH_ASSOC);
-         return count($result)>0 ? $result : FALSE;
-         
+    public function getACSliders($acc_type_id,$location) {
+        $queryStr = " SELECT * FROM view_slider WHERE acc_type_id = :acc_type_id AND fk_site_location_id = $location  ORDER BY banner_position ASC";
+        $statment = $this->db->conn_id->prepare($queryStr);
+        $statment->bindParam(':acc_type_id', $acc_type_id, PDO::PARAM_INT);
+        $statment->execute();
+        $result = $statment->fetchAll(PDO::FETCH_ASSOC);
+        return count($result)>0 ? $result : FALSE;
+
     }
     public function getfeturedproduct() {
          $queryStr = " SELECT * FROM tbl_product order by pk_product_id desc limit 4 ";

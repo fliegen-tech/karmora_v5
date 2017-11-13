@@ -12,7 +12,7 @@
         </div>
         <div class="signup-cover">
             <?php
-            echo form_open(base_url('join-premier'));
+            echo form_open(base_url('join-premier'),array('id'=>'form','method'=>'post'));
             ?>
             <div class="row">
                 <div class="col-12 no-padding">
@@ -60,7 +60,7 @@
                                             <h3>Total Charged</h3>
                                         </div>
                                         <div class="col-6 text-right">
-                                            <a href="" class="btn btn-joinnow left-right-hover">$<?php echo number_format($signupPromo['promo_price'] + $signupPromo['promo_shipping'], 2, '.', ',') ?></a>
+                                            <a id="charge_amount_html" href="#" class="btn btn-joinnow left-right-hover">$<?php echo number_format($signupPromo['promo_price'] + $signupPromo['promo_shipping'], 2, '.', ',') ?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -70,8 +70,8 @@
                                             <input  type="checkbox" value="accept" name="read_agreement" required="">
                                             I have read, understand and agree to the below documents:
                                         </label>
-                                        <a href="">Premier Shopper Trial Membership Agreement</a>
-                                        <a href="">Premier Shopper Terms of Use</a>
+                                        <a href="#">Premier Shopper Trial Membership Agreement</a>
+                                        <a href="#">Premier Shopper Terms of Use</a>
                                     </div>
                                 </div>
                                 <div class="paynow">
@@ -81,8 +81,8 @@
                                         </div>
                                         <div class="col-8 text-right">
                                             <ul class="list-inline">
-                                                <li><a href=""><img src="<?php echo $themeUrl; ?>/public/images/question-compostation.png"> Have Questions?</a></li>
-                                                <li><a href=""><img src="<?php echo $themeUrl; ?>/public/images/chat.png"> Chat with Us</a></li>
+                                                <li><a href="#"><img src="<?php echo $themeUrl; ?>/public/images/question-compostation.png"> Have Questions?</a></li>
+                                                <li><a href="#"><img src="<?php echo $themeUrl; ?>/public/images/chat.png"> Chat with Us</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -102,10 +102,18 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" name="tax_price"  id="tax" value="0" />
+            <input type="hidden" name="ordertotal" id="ordertotal" value="<?php echo number_format($signupPromo['promo_price'] + $signupPromo['promo_shipping'], 2, '.', ',')?>">
             <?php
             echo form_close();
             ?>
         </div>
     </div>
 </section>
+<script>
+    var is_checkout = 0;
+    var shiping_cost = '<?php echo $signupPromo['promo_shipping']; ?>';
+    var upgrade_amount = '<?php echo $signupPromo['promo_price']; ?>';
+</script>
+<?php $this->load->view('frontend/cart/checkout_js'); ?>
 <!--====  End of Join Now ====-->

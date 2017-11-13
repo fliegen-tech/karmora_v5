@@ -11,18 +11,6 @@ class Ajaxcallz extends karmora {
         $this->data['themeUrl'] = $this->themeUrl;
         $this->load->model(array('usermodel','commonmodel'));
     }
-    function authrioze($username = null){
-            //$this->session->unset_userdata('landing_data'); // unset your sessions
-        $postLim = $this->input->post();
-        echo '<pre>';print_r($postLim); die;
-        $responce = $this->runauthrioze($postLim);
-        if($responce === FALSE){
-            echo 'error'; die;
-        }else{
-            echo $responce->trans_id; die;
-        }
-    }
-
     public function congrats($shopper_program, $username = null, $orde_number = null) {
         $this->verifyUser($username);
         $this->cart->destroy(); // Destroy all cart data
@@ -45,40 +33,11 @@ class Ajaxcallz extends karmora {
             $this->loadLayout($data, 'frontend/signup/premier_signup_congrats_order');
         }
     }
-    
-    function coupon($coupon) {
-        if ($coupon != '') {
-            $row = $this->usermodel->getuserCouponDetail($coupon);
-            if (!empty($row)) {
-                $price = $row->coupons_price;
-                echo $price;
-                die;
-            } else {
-                echo 'error';
-                die;
-            }
-        } else {
-            echo 'error';
-            die;
-        }
-    }
-    
-    
-    function emailexisetcall($user_name = NULL) {
-       $email = $_POST['email'];
-       $row = $this->usermodel->getalreadyemail($email);
-       if(!empty($row)){
-           echo 'already'; die;
-        }else{
-            echo 'sucess';die;
-        }
-            
-    }
 
     function calculatetax($user_name = NULL) {
         $posts              = $this->input->post();
-        $sameshipaddress    = $posts['sameshipaddress'];
-        $address_post       = ($sameshipaddress == 1 ? $posts['shipping_address'] : $posts['billing_address']);
+        $sameshipaddress    = $posts['same_as_shipping'];
+        $address_post       = ( $sameshipaddress == 1 )? $posts['shipping_address'] : $posts['billing_address'];
         $state_detail       = $this->usermodel->getstatename($address_post['state']);
         $address_state_code = $state_detail->user_address_state_code;
         $karmora_cash       = str_replace(',', '', $posts['karmora_kash_use']);

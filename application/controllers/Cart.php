@@ -11,7 +11,7 @@ class Cart extends karmora {
     public function __construct(){
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
-        $this->upgrade_amount  =  99;
+        $this->upgrade_amount  =  19.95;
         $this->load->model(array('cartmodel','commonmodel' , 'productmodel'));
     }
 

@@ -9,8 +9,10 @@
         </div>
         <div class="signup-cover">
             <?php
-            $this->load->view($viewForm . 'signup_form');
-            is_null($username) ? $this->load->view($viewForm . 'referrer_form') : '';
+                if(!isset($this->session->userdata['front_data'])) {
+                    $this->load->view($viewForm . 'signup_form');
+                    is_null($username) ? $this->load->view($viewForm . 'referrer_form') : '';
+                }
             ?>
             <div class="row">
                 <div class="col-12 no-padding">
@@ -94,7 +96,13 @@
 <!--====  End of Join Now ====-->
 
 
-
-<script>var is_checkout = 1; </script>
+<script>
+    var is_checkout = 1;
+    var shiping_cost = '<?php echo $cart_info['shipping_cost']; ?>';
+    var exclusiveProductTotal = '<?php echo $cart_info['exclusiveProductTotal']; ?>';
+    var actualCost = '<?php echo $cart_info['actualCost']; ?>';
+    var cartAmount = '<?php echo $cart_info['cartAmount']; ?>';
+    var upgrade_amount = '<?php echo $upgrade_amount; ?>';
+</script>
 <?php $this->load->view('frontend/cart/checkout_js'); ?>
 

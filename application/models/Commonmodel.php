@@ -14,7 +14,7 @@ class Commonmodel extends CI_Model {
     }
 
     public function getFounder($userId) {
-        $query = "SELECT ulog.fk_user_account_type_id as user_account_type_id,u.pk_user_id AS userid,u.user_username AS username,u.user_subid AS subid,ac.user_account_type_title,u.*
+      $query = "SELECT ulog.fk_user_account_type_id as user_account_type_id,u.pk_user_id AS userid,u.user_username AS username,u.user_subid AS subid,ac.user_account_type_title,u.*
 			FROM 
 				tbl_users AS u ,tbl_user_account_type AS ac,
 				tbl_user_to_user_account_type_log AS ulog  
@@ -22,17 +22,16 @@ class Commonmodel extends CI_Model {
 			AND ac.pk_user_account_type_id = ulog.fk_user_account_type_id
 			AND ac.user_account_type_status != 'Inactive' 
                         AND ulog.user_account_log_status !=  'Inactive'
-                        GROUP BY u.pk_user_id"; //die;
+                        GROUP BY u.pk_user_id";
         $queryRS = $this->db->query($query);
         $response = $queryRS->result_array();
-        //echo '<pre>';        print_r($response); echo '</pre>'; //die;
         return $response;
     }
 
     // function to get user details
     public function getUserDetails($username) {
 
-        $sql = "SELECT ulog.fk_user_account_type_id,ac.user_account_type_title,u.* 
+       $sql = "SELECT ulog.fk_user_account_type_id,ac.user_account_type_title,u.* 
 			FROM 
 				tbl_users AS u ,tbl_user_account_type AS ac,
 				tbl_user_to_user_account_type_log AS ulog  

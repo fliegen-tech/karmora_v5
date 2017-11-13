@@ -202,6 +202,22 @@ class karmora extends CI_Controller {
             redirect(base_url());
         }
     }
+    public function insertbounce($accounttype, $user_id,$type) {
+        $bounsamount = $this->usermodel->getbounckarmoracash($type, $accounttype);
+        if (!empty($bounsamount)) {
+            $dataLog = array(
+                'fk_user_id' => $user_id,
+                'fk_user_id_from' => $user_id,
+                'kash_amount' => $bounsamount->bonus_karmora_cash_amount,
+                'kash_type' => 'Deposit',
+                'kash_description' => $bounsamount->bonus_title
+            );
+            $this->db->insert('tbl_karmora_kash_account', $dataLog);
+            return true;
+        } else {
+            return FALSE;
+        }
+    }
 
 
     /* ------------Load Layout Functions start------------------ */
@@ -327,7 +343,7 @@ class karmora extends CI_Controller {
 
     public function checkcartupgrade(){
         if(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 3){
-            $this->checkupgradecart();
+            return $this->checkupgradecart();
         }elseif(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 5){
             return false;
         }else{

@@ -11,7 +11,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label class="input-field-label">Email address <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" class="form-control" id="email_addreess" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
             </div>

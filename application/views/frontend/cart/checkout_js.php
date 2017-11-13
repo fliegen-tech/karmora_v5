@@ -1,10 +1,4 @@
 <script>
-    var shiping_cost = '<?php echo $cart_info['shipping_cost']; ?>';
-    var exclusiveProductTotal = '<?php echo $cart_info['exclusiveProductTotal']; ?>';
-    var actualCost = '<?php echo $cart_info['actualCost']; ?>';
-    var cartAmount = '<?php echo $cart_info['cartAmount']; ?>';
-</script>
-<script>
     function calucaltetax() {
         makeRequieedOnSameAs();
         jQuery('#tax_price_html').html('');
@@ -19,10 +13,10 @@
             form: form,
             context: document.body,
             error: function (data, transport) {
+                console.info(data);
             },
             success: function (data) {
                 console.info(data);
-                alert(data);
                 if (data == 'error') {
                     $('#sameshipaddress').checked = false;
                     jQuery('#tax_error').focus();
@@ -33,7 +27,9 @@
                     jQuery('#tax').val(data);
                 }
                 if(is_checkout == 1){
-                    finilizehtml();
+                    finilizecheckout();
+                }else{
+                    finilizeothers();
                 }
             }
         });
@@ -43,12 +39,12 @@
     $('#karmora_kash_checkBox').click(function (event) {
         setKarmoraCommission();
         setKarmoraKash();
-        finilizehtml();
+        finilizecheckout();
     });
     $('#karmora_commsion_checkBox').click(function (event) {
         setKarmoraKash();
         setKarmoraCommission();
-        finilizehtml();
+        finilizecheckout();
     });
     // set karmora kash
     function setKarmoraKash() {
@@ -82,13 +78,15 @@
     }
 </script>
 <script>
-function finilizehtml() {
+function finilizecheckout() {
         var tax = parseFloat($('#tax').val().split(',').join(''));
         var karmora_cash         = (($('#karmora_kash_use').val().split(',').join('') !='') ? parseFloat($('#karmora_kash_use').val().split(',').join('')) : 0);
         var karmora_commission   = (($('#karmora_commission_use').val().split(',').join('') !='') ? parseFloat($('#karmora_commission_use').val().split(',').join('')) : 0);
-        var exclusiveproductTotal_karmora_cash = exclusiveProductTotal - karmora_cash;
-        var ordertotaldisplay = ( parseFloat(actualCost) + parseFloat(tax)  ) - karmora_cash;
-        var amount_caluation  =   parseFloat(actualCost)  - parseFloat(karmora_cash);
+        var convertto_nmbr       = +upgrade_amount + +exclusiveProductTotal;
+        var exclusiveproductTotal_karmora_cash = convertto_nmbr - karmora_cash;
+        var convert2tonmbr                     = +upgrade_amount + +actualCost;
+        var ordertotaldisplay = ( parseFloat(convert2tonmbr) + parseFloat(tax)  ) - karmora_cash;
+        var amount_caluation  =   parseFloat(convert2tonmbr)  - parseFloat(karmora_cash);
         if(karmora_commission >= amount_caluation){
             amount_caluation = amount_caluation + tax;
         }else{
@@ -113,6 +111,15 @@ function finilizehtml() {
     }
 </script>
 <script>
+    function finilizeothers() {
+        var tax = parseFloat($('#tax').val().split(',').join(''));
+        var exclusiveproductTotal_karmora_cash       = +upgrade_amount + +shiping_cost;
+        var ordertotaldisplay                        = ( parseFloat(exclusiveproductTotal_karmora_cash) + parseFloat(tax)  );
+        $('#order_total_html').html('$' + ordertotaldisplay.toFixed(2));
+        $('#charge_amount_html').html('$' + ordertotaldisplay.toFixed(2));
+    }
+</script>
+<script>
     function makeRequieedOnSameAs() {
         if($('#sameshipaddress').is(":checked")) {
                 $('#address-form-billing_address').hide();
@@ -122,6 +129,15 @@ function finilizehtml() {
             $(".billing_address").prop('required',true);
         }
     }
+</script>
+<script>
+    $(document).ready(function(){
+        $("input[name='fullname']").on("keyup",function () {
+            //alert($(this).val());
+            $("input[name='billing_address[name]']").val('');
+            $("input[name='billing_address[name]']").val($(this).val());
+        });
+    });
 </script>
 
 

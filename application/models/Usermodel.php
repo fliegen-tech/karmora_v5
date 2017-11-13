@@ -59,6 +59,15 @@ class Usermodel extends commonmodel {
         $statement->execute();
         return;
     }
+    public function updateUserAccountType($param) {
+        $query = "UPDATE tbl_user_to_user_account_type_log SET user_account_log_status = :status WHERE fk_user_id = :userId"; 
+        $statement = $this->prepQuery($query);
+        $statement->bindParam(':userId', $param['user_id'], PDO::PARAM_INT);
+        $statement->bindParam(':status', $param['status'], PDO::PARAM_STR);
+
+        $statement->execute();
+        return;
+    }
 
     public function updateUsername($userId, $username) {
         $query = "UPDATE tbl_users SET user_username = :username WHERE pk_user_id = :userId";
@@ -132,7 +141,7 @@ class Usermodel extends commonmodel {
         $query = "INSERT INTO tbl_user_address
             SET fk_users_id = :userId, user_address_street_address = :streeAddress, user_address_street_address_2 = :streeAddress_2,
             user_address_city_name = :city, user_address_zip_code = :zipCode, fk_user_address_state_id = :stateId,
-            fk_user_address_country_id = :countryId, user_address_create_date = NOW(), user_address_current = 'false'";
+            fk_user_address_country_id = :countryId, user_address_create_date = NOW(), user_address_current = 'true'";
         $statement = $this->prepQuery($query);
         $statement->bindParam(':userId', $userId, PDO::PARAM_STR);
         $statement->bindParam(':streeAddress', $data['address1'], PDO::PARAM_STR);

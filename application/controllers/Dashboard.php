@@ -18,7 +18,7 @@ class Dashboard extends karmora {
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
         $this->checklogin();
-        $this->load->model(array('commonmodel','reportingmodel','usermodel'));
+        $this->load->model(array('commonmodel','reportingmodel','usermodel','mycharitiesmodel','cashmeoutmodel'));
     }
 
     public function index($username = null) {
@@ -50,15 +50,12 @@ class Dashboard extends karmora {
             $this->downloadAllData($username);
         }
         $this->data['mainsummery'] = $this->usermodel->getuser_main_summary($userData['id']);
-        $this->data['exectivesummery'] = $this->commonmodel->getuser_exective_summary($userData['id']);
-        $detail = $this->currentUser; //$detail['userid']
-        $this->data['cashback'] = $this->reportingmodel->getUsermycashback($detail['userid'],$this->data['selected_month'], $this->data['selected_year']);
-        $this->data['commsion'] = $this->reportingmodel->getuserexclusivecommissions($detail['userid'],$this->data['selected_month'], $this->data['selected_year']);
-        $winnerArray = $this->tresurechestmodel->getUserWinner($detail['userid'], array(1));
-        $this->data['winner'] = $winnerArray;
+        $this->data['exectivesummery'] = $this->usermodel->getuser_exective_summary($userData['id']);
+        $this->data['cashback'] = $this->reportingmodel->getUsermycashback($userData['id'],$this->data['selected_month'], $this->data['selected_year']);
+        $this->data['commsion'] = $this->reportingmodel->getuserexclusivecommissions($userData['id'],$this->data['selected_month'], $this->data['selected_year']);
         $this->data['CashMeMember'] = $this->cashmeoutmodel->getUserCashMeOutRequests(array('userId' => $userData['id']));
         $this->data['myContribution'] = $this->mycharitiesmodel->getMyContribution($userData['id']);
-        $this->data['page_active'] = 'eWallet';
+        $this->data['active_page'] = 'E Vallet';
         $this->loadLayout($this->data,'frontend/dashboard/myewallet');
     }
 

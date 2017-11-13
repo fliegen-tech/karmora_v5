@@ -3,7 +3,7 @@
         <ul class="list-inline">
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'profile'){ echo 'active'; } ?>"><a href="<?php echo base_url().'profile'; ?>">My Profile</a></li>
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'community'){ echo 'active'; } ?>"><a href="<?php echo base_url().'my-community'; ?>">My Community</a></li>
-            <li class="list-inline <?php if(isset($active_page) && $active_page == ''){ echo 'active'; } ?>"><a href="">My eWallet</a></li>
+            <li class="list-inline <?php if(isset($active_page) && $active_page == 'E Vallet'){ echo 'active'; } ?>"><a href="<?php echo base_url().'my-ewallet'; ?>">My eWallet</a></li>
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'karmora_kash'){ echo 'active'; } ?>"><a href="<?php echo base_url().'my-karmora-kash'; ?>">My Karmora Kash</a></li>
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'order'){ echo 'active'; } ?>"><a href="<?php echo base_url().'my-orders'; ?>">My Orders</a></li>
             <li class="list-inline <?php if(isset($active_page) && $active_page == 'charities'){ echo 'active'; } ?>"><a href="<?php echo base_url().'karmora-my-charities'; ?>">My Charities</a></li>

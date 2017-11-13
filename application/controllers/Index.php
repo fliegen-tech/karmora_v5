@@ -17,11 +17,12 @@ class Index extends karmora{
         if ($this->session->userdata('front_data')) {
             $this->loadLayout($this->data, 'frontend/home/login_home_page');
         } else {
+	        $this->data['modals'][] = 'membership-comparsion';
             $this->loadLayout($this->data, 'frontend/home/notlogin_home_page');
         }
 	}
     public function getslider($fk_user_account_type_id){
-        $sliders = $this->homemodel->getACSliders($fk_user_account_type_id);
+        $sliders = $this->homemodel->getACSliders($fk_user_account_type_id,1);
         $first = true;
         if (!empty($sliders)) {
             foreach ($sliders as $slide) {

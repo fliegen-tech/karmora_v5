@@ -14,7 +14,9 @@ class KarmoraCashBack extends karmora {
     public function index($username = NULL) {
             $this->verifyUser($username); //die;
             $detail = $this->currentUser;
-            $detail = reset($detail);
+            if(is_array($detail[0])){
+                $detail = reset($detail);
+            }
             $this->data['sliders']           = $this->getslider($detail['user_account_type_id']);
             $this->data['categories']        = $this->storemodel->getATCategory($detail['user_account_type_id']);
             $categories_top_stores           = $this->homemodel->getTopCategoryStores($detail['user_account_type_id']);
@@ -30,7 +32,7 @@ class KarmoraCashBack extends karmora {
             
     }
     public function getslider($fk_user_account_type_id){
-        $sliders = $this->homemodel->getACSliders($fk_user_account_type_id);
+        $sliders = $this->homemodel->getACSliders($fk_user_account_type_id,2);
         $first = true;
         if(!empty($sliders)){
         foreach ($sliders as $slide) {

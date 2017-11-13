@@ -24,7 +24,7 @@
     <div class="row">
         <label class="col-sm-4 col-form-label">CVV <span class="text-danger">*</span></label>
         <div class="col-sm-8">
-            <input type="text" name="payment_detail[cvv]" onblur="calucaltetax()" class="form-control card-fileds" id="card-number" aria-describedby="addresHelp" placeholder="">
+            <input type="text" name="payment_detail[cvv]"  class="form-control card-fileds" id="card-number" aria-describedby="addresHelp" placeholder="">
         </div>
     </div>
 </div>
