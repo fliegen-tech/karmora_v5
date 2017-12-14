@@ -15,6 +15,9 @@ class Index extends karmora{
         $detail = $this->currentUser;
         $this->data['sliders'] = $this->getslider($detail['user_account_type_id']);
         if ($this->session->userdata('front_data')) {
+	        if ($this->session->flashdata('first_login')) {
+		        $this->data['modals'][] = 'first-login';
+	        }
             $this->loadLayout($this->data, 'frontend/home/login_home_page');
         } else {
 	        $this->data['modals'][] = 'membership-comparsion';

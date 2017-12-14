@@ -323,7 +323,7 @@ class ReportingModel extends commonmodel {
         if ($year != '') {
             $condation.= " AND YEAR(STR_TO_DATE(date, '%m/%d/%Y')) = $year";
         }
-        $query = "SELECT * from view_ewallet_my_cash_back where fk_user_id = :userId $condation ORDER BY pk_user_cash_back_id DESC";
+        $query = "SELECT * from view_ewallet_my_cash_back where fk_user_id = :userId  ORDER BY pk_user_cash_back_id DESC";
         $statement = $this->db->conn_id->prepare($query);
         $statement->bindParam(':userId', $user_id, PDO::PARAM_INT);
         $statement->execute();

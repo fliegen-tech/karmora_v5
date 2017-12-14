@@ -8,14 +8,14 @@
         </div>
         <div class="cash-back-step">
             <div class="cash-back-img-work">
-                <a href="">
+                <a href="<?php echo base_url('join-today');?>" target="_blank">
                     <img src="<?php echo $themeUrl ?>/frontend/images/cash-works-1.png" alt="">
                 </a>
             </div>
         </div>
         <div class="cash-back-step">
             <div class="cash-back-img-work">
-                <a href="">
+                <a href="<?php echo base_url('kash-back-toolbar');?>" target="_blank">
                     <img src="<?php echo $themeUrl ?>/frontend/images/cash-works-2.png" alt="">
                 </a>
             </div>
@@ -23,7 +23,7 @@
         </div>
         <div class="cash-back-step">
             <div class="cash-back-img-work">
-                <a href="">
+                <a href="<?php echo base_url('karmora-cash-back');?>" target="_blank">
                     <img src="<?php echo $themeUrl ?>/frontend/images/cash-works-3.png" alt="">
                 </a>
             </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="cash-back-step">
             <div class="cash-back-img-work">
-                <a href="">
+                <a href="<?php echo base_url('store/all');?>" target="_blank">
                     <img src="<?php echo $themeUrl ?>/frontend/images/cash-works-4.png" alt="">
                 </a>
             </div>

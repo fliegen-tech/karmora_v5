@@ -20,7 +20,6 @@ class KarmoraCashBack extends karmora {
             $this->data['sliders']           = $this->getslider($detail['user_account_type_id']);
             $this->data['categories']        = $this->storemodel->getATCategory($detail['user_account_type_id']);
             $categories_top_stores           = $this->homemodel->getTopCategoryStores($detail['user_account_type_id']);
-            //echo ' - categories loaded';exit;
             if (empty($categories_top_stores)) {
                 $this->data['top_stores'] = false;
             } else {

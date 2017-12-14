@@ -14,11 +14,13 @@
 class Dashboard extends karmora {
 
     public $data = array();
+    public $upgrade_amount = '';
     public function __construct(){
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
         $this->checklogin();
-        $this->load->model(array('commonmodel','reportingmodel','usermodel','mycharitiesmodel','cashmeoutmodel'));
+        $this->upgrade_amount  =  9.95;
+        $this->load->model(array('commonmodel','reportingmodel','usermodel','mycharitiesmodel','cashmeoutmodel','cartmodel'));
     }
 
     public function index($username = null) {
@@ -104,18 +106,20 @@ class Dashboard extends karmora {
     public function order_detail($order_no,$username = null) {
         $this->verifyUser($username);
         $detail = $this->currentUser;
-        echo 'no html yet'; die;
         $this->data['mainsummery'] = $this->usermodel->getuser_main_summary($detail['userid']);
         $this->data['userOrder']   = $this->usermodel->getUserorders($detail['userid']);
         $this->data['active_page'] = 'order';
-        $data['userOrder'] = $this->cartmodel->getOrderDetailById($order_no, $detail['userid']);
-        if (empty($data['userOrder'])) {
+        $this->data['userOrder'] = $this->cartmodel->getOrderDetailById($order_no, $detail['userid']);
+        if (empty($this->data['userOrder'])) {
             redirect(base_url());
         }
-        $data['Orderproduct'] = $this->cartmodel->getOrderProduct($data['userOrder']->pk_order_id);
-        if (empty($data['Orderproduct'])) {
+        $this->data['upgrade_amount'] = $this->upgrade_amount;
+        $this->data['Orderproduct'] = $this->cartmodel->getOrderProduct($this->data['userOrder']->pk_order_id);
+        if (empty($this->data['Orderproduct'])) {
             redirect(base_url());
-        }$this->loadLayout($this->data, 'frontend/dashboard/myorder');
+        }
+        $this->data['orderTotalDetail'] = !empty($this->data['userOrder']) ? $this->cartmodel->getOrderDetailTotalsSummery_row($this->data['userOrder']->pk_order_id) : FALSE;
+        $this->loadLayout($this->data, 'frontend/dashboard/order-detail');
     }
 
 

@@ -16,7 +16,7 @@
 					<div class="top-heading-cover before-animated animated fadeInLeft" id="top-heading-cover">
 						<h1>Exclusive Product Ads!</h1>
 					</div>
-					<p>Love Our Exclusive Products?   Tell the world regularly and watch in amazement as your Shopping Community and income explodes! For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="#">Click Here!</a></p>
+					<p>Love Our Exclusive Products?   Tell the world regularly and watch in amazement as your Shopping Community and income explodes! For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="javascript:void(0);" data-toggle="modal" data-target="#make-money">Click Here!</a></p>
 				</div>
 			</div>
 			<div class="col-12">

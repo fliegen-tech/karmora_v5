@@ -1,16 +1,18 @@
 <section class="flawles-hompage flawless-nologin page-spacing">
     <div class="container">
-        <div class="row">
+        
             <!-- Top Heading -->
-            <div class="col-12">
-                <div class="top-heading-cover">
-                    <h1>Flawless Skincare</h1>
-                </div>
-            </div>
-            <!-- End Top Heading -->
-            <div class="col-12">
-                <h1 class="top-heading">Because <span>"omg you look amazing!"</span> never gets old</h1>
-            </div>
+            <div class="row">
+	            <div class="col-12">
+	                <div class="top-heading-cover">
+	                    <h1>Flawless Skincare</h1>
+	                </div>
+	            </div>
+	            <!-- End Top Heading -->
+	            <div class="col-12">
+	                <h1 class="top-heading">Because <span>"omg you look amazing!"</span> never gets old</h1>
+	            </div>
+	        </div>
             <div class="flawles-cover">
                 <div class="row">
                     <div class="col-5">
@@ -21,15 +23,14 @@
                     <div class="col-7">
                         <div class="flex-cover">
                             <div class="flawles-rightbar">
-                                <p>Everyday our Shoppers are discovering that it is possible to look and feel beautiful without the use of harmful chemicals and preservatives that are prevalent in many commercial skincare lines.</p>
-                                <p>Karmora is one of a handful of distinguished companies that have taken steps to ensure the health and happiness of our Shoppers by certifying that each and every Flawless product is organic, natural and Certified ToxicFreeTM. Discover how Naturally Beautiful You can be with Flawless Skincare!</p>
+                                <p>Running from work, to yoga, to happy hour with your friends, the last thing you want is a complicated skincare routine. I’m Flawless and I’m here to rock your world. An all-natural, Certified ToxicFree TM, anti-aging skincare line. I am formulated without the use of harsh chemicals and preservatives for a naturally beautiful you!</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <?php if(!empty($products)){ ?>
-                <div class="col-12 flawless-product-cover before-animated">
+                <div class="col-12 flawless-product-cover">
                 <div class="row">
                     <?php foreach ($products as $pro){ ?>
                     <div class="col-3">
@@ -57,7 +58,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </section>
 <?php

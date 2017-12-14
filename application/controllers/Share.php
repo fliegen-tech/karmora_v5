@@ -17,13 +17,15 @@ class Share extends karmora
 
     public function index($username = NULL){
         $this->verifyUser($username); //die;
+	    $this->data['modals'][]='recurring-commission';
+	    $this->data['modals'][]='premier-shopper-bonus-pool';
         $this->loadLayout($this->data, 'frontend/share/homepage');
-
     }
 
     public function karmora_videos($username = NULL){
         $this->verifyUser($username); //die;
         $this->data['videos'] = $this->sharemodel->getVideos(58);
+	    $this->data['modals'][] = 'make-money';
         $this->loadLayout($this->data, 'frontend/share/good_karmora_videos');
     }
 
@@ -161,6 +163,7 @@ class Share extends karmora
 
     public function custom_ads( $ad_type,$username = NULL){
         $this->verifyUser($username); //die;
+	    $this->data['modals'][] = 'make-money';
         $detail = $this->currentUser;
         $this->data['type'] = $ad_type;
         $this->data['b3_supplements'] = $this->sharemodel->getCategoryList(119);
@@ -759,6 +762,7 @@ class Share extends karmora
     public function shareadd($type, $username = NULL){
         $this->verifyUser($username); //die;
         $this->db->where('banner_ads_status', 1);
+	    $this->data['modals'][] = 'make-money';
 	    if($type == "supplements"){
 		    $this->data["main_heading"] = "B3 Supplement Ads";
 		    $cat_ids = array('119','120','121','122','123');

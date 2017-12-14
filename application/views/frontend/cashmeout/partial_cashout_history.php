@@ -29,7 +29,7 @@
     <div class="col-12">
         <div class="check-request">
             <h3>GIFTS</h3>
-            <div class="karmora-table" id="gift-table">
+            <div class="karmora-table table-responsive" id="gift-table">
                 <!-- My Cummunity Table -->
                 <table id="example2" class="table table-striped accounting-table" >
                         <thead>
@@ -55,8 +55,8 @@
             <p><strong>Change in Destination -</strong> We are happy to ship your check anywhere that you please, however you are not able to change the recipient name. If you would like to permanently change your address please click on the “My Profile�? tab above and submit a change of address.</p>
             <p><strong>Check Issuance -</strong> There is a nominal $2.00 processing fee for shipping and handling of your check. This fee is imposed by our third party check issuing company to ensure safe and efficient delivery of your check. Checks will normally arrive at their destination within 7 business days. If you do not receive your check within the normal timeframe please open a live chat with a Good Karmora Specialist to trace your check.</p>
             <ul class="list-inline list-contact-live">
-                <li><a href="">Have Questions?</a></li>
-                <li><a href="">Chat with Us <img src="https://staging3.karmora.com/public/images/chat.png"></a></li>
+                <li><a onclick="window.open('https://www.karmora.com/liveSupport/', 'sharer', 'toolbar=0,status=0,width=600,height=600');" target="_parent" href="javascript: void(0)">Have Questions? <img src="<?php echo $themeUrl ?>/frontend/images/question-compostation.png"></a></li>
+                <li><a onclick="window.open('https://www.karmora.com/liveSupport/', 'sharer', 'toolbar=0,status=0,width=600,height=600');" target="_parent" href="javascript: void(0)">Chat with Us <img src="<?php echo $themeUrl ?>/frontend/images/chat.png"></a></li>
             </ul>
         </div>
     </div>

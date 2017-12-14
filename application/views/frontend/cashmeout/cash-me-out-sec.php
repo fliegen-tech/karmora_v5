@@ -276,7 +276,7 @@
                     <div class="col-md-12">
                       <h2 class="payment-new-cash">Payment Allocation</h2>
                     </div>
-                    <div class="col-md-12" style="overflow-x:auto;">
+                    <div class="col-md-12 table-responsive">
                       <table class="table table-striped accounting-table">
                         <thead>
                             <tr>

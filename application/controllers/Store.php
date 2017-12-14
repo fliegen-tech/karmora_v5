@@ -16,10 +16,12 @@ class Store extends karmora {
 	
 	public function allStore( $store_alias = null, $username = null ) {
 		$storeArray = array ();
-		$this->verifyUser( $username );
-		$detail                       = $this->currentUser;
-        $detail = reset($detail);
-		$this->data['store_alis_url'] = $store_alias;
+        $this->verifyUser( $username );
+        $detail                       = $this->currentUser;
+        if(is_array($detail[0])){
+            $detail = reset($detail);
+        }
+        $this->data['store_alis_url'] = $store_alias;
 		$categories                   = $this->storemodel->getATCategory( $detail['user_account_type_id'] );
 		$this->data['categories']     = $categories;
 		if ( isset( $this->session->userdata['front_data']['id'] ) && ( $store_alias === 'favourtie' ) ) {
@@ -116,7 +118,9 @@ class Store extends karmora {
 	public function storeDetail( $storeId, $username = null, $type = null, $advertisement_id = null ) {
 		$this->verifyUser( $username );
 		$detail                      = $this->currentUser;
-        $detail = reset($detail);
+        if(is_array($detail[0])){
+            $detail = reset($detail);
+        }
         $this->data['favoutieStore'] = $this->storemodel->GetfavourtiesStores( $storeId, $detail['userid'] );
 		$categories                  = $this->storemodel->getATCategory( $detail['user_account_type_id'] );
 		$this->data['categories']    = $categories;
@@ -146,17 +150,19 @@ class Store extends karmora {
 		);
 		$this->verifyUser( $username );
 		$detail              = $this->currentUser;
-        $detail = reset($detail);
+        if(is_array($detail[0])){
+            $detail = reset($detail);
+        }
         $category_all_stores = $this->storemodel->GetsearchStore( $detail['user_account_type_id'], $storeTitle );
 		if ( ! empty( $category_all_stores ) ) {
-			$html .= '<br>';
+			$html .= '';
 			foreach ( $category_all_stores as $search ) {
 				if ( ! $this->session->userdata( 'front_data' ) ) {
 					$percantage = 'Up to 30%';
 				} else {
 					$percantage = $search['cash_back_percentage'];
 				}
-				$html .= '<a href="' . base_url( 'store-detail' ) . '/' . $search['store_id'] . '" class="pull-left" target="_blank"><li class="search_list_rzlt"><span class="store-title">' . $search['store_title'] . '</span>&nbsp; &nbsp;<span class="store-cashback">' . $percantage . '</span></li></a>';
+				$html .= '<li class="search_list_rzlt"><a href="' . base_url( 'store-detail' ) . '/' . $search['store_id'] . '" target="_blank"><span class="store-title">' . $search['store_title'] . '</span>&nbsp; &nbsp;<span class="store-cashback">' . $percantage . '</span></a></li>';
 			}
 		} else {
 			$html .= "No search results";
@@ -183,12 +189,14 @@ class Store extends karmora {
 		
 		$this->verifyUser( $username );
 		$detail = $this->currentUser;
-        $detail = reset($detail);
+        if(is_array($detail[0])){
+            $detail = reset($detail);
+        }
         // for Trending Store
 		$this->data['deals']      = $this->storemodel->getSpecialStores( $detail['user_account_type_id'], $alias );
 		$this->data['categories'] = $this->storemodel->getATCategory( $detail['user_account_type_id'] );
 		// category top stores
-		$categories_top_stores = $this->storemodel->getTopCategoryStores( $detail['user_account_type_id'] );
+		$categories_top_stores    = $this->storemodel->getTopCategoryStores( $detail['user_account_type_id'] );
 		if ( empty( $categories_top_stores ) ) {
 			$this->data['top_stores'] = false;
 		} else {
@@ -256,4 +264,25 @@ class Store extends karmora {
 		
 		return $this->data;
 	}
+
+    /**
+     * @return string
+     */
+    public function favourtieStore($username)
+    {
+        $this->verifyUser($username); //die;
+        $detail = $this->currentUser;
+        if(is_array($detail[0])){
+            $detail = reset($detail);
+        }
+        $this->data['favourtie_all_stores'] = $this->storemodel->GetfavourtieStore($detail['userid']);
+        $this->data['categories'] = $this->storemodel->getATCategory($detail['user_account_type_id'] );
+        $categories_top_stores = $this->homemodel->getTopCategoryStores($detail['user_account_type_id']);
+        if (empty($categories_top_stores)) {
+            $this->data['top_stores'] = false;
+        } else {
+            $this->data['top_stores'] = $this->sortStoreByCategory($categories_top_stores);
+        }
+        $this->loadLayout( $this->data, 'frontend/store/myfavorites' );
+    }
 }

@@ -8,7 +8,7 @@
                 <div class="col-9 p-l-0">
                     <div class="cash-o-palooza-page-cover">
                         <div class="cash-o-palooza-header">
-                            <img src="http://staging5.karmora.com/html/version_new/images/cash-o-palooza-header.jpg" alt="">
+                            <img src="<?php echo $themeUrl.'/images/categories/'.$category_detail['category_image']?>" alt="">
                         </div>
                         <?php if(!empty($deals)){ ?>
                         <div class="cop-deals-cover">

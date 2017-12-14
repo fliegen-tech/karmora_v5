@@ -15,31 +15,27 @@
                 }
             ?>
             <div class="row">
-                <div class="col-12 no-padding">
+                <div class="col-12">
                     <h2>Step 1 - Shipping Details</h2>
                 </div>
             </div>
 
             <div class="join-now-step-one">
-                <div class="join-now-step-cover">
-                    <?php echo $this->load->view($viewForm . 'address_form', array('addressForm' => 'shipping_address')); ?>
-                </div>
+                <?php echo $this->load->view($viewForm . 'address_form', array('addressForm' => 'shipping_address')); ?>
             </div>
 
             <div class="row">
-                <div class="col-12 no-padding">
+                <div class="col-12">
                     <h2>Step 2 - Billing Details</h2>
                 </div>
             </div>
             <div id="tax_error"></div>
             <div class="join-now-step-one">
-                <div class="join-now-step-cover">
-                    <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'billingAddress' => TRUE, 'askName' => TRUE)); ?>
-                </div>
+                <?php $this->load->view($viewForm . 'address_form', array('addressForm' => 'billing_address', 'billingAddress' => TRUE, 'askName' => TRUE)); ?>
             </div>
 
             <div class="row">
-                <div class="col-12 no-padding">
+                <div class="col-12">
                     <h2>Step 3 - Apply Available Funds</h2>
                 </div>
             </div>
@@ -59,7 +55,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 no-padding">
+                <div class="col-12">
                     <h2>Step 4 - Checkout</h2>
                 </div>
             </div>
@@ -75,6 +71,36 @@
                     </div>
                 </div>
             </div>
+            <?php if(!isset($this->session->userdata['front_data'])) { ?>
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Step 5 - Shopper Type</h2>
+                    </div>
+                </div>
+
+                <div class="join-now-step-one">
+	                <div class="join-now-step-cover">
+	                	<div class="row">
+		                    <div class="col-12">
+		                        <div class="form-group">
+		                            <label class="custom-control custom-radio">
+		                              <input required="required" type="radio" class="custom-control-input" name="shopper_type" value="3">
+									  <span class="custom-control-indicator"></span>
+									  <span class="custom-control-description">Casual Shopper <span class="text-danger">*</span></span>
+									</label>
+		                        </div>
+		                        <div class="form-group">
+		                            <label class="custom-control custom-radio">
+		                              <input required="required" type="radio" class="custom-control-input" name="shopper_type" value="5">
+									  <span class="custom-control-indicator"></span>
+									  <span class="custom-control-description">Premier Shopper <span class="text-danger">*</span></span>
+									</label>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+            <?php } ?>
 
             <div class="paynow">
                 <div class="col-12">

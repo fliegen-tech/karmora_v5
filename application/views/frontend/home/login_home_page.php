@@ -28,24 +28,24 @@
 
         <div class="login-cover" id="make-money">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 order2-home">
                     <div class="leftbar-login">
                         <img src="<?php echo $themeUrl ?>/frontend/images/grap-bestie.jpg">
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 order1-home">
                     <div class="flex-cover">
                         <div class="rightbar-login">
                             <h2>grab your bestie</h2>
-                            <p>Making money online has never been easier. You can earn up to 20% on every purchase, made by every shopper in your shopping community. That's not where the fun stops! As a Premier Shopper there are so many other ways you can make money with Karmora! So grab a friend (or 20) and lets shop!</p>
+                  			<p>Making money online has never been easier. You can earn up to 20% on every purchase, made by every shopper in your shopping community. That's not where the fun stops! As a Premier Shopper there are so many other ways you can make money with Karmora! So grab a friend (or 20) and lets shop!</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="buttons-login-cover">
-                    <a href="" class="btn btn-joinnow mr-150 left-right-hover">Join our money<br> making webinar</a>
-                    <a href="" class="btn btn-joinnow left-right-hover">AD blaster</a>
+                    <a href="<?php echo base_url('webinar/registration');?>" class="btn btn-joinnow mr-150 left-right-hover">Join our money<br> making webinar</a>
+                    <a href="<?php echo base_url('share');?>" class="btn btn-joinnow left-right-hover">AD blaster</a>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     <div class="flex-cover">
                         <div class="rightbar-login">
                             <h2>do a little happy dance</h2>
-                            <p>Premier Shoppers receive an additional 10% Cash Back on every purchase and our Best Cash Back Guarantee.  Plus $2 Karmora Kash for every $1 of Cash Back earned by every Shopper in their Shopping Community!   Become a Premier Shopper TODAY and save big!</p>
+                  			<p>Premier Shoppers receive an additional 10% Cash Back on every purchase and our Best Cash Back Guarantee.  Plus $2 Karmora Kash for every $1 of Cash Back earned by every Shopper in their Shopping Community!   Become a Premier Shopper TODAY and save big!</p>
                         </div>
                     </div>
                 </div>
@@ -68,31 +68,30 @@
             </div>
             <div class="col-12">
                 <div class="buttons-login-cover">
-                    <a href="" class="btn btn-joinnow left-right-hover">Cash Back Shopping</a>
+                    <a href="<?php echo base_url('karmora-cash-back');?>" class="btn btn-joinnow left-right-hover">Cash Back Shopping</a>
                 </div>
             </div>
         </div>
 
         <div class="login-cover" id="b3-supplements">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 order2-home">
                     <div class="leftbar-login">
                         <img src="<?php echo $themeUrl ?>/frontend/images/one-day-one.jpg">
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 order1-home">
                     <div class="flex-cover">
                         <div class="rightbar-login">
-                            <h2>One day or day one </h2>
-                            <p>B3 Dietary Supplements are carefully formulated with goal of helping our Shoppers become the Healthiest they have ever been. Taking extraordinary care of your mind, body and soul are not just the Wisest decision anyone can make, it is the indisputable formula for lifelong Happiness!</p>
+                            <h2>one day or day one</h2>
+                  			<p>We make falling in love with taking care of your body easy. With our wide range of B3 Supplements you can ensure that every inch of your body is feeling loved. </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="buttons-login-cover">
-                    <a href="" class="btn btn-joinnow mr-150 left-right-hover">Shop B3 Supplements</a>
-                    <a href="" class="btn btn-joinnow left-right-hover">Follow the leader<br> weight loss program</a>
+                    <a href="<?php echo base_url('supplement-product');?>" class="btn btn-joinnow left-right-hover">Shop B3 Supplements</a>
                 </div>
             </div>
         </div>
@@ -102,8 +101,8 @@
                 <div class="col-6">
                     <div class="flex-cover">
                         <div class="rightbar-login">
-                            <h2>Start your flawless <br>journey today</h2>
-                            <p>Everyday our Shoppers are discovering that it is possible to look and feel beautiful without the use of harmful chemicals and preservatives that are prevalent in many commercial skincare lines. Discover how Naturally Beautiful You can be with Flawless Skincare!</P>
+                            <h2>start your flawless <br>journey today</h2>
+                 			<p>Running from work, to yoga, to happy hour with your friends, the last thing you want is a complicated skincare routine. I’m Flawless and I’m here to rock your world. An all-natural, Certified ToxicFree TM, anti-aging skincare line. </P>
                         </div>
                     </div>
                 </div>
@@ -115,8 +114,8 @@
             </div>
             <div class="col-12">
                 <div class="buttons-login-cover">
-                    <a href="" class="btn btn-joinnow mr-150 left-right-hover">Shop Flawless<br> Skincare</a>
-                    <a href="" class="btn btn-joinnow left-right-hover">Flawless Skincare<br> Blog</a>
+                    <a href="<?php echo base_url('flawless-product');?>" class="btn btn-joinnow mr-150 left-right-hover">Shop Flawless<br> Skincare</a>
+                    <a href="<?php echo base_url('blog/category-detail/139');?>" class="btn btn-joinnow left-right-hover">Flawless Skincare<br> Blog</a>
                 </div>
             </div>
         </div>
@@ -125,21 +124,21 @@
             <div class="row">
                 <div class="col-6">
                     <div class="leftbar-login">
-                        <img src="<?php echo $themeUrl ?>/frontend/images/winner-winner.jpg">
+                        <img src="<?php echo $themeUrl ?>/frontend/images/click2win-notlogin.jpg">
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="flex-cover">
                         <div class="rightbar-login">
-                            <h2>Winner Winner</h2>
-                            <p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! Browse through our over 2,000 online stores to win!</p>
+                            <h2>winner winner</h2>
+                  			<p>Premier Shoppers can win Cash & Prizes simply by surfing their personal Karmora Website in our Click2Win Program! Browse through our over 2,000 online stores to win!</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="buttons-login-cover">
-                    <a href="" class="btn btn-joinnow left-right-hover">Shop our<br> cash back stores</a>
+                    <a href="<?php echo base_url('karmora-cash-back');?>" class="btn btn-joinnow left-right-hover">Shop our<br> cash back stores</a>
                 </div>
             </div>
         </div>
@@ -149,8 +148,8 @@
                 <div class="col-6">
                     <div class="flex-cover">
                         <div class="rightbar-login">
-                            <h2>Give back to those in need </h2>
-                            <p>Karmora Cares about our Shoppers and their communities! Our Shoppers are rewarded with $2 Karmora Kash for every $1 they contribute to approved Karmora Cares Fundraising Organizations. Plus, Karmora matches 5% of every contribution made by every Shopper! </P>
+                            <h2>give back to those in need</h2>
+                  			<p>Karmora Cares about our Shoppers and their communities! Our Shoppers are rewarded with $2 Karmora Kash for every $1 they contribute to approved Karmora Cares Fundraising Organizations. Plus, Karmora matches 5% of every contribution made by every Shopper! </P>
                         </div>
                     </div>
                 </div>
@@ -162,7 +161,7 @@
             </div>
             <div class="col-12">
                 <div class="buttons-login-cover">
-                    <a href="" class="btn btn-joinnow left-right-hover">Learn more about<br> Karmora Cares</a>
+                    <a href="<?php echo base_url().'karmora-cares'; ?>" class="btn btn-joinnow left-right-hover">Learn more about<br> Karmora Cares</a>
                 </div>
             </div>
         </div>

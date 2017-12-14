@@ -4,6 +4,7 @@
         jQuery('#tax_price_html').html('');
         jQuery('#tax').val(0);
         jQuery('#tax_error').html('');
+        jQuery('.paynow').show();
         var form = jQuery("#form");
         var data = form.serialize();
         jQuery.ajax({
@@ -19,6 +20,7 @@
                 console.info(data);
                 if (data == 'error') {
                     $('#sameshipaddress').checked = false;
+                    jQuery('.paynow').hide();
                     jQuery('#tax_error').focus();
                     jQuery("#tax_error").html('<div class="alert alert-danger">The Provided Address Is incorrect </div>');
                 } else {

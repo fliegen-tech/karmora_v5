@@ -1,8 +1,10 @@
-
 <!--====================================
 =            paring section            =
 =====================================-->
-<section class="perfect-paring-sec page-spacing">
+
+    <?php $supplement_id = reset($perfect_paring)->fk_category_id;//print_r( $perfect_paring );?>
+
+<section class="perfect-paring-sec page-spacing <?php echo (isset($supplement_id) && $supplement_id == '114')?'supplemnts-paring-sec':'';?>">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -18,32 +20,17 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="paring-leftbar">
-                                <img src="<?php echo $themeUrl ?>/images/product/<?php echo $pro['product_image']; ?>" class="before-animated">
+                                <img src="<?php echo $themeUrl ?>/images/product/<?php echo $pro->product_image; ?>" class="before-animated">
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="paring-rightbar">
-                                <h3><?php echo $pro['product_title']; ?></h3>
-                                <h5><?php echo $pro['product_detail']; ?></h5>
+                                <h3><?php echo $pro->product_title; ?></h3>
+                                <h5><?php echo $pro->product_detail; ?></h5>
                                 <div class="product-quanity">
                                     <div class="row">
-                                        <div class="col-5">
-                                            <div class="input-group">
-                                                  <span class="input-group-btn">
-                                                      <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                      </button>
-                                                  </span>
-                                                <input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
-                                                <span class="input-group-btn">
-                                                      <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-                                                          <i class="fa fa-plus" aria-hidden="true"></i>
-                                                      </button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-7">
-                                            <a href="<?php echo base_url().'product-detail/'.$pro['pk_product_id']; ?>" class="btn btn-add-bag left-right-hover"><i class="fa fa-cart-plus" aria-hidden="true"></i>Add To Bag</a>
+                                        <div class="col-12">
+                                            <a href="<?php echo base_url().'product-detail/'.$pro->pk_product_id; ?>" class="btn btn-joinnow left-right-hover">View More</a>
                                         </div>
                                     </div>
                                 </div>

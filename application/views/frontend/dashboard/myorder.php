@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="karmora-table community-table" id="my-orders">
+                <div class="karmora-table community-table table-responsive" id="my-orders">
                     <!-- My Cummunity Table -->
                     <table class="table table-striped table-bordered">
                         <thead>
@@ -55,4 +55,9 @@
         </div>
     </div>
 </section>
+    <script>
+        $(document).ready(function(){
+            $(".table").DataTable();
+        });
+    </script>
 <?php } ?>

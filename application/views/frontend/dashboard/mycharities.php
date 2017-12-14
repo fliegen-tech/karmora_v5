@@ -42,7 +42,7 @@ foreach($totalContribution as $tota){
                 </div>
                 <div class="cares-leftbar">
                     <h3>Karmora Cares!</h3>
-                    <p>Karmora pays our Shoppers $2 in Karmora Kash for every dollar that they contribute to an approved Karmroa Fundraising Organization! Plus, Karmora will add a 5% Good Karmora Match to every contribution made by every Shopper! Total Contributed to Karmora Fundraising Organizations as of <span><?php echo date('M d , Y'); ?> &nbsp;&nbsp;$<?php echo number_format($total, 2, ".", ","); ?></span></p>
+                    <p>Karmora pays our Shoppers $2 in Karmora Kash for every dollar that they contribute to an approved Karmroa Fundraising Organization! Plus, Karmora will add a 5% Good Karmora Match to every contribution made by every Shopper! <?php /* ?> Total Contributed to Karmora Fundraising Organizations as of <span><?php echo date('M d , Y'); ?> &nbsp;&nbsp;$<?php echo number_format($total, 2, ".", ","); ?></span> <?php */ ?></p>
                 </div>
             </div>
             <div class="col-12">
@@ -148,7 +148,7 @@ foreach($totalContribution as $tota){
                 <?php if (($myContribution) != FALSE && is_array($myContribution)) { ?>
                     <div class="contribution-cover">
                         <h3>My Contributions</h3>
-                        <div class="karmora-table" id="contribution-table">
+                        <div class="karmora-table table-responsive" id="contribution-table">
                             <!-- My Cummunity Table -->
                             <table class="table table-bordered">
                                 <thead>
@@ -175,7 +175,7 @@ foreach($totalContribution as $tota){
 
                     <div class="contribution-cover">
                         <h3>Total Contribution <small>(As of: <?php echo date('M d , Y'); ?>)</small></h3>
-                        <div class="karmora-table" id="contribution-table">
+                        <div class="karmora-table table-responsive" id="contribution-table">
                             <!-- My Cummunity Table -->
                             <table class="table table-bordered">
                                 <thead>
@@ -228,3 +228,8 @@ foreach($totalContribution as $tota){
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $(".table").DataTable();
+    });
+</script>

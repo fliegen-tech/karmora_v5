@@ -73,7 +73,7 @@ class mycharities extends karmora {
                 );
                 
             $this->db->insert('tbl_charity', $dataLogI);
-            //$this->sendchairtymail($detail['userid']);
+            $this->sendchairtymail($detail['userid']);
             return 'Charity Created Sucefully';
         
         }
@@ -81,17 +81,16 @@ class mycharities extends karmora {
     
     function sendchairtymail($id) {
             $detail     = '';
-            $statedata   = $this->commonmodel->getstatename($_POST['fk_state_id']);
-            $userData   = $this->commonmodel->getuserdetail($id);
+            $statedata  = $this->usermodel->getstatename($_POST['fk_state_id']);
+            $userData   = $this->commonmodel->getuserdetailById($id);
             $email_data = $this->commonmodel->getemailInfo(14);
             $complete_name  = $userData->user_first_name.' '.$userData->user_last_name;
             $address =  $_POST['charity_street_address'] .' '.$_POST['charity_city_name'].' '.$statedata->user_address_state_title .''.$_POST['charity_zip_code'];
-            // $detail.= '<table><tr><th>Charity Name</th><th>Address</th><th>Full Name</th><th>Phone No</th><th>Email Address</th><th>Socail Link</th></tr>'; 
-            $detail.= '<table align="center" border="1" cellspacing="0" cellpadding="10" style="text-align: left; border="1px solid #333333;"><tr><td><b>Charity Name</b></td><td>"'.$_POST['charity_name'].'"</td></tr><tr><td><b>Address</b></td><td>"'.$address.' "</td></tr><tr><td><b>Full Name</b></td><td>"'.$_POST['charity_first_name'].' '.$_POST['charity_last_name'].'"</td></tr><tr><td><b>Phone No.</b></td><td>"'.$_POST['charity_phone_no'].'"</td></tr><tr><td><b>Email Address</b></td><td>"'.$_POST['charity_email_adrress'].'"</td></tr><tr><td><b>Social Link</b></td><td>"'.$_POST['charity_socail_link'].'"</td></tr></table>';
+            $detail.= '<table align="center" border="1" cellspacing="0" cellpadding="10" ><tr><td><b>Charity Name</b></td><td>"'.$_POST['charity_name'].'"</td></tr><tr><td><b>Address</b></td><td>"'.$address.' "</td></tr><tr><td><b>Full Name</b></td><td>"'.$_POST['charity_first_name'].' '.$_POST['charity_last_name'].'"</td></tr><tr><td><b>Phone No.</b></td><td>"'.$_POST['charity_phone_no'].'"</td></tr><tr><td><b>Email Address</b></td><td>"'.$_POST['charity_email_adrress'].'"</td></tr><tr><td><b>Social Link</b></td><td>"'.$_POST['charity_socail_link'].'"</td></tr></table>';
             $tags           = array("{First-Name}", "{Name-of-FO}" ,"{charirty-detail}" ,"{fundrasing-program}");
             $replace        = array($complete_name, $_POST['charity_name'],$detail,'<a href ="https://www.karmora.com/liveSupport/">Click here </a>');
             $subject = $email_data->email_title;
-            $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id,$email_data->email_header_text);
+            $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description);
             $to = $userData->user_email;
             $result = $this->send_mail($to, $subject, $message); 
             return $result;

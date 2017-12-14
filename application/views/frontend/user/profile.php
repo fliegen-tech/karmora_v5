@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="dashboard-heading">
-                    <h1><img src="images/profile.png" class="img-fluid">My Profile</h1>
+                    <h1><img src="<?php echo $themeUrl ?>/frontend/images/profile.png" class="img-fluid">My Profile</h1>
                 </div>
             </div>
             <?php $this->load->view('frontend/user/dashboard_nav_bar'); ?>
@@ -130,7 +130,7 @@
                         <div class="row">
                             <label for="staticEmail" class="col-sm-4 col-form-label">Address 1</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="staticEmail" name="street_address" <?php if ($address === false) { ?> value=""<?php } else { ?>value="<?php echo $address['street_address']; ?>"<?php } ?> placeholder="12148 E. San Simeon Drive">
+                                <input type="text" class="form-control" id="staticEmail" name="street_address" <?php if ($address === false) { ?> value=""<?php } else { ?>value="<?php echo $address['street_address']; ?>"<?php } ?> placeholder="">
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                         <div class="row">
                             <label for="staticEmail" class="col-sm-4 col-form-label">City:</label>
                             <div class="col-sm-8">
-                                <input type="text" name="city" class="form-control" <?php if ($address === false) { ?> value=""<?php } else { ?>value="<?php echo $address['city']; ?>"<?php } ?> id="staticEmail" placeholder="Scottsdale">
+                                <input type="text" name="city" class="form-control" <?php if ($address === false) { ?> value=""<?php } else { ?>value="<?php echo $address['city']; ?>"<?php } ?> id="staticEmail" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                         <div class="row">
                             <label for="staticEmail" class="col-sm-4 col-form-label">Zip Code:</label>
                             <div class="col-sm-8">
-                                <input type="text" name="zipcode" class="form-control" id="staticEmail" <?php if ($address === false) { ?> value=""<?php } else { ?>value="<?php echo $address['zipcode']; ?>"<?php } ?> placeholder="85259">
+                                <input type="text" name="zipcode" class="form-control" id="staticEmail" <?php if ($address === false) { ?> value=""<?php } else { ?>value="<?php echo $address['zipcode']; ?>"<?php } ?> placeholder="">
                             </div>
                         </div>
                     </div>
@@ -271,7 +271,7 @@
                             <?php } ?>
                             <div class="col-6">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" name="uncheck" value="uncheck" id="uncheck" type="checkbox" style="width: 22px; height: 40px; margin-right: 0;">
+                                    <input class="form-check-input" name="uncheck" value="uncheck" id="uncheck" type="checkbox" >
                                     <span>Please STOP all Karmora emails</span>
                                 </label>
                             </div>

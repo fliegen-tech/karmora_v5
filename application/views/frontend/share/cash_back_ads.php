@@ -181,7 +181,7 @@
                                 ?>
                                 <td>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -193,7 +193,7 @@
                                 </td>
                                 <td>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>
@@ -206,7 +206,7 @@
                                 </td>
                                 <td>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('karmora-join-now') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/share-on-pinterest.png">
                                         </a>
                                     <?php } else { ?>

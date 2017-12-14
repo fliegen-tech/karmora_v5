@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="karmora-table community-table" id="my-community">
+                <div class="karmora-table community-table table-responsive" id="my-community">
                     <!-- My Cummunity Table -->
                     <?php if (!empty($community)) { ?>
                     <table class="table table-striped table-bordered">
@@ -50,4 +50,8 @@
     </div>
 </section>
 <!--====  End of Dashbaord====-->
-
+<script>
+    $(document).ready(function(){
+       $(".table").DataTable();
+    });
+</script>

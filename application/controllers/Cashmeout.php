@@ -15,9 +15,14 @@ class Cashmeout extends karmora {
     }
 
     public function index($username) {
+        $this->verifyUser($username); //die;
         $userDetail = $this->session->userdata('front_data');
         $userDetailDum = $this->commonmodel->getUserDetails($username);
-        $userDetailA = reset($userDetailDum);
+        if(is_array($userDetailDum[0])){
+            $userDetailA = reset($userDetailDum);
+        }else{
+            $userDetailA = $userDetailDum;
+        }
         $this->data['userData']['phone_no'] = $userDetailA['user_phone_no'];
         $this->data['TotalAvailable'] = $this->cashmeoutmodel->getMemberAccountBalance($userDetail['id']);
         $this->data['w9_form_check'] = $this->cashmeoutmodel->getuser_exclusive_commissions($userDetail['id']);
@@ -49,13 +54,11 @@ class Cashmeout extends karmora {
             $this->form_validation->set_rules('city', 'CIty', 'required|min_length[5]|trim');
             $this->form_validation->set_rules('state', 'State', 'required|trim');
             $this->form_validation->set_rules('zipcode', 'Zip Code', 'required|exact_length[5]|numeric|trim');
-            $this->form_validation->set_rules('phone_no', 'Phone Number', 'required|min_length[7]|trim');
+            $this->form_validation->set_rules('phone_no', 'Phone Number', 'required|trim');
             $this->form_validation->set_rules('check_out_amount', 'Check out Amount', 'required|greater_than_equal_to['.$data['minCashout'].']|less_than_equal_to[' . $data['TotalAvailable'] . ']|trim');
 
             $post = $this->input->post();
-
             if ($this->form_validation->run()) {
-
                 $state_name = $this->cashmeoutmodel->getStateName($post['state']);
 
                 $dataArray['payee'] = $post['member_name'];
@@ -69,7 +72,7 @@ class Cashmeout extends karmora {
 
 //                $webCheque = $this->processWebcheque($dataArray);
                 $webCheque = 'fixthis';
-//                var_dump($webCheque);exit;
+                //var_dump($webCheque);//exit;
                 if ($webCheque != FALSE) {
 
                     $withdrawRequest = array(
@@ -127,6 +130,8 @@ class Cashmeout extends karmora {
                     $data['TotalAvailable'] = $this->cashmeoutmodel->getMemberAccountBalance($userDetail['id']);
                     redirect(base_url('cashmeout'));
                 }
+            }else{
+               // echo 11;print_r(validation_errors());die;
             }
         }
         return;

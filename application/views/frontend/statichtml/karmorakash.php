@@ -11,7 +11,9 @@
             <div class="row">
                 <div class="col-4">
                     <div class="k-kash-leftbar text-center">
-                        <img src="<?php echo $themeUrl ?>/frontend/images/karmora-kash-video-img.png" />
+                        <a href="" data-toggle="modal" data-target="#karmora-kash-video">
+                            <img src="<?php echo $themeUrl ?>/frontend/images/karmora-kash-video-img.png" />
+                        </a>
                     </div>
                 </div>
                 <div class="col-8">
@@ -37,7 +39,7 @@
                         <p>Earn limitless Karmora Kash Rewards while building a Shopping Community!</p>
                     </div>
                     <div class="karmora-ways-table">
-                        <div class="karmora-table">
+                        <div class="karmora-table table-responsive-sm">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
@@ -77,7 +79,7 @@
                         <p>Our Shoppers can earn Karmora Kash without spending a single penny!   Engage in the below activities and earn Karmora Kash for huge discounts on our Exclusive Products!</p>
                     </div>
                     <div class="karmora-ways-table">
-                        <div class="karmora-table">
+                        <div class="karmora-table table-responsive-sm">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
@@ -122,7 +124,7 @@
                         <p>Earn Matching Karmora Kash on every purchase made by your entire Global Shopping Community!</p>
                     </div>
                     <div class="karmora-ways-table">
-                        <div class="karmora-table">
+                        <div class="karmora-table table-responsive-sm">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>

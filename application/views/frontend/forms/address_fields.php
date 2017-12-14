@@ -5,6 +5,9 @@ if(isset($address) && $address){
     $city           =  ($address['city'] != '' ? $address['city'] : '');
     $zipcode        =  ($address['zipcode'] != '' ? $address['zipcode'] : '');
     $state_id       =  ($address['state_id'] != '' ? $address['state_id'] : '');
+    $user_phone_no      =  ($user_phone_no != '' ? $user_phone_no : '');
+    $user_name      =  ($user_name != '' ? $user_name : '');
+
 }
 ?>
 <div class="col-12">
@@ -16,7 +19,7 @@ if(isset($address) && $address){
             <div class="col-6">
                 <div class="form-group">
                     <label class="input-field-label">Full Name <span class="text-danger">*</span></label>
-                    <input type="text" name="<?php echo $addressForm ?>[name]" class="form-control <?php echo $addressForm ?>" id="name" aria-describedby="nameHelp" placeholder="Full Name">
+                    <input type="text" name="<?php echo $addressForm ?>[name]" class="form-control <?php echo $addressForm ?>" id="name" value="<?php echo $user_name; ?>" aria-describedby="nameHelp" placeholder="Full Name">
                 </div>
             </div>
             <?php
@@ -81,7 +84,7 @@ if(isset($address) && $address){
         <div class="col-6">
             <div class="form-group">
                 <label class="input-field-label">Phone <span class="text-danger">*</span></label>
-                <input required="required" onfocusout="calucaltetax()" type="text" name="<?php echo $addressForm ?>[phone]" class="form-control <?php echo $addressForm ?>" id="phone" aria-describedby="phoneHelp" placeholder="Phone">
+                <input required="required" onfocusout="calucaltetax()" type="text" name="<?php echo $addressForm ?>[phone]" class="form-control <?php echo $addressForm ?>" id="phone" value="<?php echo $user_phone_no; ?>" aria-describedby="phoneHelp" placeholder="Phone">
             </div>
         </div>                
     </div>

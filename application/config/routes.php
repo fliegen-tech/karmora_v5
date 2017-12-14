@@ -58,6 +58,11 @@ $route['(:any)/login'] = "login/index/$1";
 $route['(:any)/logout'] = "login/logout/$1";
 $route['logout'] = "login/logout";
 
+// routes for forgot password
+$route['forgot-password'] = "recoverPassword/index";
+$route['(:any)/forgot-password'] = "recoverPassword/index/$1";
+$route['reset-password/(:any)/(:any)'] = "recoverPassword/resetPassword/$1/$2";
+
 // routes for user
 $route['profile'] = "user/profile/$1";
 $route['(:any)/profile'] = "user/profile/$1";
@@ -216,8 +221,8 @@ $route['store-detail/(:any)'] = "store/storeDetail/$1";
 $route['(:any)/store-detail/(:any)'] = "store/storeDetail/$2/$1";
 $route['(:any)/store-detail/(:any)/(:any)/(:any)'] = "store/storeDetail/$2/$1/$3/$4";
 $route['(:any)/storefavourtie/(:any)/(:any)'] = "store/storefavourtie/$2/$3/$1";
-$route['(:any)/my-favorite'] = "myfavorites/index/$1";
-$route['(:any)/my-favorite/(:any)'] = "myfavorites/$2/$1";
+$route['(:any)/my-favorite'] = "store/favourtieStore/$1";
+$route['(:any)/my-favorite/(:any)'] = "store/favourtieStore/$2/$1";
 
 
 //offers routes
@@ -276,6 +281,12 @@ $route['(:any)/join-premier'] = "signup/primierPost/$1";
 // Signup successful signup
 $route['(:any)/welcome'] = "signup/welcome/$1";
 
+
+// Upgrade Routes
+
+$route['(:any)/karmora-upgrade'] = "upgrade/upgradelanding/$1";
+$route['(:any)/upgrade-account'] = "upgrade/index/$1";
+
 // routes for staichtmlpages
 $route['karmora-cares'] = "statichtml/karmoracares";
 $route['(:any)/karmora-cares'] = "statichtml/karmoracares/$1";
@@ -303,11 +314,14 @@ $route['karmora-kash'] = "statichtml/karmorakash";
 $route['(:any)/karmora-kash'] = "statichtml/karmorakash/$1";
 $route['about-us'] = "statichtml/aboutus";
 $route['(:any)/about-us'] = "statichtml/aboutus/$1";
+$route['(:any)/download-extension/(:any)'] = "statichtml/downloadextension/$1/$2";
 //ajax call routes
 
 $route['calculateTax'] = "Ajaxcallz/calculatetax";
 $route['(:any)/calculateTax'] = "Ajaxcallz/calculatetax/$1";
 
+$route['searchrefreal/(:any)/(:any)'] = "Ajaxcallz/searchrefreal/$1/$2";
+$route['(:any)/searchrefreal/(:any)/(:any)'] = "Ajaxcallz/searchrefreal/$2/$3";
 
 // Authorize.net testing
 $route['anet_test/(:any)'] = "Anet/$1";
@@ -315,7 +329,11 @@ $route['anet_test'] = "Anet/index";
 
 
 //admin routes start
+// video
+$route['admin/video'] = "admin/video/index";
 
+// payforpurchase
+$route['admin/payforpurchase'] = "admin/payforpurchase/index";
 // banner
 $route['admin/banner'] = "admin/banner/index";
 $route['admin/banner/(:any)'] = "admin/banner/$1";
@@ -340,6 +358,46 @@ $route['admin/managestore'] = "admin/managestore/index";
 $route['admin/managestore/(:any)'] = "admin/managestore/$1";
 $route['admin/managestore/index/(:any)'] = "admin/managestore/index/$1/$2";
 
+// email routes
+
+$route['admin/manageemail/(:any)'] = "admin/manageemail/$1";
+$route['admin/manageemail/(:any)/(:any)'] = "admin/manageemail/$1/$2";
+$route['admin/manageemail/(:any)/(:any)/(:any)'] = "admin/manageemail/$1/$2/$3";
+
+//admin click to win
+
+$route['admin/mangwinnerchest/index'] = "admin/mangwinnerchest/index";
+$route['admin/mangwinnerchest/add'] = "admin/mangwinnerchest/add";
+$route['admin/mangwinnerchest/random/(:any)'] = "admin/mangwinnerchest/random/$1/$2";
+$route['admin/mangwinnerchest/StoreType/(:any)'] = "admin/mangwinnerchest/StoreType/$1";
+$route['admin/mangwinnerchest/(:any)'] = "admin/mangwinnerchest/$1";
+$route['admin/mangwinnerchest/tresureuser'] = "admin/mangwinnerchest/tresureuser";
+$route['admin/mangwinnerchest/(:any)/(:any)'] = "admin/mangwinnerchest/$1/$2";
+
+
+// manageusers
+
+$route['admin/manageusers/index'] = "admin/manageusers/index";
+$route['admin/UserDetails/(:any)'] = "admin/manageusers/UserDetails/$1";
+$route['admin/manageusers/edit/(:any)'] = "admin/manageusers/UserEdit/$1";
+$route['admin/manageusers/(:any)'] = "admin/manageusers/$1";
+$route['admin/manageusers/(:any)/(:any)'] = "admin/manageusers/$1/$2";
+
+//admin order routes
+
+$route['admin/manageorder'] = "admin/manageorder/index";
+$route['admin/manageorder/detail/(:any)'] = "admin/manageorder/detail/$1";
+$route['admin/manageorder/(:any)'] = "admin/manageorder/$1";
+
+//reporting routes for admin
+$route['admin/reporting/(:any)'] = "admin/reporting/$1";
+
+//5FOR5 Profit Sharing
+$route['admin/profitsharing/(:any)'] = "admin/profitsharing/$1";
+
+//Manage Webinars
+$route['admin/managewebinars/(:any)'] = "admin/managewebinars/$1";
+
 
 $route['admin/(:any)'] = "admin/admin/$1";
 
@@ -351,6 +409,10 @@ $route['(:any)'] = "index/index/$1";
 // routes for Webinar
 $route['webinar/(:any)'] = "websession/$1";
 $route['(:any)/webinar/(:any)'] = "websession/$2/$1";
+
+
+//routes for crons
+$route['cron/arb/test'] = 'CronARB/readMailBox';
 
 $route['default_controller'] = 'index';
 $route['404_override'] = '';

@@ -37,49 +37,51 @@
                     <div class="training-table" id="training-table">
                         <h2>Making Money</h2>
                         <!-- My Cummunity Table -->
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>File Type</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($ProfitableShoppingCommunity as $shoping) { ?>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
-                                    <td scope="row"><?php $date = date_create($shoping['training_date']);
-                                        echo date_format($date, "M d,Y"); ?></td>
-                                    <td>
-                                        <?php if ($shoping['training_type'] == 'youtube' && $shoping['training_url'] != '') { ?>
-                                            <a href="<?php echo $shoping['training_url']; ?>" target="_blank">
-                                                <?php echo $shoping['training_title']; ?>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shoping['training_content']; ?>">
-                                                <?php echo $shoping['training_title']; ?>
-                                            </a>
-                                        <?php } ?>
-                                    </td>
-                                    <td><?php echo $shoping['training_author']; ?></td>
-                                    <td>
-                                        <?php if ($shoping['training_type'] == 'youtube' && $shoping['training_url'] != '') { ?>
-                                            <a href="<?php echo $shoping['training_url']; ?>" target="_blank">
-                                                <img
-                                                    src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shoping['training_type']; ?>.png">
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shoping['training_content']; ?>">
-                                                <img
-                                                    src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shoping['training_type']; ?>.png">
-                                            </a>
-                                        <?php } ?>
-                                    </td>
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>File Type</th>
                                 </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($ProfitableShoppingCommunity as $shoping) { ?>
+                                    <tr>
+                                        <td scope="row"><?php $date = date_create($shoping['training_date']);
+                                            echo date_format($date, "M d,Y"); ?></td>
+                                        <td>
+                                            <?php if ($shoping['training_type'] == 'youtube' && $shoping['training_url'] != '') { ?>
+                                                <a href="<?php echo $shoping['training_url']; ?>" target="_blank">
+                                                    <?php echo $shoping['training_title']; ?>
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shoping['training_content']; ?>">
+                                                    <?php echo $shoping['training_title']; ?>
+                                                </a>
+                                            <?php } ?>
+                                        </td>
+                                        <td><?php echo $shoping['training_author']; ?></td>
+                                        <td>
+                                            <?php if ($shoping['training_type'] == 'youtube' && $shoping['training_url'] != '') { ?>
+                                                <a href="<?php echo $shoping['training_url']; ?>" target="_blank">
+                                                    <img
+                                                        src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shoping['training_type']; ?>.png">
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shoping['training_content']; ?>">
+                                                    <img
+                                                        src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shoping['training_type']; ?>.png">
+                                                </a>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- End My Cummunity Table -->
                     </div>
                 </div>
@@ -91,48 +93,50 @@
                     <div class="training-table" id="training-table">
                         <h2>Compensation Plan</h2>
                         <!-- My Cummunity Table -->
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>File Type</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($MakingCompensationPlan as $shopingz) { ?>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
-                                    <td scope="row"><?php $date = date_create($shopingz['training_date']);
-                                        echo date_format($date, "M d,Y"); ?></td>
-                                    <td><?php if ($shopingz['training_type'] == 'youtube' && $shopingz['training_url'] != '') { ?>
-                                            <a href="<?php echo $shopingz['training_url']; ?>" target="_blank">
-                                                <?php echo $shopingz['training_title']; ?>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingz['training_content']; ?>">
-                                                <?php echo $shopingz['training_title']; ?>
-                                            </a>
-                                        <?php } ?>
-                                    </td>
-                                    <td><?php echo $shopingz['training_author']; ?></td>
-                                    <td>
-                                        <?php if ($shopingz['training_type'] == 'youtube' && $shopingz['training_url'] != '') { ?>
-                                            <a href="<?php echo $shopingz['training_url']; ?>" target="_blank">
-                                                <img
-                                                    src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingz['training_type']; ?>.png">
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingz['training_content']; ?>">
-                                                <img
-                                                    src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingz['training_type']; ?>.png">
-                                            </a>
-                                        <?php } ?>
-                                    </td>
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>File Type</th>
                                 </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($MakingCompensationPlan as $shopingz) { ?>
+                                    <tr>
+                                        <td scope="row"><?php $date = date_create($shopingz['training_date']);
+                                            echo date_format($date, "M d,Y"); ?></td>
+                                        <td><?php if ($shopingz['training_type'] == 'youtube' && $shopingz['training_url'] != '') { ?>
+                                                <a href="<?php echo $shopingz['training_url']; ?>" target="_blank">
+                                                    <?php echo $shopingz['training_title']; ?>
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingz['training_content']; ?>">
+                                                    <?php echo $shopingz['training_title']; ?>
+                                                </a>
+                                            <?php } ?>
+                                        </td>
+                                        <td><?php echo $shopingz['training_author']; ?></td>
+                                        <td>
+                                            <?php if ($shopingz['training_type'] == 'youtube' && $shopingz['training_url'] != '') { ?>
+                                                <a href="<?php echo $shopingz['training_url']; ?>" target="_blank">
+                                                    <img
+                                                        src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingz['training_type']; ?>.png">
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingz['training_content']; ?>">
+                                                    <img
+                                                        src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingz['training_type']; ?>.png">
+                                                </a>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- End My Cummunity Table -->
                     </div>
                 </div>
@@ -144,48 +148,50 @@
                     <div class="training-table" id="training-table">
                         <h2>Retail Sales</h2>
                         <!-- My Cummunity Table -->
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>File Type</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($MakingMoneyRetailSales as $shopingS) { ?>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                 <tr>
-                                    <td scope="row"><?php $date = date_create($shopingS['training_date']);
-                                        echo date_format($date, "M d,Y"); ?></td>
-                                    <td><?php if ($shopingS['training_type'] == 'youtube' && $shopingS['training_url'] != '') { ?>
-                                            <a href="<?php echo $shopingS['training_url']; ?>" target="_blank">
-                                                <?php echo $shopingS['training_title']; ?>
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingS['training_content']; ?>">
-                                                <?php echo $shopingS['training_title']; ?>
-                                            </a>
-                                        <?php } ?>
-                                    </td>
-                                    <td><?php echo $shopingS['training_author']; ?></td>
-                                    <td>
-                                        <?php if ($shopingS['training_type'] == 'youtube' && $shopingS['training_url'] != '') { ?>
-                                            <a href="<?php echo $shopingS['training_url']; ?>" target="_blank">
-                                                <img
-                                                    src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingS['training_type']; ?>.png">
-                                            </a>
-                                        <?php } else { ?>
-                                            <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingS['training_content']; ?>">
-                                                <img
-                                                    src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingS['training_type']; ?>.png">
-                                            </a>
-                                        <?php } ?>
-                                    </td>
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>File Type</th>
                                 </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($MakingMoneyRetailSales as $shopingS) { ?>
+                                    <tr>
+                                        <td scope="row"><?php $date = date_create($shopingS['training_date']);
+                                            echo date_format($date, "M d,Y"); ?></td>
+                                        <td><?php if ($shopingS['training_type'] == 'youtube' && $shopingS['training_url'] != '') { ?>
+                                                <a href="<?php echo $shopingS['training_url']; ?>" target="_blank">
+                                                    <?php echo $shopingS['training_title']; ?>
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingS['training_content']; ?>">
+                                                    <?php echo $shopingS['training_title']; ?>
+                                                </a>
+                                            <?php } ?>
+                                        </td>
+                                        <td><?php echo $shopingS['training_author']; ?></td>
+                                        <td>
+                                            <?php if ($shopingS['training_type'] == 'youtube' && $shopingS['training_url'] != '') { ?>
+                                                <a href="<?php echo $shopingS['training_url']; ?>" target="_blank">
+                                                    <img
+                                                        src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingS['training_type']; ?>.png">
+                                                </a>
+                                            <?php } else { ?>
+                                                <a href="<?php echo base_url() . 'download-training/karmora-training-making-money/' . $shopingS['training_content']; ?>">
+                                                    <img
+                                                        src="<?php echo $themeUrl ?>/frontend/images/<?php echo $shopingS['training_type']; ?>.png">
+                                                </a>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- End My Cummunity Table -->
                     </div>
                 </div>

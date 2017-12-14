@@ -4,8 +4,10 @@
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="referrer" name="referrer" aria-describedby="memberHelp" placeholder="Member ID">
+                    <input type="text" onkeyup="refreal_search(this.value, 'id')" value="" class="form-control" name="refreal_member_id_list" aria-describedby="memberHelp" id="refreal_member_id_list" placeholder="Member ID">
+                    <input type="hidden"   value="" class="form-control" name="referrer" id="refreal_member_id" >
                 </div>
+                <div class="col-12" id="refreal_name"></div>
             </div>
             <div class="col-6">
                 <div class="form-group">
@@ -14,7 +16,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <p>Karmora is a Social Shopping Community where we pay our Shoppers up to 20% recurring commissions on every purchase… made by every Shopper that they refer to Karmora. If you were referred by another Shopper please enter their Member ID so we can make sure you are placed in the correct Shopping Community. If you do not enter a valid member ID you will be placed the Shopping Community of Karmora Founder, Libby McPhillips.</p>
+            <p>Karmora is a Social Shopping Community where we pay our Shoppers up to 20% recurring commissions on every purchase… made by every Shopper that they refer to Karmora. If you were referred by another Shopper please enter their Member ID so we can make sure you are placed in the correct Shopping Community. If you do not enter a valid member ID you will be the only one in your Shopping Community.</p>
             </div>
         </div>
     </div>

@@ -16,12 +16,12 @@
                 </div>
                 <div class="col-6">
                     <div class="cover-cares-img">
-                        <a href=""><img src="<?php echo $themeUrl ?>/frontend/images/karmora-cares.jpg" alt=""></a>
+                        <a href="" data-toggle="modal" data-target="#karmora-kash-video"><img src="<?php echo $themeUrl ?>/frontend/images/karmora-cares.jpg" alt=""></a>
                     </div>
                 </div>
-                <div class="col-12">
+                <!--<div class="col-12">
                     <h3>Karmora Shoppers have gifted an amazing <span>$30.00</span> to Worthy Causes!</h3>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="fundraising-cover">

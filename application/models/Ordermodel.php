@@ -54,8 +54,8 @@ class Ordermodel extends Commonmodel{
     
     public function insertOrderLine($data) {
         $query = "INSERT INTO tbl_order_line
-            (fk_order_id, oder_line_number, fk_product_id, fk_account_type_id, order_line_price, order_line_qty)
-            VALUES (:orderId, :lineNumber, :prdId, :accTypeId, :linePrice, :qty)";
+            (fk_order_id, oder_line_number, fk_product_id, fk_account_type_id, order_line_price, order_line_qty,order_line_notes)
+            VALUES (:orderId, :lineNumber, :prdId, :accTypeId, :linePrice, :qty , :linenotes)";
         $statement= $this->prepQuery($query);
         $statement->bindParam(':orderId', $data['order_id'], PDO::PARAM_STR);
         $statement->bindParam(':lineNumber', $data['line_number'], PDO::PARAM_STR);
@@ -63,16 +63,16 @@ class Ordermodel extends Commonmodel{
         $statement->bindParam(':accTypeId', $data['acc_type_id'], PDO::PARAM_STR);
         $statement->bindParam(':linePrice', $data['line_price'], PDO::PARAM_STR);
         $statement->bindParam(':qty', $data['qty'], PDO::PARAM_STR);
-        
+        $statement->bindParam(':linenotes', $data['order_line_notes'], PDO::PARAM_STR);
+
         return $statement->execute();
     }
     
     public function updateOrderAuthId($orderId, $authId) {
-        $query = "UPDATE tbl_oders SET order_auth_net_transection_id = :authId WHERE pk_order_id = :orderId";
+        $query = "UPDATE tbl_oders SET order_auth_net_transection_id = :authId , oder_payment_status = 'Yes' WHERE pk_order_id = :orderId";
         $statement= $this->prepQuery($query);
         $statement->bindParam(':orderId', $orderId, PDO::PARAM_STR);
         $statement->bindParam(':authId', $authId, PDO::PARAM_STR);
-        
         return $statement->execute() ? FALSE : $this->errorInfo($statement);
     }
 }

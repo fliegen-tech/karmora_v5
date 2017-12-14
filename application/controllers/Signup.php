@@ -16,9 +16,7 @@ class Signup extends karmora {
 
     function __construct() {
         parent::__construct(); //call to parent constructor
-
-        $this->checknotlogin();
-
+	    $this->checknotlogin();
         $this->data = array(
             'themeUrl' => $this->themeUrl,
             'view' => 'frontend/signup/',
@@ -55,6 +53,7 @@ class Signup extends karmora {
             $post = $this->input->post();
             $referrer = $this->userObj->getUserDetails($post['referrer']);
             $post['ref_id'] = !$referrer ? $this->currentUser['userid'] : $referrer['pk_user_id'];
+            $post['ref_id'] = ($post['ref_id']== '')?2:$post['ref_id'];
             $post['acc_type'] = 3;
             $this->saveUser($post);
         } else {
@@ -111,6 +110,8 @@ class Signup extends karmora {
         $this->verifyUser($username);
         $this->data['username'] = $username;
         $this->getPrimierSignupData();
+	    $this->data['modals'][]='premier-shopper-terms-of-use';
+	    $this->data['modals'][]='premier-shopper-trial-tembership-agreement';
         $this->loadLayout($this->data, $this->data['view'] . 'join_today_premier');
     }
 
@@ -224,6 +225,7 @@ class Signup extends karmora {
         $arrData['shipping_amount'] = $arrData['premierPromo']['promo_shipping'];
         $arrData['upgrade_amount'] = $arrData['premierPromo']['promo_price'];
         $arrData['comm_amount'] = 0;
+        $arrData['product']     = $this->input->post('product');
         $arrData['taxAmount']   = 0;
         $arrData['kash_amount'] = 0;
         $arrData['totalAmount'] = $arrData['premierPromo']['promo_price'] + $arrData['premierPromo']['promo_shipping'] + $arrData['taxAmount'];
@@ -236,6 +238,8 @@ class Signup extends karmora {
             $arrData['ccCharged'] = $this->chargeCC($arrData);
             $this->updateOrderAuthId($arrData['resultOrder']['order_id'], $arrData['ccCharged']['transaction_id']);
             $this->saveOrderLine($arrData);
+            // send order email
+            $this->sendordermail($arrData['userData']['user_id'], $arrData['resultOrder']['order_id']);
         } else {
             $message .= str_replace($this->alertMessages['str_replace'], 'Could not save order.', $this->alertMessages['danger']);
         }
@@ -267,9 +271,11 @@ class Signup extends karmora {
             'product_id' => $lineData['product'],
             'acc_type_id' => $lineData['acc_type'],
             'line_price' => 0,
-            'qty' => 1
+            'qty' => 1,
+            'order_line_notes' => 'Free Gifts'
         );
         return $this->orderObj->insertOrderLine($line1);
+
     }
 
     private function setAddressForOrder($address) {
@@ -306,13 +312,18 @@ class Signup extends karmora {
         return TRUE;
     }
 
-    private function updateUsername($userId, $username) {
-        return $this->userObj->updateUsername($userId, $username);
-    }
 
     private function userSignupSuccessful($newUser) {
-//        send email to user and referral pending.
-//        
+        $rank  = ($newUser['acc_type'] == 3)?'casual_shopper':'premier_shopper';
+        $this->InsertRank($newUser['user_id'] ,$rank);
+        $signup_email_id = array(
+            'signup_email_id'=> ($newUser['acc_type'] == 3)?1:2
+        );
+        $newUser = array_merge($newUser,$signup_email_id);
+        $this->prepareEmailInfo($newUser,$newUser['signup_email_id'],'https://www.karmora.com/public/images/tick-pink.png','');
+        $this->sendrefrermail($newUser['user_id'], $newUser['acc_type']);
+        $this->sendrefrealcommsionmail($newUser['user_id']);
+
 //        try login
         $userDetail = $this->loginObj->frontendVerifyUser($newUser['username'], md5($newUser['password']));
         if ($userDetail) {
@@ -322,11 +333,13 @@ class Signup extends karmora {
             $this->session->set_userdata('front_data', $userSessionData);
             $this->session->set_flashdata('first_login', $newUser);
             //$message = str_replace($this->alertMessages['str_replace'], 'Signup Successful', $this->alertMessages['success']);
-            $redirectUrl = 'welcome';
+            $redirectUrl = $userDetail[0]['user_username'];
+	        
         } else {
             //$message = str_replace($this->alertMessages['str_replace'], 'Invalid Username Or Password', $this->alertMessages['warning']);
             $redirectUrl = 'login';
         }
+        $this->db->query("CALL stored_proc_insert_retail_commission()");
         //$this->session->set_flashdata($this->data['flashKey'], $message);
         return redirect(base_url($redirectUrl));
     }
@@ -347,6 +360,7 @@ class Signup extends karmora {
         if ($this->session->flashdata('first_login')) {
             $this->verifyUser($username);
             $this->data['userDetail'] = $this->session->flashdata('first_login');
+	        $this->data['modals'][] = 'first-login';
             $this->loadLayout($this->data, $this->data['view'] . 'welcome');
         } else {
             redirect(base_url());

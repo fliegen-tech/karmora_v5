@@ -11,8 +11,12 @@ class Cart extends karmora {
     public function __construct(){
         parent::__construct();
         $this->data['themeUrl'] = $this->themeUrl;
-        $this->upgrade_amount  =  19.95;
+        $this->upgrade_amount  =  9.95;
         $this->load->model(array('cartmodel','commonmodel' , 'productmodel'));
+    }
+
+    public  function index($username = NULL){
+        $this->show_cart($username);
     }
 
     public function product_cart($username = NULL) {
@@ -37,9 +41,6 @@ class Cart extends karmora {
 
     function show_cart($username = NULL){
         $this->verifyUser($username);
-        if (!$this->cart->contents()){
-            redirect(base_url());
-        }
         $this->data['cate_array'] = array();
         $this->data['upgrde_data'] = $this->checkcartupgrade();
         $this->data['upgrade_amount'] = ($this->data['upgrde_data'])?$this->upgrade_amount:0;

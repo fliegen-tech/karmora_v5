@@ -21,15 +21,27 @@
           <div class="tool-bar-content">
             <h3>Earn $5 Karmora Kash!</h3>
             <div class="col-6 mx-auto toolbar-video">
-              <a href="#">
+              <a href="#" data-toggle="modal" data-target="#karmora-kash-video">
                 <img src="<?php echo $themeUrl ?>/frontend/images/karmora-kash-toolbar-video-popup.png" alt="">
               </a>
             </div>
             <div class="text-center">
-              <a href="#" class="">Get the Toolbar!</a>
-              <img src="<?php echo $themeUrl ?>/frontend/images/available-chrome.png" alt="">
+              <?php if($broswer_detail['name'] == 'Mozilla Firefox'){ ?>
+                <?php if ($this->session->userdata('front_data')) { ?>
+                  <a href="<?php echo base_url().'download-extension/mozila'; ?>" target="_blank" class="btn btn-joinnow left-right-hover">Get the Toolbar!</a>
+                <?php }else{ ?>
+                  <a href="<?php echo base_url().'join-today'; ?>" class="btn btn-joinnow left-right-hover">Get the Toolbar!</a>
+                <?php } ?>
+              <?php }else if($broswer_detail['name'] == 'Google Chrome'){ ?>
+                <?php if ($this->session->userdata('front_data')) { ?>
+                  <a href="<?php echo base_url('download-extension/chorme'); ?>"  target="_blank" class="btn btn-joinnow left-right-hover">Get the Toolbar!</a>
+                  <img src="<?php echo $themeUrl ?>/frontend/images/available-chrome.png" alt="">
+                <?php }else{ ?>
+                  <a href="<?php echo base_url().'join-today'; ?>" class="btn btn-joinnow left-right-hover">Get the Toolbar!</a>
+                <?php } ?>
+              <?php }else{ echo 'Not Avaialable';} ?>
             </div>
-            <p>The Karmora Cash Back Toolbar is a non-invasive plugin for your internet browser allowing us to help ensure that you, or your Shoppers, never miss out on Cash Back opportunities. It does not allow Karmora access to your computer or any of its files. If you have any questions or concerns please <a href="">click here</a> to speak with a Good Karmora Specialist.</p>
+            <p>The Karmora Cash Back Toolbar is a non-invasive plugin for your internet browser allowing us to help ensure that you, or your Shoppers, never miss out on Cash Back opportunities. It does not allow Karmora access to your computer or any of its files. If you have any questions or concerns please <a onclick="window.open('https://www.karmora.com/liveSupport/', 'sharer', 'toolbar=0,status=0,width=600,height=600');" target="_parent" href="javascript: void(0)">click here</a> to speak with a Good Karmora Specialist.</p>
           </div>
         </div>
       </div>

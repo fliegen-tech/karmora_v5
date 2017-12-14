@@ -48,6 +48,19 @@ class Commonmodel extends CI_Model {
         $data = $staement->fetch(PDO::FETCH_ASSOC);
         return $staement->rowCount() > 0 ? $data : FALSE;
     }
+    public function getuserdetailById($userId) {
+        $query = "SELECT ulog.fk_user_account_type_id as user_account_type_id,u.pk_user_id AS userid,u.user_username AS username,u.user_subid AS subid,ac.user_account_type_title,u.*
+			FROM 
+				tbl_users AS u ,tbl_user_account_type AS ac,
+				tbl_user_to_user_account_type_log AS ulog  
+			WHERE ulog.fk_user_id = u.pk_user_id AND u.pk_user_id = $userId
+			AND ac.pk_user_account_type_id = ulog.fk_user_account_type_id
+			AND ac.user_account_type_status != 'Inactive' 
+                        AND ulog.user_account_log_status !=  'Inactive'
+                        GROUP BY u.pk_user_id"; //die;
+        $queryRS = $this->db->query($query);
+        return $queryRS->row();
+    }
 
     public function isRecordAlreadyExist($record_field, $record, $record_id_field, $record_id, $table) {
         $query = 'SELECT * from ' . $table . ' WHERE ' . $record_field . '="' . $record . '" AND ' . $record_id_field . '!=' . $record_id;
@@ -143,6 +156,7 @@ class Commonmodel extends CI_Model {
         return count($result) > 0 ? $result[0] : FALSE;
     }
 
+
     /*
      * 
      * NEW ADDITIONS START HERE
@@ -229,5 +243,48 @@ class Commonmodel extends CI_Model {
         }
 
         return $response;
+    }
+    public function checkEmailType($userId, $emailType) {
+        $sql = "select * from tbl_email_type_to_user_relation as etr "
+            . "LEFT JOIN tbl_users as u ON etr.fk_user_id = u.pk_user_id"
+            . "where etr.fk_user_id = $userId "
+            . "AND etr.fk_email_type_id    =   $emailType "
+            . "AND etr.email_type_to_user_relation_status = 'Active'"
+            . "AND u.user_status = 'Active'";
+        $statement = $this->db->conn_id->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        if (count($result) > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+    public function getemailInfo($id) {
+        $query = "select * from tbl_email where pk_email_id=" . $id;
+        $result = $this->db->query($query);
+        if ($result->num_rows() > 0) {
+            return $result->row();
+        } else {
+            return '';
+        }
+    }
+    public function get_all_allowed_levels_exclusive($level) {
+        $query = "SELECT get_all_allowed_levels_exclusive( '$level' ) as allowed_levels";
+        $queryRS = $this->db->query($query);
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->row();
+        } else {
+            return '';
+        }
+    }
+    public function get_user_referrer_for_lvl($fk_user_id,$level) {
+        $query = "SELECT get_user_referrer_for_lvl_no( $fk_user_id , $level) as ref_no";
+        $queryRS = $this->db->query($query);
+        if ($queryRS->num_rows() > 0) {
+            return $queryRS->row();
+        } else {
+            return '';
+        }
     }
 }

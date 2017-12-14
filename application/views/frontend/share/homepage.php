@@ -12,8 +12,8 @@
                 <div class="col-6">
                     <div class="flex-cover">
                         <div class="making-leftbar">
-                            <h2>Earning an extra $50, $100, $1000</h2>
-                            <p>or more every month shouldn't take you more than 15 minutes a day with our Social Media Marketing System. You can earn up to <a href="">20% Recurring Commission</a> on every purchase made by every Shopper in your Shopping Community! And, refer just 5 Premier Shoppers and qualify to earn a percentage of every purchase… made by every Shopper Companywide in our <a target="_blank" href="<?php echo base_url('profit-sharing-program'); ?>">Premier Shopper Bonus Pool!</a></p>
+                            <h2><strong>Earning an extra $50, $100, $1000</strong></h2>
+                            <p>or more every month shouldn't take you more than 15 minutes a day with our Social Media Marketing System. You can earn up to <a href="javascript:void(0);" data-toggle="modal" data-target="#recurring-commission">20% Recurring Commission</a> on every purchase made by every Shopper in your Community! <!-- Refer just 5 Premier Shoppers and you qualify to be a part of our <a href="javascript:void(0);" data-toggle="modal" data-target="#bounus-pool">Premier Shopper Bonus Pool!</a> Then you can earn a percentage of every purchase… made by every Shopper Companywide. --></p>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="col-11 m-auto">
-                <a href="" class="btn btn-all-store left-right-hover">Join our free webinar “how to make money online”</a>
+                <a href="<?php echo base_url('webinar/registration')?>" class="btn btn-all-store left-right-hover">Join our free webinar “how to make money online”</a>
             </div>
         </div>
         <div class="pick-your-ad-cover">

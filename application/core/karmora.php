@@ -14,13 +14,15 @@
 class karmora extends CI_Controller {
 
     public $themeUrl;
+    public $uploadUrl;
     public $current_affiliate = '';
     public $currentSubid = '525659344c44e';
     public $userId = 2;
     private $founder = 2;
     protected $alertMessages;
     protected $active = 'active';
-    protected $signupPromo = 1;
+    protected $site_url = 'http://staging5.karmora.com/';
+    protected $signupPromo = 2;
     private $authObj;
 
     /*
@@ -37,17 +39,23 @@ class karmora extends CI_Controller {
         $this->setThemeUrl();
         $this->load->helper(array('url', 'security'));
         $this->load->model(array('commonmodel'));
-        $this->load->library(array('email', 'cart', 'Authorizenet'));//
+        $this->load->library(array('email', 'cart', 'Authorizenet')); //
         $this->data['themeUrl'] = $this->themeUrl;
         $this->data['currentSubid'] = $this->currentSubid;
-	    $this->data['modals'] = array('best-cash-back-guarantee');
+        $this->data['modals'] = array('best-cash-back-guarantee', 'video-popup');
+        $this->data['video_link'] = 'https://www.youtube.com/embed/ewb-yREptvg?rel=0';
         $this->currentUser = $this->commonmodel->getFounder($this->founder);
 //        $this->currentUser = $this->commonmodel->getFounder($this->founder);
         $this->setAlertMessages();
+        $this->setUploadUrl();
     }
 
     private function setThemeUrl() {
         $this->themeUrl = base_url('public');
+    }
+
+    private function setUploadUrl() {
+        $this->uploadUrl = APPPATH . '../public/upload/';
     }
 
     private function setAlertMessages() {
@@ -157,8 +165,8 @@ class karmora extends CI_Controller {
     }
 
     public function getUserDetails($username) {
-         $user_detail = $this->commonmodel->getUserDetails($username);
-         return $user_detail ;
+        $user_detail = $this->commonmodel->getUserDetails($username);
+        return $user_detail;
     }
 
     // this function check user_account type id
@@ -202,7 +210,8 @@ class karmora extends CI_Controller {
             redirect(base_url());
         }
     }
-    public function insertbounce($accounttype, $user_id,$type) {
+
+    public function insertbounce($accounttype, $user_id, $type) {
         $bounsamount = $this->usermodel->getbounckarmoracash($type, $accounttype);
         if (!empty($bounsamount)) {
             $dataLog = array(
@@ -219,6 +228,16 @@ class karmora extends CI_Controller {
         }
     }
 
+    /**
+     * @return string
+     */
+    public function InsertRank($user_id,$type ){
+        $dataRank = array(
+            'fk_user_id' => $user_id,
+            'user_rank_alias' => $type//'casual_shopper'
+        );
+        $this->db->insert('tbl_user_rank_log', $dataRank);
+    }
 
     /* ------------Load Layout Functions start------------------ */
 
@@ -232,9 +251,10 @@ class karmora extends CI_Controller {
     /* ------------Load Layout Functions end ------------------ */
 
     public function set_session_login($row) {
+        $this->cart->destroy();
         $userSessionData = array();
         $user_detail = $this->commonmodel->getFounder($row[0]['pk_user_id']);
-       // echo '<pre>';print_r($user_detail);//die;
+        // echo '<pre>';print_r($user_detail);//die;
         foreach ($row as $userData) {
             $userSessionData['id'] = $userData['pk_user_id'];
             $userSessionData['user_account_type_id'] = $user_detail[0]['user_account_type_id'];
@@ -250,7 +270,7 @@ class karmora extends CI_Controller {
         return $userSessionData;
     }
 
-    private function setupAuthLib(){
+    private function setupAuthLib() {
         $this->authObj = new Authorizenet;
         $this->authObj->activateSandboxMode(TRUE);
     }
@@ -276,14 +296,13 @@ class karmora extends CI_Controller {
             'amount' => $subscription['user_account_billing_properties_amount'],
             'trialAmount' => $subscription['user_account_billing_properties_trial_amount'],
             'startDate' => date('Y-m-d'), //format YYYY-MM-DD
-            'intervalLength' => $subscription['user_account_billing_properties_interval_length'],
+            'intervalLength' => 1,//$subscription['user_account_billing_properties_interval_length'],
             'intervalUnit' => $subscription['user_account_billing_properties_arb_type'],
             'totalOccurence' => 9999,
             'trialOccurence' => $subscription['user_account_billing_properties_trial_occurance']
         );
         return $this->authObj->arbCreate();
     }
-
 
     public function CCtransection($data) {
         $this->setupAuthLib();
@@ -294,7 +313,7 @@ class karmora extends CI_Controller {
 
         $this->authObj->billingAddressInfo = array(
             'firstName' => $data['fname'],
-            'lastName' =>$data['lname'],
+            'lastName' => $data['lname'],
             'address' => $data['billing_address'],
             'city' => $data['billing_city'],
             'state' => $data['billing_state'],
@@ -324,7 +343,6 @@ class karmora extends CI_Controller {
         return $this->authObj->chargeCreditCard();
     }
 
-
     function runauthrioze($data) {
         $this->setupAuthLib();
         $this->authObj->creditCardInfo['card_number'] = $data['number'];
@@ -341,40 +359,120 @@ class karmora extends CI_Controller {
         return $this->authObj->voidTransaction($trans_id);
     }
 
-    public function checkcartupgrade(){
-        if(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 3){
+    public function checkcartupgrade() {
+        if (isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 3) {
             return $this->checkupgradecart();
-        }elseif(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 5){
+        } elseif (isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 5) {
             return false;
-        }else{
+        } else {
             return $this->checkupgradecart();
         }
     }
 
-    public function checkupgradecart(){
-        if (!$this->cart->contents()){
+    public function checkupgradecart() {
+        if (!$this->cart->contents()) {
             return false;
-        }else{
-            foreach ($this->cart->contents() as $cart_d){
-                if($cart_d['shopper_account_type'] == 5){
+        } else {
+            foreach ($this->cart->contents() as $cart_d) {
+                if ($cart_d['shopper_account_type'] == 5 && $cart_d['price'] != 9.95 ) {
+                    return true;
+                }
+            }
+        }
+    }
+    public function checkupgradecartcheckout() {
+        if (!$this->cart->contents()) {
+            return false;
+        } else {
+            foreach ($this->cart->contents() as $cart_d) {
+                if ($cart_d['shopper_account_type'] == 5) {
                     return true;
                 }
             }
         }
     }
 
-    /*
-     *
-     * OLD KARMORA FUNCTIONS
-     *
-     */
-
     /* ------------Start Email Functions------------------ */
 
-    public function prepEmailContent($tags, $replace, $title, $content) {
+    public function prepareEmailInfo($newUser, $email_id, $image, $click_link) {
+        $email_data = $this->commonmodel->getemailInfo($email_id);
+        $link = '<a href="' . base_url() . $click_link . '">Click Here</a>';
+        $tags = array("{First-Name}", "{referrer-name}", "{img-src}", "{user_username}", "{user_email}", "{password}", "{Click-Here}", "{live-chat}", "{image-link}", "{current-date}");
+        $replace = array($newUser['fname'] . ' ' . $newUser['lname'], '', $image, $newUser['username'], $newUser['email'], $newUser['password'], $link, '<a href="https://staging3.karmora.com/liveSupport/">Live chat</a>', $image, date('m-d-Y', strtotime("+30 days")));
+        $subject = $email_data->email_title;
+        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description);
+        $to = $newUser['email'];
+        $result = $this->send_mail($to, $subject, $message);
+        return $result;
+    }
 
-        $data['title'] = $title;
-        $header = $this->load->view('frontend/email/emailheader', $data, TRUE);
+    function sendrefrermail($id, $accounttype) {
+        $result = '';
+        $leval = $this->commonmodel->get_all_allowed_levels_exclusive('max');
+        for ($i = 1; $i <= $leval->allowed_levels; $i++) {
+            $user_id_refer_level = $this->commonmodel->get_user_referrer_for_lvl($id, $i);
+            if ($user_id_refer_level->ref_no != 0) {
+                $LoginData = $this->commonmodel->getuserdetailById($id);
+                $userData = $this->commonmodel->getuserdetailById($user_id_refer_level->ref_no);
+                $email_data = $this->commonmodel->getemailInfo(3);
+                $complete_name = $LoginData->user_first_name . ' ' . $LoginData->user_last_name;
+                $base = $userData->user_username;
+                $upgrade_link = $this->site_url . $base . '/karmora-upgrade/';
+                $upgrade_link = '<a href="' . $upgrade_link . '">Clicking Here</a>';
+                $tags = array("{Full-Name}", "{First-Name}", "{Membership-Level}", "{upgrade-link}", "{live-chat}");
+                $replace = array($complete_name, $userData->user_first_name, $accounttype, $upgrade_link, '<a href="' . $this->site_url . 'liveSupport/" style="color: #cc0066;text-decoration:none;">Click here</a>');
+                $subject = $email_data->email_title;
+                $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description);
+                $to = $userData->user_email;
+                $result = $this->send_mail($to, $subject, $message);
+            }
+        }
+        return $result;
+    }
+
+    function sendrefrealcommsionmail($id) {
+        $leval = $this->commonmodel->get_all_allowed_levels_exclusive('max');
+        for ($i = 1; $i <= $leval->allowed_levels; $i++) {
+            $user_id_refer_level = $this->commonmodel->get_user_referrer_for_lvl($id, $i);
+            if ($user_id_refer_level->ref_no != 0) {
+                $email_data = $this->commonmodel->getemailInfo(8);
+                $reffer_data = $this->commonmodel->getuserdetailById($user_id_refer_level->ref_no);
+                $complete_name = $reffer_data->user_first_name . ' ' . $reffer_data->user_last_name;
+                $base = $reffer_data->user_username;
+                $ewaletlink = $this->site_url . $base . '/my-ewallet/';
+                $ewaletlink = '<a href="' . $ewaletlink . '">Click Here</a>';
+                $cashlink = $this->site_url . $base . '/my-karmora-kash/';
+                $cashlink = '<a href="' . $cashlink . '" >Click Here</a>';
+                $tags = array("{First-Name}", "{ewallet-link}", "{cash-link}");
+                $replace = array($complete_name, $ewaletlink, $cashlink);
+                $subject = $email_data->email_title;
+                $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description);
+                $to = $reffer_data->user_email;
+                $result = $this->send_mail($to, $subject, $message);
+            }
+        }
+        return $result;
+    }
+
+    function sendordermail($id, $order_id) {
+        $userData = $this->commonmodel->getuserdetailById($id);
+        $email_data = $this->commonmodel->getemailInfo(4);
+        $complete_name = $userData->user_first_name . ' ' . $userData->user_last_name;
+        $base = $userData->user_username;
+        $link = $this->site_url . $base . '/my-orders/' . $order_id;
+        $order_link = '<a href="' . $link . '" >Clicking Here</a>';
+        $refund = $this->site_url . $base . '/karmora-return-policy';
+        $tags = array("{First-Name}", "{link}", "{refund-policy}", "{image-link}");
+        $replace = array($complete_name, $order_link, $refund, $this->themeUrl . 'images/money-back-100.png');
+        $subject = $email_data->email_title;
+        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description);
+        $to = $userData->user_email;
+        $result = $this->send_mail($to, $subject, $message);
+        return $result;
+    }
+
+    public function prepEmailContent($tags, $replace, $title, $content) {
+        $header = $this->load->view('frontend/email/emailheader', '', TRUE);
         $footer = $this->load->view('frontend/email/emailfooter', '', TRUE);
         $message = $header;
         $message .= str_replace($tags, $replace, $content);
@@ -382,9 +480,7 @@ class karmora extends CI_Controller {
     }
 
     public function send_mail($to, $subject, $message, $from = "noreply@karmora.com") {
-//        return true;
         $config = array();
-
         $config['mailtype'] = 'html';
         $config['protocol'] = 'sendmail';
         $config['mailpath'] = '/usr/sbin/sendmail';
@@ -396,9 +492,15 @@ class karmora extends CI_Controller {
         $this->email->to($to);
         $this->email->subject($subject);
         $this->email->message($message);
-        return $this->email->send();
-        //echo $this->email->print_debugger();
+        $this->email->send();
+        //echo 'in_email'.$this->email->print_debugger(); die;
     }
+
+    /*
+     *
+     * OLD KARMORA FUNCTIONS
+     *
+     */
 
     public function create_queue($recipient_emails, $subject, $message, $from) {
 
@@ -416,266 +518,6 @@ class karmora extends CI_Controller {
             }
         }
     }
-
-    public function checkrespoce($responce, $user_id, $order_id, $userOrder, $UserData) {
-        if (isset($responce['transaction_id']) && $responce['transaction_id'] != '') {
-            $dataTran = array(
-                'order_auth_net_transection_id' => $responce['transaction_id'],
-                'order_status' => 'pending',
-                'oder_payment_status' => 'Yes'
-            );
-            if (!isset($this->session->userdata['front_data']['user_account_type_id']) || $this->session->userdata['front_data']['user_account_type_id'] == '') { //echo 122;die;
-                $this->Recuringtransection($userOrder, $UserData, $user_id, $responce);
-            }
-            $this->Upgradecurrentaccounttype($user_id, $responce, $userOrder);
-
-            $this->db->where('pk_order_id', $order_id);
-            $this->db->update('tbl_oders', $dataTran);
-        }
-    }
-
-    public function Upgradecurrentaccounttype($user_id, $responce, $userOrder) {
-        if ($responce['success'] == 1) {
-            $dataTran = array(
-                'order_auth_net_transection_id' => $responce['transaction_id'],
-                'order_status' => 'pending',
-                'oder_payment_status' => 'Yes'
-            );
-            $this->db->where('pk_order_id', $userOrder->pk_order_id);
-            $this->db->update('tbl_oders', $dataTran);
-            $this->upgradeAccount($user_id);
-        }
-    }
-
-    public function upgradeAccount($user_id) {
-        $dataLog1 = array(
-            'user_account_log_status' => 'Inactive'
-        );
-        $this->db->where('fk_user_id', $user_id);
-        $this->db->update('tbl_user_to_user_account_type_log', $dataLog1);
-
-        $dataLog = array(
-            'fk_user_id' => $user_id,
-            'fk_user_account_type_id' => 5,
-            'user_account_log_status' => 'Active',
-            'user_account_log_create_date' => date("Y-m-d")
-        );
-
-        $this->db->insert('tbl_user_to_user_account_type_log', $dataLog);
-        // insert rank
-        $dataRank = array(
-            'fk_user_id' => $user_id,
-            'user_rank_alias' => 'premier_shopper'
-        );
-        $this->db->insert('tbl_user_rank_log', $dataRank);
-    }
-
-    function sendrefrermail($id, $accounttype) {
-        $result = '';
-        $leval = $this->commonmodel->get_all_allowed_levels_exclusive('max');
-        for ($i = 1; $i <= $leval->allowed_levels; $i++) {
-            $user_id_refer_level = $this->commonmodel->get_user_referrer_for_lvl($id, $i);
-            if ($user_id_refer_level->ref_no != 0) {
-                $LoginData = $this->commonmodel->getuserdetail($id);
-                $userData = $this->commonmodel->getuserdetail($user_id_refer_level->ref_no);
-                $email_data = $this->commonmodel->getemailInfo(3);
-                $complete_name = $LoginData->user_first_name . ' ' . $LoginData->user_last_name;
-                $base = $userData->user_username;
-                $upgrade_link = 'https://staging3.karmora.com/' . $base . '/karmora-upgrade/';
-                $upgrade_link = '<a href="' . $upgrade_link . '" style="color: #cc0066;text-decoration:none;">Clicking Here</a>';
-                $tags = array("{Full-Name}", "{First-Name}", "{Membership-Level}", "{upgrade-link}", "{live-chat}");
-                $replace = array($complete_name, $userData->user_first_name, $accounttype, $upgrade_link, '<a href="https://staging3.karmora.com/liveSupport/" style="color: #cc0066;text-decoration:none;">Click here</a>');
-                $subject = $email_data->email_title;
-                $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id, $email_data->email_header_text, 'withoutheader');
-                $to = $userData->user_email;
-                $result = $this->send_mail($to, $subject, $message);
-            }
-        }
-        return $result;
-    }
-
-    function sendrefrealcommsionmail($id) {
-        $leval = $this->commonmodel->get_all_allowed_levels_exclusive('max');
-        for ($i = 1; $i <= $leval->allowed_levels; $i++) {
-            $user_id_refer_level = $this->commonmodel->get_user_referrer_for_lvl($id, $i);
-            if ($user_id_refer_level->ref_no != 0) {
-                $email_data = $this->commonmodel->getemailInfo(8);
-                $reffer_data = $this->commonmodel->getuserdetail($user_id_refer_level->ref_no);
-                $complete_name = $reffer_data->user_first_name . ' ' . $reffer_data->user_last_name;
-                $base = $reffer_data->user_username;
-                $ewaletlink = 'https://staging3.karmora.com/' . $base . '/my-ewallet/';
-                $ewaletlink = '<a href="' . $ewaletlink . '" style="color: #cc0066;text-decoration:none;">Click Here</a>';
-                $cashlink = 'https://staging3.karmora.com/' . $base . '/my-karmora-kash/';
-                $cashlink = '<a href="' . $cashlink . '" style="color: #cc0066;text-decoration:none;">Click Here</a>';
-                $tags = array("{First-Name}", "{ewallet-link}", "{cash-link}");
-                $replace = array($complete_name, $ewaletlink, $cashlink);
-                $subject = $email_data->email_title;
-                $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id, $email_data->email_header_text, 'withoutheader');
-                $to = $reffer_data->user_email;
-                $result = $this->send_mail($to, $subject, $message);
-            }
-        }
-        return $result;
-    }
-
-    function sendsignupmail($id, $accounttype) {
-        //$checkCommunityEmail = $this->commonmodel->checkEmailType($id, 1);
-        //if ($checkCommunityEmail) {
-        $userData = $this->commonmodel->getuserdetail($id);
-        if ($accounttype == 3) {
-            $email_data = $this->commonmodel->getemailInfo(1);
-        } else {
-            $email_data = $this->commonmodel->getemailInfo(2);
-        }
-        $reffer_data = $this->commonmodel->getuserdetail($userData->fk_user_id_referrer);
-        $complete_name = $userData->user_first_name . ' ' . $userData->user_last_name;
-        $user_username = $userData->user_username;
-        $user_email = $userData->user_email;
-        $link = base_url() . 'click2win/';
-        $click_link = '<a href="' . $link . '" style="color: #cc0066;text-decoration:none;">Clicking Here</a>';
-        $password = $userData->user_temp_data;
-        $tags = array("{First-Name}", "{referrer-name}", "{img-src}", "{user_username}", "{user_email}", "{password}", "{Click-Here}", "{live-chat}", "{image-link}", "{current-date}");
-        $replace = array($complete_name, $reffer_data->user_first_name, 'https://staging3.karmora.com/public/images/cash-back-toolbar-banner-vertical.jpg', $user_username, $user_email, $password, $click_link, '<a href="https://staging3.karmora.com/liveSupport/" style="color: #cc0066;text-decoration:none">Live chat</a>', 'https://staging3.karmora.com/public/images/tick-pink.png', date('m-d-Y', strtotime("+30 days")));
-        $subject = $email_data->email_title;
-        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id, $email_data->email_header_text);
-        $to = $userData->user_email;
-        $result = $this->send_mail($to, $subject, $message);
-        //$this->karmoraenotfiationmail($userData,42,$reffer_data,'');
-        return $result;
-        //}
-    }
-
-    function sendordermail($id, $order_id) {
-        $userData = $this->commonmodel->getuserdetail($id);
-        $email_data = $this->commonmodel->getemailInfo(4);
-        $complete_name = $userData->user_first_name . ' ' . $userData->user_last_name;
-        $base = $userData->user_username;
-        $link = 'https://staging3.karmora.com/' . $base . '/my-orders/' . $order_id;
-        $order_link = '<a href="' . $link . '" style="color: #cc0066;text-decoration:none;">Clicking Here</a>';
-        $refund = 'https://staging3.karmora.com/' . $base . '/karmora-return-policy';
-        $tags = array("{First-Name}", "{link}", "{refund-policy}", "{image-link}");
-        $replace = array($complete_name, $order_link, $refund, 'https://staging3.karmora.com/public/images/money-back-100.png');
-        $subject = $email_data->email_title;
-        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id, $email_data->email_header_text);
-        $to = $userData->user_email;
-        $result = $this->send_mail($to, $subject, $message);
-        $this->karmoraenotfiationmail($userData, 43, '', $order_id);
-        return $result;
-    }
-
-    public function sendupgrademail($id) {
-        $userData = $this->commonmodel->getuserdetail($id);
-        $email_data = $this->commonmodel->getemailInfo(2);
-        $reffer_data = $this->commonmodel->getuserdetail($userData->fk_user_id_referrer);
-        $complete_name = $userData->user_first_name . ' ' . $userData->user_last_name;
-        $user_username = $userData->user_username;
-        $user_email = $userData->user_email;
-        $password = $userData->user_temp_data;
-        $tags = array("{First-Name}", "{referrer-name}", "{user_username}", "{user_email}", "{password}");
-        $replace = array($complete_name, $reffer_data->user_first_name, $user_username, $user_email, $password);
-        $subject = $email_data->email_title;
-        $message = $this->prepEmailContent($tags, $replace, $subject, $email_data->email_description, $id, $email_data->email_header_text);
-        $to = $userData->user_email;
-        $result = $this->send_mail($to, $subject, $message);
-        return $result;
-    }
-
-    /*public function calculateTax($Region, $type, $taxprice = NULL) {
-        $total_payed_calculate = $this->input->post('total_payed_calculate');
-        $amount = str_replace(',', '', $total_payed_calculate);
-        $street_adrees = $_POST['shipping_detail']['street_address'];
-        $city = $_POST['shipping_detail']['city'];
-        $zipcode = $_POST['shipping_detail']['zipcode'];
-        $condation = "SalesOrder";
-        $number = 'Karma-' . date('i-s') . '-' . rand();
-        if ($type != 'ajax') {
-            $condation = "SalesInvoice";
-            $number = 'INV=' . $type . '_' . date('i-s');
-            if ($taxprice != NULL) {
-                $amount = $amount - $taxprice;
-            }
-        }
-        $fields = array(
-            "CompanyCode" => 'karma',
-            "CustomerCode" => $number,
-            "DocCode" => $number,
-            "DocType" => $condation,
-            "DocDate" => date('Y-m-d'),
-            "Addresses" => array(array(
-                    "AddressCode" => "01",
-                    "Line1" => $street_adrees,
-                    "City" => $city,
-                    "Region" => $Region,
-                    "Country" => "US",
-                    "PostalCode" => $zipcode,
-                )),
-            "Lines" => array(array(
-                    "LineNo" => "1",
-                    "DestinationCode" => "01",
-                    "OriginCode" => "02",
-                    "Qty" => "1",
-                    "Amount" => $amount,
-                ))
-        );
-        $jason = json_encode($fields);
-        $headers = array();
-        $headers[] = 'authorization=> Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy';
-        $ch = curl_init('https://development.avalara.net/1.0/tax/get');
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $jason);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'authorization : Basic MjAwMDE2NjgxODpFMkU0NDBFQ0YxM0U4NjMy',
-            'Content-Length: ' . strlen($jason))
-        );
-        $result = curl_exec($ch);
-        $resultArray = json_decode($result);
-        $tax_Cost = $this->returnresponceTaxApi($resultArray, $type);
-        if ($type == 'ajax') {
-            echo $tax_Cost;
-            die;
-        } else {
-            return $tax_Cost;
-        }
-    }*/
-
-    public function returnresponceTaxApi($resultArray, $type) {
-        if (!empty($resultArray)) {
-            if ($resultArray->ResultCode == 'Error') {
-                if ($type == 'ajax') {
-                    echo 'erroronaddress';
-                    die;
-                } else {
-                    return 'error';
-                }
-            }
-            if ($resultArray->ResultCode == 'Success') {
-                if ($type == 'ajax') {
-                    echo $resultArray->TotalTaxCalculated;
-                    die;
-                } else {
-                    return $resultArray->TotalTaxCalculated;
-                }
-            } else {
-                if ($type == 'ajax') {
-                    echo 0;
-                    die;
-                } else {
-                    return 0;
-                }
-            }
-        } else {
-            if ($type == 'ajax') {
-                echo 0;
-                die;
-            } else {
-                return 0;
-            }
-        }
-    }
-
-    ////////// ===== Authorize.Net ========== //////////////////
 
     public function karmoraenotfiationmail($userData, $email_id, $reffer_data = NULL, $order_id = NULL) {
         $html = '';

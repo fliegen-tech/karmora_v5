@@ -95,5 +95,30 @@ class Ajaxcallz extends karmora {
             echo 'error'; exit();
         }
     }
+    function searchrefreal($search_value,$search_option){
+        $html = '';
+        $response = array(
+            'csrfName' => $this->security->get_csrf_token_name(),
+            'csrfHash' => $this->security->get_csrf_hash()
+        );
+        $RefrealusersArray = $this->usermodel->GetsearchRefreal($search_value,$search_option);
+        if (!empty($RefrealusersArray)) {
+
+            $html .= '<ul class="list-auto-search">';
+
+            foreach ($RefrealusersArray as $search) {
+                $user_name =  $search['_name'].' '.$search['_member_location'];
+                $name = $search['_name'];
+                $html .= '<li><a href= "javascript:void(0)" onclick="selectthisuser('.$search['user_username'].','."'$name'".')"> '.$user_name.'</a></li>';
+            }
+            $html .= '</ul>';
+        } else {
+            $html .= "No member found";
+        }
+        $response['html'] = $html;
+        echo json_encode($response); die;
+
+    }
+
 
 }

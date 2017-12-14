@@ -8,7 +8,7 @@
                 <div class="col-5">
                     <div class="product-leftbar">
                         <div class="app-figure" id="zoom-fig">
-                            <a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom." href="<?php echo $themeUrl ?>/frontend/images/day3.jpg" >
+                            <a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom." href="<?php echo $themeUrl ?>/images/product/<?php echo $product_detail->product_image; ?>" >
                                 <img src="<?php echo $themeUrl ?>/images/product/<?php echo $product_detail->product_image; ?>?scale.height=400" alt=""/>
                             </a>
                             <?php if(!empty($product_album)){ ?>
@@ -35,17 +35,16 @@
                             <div class="btn-group">
                                 <select class="btn btn-secondary dropdown-toggle" id="shoper_type" name="shoper_type">
                                     <?php if(!isset($this->session->userdata['front_data'])){ ?>
-                                        <option value="<?php echo '3 ='.$product_detail->product_price; ?>">Autual Price $<?php echo $product_detail->product_price; ?></option>
-                                        <option value="<?php echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_premier->one_time_price; ?>"><?php echo $product_price_cart_premier->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_premier->one_time_percent); ?>%) $<?php echo $product_price_cart_premier->one_time_price; ?></option>
-                                        <option value="<?php echo $product_price_cart_casual->fk_user_account_type_id.'='.$product_price_cart_casual->one_time_price; ?>"><?php echo $product_price_cart_casual->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_casual->one_time_percent); ?>%) $<?php echo $product_price_cart_casual->one_time_price; ?></option>
+                                        <option value="<?php echo '5='.$upgrade_amount; ?>">Introductory Offer Price $<?php echo $upgrade_amount; ?></option>
                                     <?php }elseif(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 5){ ?>
-                                            <option value="<?php echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_premier->one_time_price; ?>"><?php echo $product_price_cart_premier->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_premier->one_time_percent); ?>%) $<?php echo $product_price_cart_premier->one_time_price; ?></option>
+                                            <option value="<?php echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_premier->one_time_price; ?>"><?php echo $product_price_cart_premier->user_account_type_title; ?> $<?php echo $product_price_cart_premier->one_time_price; ?></option>
                                     <?php }elseif(isset($this->session->userdata['front_data']) && $this->session->userdata['front_data']['user_account_type_id'] == 3){?>
-                                            <option value="<?php echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_premier->one_time_price; ?>"><?php echo $product_price_cart_premier->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_premier->one_time_percent); ?>%) $<?php echo $product_price_cart_premier->one_time_price; ?></option>
-                                            <option value="<?php echo $product_price_cart_casual->fk_user_account_type_id.'='.$product_price_cart_casual->one_time_price; ?>"><?php echo $product_price_cart_casual->user_account_type_title; ?>(Save <?php echo abs($product_price_cart_casual->one_time_percent); ?>%) $<?php echo $product_price_cart_casual->one_time_price; ?></option>
+                                            <!--<option value="<?php /*echo $product_price_cart_premier->fk_user_account_type_id.'='.$product_price_cart_premier->one_time_price; */?>"><?php /*echo $product_price_cart_premier->user_account_type_title; */?> $<?php /*echo $product_price_cart_premier->one_time_price; */?></option>-->
+                                            <option value="<?php echo $product_price_cart_casual->fk_user_account_type_id.'='.$product_price_cart_casual->one_time_price; ?>"><?php echo $product_price_cart_casual->user_account_type_title; ?> $<?php echo $product_price_cart_casual->one_time_price; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
+                            <small style="display: block; font-family: 'Arimo', sans-serif; font-size: 10px;">Karmora Kash can be applied at checkout.</small>
                         </div>
                         <div class="about-product">
                             <?php echo $product_detail->product_detail; ?>
@@ -54,21 +53,25 @@
                             <div class="row">
                                 <div class="col-3">
                                     <div class="input-group">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-                              <i class="fa fa-minus" aria-hidden="true"></i>
-                            </button>
-                        </span>
-                                        <input type="text" name="quantity" id="quantity" class="form-control input-number" value="1" min="1" max="100">
+                                        <?php if(isset($this->session->userdata['front_data'])){  ?>
                                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quantity">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </button>
-                        </span>
+                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quantity">
+                                              <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                        <?php } ?>
+                                        <input type="text" <?php if(!isset($this->session->userdata['front_data'])){ echo 'readonly="readonly"'; } ?>  name="quantity" id="quantity" class="form-control input-number" value="1" min="1" max="100">
+                                        <?php if(isset($this->session->userdata['front_data'])){  ?>
+                                        <span class="input-group-btn">
+                                            <button type="button"  class="btn btn-success btn-number" data-type="plus" data-field="quantity">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="col-9">
-                                    <button class="btn btn-add-bag left-right-hover" type="submit">Add To Bag<i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                                    <button <?php if($atttocart){ echo 'disabled="disabled"';} ?> class="btn btn-add-bag left-right-hover" type="submit"><i class="fa fa-cart-plus" aria-hidden="true"></i>Add To Bag</button>
                                 </div>
                             </div>
                         </div>

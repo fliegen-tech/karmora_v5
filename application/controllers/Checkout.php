@@ -20,10 +20,10 @@ class Checkout extends karmora {
             'view' => 'frontend/checkout/',
             'viewForm' => 'frontend/forms/',
             'flashKey' => 'message_signup',
-            'shipping_cost' => 0
+            'shipping_cost' => 5.95
         );
         $this->load->model(array('usermodel', 'cartmodel', 'productmodel' ,'Loginmodel','ordermodel'));
-        $this->upgrade_amount  =  19.95;
+        $this->upgrade_amount  =  9.95;
         $this->load->library(array('form_validation'));
         $this->load->helper(array('form'));
         $this->userObj = new Usermodel;
@@ -61,7 +61,7 @@ class Checkout extends karmora {
         foreach ($this->cart->contents() as $items) {
             $exclusiveProductTotal = $exclusiveProductTotal + ($items['qty'] * $items['price']) ;
         }
-                $return_array = array(
+        $return_array = array(
                                 'exclusiveProductTotal'=> $exclusiveProductTotal,
                                 'shipping_cost'        => $this->data['shipping_cost'],
                                 'actualCost'           => $actualCost,
@@ -92,6 +92,9 @@ class Checkout extends karmora {
             $this->data['address'] = $userAddress['address'];
             $this->data['countryList'] = $userAddress['countriesList'];
             $this->data['statesList'] = $userAddress['statesOfCurrentAddressCountry'];
+            $this->data['user_name']    = $detail['user_first_name'].' '.$detail['user_last_name'];
+            $this->data['user_email']   = $detail['user_email'];
+            $this->data['user_phone_no']= $detail['user_phone_no'];
         }
     }
 
@@ -99,7 +102,7 @@ class Checkout extends karmora {
         $this->validatecheckoutPost();
         $this->checkCard($this->input->post());
         $post = $this->input->post();
-        $this->getrefrer($post);
+        $post = $this->getrefrer($post);
         $this->getaccount_type();
         if(!isset($this->session->userdata['front_data'])) {
             $post['user_data']  = $this->saveUser($post);
@@ -131,6 +134,7 @@ class Checkout extends karmora {
     private function getrefrer($post){
         $referrer = $this->userObj->getUserDetails($post['referrer']);
         $post['ref_id'] = !$referrer ? $this->currentUser['userid'] : $referrer['pk_user_id'];
+        $post['ref_id'] = ($post['ref_id'] == '')?2:$post['ref_id'];
         return $post;
     }
     private function getaccount_type(){
@@ -138,7 +142,7 @@ class Checkout extends karmora {
             $detail = $this->currentUser;
             $post['acc_type'] = $detail['user_account_type_id'];
         }else{
-            $post['acc_type']  = ($this->checkupgradecart)? 5:3;
+            $post['acc_type']  = ($this->checkupgradecartcheckout())? 5:3;
         }
         return $post;
     }
@@ -191,7 +195,9 @@ class Checkout extends karmora {
         );
 
         $this->saveOrder($arrData);
-        if($this->checkcartupgrade()) {
+        if($this->checkupgradecartcheckout() && isset($this->session->userdata['front_data']) ) {
+            $this->processARB($arrData);
+        }else if(!isset($this->session->userdata['front_data']) && (isset($_POST['shopper_type']) && $_POST['shopper_type'] !=3 )) {
             $this->processARB($arrData);
         }else{
             (!isset($this->session->userdata['front_data']))?$this->insertbounce(3,$user_id,'signup'):'';
@@ -250,7 +256,7 @@ class Checkout extends karmora {
         $arrData['taxAmount']   = $this->input->post('tax_price');
         $arrData['kash_amount'] = $this->input->post('karmora_kash_use');
         $arrData['upgrade_amount'] = ($this->checkcartupgrade())?$arrData['premierPromo']['promo_price']:0;
-        $arrData['totalAmount'] = $this->cart->total() + $arrData['upgrade_amount'] + $arrData['premierPromo']['promo_shipping'] + $arrData['taxAmount'];
+        $arrData['totalAmount'] = $this->cart->total() + $arrData['upgrade_amount'] + $arrData['premierPromo']['promo_shipping'] + $arrData['taxAmount'] - ( $arrData['kash_amount'] + $arrData['comm_amount'] );
         $arrData['order_number'] = hexdec(uniqid());
         $arrData['resultOrder'] = $this->orderObj->insertOrderBeforeAuthorization($arrData);
         if ($arrData['resultOrder']['query_status']) {
@@ -261,6 +267,9 @@ class Checkout extends karmora {
             $this->updateOrderAuthId($arrData['resultOrder']['order_id'], $arrData['ccCharged']['transaction_id']);
             $this->updateusedvalue($arrData['order_number'],$arrData['user_id']);
             $this->saveOrderLine($arrData);
+            // send order email
+            $this->sendordermail($arrData['user_id'], $arrData['resultOrder']['order_id']);
+
         } else {
             $message .= str_replace($this->alertMessages['str_replace'], 'Could not save order.', $this->alertMessages['danger']);
         }
@@ -270,7 +279,8 @@ class Checkout extends karmora {
 
     private function processARB($data) {
         $acc_type_id = 5;
-        (!isset($this->session->userdata['front_data']))?$this->insertbounce($acc_type_id,$data['user_id'],'signup'):$this->insertbounce($acc_type_id,$data['user_id'],'upgrade');
+
+        (!isset($this->session->userdata['front_data']))?$this->insertbounce($acc_type_id,$data['user_id'],'signup'):'';//$this->insertbounce($acc_type_id,$data['user_id'],'upgrade');
         $message = $this->session->flashdata($this->data['flashKey']);
         $result = $this->createARB($data['userData'],  $data['subscription'],$data['card']);
         if ($result['transaction_status']) {
@@ -319,35 +329,47 @@ class Checkout extends karmora {
             $increment + 10;
             $this->orderObj->insertOrderLine($line1);
         }
+
     }
 
     private function updateOrderAuthId($orderId, $authId) {
         $message = $this->session->flashdata($this->data['flashKey']);
         $result = $this->orderObj->updateOrderAuthId($orderId, $authId);
         $message .= !$result ? '' : str_replace($this->alertMessages['str_replace'], $result, $this->alertMessages['warning']);
+        $this->db->query("CALL stored_proc_insert_kk_on_personal_exclusive_purchase($orderId)");
         return;
     }
 
     private function userSignupSuccessful($newUser) {
-        $this->cart->destroy();
-        $message = '';
+        if(!isset($this->session->userdata['front_data'])) {
+            $rank  = (isset($_POST['shopper_type']) && $_POST['shopper_type'] ==5)?'premier_shopper':'casual_shopper';
+            $this->InsertRank($newUser['user_id'] ,$rank);
+            $signup_email_id = array(
+                'signup_email_id' => (isset($_POST['shopper_type']) && $_POST['shopper_type'] ==5)? 2:1
 
-//        send email to user and referral pending.
-//
-//        try login
+            );
+            $newUser = array_merge($newUser, $signup_email_id);
+            $this->prepareEmailInfo($newUser, $newUser['signup_email_id'], '', '');
+            $this->sendrefrermail($newUser['user_id'], $newUser['acc_type']);
+            $this->sendrefrealcommsionmail($newUser['user_id']);
+            $this->session->set_flashdata('first_login', $newUser);
+            $redirectUrl = 'welcome';
+        }else{
+            $redirectUrl = 'my-orders';
+        }
+        $this->cart->destroy();
         $userDetail = $this->loginObj->frontendVerifyUser($newUser['username'], md5($newUser['password']));
         if ($userDetail) {
             $this->cart->destroy();
             $userSessionData = $this->set_session_login($userDetail);
             $this->session->set_userdata('front_data', $userSessionData);
-            $this->session->set_flashdata('first_login', $newUser);
-            //$message = str_replace($this->alertMessages['str_replace'], 'Signup Successful', $this->alertMessages['success']);
-            $redirectUrl = 'welcome';
+            //$redirectUrl = 'welcome';
         } else {
             //$message = str_replace($this->alertMessages['str_replace'], 'Invalid Username Or Password', $this->alertMessages['warning']);
-            $redirectUrl = 'login';
+            $redirectUrl = 'my-orders';
         }
-        $this->session->set_flashdata($this->data['flashKey'], $message);
+        //$this->session->set_flashdata($this->data['flashKey'], $message);
+        $this->db->query("CALL stored_proc_insert_retail_commission()");
         return redirect(base_url($redirectUrl));
     }
 

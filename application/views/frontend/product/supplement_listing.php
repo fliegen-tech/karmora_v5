@@ -12,6 +12,7 @@
                     <h3>Fall In love with taking care of your body</h3>
                 </div>
             </div>
+        </div>
             <div class="supplements-cover">
                 <div class="row">
                     <div class="col-5">
@@ -22,7 +23,7 @@
                     <div class="col-7">
                         <div class="flex-cover">
                             <div class="suplemnt-rightbar">
-                                <p>B3 Dietary Supplements are carefully formulated with goal of helping our Shoppers become the Healthiest they have ever been. Taking extraordinary care of your mind, body and soul are not just the Wisest decision anyone can make, it is the indisputable formula for lifelong Happiness!</p>
+                                <p>We make falling in love with taking care of your body easy. With our wide range of B3 Supplements you can ensure that every inch of your body is feeling loved. Carrying everything from weight loss to beauty supplements we’ve got you covered head-to-toe.</p>
                             </div>
                         </div>
                     </div>
@@ -30,7 +31,7 @@
             </div>
 
             <?php if(!empty($products)){ ?>
-                <div class="col-12 flawless-product-cover before-animated">
+                <div class="col-12 flawless-product-cover">
                 <div class="row">
                     <?php foreach ($products as $pro){ ?>
                     <div class="col-3">
@@ -58,7 +59,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </section>
 <?php

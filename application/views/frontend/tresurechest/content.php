@@ -1,8 +1,9 @@
 <section class="click2-win-sec page-spacing">
     <div class="container">
         <div class="row">
+	        <!--<div class="col-4 mx-auto text-center before-animated" id="top-img-cover">-->
             <div class="col-12 text-center before-animated" id="top-img-cover">
-                <img src="<?php echo $themeUrl ?>/frontend/images/click2win.png" class="img-fluid" alt="...">
+                <img src="<?php echo $themeUrl ?>/frontend/images/winner-winner.jpg" class="img-fluid" alt="...">
             </div>
             <div class="click2win-desp">
                 <div class="col-10 mx-auto">

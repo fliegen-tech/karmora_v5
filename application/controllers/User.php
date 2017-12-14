@@ -222,7 +222,7 @@ class User extends karmora {
     public function editProfile($username = NULL) {
         $this->verifyUser($username);
         $userDetail = $this->commonmodel->getUserDetails($username);
-        $current_password = $userDetail[0]['user_password'];
+        $current_password = $userDetail['user_password'];
         if ($_POST) {
             if (isset($_POST['action']) && $_POST['action'] === "edit_profile") {
                 $this->action_edit_profile();
@@ -254,12 +254,13 @@ class User extends karmora {
     public function action_change_password($userDetail, $current_password) {
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|trim|matches[password]');
+	    
         if ($this->form_validation->run() === FALSE || md5($this->input->post('curr_password')) !== $current_password) {
-            // echo validation_errors();exit;
+	        //validation_errors();exit;
             $this->session->set_flashdata('pass_err', 'Password missmatch');
             redirect(base_url() . "profile");
         } else {
-            $this->usermodel->changePassword($this->input->post(), $userDetail[0]['pk_user_id']);
+            $this->usermodel->changePassword($this->input->post(), $userDetail['pk_user_id']);
             $this->session->set_flashdata('pass_succ', 'Password Changed');
             redirect(base_url() . "profile");
         }

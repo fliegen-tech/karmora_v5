@@ -16,7 +16,7 @@
                     <div class="top-heading-cover before-animated" id="top-heading-cover">
                         <h1>Saving Money Ads!</h1>
                     </div>
-                    <p>Over 200 Million US Consumers will spend More than $300 Billion shopping online and some of them are your friends and followers!   Snap ‘em up into your Shopping Community before someone else does! For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="">Click Here!</a></p>
+                    <p>Over 200 Million US Consumers will spend More than $300 Billion shopping online and some of them are your friends and followers!   Snap ‘em up into your Shopping Community before someone else does! For more information on how, when, and where to post Good KarmorAds™ to build your Shopping Community <a href="javascript:void(0);" data-toggle="modal" data-target="#make-money">Click Here!</a></p>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                                     $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -53,7 +53,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png">
                                         </a>
                                     <?php } else { ?>
@@ -65,7 +65,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend//images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>

@@ -191,6 +191,10 @@
     </div>
 </section>
 <?php $this->load->view('frontend/cashmeout/cashmeout_js'); ?>
-
+<script>
+    $(document).ready(function(){
+        $(".table").DataTable();
+    });
+</script>
 <!--====  End of Dashbaord====-->
 

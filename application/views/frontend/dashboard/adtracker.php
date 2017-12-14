@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-12">
                 <h4>Posting Karmora advertisements on social media is a fantastic way to build a strong and profitable Shopping Community.   Track your ads to see which are creating the highest traffic to your website.</h4>
-                <div class="karmora-table community-table" id="ad-tracker">
+                <div class="karmora-table community-table table-responsive" id="ad-tracker">
                     <!-- My Cummunity Table -->
                     <?php if(!empty($adtracker)){ ?>
                     <table class="table table-striped table-bordered">
@@ -75,3 +75,8 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function(){
+        $(".table").DataTable();
+    });
+</script>

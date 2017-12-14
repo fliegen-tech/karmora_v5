@@ -95,7 +95,7 @@
                                     $picture = $themeUrl . '/images/banner/' . $custom_ad->banner_ads_image;
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -107,7 +107,7 @@
                                 </li>
                                 <li>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/pinit.png">
                                         </a>
                                     <?php } else { ?>
@@ -119,7 +119,7 @@
                                 </li>
                                 <li>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>

@@ -8,7 +8,7 @@
                 <div class="col-9 p-l-0">
                     <div class="col-12">
                         <div class="top-heading-cover">
-                            <h1><?php echo $store_detail->title; ?></h1>
+                            <h1><?php echo $store_detail->store_title; ?></h1>
                         </div>
                     </div>
                     <div class="stores-detail-cover border-none">
@@ -53,7 +53,7 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <a href="#">
+                                                <a href="<?php echo  base_url('kash-back-toolbar'); ?>">
                                                     <?php
                                                 }
                                                 ?>

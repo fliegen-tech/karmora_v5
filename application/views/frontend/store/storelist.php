@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <div class="karmora-table community-table" id="hunt-table">
                                     <!-- My Cummunity Table -->
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped table-responsive">
                                         <thead>
                                         <tr>
                                             <th>Store Name</th>
@@ -37,7 +37,7 @@
                                                         $first = false;
                                                     }
                                                     ?>
-                                                    <a href="#<?php echo key($storeArray); ?>"><?php echo key($storeArray); ?></a>
+                                                    <a class="smooth-scroll" href="#<?php echo key($storeArray); ?>"><?php echo key($storeArray); ?></a>
                                                     <?php
                                                     next($storeArray);
                                                 }
@@ -56,7 +56,7 @@
                                             <td colspan="3">
                                                 <a  class="smooth-scroll" href="#" id="<?php echo key($storeArray); ?>" name=""><b><?php echo key($storeArray); ?></b></a>
                                             </td>
-                                            <td class="text-center"><a href="#top">Back to Top</a></td>
+                                            <td class="text-center"><a href="#top" class="smooth-scroll">Back to Top</a></td>
                                         </tr>
                                         <?php foreach ($storeIn as $store) { ?>
                                         <tr>

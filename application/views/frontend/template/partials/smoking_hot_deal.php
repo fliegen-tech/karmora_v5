@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <div class="smoking-deal-slider">
                         <?php foreach ( $smokin_hot_deals as $sat_sdeal ) { ?>
                             <div class="smoking-deal-cover">

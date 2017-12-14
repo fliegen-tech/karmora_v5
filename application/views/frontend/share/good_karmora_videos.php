@@ -17,7 +17,7 @@
                     <div class="top-heading-cover before-animated" id="top-heading-cover">
                         <h1>Karmora Videos!</h1>
                     </div>
-                    <p>Media Rich content is what gets shared most often on social media. The below are carefully crafted viral formatted videos that you can use to help build the largest, most profitable Shopping Community possible! For step-by-step instructions on how, when and where to post our videos <a href="">Click Here!</a></p>
+                    <p>Media Rich content is what gets shared most often on social media. The below are carefully crafted viral formatted videos that you can use to help build the largest, most profitable Shopping Community possible! For step-by-step instructions on how, when and where to post our videos <a href="javascript:void(0);" data-toggle="modal" data-target="#make-money">Click Here!</a></p>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                                     $picture = $themeUrl . '/images/video_cover_image/' . $vidVal['video_cover_photo'];
                                     ?>
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/share-on-facebook.jpg">
                                         </a>
                                     <?php } else { ?>
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/pinit.png">
                                         </a>
                                     <?php } else { ?>
@@ -66,7 +66,7 @@
                                 </li>
                                 <li class="list-inline-item">
                                     <?php if (!isset($this->session->userdata['front_data'])) { ?>
-                                        <a href="<?php echo base_url('join-today') ?>">
+                                        <a href="<?php echo base_url('login') ?>">
                                             <img src="<?php echo $themeUrl; ?>/frontend/images/tweeticons.png">
                                         </a>
                                     <?php } else { ?>

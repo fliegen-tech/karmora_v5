@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="karmora-table community-table" id="my-karmora-kash">
+                <div class="karmora-table community-table table-responsive" id="my-karmora-kash">
                     <!-- My Cummunity Table -->
                     <?php if (is_array($karmoraKash)) { ?>
                         <table class="table table-bordered">
@@ -67,7 +67,7 @@
                         <p>Earn limitless Karmora Kash Rewards while building a Shopping Community!</p>
                     </div>
                     <div class="karmora-ways-table">
-                        <div class="karmora-table">
+                        <div class="karmora-table table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
@@ -107,7 +107,7 @@
                         <p>Our Shoppers can earn Karmora Kash without spending a single penny!   Engage in the below activities and earn Karmora Kash for huge discounts on our Exclusive Products!</p>
                     </div>
                     <div class="karmora-ways-table">
-                        <div class="karmora-table">
+                        <div class="karmora-table table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
@@ -152,7 +152,7 @@
                         <p>Earn Matching Karmora Kash on every purchase made by your entire Global Shopping Community!</p>
                     </div>
                     <div class="karmora-ways-table">
-                        <div class="karmora-table">
+                        <div class="karmora-table table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
@@ -181,3 +181,8 @@
         </div>
     </div>
 </section>
+<script>
+	$(document).ready(function(){
+		//$(".table").DataTable();
+	});
+</script>

@@ -34,12 +34,11 @@
                 <h5 class="bg-gray">$20 Karmora Kash Welcome Reward</h5>
                 <h5>Additional 10% Cash Back plus our Best Cash Back Guarantee</h5>
                 <h5 class="bg-gray">Build your own Shopping Community and get paid up to 20% recurring commissions on every purchase, made by every shopper in your shopping community</h5>
-                <h5>Participate in our company Profit Sharing Pool</h5>
-                <h5 class="bg-gray">Earn up to $100 Cash and Great Prizes just for surfing your website</h5>
-                <h5>Earn $2 in Karmora Kash for every $1 you receive in Cash Back</h5>
-                <h5 class="bg-gray">40% off all Karmora's Exclusive Products</h5>
-                <h5>Learn from the experts on how to build the biggest most profitable Shopping Community possible using our state of the art tools and training</h5>
-                <h5 class="bg-gray">30 Day No Questions Asked Money Back Guarantee</h5>
+                <h5>Earn up to $100 Cash and Great Prizes just for surfing your website</h5>
+                <h5 class="bg-gray">Earn $2 in Karmora Kash for every $1 you receive in Cash Back</h5>
+                <h5>40% off all Karmora's Exclusive Products</h5>
+                <h5 class="bg-gray">Learn from the experts on how to build the biggest most profitable Shopping Community possible using our state of the art tools and training</h5>
+                <h5>30 Day No Questions Asked Money Back Guarantee</h5>
               </div>
               <div class="col-12 text-center">
                   <a href="<?php echo base_url('join-today-premier')?>" class="btn btn-joinnow left-right-hover">Join Today As A Premier Shopper</a>
@@ -59,7 +58,7 @@
             <div class="col-6">
               <div class="flex-cover">
                 <div class="join-rightbar">
-                  <p>Casual Shoppers are typically friends and family members of a Premier Shopper who is building their Global Shopping Community. They are not interested in extra income or winning cash and prizes in our generous promotions. Instead, they are happy with earning cash back when they shop online and Karmora Kash to discount their Exclusive Product purchases.</p>
+                  <p>Casual Shoppers are typically friends and family of a Premier Shopper who are building their Shopping Community. If you are not interested in earning an extra income or winning cash and prizes then being a Casual Shopper is the right choice for you! Earn cash back by shopping our over 2,000 online stores and receive Karmora Kash to discount your Exclusive Products.</p>
                 </div>
               </div>
             </div>

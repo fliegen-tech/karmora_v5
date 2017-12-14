@@ -55,27 +55,6 @@ class Loginmodel extends CI_Model {
             return FALSE;
         }
     }
-    public function GetsearchRefreal($search_valued ,$search_option) {
-        $search_value = str_replace('%20', ' ', $search_valued); 
-        if($search_option == 'name'){
-            $condation = "info._name LIKE  '" . $search_value . "%'";
-        }else{
-            $condation = "info.user_username = $search_value ";
-        }
-        
-        $query = "SELECT info . * , loc.country_state, loc._member_location
-                    FROM view_affiliate_banner_info AS info
-                    LEFT JOIN view_affiliate_banner_info_location AS loc ON info.pk_user_id = loc._member_id
-                    WHERE $condation
-                    GROUP BY info.pk_user_id
-                    LIMIT 0 , 130"; 
-
-        $QueryR = $this->db->query($query);
-
-        $array = $QueryR->result_array();
-
-        return $array;
-    }
     
     public function getuserDetail($user_id) {
         $queryStr = " SELECT u.*,lg.fk_user_account_type_id as account_type_id FROM tbl_users u, tbl_user_to_user_account_type_log lg

@@ -1,6 +1,3 @@
-
-
-
 // Smooth Scrolling
 $('.smooth-scroll').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
@@ -21,63 +18,39 @@ $('.smooth-scroll').click(function() {
 // On scroll add Animation
 $(window).scroll(function() {
     var scroll = $(window).scrollTop();
-
-    // Premier Casual Cover
-    if (scroll >= 500) {
-        $('.premier-casual-cover ul').addClass('animated zoomIn');
-    }
-
     // Premier Categories
     if (scroll >= 1000) {
         $('.premier-shopper-lists ul').addClass('animated zoomIn');
     }
-
-    // Flawless HomePage Products
-    if (scroll >= 300) {
-        $('.flawless-product-cover').addClass('animated fadeInLeft');
-    }
-
-    // Supplement HomePage Products
-    if (scroll >= 700) {
-        $('.supplement-homepage .flawless-product-cover').addClass('animated fadeInLeft');
-    }
-
     // Flawless HomePage Notlogin heading
     if (scroll >= 1150) {
         $('.flawles-notlogin').addClass('animated fadeInUp');
     }
-
     // Supplement HomePage Notlogin heading
     if (scroll >= 1600) {
         $('.supplemts-notlogin').addClass('animated fadeInUp');
     }
 
-
     // Flawless days Detail page
     if (scroll >= 900) {
         $('.clent-says .client-says-cover').addClass('animated fadeInUp');
     }
-
     // Flawless days paring Items
     if (scroll >= 1200) {
         $('.paring-cover .paring-leftbar img').addClass('animated fadeInLeft');
     }
-
     // Flawless days paring Items
     if (scroll >= 1200) {
         $('.paring-cover .paring-leftbar .rightimg').addClass('animated fadeInRight');
     }
-
     // Supplement paring item
     if (scroll >= 1750) {
         $('.supplemnts-paring-sec .paring-leftbar img').addClass('animated fadeInLeft');
     }
-
     // Supplement paring item
     if (scroll >= 1750) {
         $('.supplemnts-paring-sec .rightimg').addClass('animated fadeInRight');
     }
-
     // Supplement paring item
     if (scroll >= 250) {
         $('.cash-o-palooza-sec .before-animated').addClass('animated fadeInUp');
@@ -132,7 +105,37 @@ $('.cash-o-palooza-slider').slick({
     autoplay: false,
     cssEase: 'linear',
     prevArrow: '<i class="fa fa-chevron-left slick-left-arrow" aria-hidden="true"></i>',
-    nextArrow: '<i class="fa fa-chevron-right slick-right-arrow" aria-hidden="true"></i>'
+    nextArrow: '<i class="fa fa-chevron-right slick-right-arrow" aria-hidden="true"></i>',
+    responsive: [
+        {
+            breakpoint: 1120,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2
+            }
+        },
+        {
+            breakpoint: 900,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        },
+        {
+            breakpoint: 700,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
 });
 
 // Slick SHD Silder Slider
@@ -145,17 +148,47 @@ $('.smoking-deal-slider').slick({
     autoplay: false,
     cssEase: 'linear',
     prevArrow: '<i class="fa fa-chevron-left slick-left-arrow" aria-hidden="true"></i>',
-    nextArrow: '<i class="fa fa-chevron-right slick-right-arrow" aria-hidden="true"></i>'
+    nextArrow: '<i class="fa fa-chevron-right slick-right-arrow" aria-hidden="true"></i>',
+    responsive: [
+        {
+            breakpoint: 1120,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2
+            }
+        },
+        {
+            breakpoint: 900,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        },
+        {
+            breakpoint: 700,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
 });
 
 // Ok Zoom on products
-/*$(function () {
+$(function () {
     $('.ingredient-zoom').okzoom({
         width: 400,
         height: 200,
         round: false
     });
-});*/
+});
 
 
 //plugin bootstrap minus and plus
@@ -242,5 +275,100 @@ function phonevalidation() {
 
 // New js After starting Devlopment
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
+    // Supplemts Popups
+    $('.supplements-popup').attr('data-toggle', 'modal');
+    $('.supplements-popup').attr('data-target', '#supplements-popup');
 });
+
+function refreal_search(search_value, search_option) {
+    $('#refreal_name').show();
+    $('.member-filed').hide();
+    $('.member-filed').html('');
+    jQuery('#refreal_name').html('');
+    if (search_option == 'id') {
+        jQuery('#refreal_name_list').val('');
+    } else {
+        jQuery('#refreal_member_id_list').val('');
+        search_value = search_value.replace(/,/g, "");
+    }
+    if (search_value != '' && search_option != '') {
+        jQuery("#refreal_name").css("display", "block");
+        jQuery.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: baseurl + 'searchrefreal/' + search_value + '/' + search_option,
+            data: {"karmora_mikamak677": csrfHash},
+            context: document.body,
+            error: function (data, transport) {
+            },
+            success: function (data) {
+                console.info(data);
+                if (data.html == 'No member found') {
+                    jQuery('#refreal_name').html('');
+                    jQuery('#refreal_name').html('<div class="no-member-found">' + data.html + '</div>');
+                } else {
+                    if (search_value.charAt(0) == '1') {
+                        search_value = search_value.slice(1);
+                        jQuery('#refreal_member_id').val(search_value);
+                    }
+                    jQuery('#refreal_name').html('');
+                    jQuery('#refreal_name').html(data.html);
+                }
+                jQuery("#refreal_name").css("display", "block");
+
+            }
+        });
+    }
+}
+
+
+function selectthisuser(user_name,name) {
+    jQuery('#refreal_member_id').val('');
+    jQuery('#refreal_member_id').val(user_name);
+    jQuery('#refreal_name').html('');
+    jQuery('.member-filed').show();
+    jQuery('.member-filed').html(name);
+
+}
+
+// for home page serach
+function store_search(search_value) {
+    $('#search').html('');
+    var search_value = search_value.replace('/', '22').replace('\\', '33');
+    search_value = encodeURIComponent(search_value).replace(/[!'()]/g, escape).replace(/\*/g, "%2A");
+    if (search_value != '') {
+        this.value = '';
+
+        jQuery.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: baseurl + 'store/storeSearch/' + search_value,
+            data: {"karmora_mikamak677": csrfHash},
+            context: document.body,
+            error: function (data, transport) {
+                //alert("Sorry, the operation is failed.");
+            },
+            success: function (data) {
+                $('#search').html('');
+                $('#search').html(data.html);
+            }
+        });
+
+    } else {
+    }
+}
+// for home page serach
+function emptyvalue() {
+    $('#search').html('');
+}
+
+// Video Popup
+$('.footer-video-show').on('click', function () {
+    $('#cash-back-gurantee').modal('hide');
+    $('#video-popup').modal('show');
+});
+
+
+$('.top-rightbar .search-cover-top').click( function() {
+  $(".searchform").toggleClass("classblock");
+} );
