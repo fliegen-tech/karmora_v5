@@ -1,0 +1,486 @@
+SUBID,Product Name,Merchant Sale Amount,Cash back,Advertiser Name,AN, Date ,transaction_id
+54383736dc1fb,Order No:379060,67.5,2.03,macys.com,link_share,8/5/2014,M1000266244
+543838ec6ebb0,Order No:681895,-90,-2.7,macys.com,link_share,8/6/2014,M1000884081
+54383967ac0b7,Order No:914741,29.99,0.9,macys.com,link_share,8/7/2014,M1000884081
+5438399f6e363,Order No:914741,-29.99,-0.9,macys.com,link_share,8/8/2014,M1000884081
+54383a141e5f2,Order No:681895,90,2.7,macys.com,link_share,8/9/2014,M1000884081
+54380b0a55d94,Order No:1121976,11.24,0.34,macys.com,link_share,8/10/2014,M1002191223
+54380b0a55d94,Order No:815217,96,2.88,macys.com,link_share,8/11/2014,M1002191223
+543817aa655a8,Order No:1121978,11.24,0.34,macys.com,link_share,8/12/2014,M1002191223
+543836c498f6e,Order No:1029799,52.13,1.56,macys.com,link_share,8/13/2014,M1002191223
+543836c498f6e,Order No:1155481,22.13,0.66,macys.com,link_share,8/14/2014,M1002191223
+54383a141e5f2,Order No:1212000,43.5,1.31,macys.com,link_share,8/15/2014,M1002191223
+5438399f6e363,"Cisco 2500 Series 19"" Rack Mount Kit, ACS-2500RM-19",6.95,0.28,Third Party,Amazon,8/16/2014,B00CLX63ZU
+54380b0a55d94,Thor THPS-1000-12 1000 Watt Pure Sine Wave Power Inverter 2000 Watt Surge,1999.75,160,Third Party,Amazon,8/17/2014,B009CBA25Q
+543836c498f6e,APC AP8706S 1.8m C13 to C14 Power Cord Kit (6 EA),427.96,17.12,Third Party,Amazon,8/18/2014,B003YSYQNM
+5438399f6e363,APC AP8702S 0.6m C13 to C14 Power Cord Kit (6 EA),215.96,8.64,Third Party,Amazon,8/19/2014,B003YT2FJ8
+5438399f6e363,"Electrostand iPad Stand for the iPad 1, 2, 3",99.98,4,Third Party,Amazon,8/20/2014,B005GAPGSU
+543c34fd0ca89,"Electrostand iPad Stand for the iPad 1, 2, 3",99.98,4,Third Party,Amazon,8/21/2014,B005GAPGSU
+543839dd66592,"Intel Ethernet Converged Network Adapter, X540T2",4244.2,169.8,Third Party,Amazon,8/22/2014,B0077CS9UM
+543836c498f6e,Intel S3500 Series 120GB SSD USB Portable Drives,6177.6,247.26,Third Party,Amazon,8/23/2014,B00CT98DBI
+54383a141e5f2,Fotodiox 5'x7' Collapsible Chromakey Green + Blue 2-in-1 Background Panel and Support Stand,109.52,4.38,Amazon.com,Amazon,8/24/2014,B003Y2KSC6
+543817aa655a8,NORDSTROM,49.5,6.74,NORDSTROM.com,flex_offers,8/25/2014,434584356
+5438399f6e363,NORDSTROM,49.5,6.74,NORDSTROM.com,flex_offers,8/26/2014,434584357
+5438399f6e363,NORDSTROM,49.5,6.74,NORDSTROM.com,flex_offers,8/27/2014,434584358
+5438399f6e363,NORDSTROM,98,13.33,NORDSTROM.com,flex_offers,8/28/2014,434584361
+5438399f6e363,NORDSTROM,65,8.84,NORDSTROM.com,flex_offers,8/29/2014,434584362
+54383a141e5f2,NORDSTROM,49.5,6.74,NORDSTROM.com,flex_offers,8/30/2014,434584359
+54383a141e5f2,NORDSTROM,69.5,9.46,NORDSTROM.com,flex_offers,8/31/2014,434584360
+543c2a19ea971,GAP,65,8.84,GAP,flex_offers,9/1/2014,434584362
+5438399f6e363,Order No:F306372070,,2.6,Free People,commission_junction,9/2/2014,404612107
+54380b0a55d94,Armani Code by Giorgio Armani For Men. Eau De Toilette Spray 1-Ounce,35.03,2.45,Amazon.com,Amazon,9/3/2014,B001FWXGYY
+543817aa655a8,"Logitech HD Pro Webcam C920, 1080p Widescreen Video Calling and Recording",69.99,2.8,Amazon.com,Amazon,9/4/2014,B006JH8T3S
+543836c498f6e,Polycom Soundstation 2W (2200-07800-001),499.99,20,Third Party,Amazon,9/5/2014,B000RJ23RM
+5438399f6e363,SquareTrade 2-Year PC Peripherals Protection Plan ($50-$75),5.05,0.2,Third Party,Amazon,9/6/2014,B008I647AM
+5438399f6e363,TaylorMade Penta TP3 Golf Balls (12 Pack),69.96,4.9,Third Party,Amazon,9/7/2014,B006T0NG9W
+5438399f6e363,NORDSTROM,110,14.96,NORDSTROM.com,flex_offers,9/8/2014,434891710
+54383a141e5f2,NORDSTROM,88,11.97,NORDSTROM.com,flex_offers,9/9/2014,434891711
+543c2dfa3f50c,Macys.com,110,14.96,Macys.com,flex_offers,9/10/2014,434891710
+543c347c6ee0d,Target.com,88,11.97,Target.com,flex_offers,9/11/2014,434891711
+543839dd66592,Garmin Approach S2 GPS Golf Watch with Worldwide Courses (Black),245.98,9.84,Amazon.com,Amazon,9/12/2014,B00B555ASQ
+543839dd66592,Fallout 3: Game of The Year Edition (Xbox 360),14.99,1.05,Amazon.com,Amazon,9/13/2014,B001REZLY8
+54383a141e5f2,Fallout: New Vegas Ultimate Edition - Xbox 360,19.96,1.4,Amazon.com,Amazon,9/14/2014,B0065NP6NC
+543c2f2915be9,Fallout: New Vegas Ultimate Edition - Xbox 360,19.96,1.4,Amazon.com,Amazon,9/15/2014,B0065NP6NC
+543c34fd0ca89,Fallout 3: Game of The Year Edition (Xbox 360),14.99,1.05,Amazon.com,Amazon,9/16/2014,B001REZLY8
+543c3564bad55,Garmin Approach S2 GPS Golf Watch with Worldwide Courses (Black),245.98,9.84,Amazon.com,Amazon,9/17/2014,B00B555ASQ
+543839dd66592,Logitech LS11 Multimedia Speaker System (Black and Silver) (980-000048),199.9,8,Third Party,Amazon,9/18/2014,B0015BYQJE
+54383a141e5f2,"Anker® 2.4G Wireless Vertical Ergonomic Optical Mouse, 800 / 1200 /1600DPI, 5 Buttons - Black",23.99,0.96,Third Party,Amazon,9/19/2014,B00BIFNTMC
+54380b0a55d94,NORDSTROM,80,12.8,NORDSTROM.com,flex_offers,9/20/2014,434969254
+543c34fd0ca89,LEGO,80,12.8,LEGO,flex_offers,9/21/2014,434969254
+54383967ac0b7,Order No:154469-627919051-S,120,7.2,Hanky Panky,pepper_jam,9/22/2014,27144958
+5438399f6e363,Order No:5063579294,,2.92,Walgreens,commission_junction,9/23/2014,404451132
+5438399f6e363,"20"" Extendable Metal Back Scratcher Portable Travel Size",11.9,0.84,Third Party,Amazon,9/24/2014,B001JP8XQ8
+5438399f6e363,Srixon Golf- Trispeed Golf Balls (1-Dozen),29.99,2.1,Third Party,Amazon,9/25/2014,B004BA9RYA
+543817aa655a8,NORDSTROM,-69.5,-9.46,NORDSTROM.com,flex_offers,9/26/2014,435027104
+5438399f6e363,NORDSTROM,-65,-8.84,NORDSTROM.com,flex_offers,9/27/2014,435027105
+543c2f2915be9,TOYS4US,-69.5,-9.46,TOYS4US,flex_offers,9/28/2014,435027104
+543c3564bad55,WINETASTING,-65,-8.84,WINETASTING,flex_offers,9/29/2014,435027105
+5438399f6e363,Prism Backdrops 10X20' White Muslin Photo Video Backdrop Background,41.69,1.67,Third Party,Amazon,9/30/2014,B001C6SYR2
+5438399f6e363,6PK PWR CORD KIT LOCKING C13 TO C14 1.2M,285.56,11.44,Third Party,Amazon,10/1/2014,B00DG6VWRA
+54383a141e5f2,"Florsheim Men's Big-Tall Smooth Leather Belt 32MM, Black, 46",29.99,2.1,Amazon.com,Amazon,10/2/2014,B00BXEF8WM
+54383a141e5f2,"Kindle Fire HD 8.9"" Tablet, 16 GB B008GW0JC8",259.99,10.4,Third Party,Amazon,10/3/2014,B00BGYO34I
+54383967ac0b7,Minisuit Bluetooth Keyboard Stand Case for Google Nexus 7 (1st Gen 2012) Rubberized Back,74.85,3,Third Party,Amazon,10/4/2014,B009WSCW4S
+5438399f6e363,Intel S3500 Series 120GB SSD USB Portable Drives,5702.4,228.24,Third Party,Amazon,10/5/2014,B00CT98DBI
+543836c498f6e,True Nation Big & Tall Relaxed-Fit Jeans,59.5,4.17,Third Party,Amazon,10/6/2014,B005011B1G
+54383a141e5f2,Samsung Galaxy S IV/S4 GT-I9500 Factory Unlocked Phone - International Version (White),539.95,21.6,Third Party,Amazon,10/7/2014,B00BV1MVJ0
+54383a141e5f2,"Duracell Coppertop C Alkaline Batteries, 8 Count",14.49,1.01,Third Party,Amazon,10/8/2014,B000FD6RTA
+543836c498f6e,"Samsung CLT-P409A Value Pack - Cyan, Magenta, Yellow 1 Each for CLP-315, CLP-315W, CLX-3175FN, CLX-3175FW",112.61,4.5,Amazon.com,Amazon,10/9/2014,B001ULD870
+5438399f6e363,"Graco Pack N Play Sheet, Tarragon",17.98,1.26,Amazon.com,Amazon,10/10/2014,B005KBYD0C
+5438399f6e363,Tweezerman No-Slip Skin Care Tool,11,0.77,Third Party,Amazon,10/11/2014,B000WHYATS
+54383a141e5f2,Tweezerman LTD Mini Slant Tweezer (Colors May Vary),23.02,1.62,Amazon.com,Amazon,8/5/2014,B00AAJOZN4
+5438399f6e363,Conair BE4NW Classique Double-Sided Lighted Makeup Mirror with 5x Magnification,22.98,1.61,Amazon.com,Amazon,8/6/2014,B00005A443
+5438399f6e363,InterDesign Med+ 12,8.99,0.63,Amazon.com,Amazon,8/7/2014,B0038O2XYQ
+5438399f6e363,Madden NFL 25 - Playstation 3,39.99,2.8,Amazon.com,Amazon,8/8/2014,B00AY1CT3G
+5438399f6e363,Skylanders SWAP Force - Nintendo Wii,69.94,4.9,Third Party,Amazon,8/9/2014,B00D6NPFDK
+543839dd66592,Altec Lansing BXR1220 2-Piece Desktop Speaker System,89.94,3.6,Third Party,Amazon,8/10/2014,B0025VKUPW
+543c2a19ea971,Skylanders SWAP Force - Nintendo Wii,69.94,4.9,Third Party,Amazon,8/11/2014,B00D6NPFDK
+543c36116b3c1,Madden NFL 25 - Playstation 3,39.99,2.8,Amazon.com,Amazon,8/12/2014,B00AY1CT3G
+54383967ac0b7,"Dream On Me 3"" Playard Mattress, White",30,2.1,Amazon.com,Amazon,8/13/2014,B004JU0H6O
+54383967ac0b7,Star Wars: Frames,94.88,6.64,Amazon.com,Amazon,8/14/2014,1419704702
+5438399f6e363,Casey Kasem Presents: America's Top 10 Through the Years - The 1960s,13.87,0.97,Amazon.com,Amazon,8/15/2014,B00005B52P
+5438399f6e363,Casey Kasem Presents: America's Top 10 Through the Years - The 1950s,15.96,1.12,Amazon.com,Amazon,8/16/2014,B00005B52O
+543c2dfa3f50c,Casey Kasem Presents: America's Top 10 Through the Years - The 1960s,13.87,0.97,Amazon.com,Amazon,8/17/2014,B00005B52P
+543c347c6ee0d,Casey Kasem Presents: America's Top 10 Through the Years - The 1950s,15.96,1.12,Amazon.com,Amazon,8/18/2014,B00005B52O
+5438399f6e363,"Skylanders SWAP Force Triple Character Pack: Lava Barf Eruptor, Slobber Tooth, Super Gulp Pop Fizz",33.71,2.36,Third Party,Amazon,8/19/2014,B00F2WNMGU
+54383a141e5f2,Headset Headphones + Noise-canceling Microphone + Quick Disconnect + Voice Tube for Cisco Ip Telephone 7931 7940 7960 7970 7962 7975 7961 7971 7960 M1,149.75,6,Third Party,Amazon,8/20/2014,B00CXB5B1M
+543c3564bad55,"Skylanders SWAP Force Triple Character Pack: Lava Barf Eruptor, Slobber Tooth, Super Gulp Pop Fizz",33.71,2.36,Third Party,Amazon,8/21/2014,B00F2WNMGU
+543c3564bad55,Headset Headphones + Noise-canceling Microphone + Quick Disconnect + Voice Tube for Cisco Ip Telephone 7931 7940 7960 7970 7962 7975 7961 7971 7960 M1,149.75,6,Third Party,Amazon,8/22/2014,B00CXB5B1M
+5438399f6e363,"Graco Pack 'N Play Playard with Reversible Napper and Changer, Roman",94.84,6.64,Amazon.com,Amazon,8/23/2014,B005UV0UCM
+5438399f6e363,"Mount-It! Adjustable Tilting Single Desk Mount Bracket for LCD LED (Max 33lbs, 13-23 Inches) - Black",35.99,1.44,Third Party,Amazon,8/24/2014,B005C29QN8
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 32 GB)",2174.95,87,Third Party,Amazon,8/25/2014,B00ACVI202
+543836c498f6e,"Black 3 1/2"" X 2 1/4"" Vertical Open-face Rigid Plastic ID Card Holder (P/N 1840-8161)",23.4,0.9,Third Party,Amazon,8/26/2014,B008VSM3YO
+543c36116b3c1,"Black 3 1/2"" X 2 1/4"" Vertical Open-face Rigid Plastic ID Card Holder (P/N 1840-8161)",23.4,0.9,Third Party,Amazon,8/27/2014,B008VSM3YO
+5438399f6e363,"60"" Portable Mini Hd LED Projector Cinema Theater, Support PC Laptop VGA Input and SD + USB + AV Input",62.6,2.5,Third Party,Amazon,8/28/2014,B00A8ER7NG
+54383a141e5f2,"World Wall Map Deluxe Laminated 50"" x 32"" (M Series Map of the World) Map Edition by Mcnally, Rand [2010]",50.85,3.57,Third Party,Amazon,8/29/2014,B00BXU7504
+5438399f6e363,SquareTrade 2-year Office Protection Plan ($300-$350),30.91,1.24,Third Party,Amazon,8/30/2014,B008I63BN6
+543c36116b3c1,SquareTrade 2-year Office Protection Plan ($300-$350),30.91,1.24,Third Party,Amazon,8/31/2014,B008I63BN6
+5438399f6e363,Lithium Button Cell Battery CR2450 5-Pack,31.92,2.24,Third Party,Amazon,9/1/2014,B000V04MCQ
+54383a141e5f2,Garmin Approach S2 GPS Golf Watch with Worldwide Courses (Black),-245.98,-9.84,Amazon.com,Amazon,9/2/2014,B00B555ASQ
+543c36116b3c1,Garmin Approach S2 GPS Golf Watch with Worldwide Courses (Black),-245.98,-9.84,Amazon.com,Amazon,9/3/2014,B00B555ASQ
+543838ec6ebb0,Order No:REG123456,0,0.25,BeyondtheRack.com,link_share,9/4/2014,536279fa56094
+54383967ac0b7,Order No:684770_1,84.95,1.7,NORDSTROM.com,link_share,9/5/2014,2.01E+23
+5438399f6e363,Stanley 33-425 Powerlock 25-Foot by 1-Inch Measuring Tape - Original,8.99,0.63,Amazon.com,Amazon,9/6/2014,B00002X2GQ
+543817aa655a8,Worldwide Scanner AC Adapter For Fujitsu Pa03420-k808 Power Supply Cord Charger,33.99,1.36,Third Party,Amazon,9/7/2014,B00AI184VS
+543839dd66592,Jawbone BIG JAMBOX Carrying Case - Retail Packaging (Black),290.08,11.6,Third Party,Amazon,9/8/2014,B0091DQ8CG
+54380b0a55d94,(5 PACK) USB Sync/Charging Cable (3 ft) for Apple iPhones & iPods,6.76,0.28,Third Party,Amazon,9/9/2014,B009CJYUFG
+54380b0a55d94,Xbox One Console,469.99,18.8,Third Party,Amazon,9/10/2014,B00CMQTVUA
+543817aa655a8,"5x 10ft White Lighting Iphone 5 Extra Long Lightning USB Sync Cable Cord Charger for Apple Iphone 5, Ipod Nano 7, Ipod Touch 5, Ipad 4, Ipad with Reti",7.2,0.29,Third Party,Amazon,9/11/2014,B00CXADNEK
+543817aa655a8,Xbox One Console,499,19.96,Amazon.com,Amazon,9/12/2014,B00CMQTVUA
+54383a141e5f2,"Google Nexus 10 (Wi-Fi only, 32 GB)",2124.95,85,Third Party,Amazon,9/13/2014,B00ACVI202
+543c347c6ee0d,Xbox One Console,469.99,18.8,Third Party,Amazon,9/14/2014,B00CMQTVUA
+5438399f6e363,JETech® Gold Slim-Fit Folio Smart Case Cover with Back Case for Apple the New iPad 4 & 3 (3rd and 4th Generation with Retina Display) / iPad 2 (Black,19.98,0.8,Third Party,Amazon,9/15/2014,B00CZ6D248
+543817aa655a8,"Google Nexus 10 (Wi-Fi only, 16 GB)",365.5,14.62,Third Party,Amazon,9/16/2014,B00ACVHKSC
+54383a141e5f2,Breville BKE820XL Variable-Temperature 1.8-Liter Kettle,129.95,9.1,Amazon.com,Amazon,9/17/2014,B001DYERBK
+54383967ac0b7,"Business Model Generation: A Handbook for Visionaries, Game Changers, and Challengers",13.95,0.98,Third Party,Amazon,9/18/2014,470876417
+54383967ac0b7,"BATTERY, ENERGIZER MAX, AA 16 PK.-E91BP16F4ENE",29.86,1.2,Third Party,Amazon,9/19/2014,B0057A02C4
+5438399f6e363,"Duracell® Ultra High Power Lithium Battery, 245, 6V",29.9,1.2,Third Party,Amazon,9/20/2014,B002XJX9DQ
+5438399f6e363,"Energizer Max D Batteries, 4-Count",20.98,1.46,Third Party,Amazon,9/21/2014,B0044DA3O2
+5438399f6e363,"12 Pk, AAA Energizer Max Battery",25.8,1.8,Third Party,Amazon,9/22/2014,B00008XPN0
+5438399f6e363,Sloan Valve EBV-1020-A Inside Parts Assembly Closet,68.78,4.82,Third Party,Amazon,9/23/2014,B000NIGETA
+543839dd66592,Management Reset: Organizing for Sustainable Effectiveness,8.73,0.61,Third Party,Amazon,9/24/2014,470637986
+543839dd66592,Six Energizer AAAA Alkaline Batteries for Streamlight Stylus Lights,5.85,0.41,Third Party,Amazon,9/25/2014,B001GB3ZPE
+543c2dfa3f50c,"BATTERY, ENERGIZER MAX, AA 16 PK.-E91BP16F4ENE",29.86,1.2,Third Party,Amazon,9/26/2014,B0057A02C4
+5438399f6e363,Brady B33-17-424 General Purpose Paper,20.48,1.64,Amazon.com,Amazon,9/27/2014,B009NJYLUO
+54383a141e5f2,"Brady B30-R4300 200' Length x 4.33"" Width, Black BBP31 Heavy-Duty Ribbon",166.29,13.29,Amazon.com,Amazon,9/28/2014,B0058VA72W
+5438399f6e363,Foscam FI9826W Megapixel HD 1280 x 960p H.264 Wireless/Wired Pan/Tilt IP Camera with 3x Optical Zoom - 26ft Night Vision and 2.8mm Lens - Black,249.99,10,Third Party,Amazon,9/29/2014,B00HJYQE8C
+5438399f6e363,"Velcro Reusable Self-Gripping Cable Ties, 0.5 Inches x 8 Inches Long, Black, 100 Ties per Pack (91140)",872.5,35,Amazon.com,Amazon,9/30/2014,B001E1Y5O6
+543c2a19ea971,"Velcro Reusable Self-Gripping Cable Ties, 0.5 Inches x 8 Inches Long, Black, 100 Ties per Pack (91140)",872.5,35,Amazon.com,Amazon,10/1/2014,B001E1Y5O6
+5438399f6e363,Sony 32GB SDHC Class 10 UHS-1 R40 Memory Card (SF32UY/TQMN),18.99,0.76,Amazon.com,Amazon,10/2/2014,B00B7ID99I
+5438399f6e363,"Old Friend Women's 441169 Scuff Sheepskin Slipper,Dark Brown,X-Large (9.5-10.5 M)",46.91,3.28,Third Party,Amazon,10/3/2014,B002ACPLGO
+54380b0a55d94,"Florsheim Men's Big-Tall Smooth Leather Belt 32MM, Black, 48",29.99,2.1,Amazon.com,Amazon,10/4/2014,B00BXEF8WC
+54380b0a55d94,StarTech.com MDP2HDS Mini DisplayPort Male to HDMI Female Active Adapter Audio Converter 1920x1200,28.21,1.13,Amazon.com,Amazon,10/5/2014,B009YCE11E
+5438399f6e363,AmazonBasics USB A to Lightning Compatible Cable - Apple Certified - Black (6 Feet/1.8 Meter),74.95,3,Amazon.com,Amazon,10/6/2014,B00B3OA7R8
+54383a141e5f2,Surface Mini DisplayPort HD AV (HDMI) Adapter for Surface Pro 64GB/128GB,43.49,1.74,Third Party,Amazon,10/7/2014,B00CF3HJS6
+5438399f6e363,Seagate Barracuda 7200 1.5 TB 7200RPM SATA 3Gb/s 32MB Cache 3.5 Inch Internal Hard Drive ST31500341AS-Bare Drive,98.5,3.94,Third Party,Amazon,10/8/2014,B00066IJPQ
+543817aa655a8,"New-CARL 62100 - 100-Sheet Heavy-Duty XHC-2100 Two-Hole Punch, 9/32 Diameter Hole, Blue/Gray - CUI62100",277.95,11.13,Third Party,Amazon,10/9/2014,B004QDJSEG
+543836c498f6e,Twelve South PlugBug World - All-in-one MacBook global adapter with 2.1 amp iPhone/iPad charger,37.6,1.5,Amazon.com,Amazon,10/10/2014,B009ZT2CE4
+5438399f6e363,Brady B33-17-424 General Purpose Paper,61.44,4.92,Amazon.com,Amazon,10/11/2014,B009NJYLUO
+5438399f6e363,"Brady B30-R4300 200' Length x 4.33"" Width, Black BBP31 Heavy-Duty Ribbon",113.4,9.08,Amazon.com,Amazon,8/5/2014,B0058VA72W
+543839dd66592,I-Rocks Black USB RF Wireless Mini Keyboard (RF-6490-BK),25.3,1.01,Amazon.com,Amazon,8/6/2014,B007B5OXB4
+543839dd66592,Brady B33-17-424 General Purpose Paper,20.48,1.64,Amazon.com,Amazon,8/7/2014,B009NJYLUO
+5438399f6e363,Yamaha Projectphone PJP-20UR Conference Microphone Speakerphone,1745,69.8,Third Party,Amazon,8/8/2014,B0046CNZ6O
+5438399f6e363,Samsung 4GB DDR3 PC3-12800 1600MHz 204-Pin SODIMM Laptop Memory Module RAM. Model M471B5273DH0-CK0,38,1.52,Third Party,Amazon,8/9/2014,B009AEYBYI
+54383a141e5f2,"MoKo Apple iPad Air Case - Portfolio Wireless Bluetooth Keyboard Case for iPad Air (5th Gen) Tablet, BLACK (With Smart Cover Auto Wake / Sleep)",29.99,1.2,Third Party,Amazon,8/10/2014,B00FIZXZOA
+54383a141e5f2,Linksys E3200 High-Performance Simultaneous Dual-Band Wireless-N Router,399.96,16,Third Party,Amazon,8/11/2014,B004T9RR7C
+5438399f6e363,RENTAL,76,0.76,"Dollar Rent-a-Car, Inc.",link_share,8/12/2014,L0484119
+543817aa655a8,Order No:330093_3,39.5,1.98,NORDSTROM.com,link_share,8/13/2014,2.01E+23
+543836c498f6e,Order No:330097_1,79,3.95,NORDSTROM.com,link_share,8/14/2014,2.01E+23
+543838ec6ebb0,Order No:539811,39.5,1.98,NORDSTROM.com,link_share,8/15/2014,2.01E+23
+54383967ac0b7,Order No:590891,35,5.25,NORDSTROM.com,link_share,8/16/2014,2.01E+23
+5438399f6e363,Order No:391317_2,39.5,1.98,NORDSTROM.com,link_share,8/17/2014,2.01E+23
+54383a141e5f2,Order No:978264,35,5.25,NORDSTROM.com,link_share,8/18/2014,2.01E+23
+5438399f6e363,Maxell Micro Cassettes (Pack of 3),35.96,1.44,Third Party,Amazon,8/19/2014,B00007J6J8
+543839dd66592,Zebra 800017-248 iSeries YMCKOK Color Ribbon - Replacing 800015-948,103.66,4.14,Third Party,Amazon,8/20/2014,B00BNIA77Y
+54383a141e5f2,Xbox 360 4GB,182,1.82,Third Party,Amazon,8/21/2014,B00D9EPI38
+543c2dfa3f50c,Xbox 360 4GB,182,1.82,Third Party,Amazon,8/22/2014,B00D9EPI38
+543836c498f6e,"Fitbit Flex Wireless Activity + Sleep Wristband, Black",489.7,31.85,Third Party,Amazon,8/23/2014,B00BGO0Q9O
+5438399f6e363,"Fitbit Flex Wireless Activity + Sleep Wristband, Black",491.85,31.95,Amazon.com,Amazon,8/24/2014,B00BGO0Q9O
+543838ec6ebb0,Summer Infant Contoured Changing Pad Amazon Frustration Free Packaging,20.37,1.32,Amazon.com,Amazon,8/25/2014,B009EDSWJA
+54383967ac0b7,"American Baby Company 100% Cotton Value Jersey Knit Fitted Portable/Mini Sheet, Celery",13.98,0.9,Amazon.com,Amazon,8/26/2014,B000O7SR18
+54383967ac0b7,Floto Monticello Rolling Brief - Italian Leather Roller Bag,629,40.89,Third Party,Amazon,8/27/2014,B00B1UNZSM
+543839dd66592,"Carters Quilted Woven Playard Fitted Sheet, Monkey",12.74,0.83,Amazon.com,Amazon,8/28/2014,B002UD65R2
+54383a141e5f2,"Carters Super Soft Dot Changing Pad Cover, Chocolate",13.49,0.88,Amazon.com,Amazon,8/29/2014,B002UD65X6
+5438399f6e363,Male DVI-D to Female VGA Adapter (DVI 24+1 Pin),11.3,0.45,Third Party,Amazon,8/30/2014,B007EA48MA
+54383a141e5f2,I-Rocks Black USB RF Wireless Mini Keyboard (RF-6490-BK),25.3,1.01,Amazon.com,Amazon,8/31/2014,B007B5OXB4
+54380b0a55d94,"MoKo Apple iPad Air Case - Portfolio Wireless Bluetooth Keyboard Case for iPad Air (5th Gen) Tablet, BLACK (With Smart Cover Auto Wake / Sleep)",59.98,2.4,Third Party,Amazon,9/1/2014,B00FIZXZOA
+5438399f6e363,Information Security Policies Made Easy Version 12,755.25,49.09,Amazon.com,Amazon,9/2/2014,1881585174
+543817aa655a8,PANDUIT - LJSL2-Y3-5 - SELF LAMINATING CABLE ID MARKERS,405.65,32.45,Third Party,Amazon,9/3/2014,B005T88IMU
+543839dd66592,"Avery Easy Peel White Mailing Labels for Laser Printers, 1 x 2.62 Inch, Box of 3000 Labels (5160)",46.58,1.86,Amazon.com,Amazon,9/4/2014,B00006B8FZ
+543c2f2915be9,"Avery Easy Peel White Mailing Labels for Laser Printers, 1 x 2.62 Inch, Box of 3000 Labels (5160)",46.58,1.86,Amazon.com,Amazon,9/5/2014,B00006B8FZ
+543836c498f6e,360 Degree Rotating PU Leather Case Cover With Swivel Stand for ipad air ipad 5 (Polka Dot Black),9.45,0.38,Third Party,Amazon,9/6/2014,B00H6I8EB6
+54380b0a55d94,"JVC LT-32DE73 32"" 720p LED HDTV and DVD Player Combo TV",329,13.16,Third Party,Amazon,9/7/2014,B00CMDVQBK
+543836c498f6e,Plugable USB to RS-232 DB9 Serial Adapter (Prolific PL2303HX Rev D Chipset),29.9,1.2,Third Party,Amazon,9/8/2014,B00425S1H8
+5438399f6e363,"VideoSecu LED LCD TV Wall Mount for 23 to 55 inch Televisions up to 88 lb VESA 400x400 mm with Full Motion Swivel Articulating Arm, 20 in Extension an",28,1.12,Third Party,Amazon,9/9/2014,B000WYVBR0
+543817aa655a8,Sansui SLEDVD329 32-Inch 720p 60Hz LCD HD TV,334.65,13.39,Third Party,Amazon,9/10/2014,B00BFRWZA0
+5438399f6e363,"USB Cable / Cord Mini B 8 pin For Digitial camera, MP3 players, PDA's and MORE! Olympus, Pansonic, Vivitar, Nikon (UC-E6 size), Konica, Fuji, Pentax (",2.53,0.1,Third Party,Amazon,9/11/2014,B0031HG5XU
+5438399f6e363,"JVC LT-32DE73 32"" 720p LED HDTV and DVD Player Combo TV",824.97,33,Third Party,Amazon,9/12/2014,B00CMDVQBK
+543817aa655a8,Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation,7.98,0.52,Third Party,Amazon,9/13/2014,61766089
+543836c498f6e,The Thin Book of SOAR; Building Strengths-Based Strategy,8.65,0.56,Third Party,Amazon,9/14/2014,982206801
+54380b0a55d94,Nine West &quot;Neo Geo&quot; Medium Satchel,21,0.84,Macys.com,flex_offers,9/15/2014,435871231
+5438399f6e363,Nine West &quot;Neo Geo&quot; Medium Satchel,24,0.96,Macys.com,flex_offers,9/16/2014,435871228
+5438399f6e363,Nine West &quot;Neo Geo&quot; Medium Satchel,75,3,Macys.com,flex_offers,9/17/2014,435871229
+54383a141e5f2,Nine West &quot;Neo Geo&quot; Medium Satchel,36,1.44,Macys.com,flex_offers,9/18/2014,435871230
+54380b0a55d94,Pink Ballet Basic Tutu for Girls Dance Dress up Photos Princess Party,6.3,0.44,Third Party,Amazon,9/19/2014,B008X6CBS2
+543817aa655a8,"LeapFrog Digital Download Card (works with all LeapPad Tablets, LeapsterGS and LeapReader)",29.98,2.1,Amazon.com,Amazon,9/20/2014,B004Z7H2EQ
+5438399f6e363,Lite On Plextor M5M 0.85-Inch 256GB mSATA Solid State Drive (M5M 256GB),199.99,8,Amazon.com,Amazon,9/21/2014,B00B5BRIF8
+5438399f6e363,Stand Up Desk | Exercise at Work | Standing Desk | Standup Desk - FREE SHIPPING,129.95,5.2,Third Party,Amazon,9/22/2014,B008MPUU78
+54380b0a55d94,Lenovo IdeaPad Flex 15 15.6-Inch Touchscreen Laptop (59406981) Black,2239.96,89.6,Amazon.com,Amazon,9/23/2014,B00HIY9I4K
+543817aa655a8,8U 18-inch Wall/Desk/Ceiling Rack,90.18,3.61,Third Party,Amazon,9/24/2014,B002E1PXPK
+5438399f6e363,Kendall Howard Vented Componenet Shelf,132.9,5.31,Third Party,Amazon,9/25/2014,B001N81X90
+543836c498f6e,Order No:702760,22.49,0.67,macys.com,link_share,9/26/2014,R1033416219
+543839dd66592,Order No:258450,31.49,0.94,macys.com,link_share,9/27/2014,R1033416219
+543817aa655a8,NETGEAR Powerline 500 Mbps 4-port Network Adapter Kit (XAVB5004),448.8,17.94,Third Party,Amazon,9/28/2014,B004PA9PBQ
+54380b0a55d94,Crucial 16GB Kit (8GBx2) DDR3 1600 MHz (PC3-12800) CL11 SODIMM 204-Pin 1.35V/1.5V Notebook Memory for Mac CT2C8G3S160BM,4899.65,196,Amazon.com,Amazon,9/29/2014,B008LTBJFW
+54383a141e5f2,Cable Matters Gold Plated DisplayPort to HDMI Male to Female Cable Adapter,383.68,15.36,Third Party,Amazon,9/30/2014,B005H3I38Q
+5438399f6e363,"HP 6 Cell Original Battery for Business NoteBook 6530b, 6535b, 6730b, 6735b, 6930p and EliteBook 6930p, 8440p, 8440w and ProBook 6440b, 6445b, 6530b, ",45,1.8,Third Party,Amazon,10/1/2014,B0071CS7FA
+54383a141e5f2,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",148.86,11.91,GoDaddy.com,flex_offers,10/2/2014,435984310
+54380b0a55d94,Rosetta Stone Japanese Level 1-3 Set,279,19.53,Amazon.com,Amazon,10/3/2014,1617160482
+5438399f6e363,ARIIC® New Wireless 2.4G Ergonomic Vertical Optical Mouse Wrist Pain Comfort FUSHIA,25.99,1.04,Third Party,Amazon,10/4/2014,B00EOFQGGE
+543817aa655a8,Lenovo IdeaPad Flex 15 15.6-Inch Touchscreen Laptop (59406981) Black,-2239.96,-89.6,Amazon.com,Amazon,10/5/2014,B00HIY9I4K
+543839dd66592,Cable Matters Gold Plated Mini DisplayPort (Thunderbolt&trade; Port Compatible) to DVI Cable in Black 3 Feet,32.97,1.32,Third Party,Amazon,10/6/2014,B00ESM3FP8
+54380b0a55d94,Monster Cable Ultimate High Speed Hdmi 1000 HDX - THX Certified In-Wall Rated (35 feet),179.98,7.2,Third Party,Amazon,10/7/2014,B003TVU00C
+5438399f6e363,Canon Toner- Canon 128 Black Remanufactured Toner Cartridge (CE278A),208.5,8.3,Third Party,Amazon,10/8/2014,B005QWJ8A0
+54383a141e5f2,"Google Nexus 10 (Wi-Fi only, 16 GB)",669.08,26.76,Third Party,Amazon,10/9/2014,B00ACVHKSC
+54383a141e5f2,"VideoSecu LED LCD TV Wall Mount for most 22""-47"" LCD, LED & Plasma Televisions and some models up to 55"" inches - up to 88 lb VESA 400x400 mm with Ful",112,4.48,Third Party,Amazon,10/10/2014,B000WYVBR0
+543c34fd0ca89,Canon Toner- Canon 128 Black Remanufactured Toner Cartridge (CE278A),208.5,8.3,Third Party,Amazon,10/11/2014,B005QWJ8A0
+54383a141e5f2,"JVC LT-32DE73 32"" 720p LED HDTV and DVD Player Combo TV",1198.76,47.96,Third Party,Amazon,8/5/2014,B00CMDVQBK
+543836c498f6e,"Bosch 24OE ICON Wiper Blade, 24"" (Pack of 1)",21.09,1.48,Amazon.com,Amazon,8/6/2014,B000BYELQY
+543836c498f6e,AmScope MU1403-CK 14MP Live Video USB3.0 Microscope Digital Camera 14 MP + Calibration Kit,612.56,49,Amazon.com,Amazon,8/7/2014,B00DUJY04A
+543839dd66592,"Bosch 26OE ICON Wiper Blade, 26"" (Pack of 1)",22.84,1.6,Amazon.com,Amazon,8/8/2014,B005JU60ZK
+5438399f6e363,AT-SPLX10 (Allied Telesis 100% Compatible),25,1,Third Party,Amazon,8/9/2014,B00A9ZR8EM
+543817aa655a8,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",9.99,0.8,GoDaddy.com,flex_offers,8/10/2014,436132331
+54383967ac0b7,GoPro Dual Battery Charger,412.9,16.5,Third Party,Amazon,8/11/2014,B00GO4GKXM
+5438399f6e363,Ecosmart 14-Watt Daylight Compact Flourescent (CFL) Light Bulbs 4-Pack (equivalent to standard 60 watt bulbs),43.84,2.84,Third Party,Amazon,8/12/2014,B0042UN1U0
+54383a141e5f2,"EcoSmart 9 Watt Soft White Compact Fluorescent (CFL) Light Bulbs 4-Pack, 40 Watt Equivalent, 550 Lumens",35.2,2.28,Third Party,Amazon,8/13/2014,B003LEA188
+5438399f6e363,I-Rocks Black USB RF Wireless Mini Keyboard (RF-6490-BK),26.08,1.04,Amazon.com,Amazon,8/14/2014,B007B5OXB4
+543839dd66592,Order No:REG123456,0,0.25,BeyondtheRack.com,link_share,8/15/2014,538f5508ef2b3
+5438399f6e363,Data Cable Shielding Partitionpass-through 750MM Wide,95.49,3.82,Third Party,Amazon,8/16/2014,B000095O74
+5438399f6e363,Shop Store.Starbucks.com!,8.96,0.5,Starbucks,flex_offers,8/17/2014,436278064
+543839dd66592,Shop Store.Starbucks.com!,9.71,0.54,Starbucks,flex_offers,8/18/2014,436278065
+5438399f6e363,AmScope MU1403-CK 14MP Live Video USB3.0 Microscope Digital Camera 14 MP + Calibration Kit,-612.56,-49,Amazon.com,Amazon,8/19/2014,B00DUJY04A
+543839dd66592,NeatDesk Desktop Scanner and Digital Filing System - PC,356.55,14.26,Amazon.com,Amazon,8/20/2014,B001CQ8ER2
+5438399f6e363,"DYMO 18483 - Rhino Permanent Poly Industrial Label Tape Cassette, 1/2in x 18ft, White-DYM18483",36.98,1.48,Third Party,Amazon,8/21/2014,B0057C9UXY
+543c347c6ee0d,"DYMO 18483 - Rhino Permanent Poly Industrial Label Tape Cassette, 1/2in x 18ft, White-DYM18483",36.98,1.48,Third Party,Amazon,8/22/2014,B0057C9UXY
+54383a141e5f2,Philips Norelco 1200 Series SensoTouch Folding Charging Stand,22.99,1.49,Third Party,Amazon,8/23/2014,B00E9EHFR4
+5438399f6e363,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",12.99,4.16,GoDaddy.com,flex_offers,8/24/2014,436362054
+5438399f6e363,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",58.13,4.65,GoDaddy.com,flex_offers,8/25/2014,436363312
+543817aa655a8,Fintie SmartShell Case for Apple iPad Air (iPad 5 5th Generation) Ultra Slim Lightweight with Smart Cover Auto Wake / Sleep - Black,29.97,1.2,Third Party,Amazon,8/26/2014,B00G3TUL4C
+543836c498f6e,Google Chromecast HDMI Streaming Media Player,70,2.8,Amazon.com,Amazon,8/27/2014,B00DR0PDNE
+54383a141e5f2,"Symbol 82-67705-01, BTRY-LS42RAAOE-01 800mAh Battery",61.96,2.48,Third Party,Amazon,8/28/2014,B00593KE9A
+54383a141e5f2,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",20.98,6.71,GoDaddy.com,flex_offers,8/29/2014,436370815
+543817aa655a8,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",158.87,12.71,GoDaddy.com,flex_offers,8/30/2014,436370860
+5438399f6e363,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",16.38,1.31,GoDaddy.com,flex_offers,8/31/2014,436370920
+5438399f6e363,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",12.99,1.04,GoDaddy.com,flex_offers,9/1/2014,436370985
+543817aa655a8,Nine West &quot;Neo Geo&quot; Medium Satchel,99.99,4,Macys.com,flex_offers,9/2/2014,436375466
+5438399f6e363,Order No:66623,100,6,Arhaus Jewels,pepper_jam,9/3/2014,31922438
+54383967ac0b7,"Satechi 4 Port Portable USB 3.0 Hub for Ultra Book, MacBook Air, Windows 8 Tablet PC (4USB Black)",14.99,0.6,Third Party,Amazon,9/4/2014,B00BERGFV6
+5438399f6e363,Just Mobile UpStand for iPad,40.23,1.61,Amazon.com,Amazon,9/5/2014,B003ZBGKDC
+54383a141e5f2,"Black Portable Fold-Up Stand for Apple iPad, iPad 2, iPad 3, Samsung Galaxy Tab, BlackBerry PlayBook and All Other 7-10 Inchs Tablet PCs",20.52,0.84,Third Party,Amazon,9/6/2014,B007FNF5IC
+54380b0a55d94,"Google Nexus 10 (Wi-Fi only, 16 GB)",1088.97,43.56,Third Party,Amazon,9/7/2014,B00ACVHKSC
+5438399f6e363,6ft CCTV Security Camera Video BNC Male To USB RG59 Coaxial Cable For PC Laptop,36.99,1.48,Third Party,Amazon,9/8/2014,B00DOUJ4B4
+54380b0a55d94,"Boraam 33224 Cordova Swivel Stool, 24-Inch, Cherry",139.98,9.1,Amazon.com,Amazon,9/9/2014,B00A4ATCIW
+5438399f6e363,"Symbol 82-67705-01, BTRY-LS42RAAOE-01 800mAh Battery",36.68,1.48,Third Party,Amazon,9/10/2014,B00593KE9A
+543839dd66592,AOC E2251FWU 22 - Inch Widescreen USB LED Monitor - Black,99.99,4,Third Party,Amazon,9/11/2014,B0073BOCNU
+5438399f6e363,Chico's.com,41.3,0.66,Chico's,flex_offers,9/12/2014,436479388
+543c36116b3c1,Chico's,41.3,0.66,Chico's,flex_offers,9/13/2014,436479388
+543836c498f6e,"Google Nexus 10 (Wi-Fi only, 32 GB)",758,30.32,Third Party,Amazon,9/14/2014,B00ACVI202
+54380b0a55d94,Order No:16529-0066,25.95,1.82,{*}Fab,link_share,9/15/2014,FAB02997706
+543817aa655a8,Order No:18438-0010,66,4.62,{*}Fab,link_share,9/16/2014,FAB02997706
+543817aa655a8,"Perixx PERIPAD-702, Wireless Touchpad with Windows 8 Multi-touch Navigation - 5.16x5.08x0.63 Inch Dimension - Nano Receiver - On/Off Switch - 2xAAA Du",29.99,1.2,Third Party,Amazon,9/17/2014,B00BOWPXRS
+5438399f6e363,"Perixx PERIPAD-501B, Professional Wired USB Touchpad - Black - 3.39""x2.95""x0.43"" Dimension - Scroll Feature - Cirque Touchpad",27.99,1.12,Third Party,Amazon,9/18/2014,B001CX85I8
+543839dd66592,Just Mobile UpStand for iPad,-40.23,-1.61,Amazon.com,Amazon,9/19/2014,B003ZBGKDC
+543839dd66592,"HID 2000PGGMV ICLASS CARD 2K BIT/2 APP PROGRAMMED MATCH # VERT SLOT 2000 iCLASS Card (Bit/2 APP, Programmed Match# Vert Slot)",456,18.24,Third Party,Amazon,9/20/2014,B004TIMPJS
+54383a141e5f2,JBL Carry Bag For EON510 Speaker - Black (EON10-BAG-DLX),125.96,8.18,Amazon.com,Amazon,9/21/2014,B0036UVRPS
+543c34fd0ca89,JBL Carry Bag For EON510 Speaker - Black (EON10-BAG-DLX),125.96,8.18,Amazon.com,Amazon,9/22/2014,B0036UVRPS
+5438399f6e363,Just Mobile UpStand for iPad,45.95,1.84,Third Party,Amazon,9/23/2014,B003ZBGKDC
+5438399f6e363,The FTD� University of Michigan™ Wolverines™ Rose Bouquet - VASE INCLUDED,74.99,16,FTD.com,flex_offers,9/24/2014,436569976
+5438399f6e363,Cheapflights.com,0.35,0.18,Cheapflights.com,flex_offers,9/25/2014,436578047
+54383a141e5f2,Cheapflights.com,0.34,0.18,Cheapflights.com,flex_offers,9/26/2014,436578048
+54383967ac0b7,1800flowers.com,0.19,0.02,1800flowers.com,flex_offers,9/27/2014,436581992
+5438399f6e363,1800flowers.com,64.19,6.16,1800flowers.com,flex_offers,9/28/2014,436581991
+5438399f6e363,1800flowers.com,34.19,3.28,1800flowers.com,flex_offers,9/29/2014,436581993
+54380b0a55d94,"Amy's No Chicken Noodle Soup, Low Fat, 14.1 Oz",2.89,0.12,Amazon.com,Amazon,9/30/2014,B000WCZMZY
+543817aa655a8,"Vega Sports Protein Bar, Chocolate SaviSeed (Box of 12)",29.99,1.95,Third Party,Amazon,10/1/2014,B00JK2JAZA
+543817aa655a8,"Ancient Harvest Quinoa Pasta, Spaghetti, 8 Oz",8.88,0.36,Amazon.com,Amazon,10/2/2014,B000VK8510
+543836c498f6e,"Cascade Complete All-in-1 ActionPacs Dishwasher Detergent, Fresh Scent, 48 Count",10.99,0.44,Amazon.com,Amazon,10/3/2014,B00IJGCHR6
+54383967ac0b7,Lemongrass + Argan Stem Cell Conditioner - 8 oz - Liquid,10.92,0.71,Third Party,Amazon,10/4/2014,B005Z446JC
+5438399f6e363,ACURE 100% USDA Organic Moroccan Argan Oil,13.93,0.91,Third Party,Amazon,10/5/2014,B004DTQ9L8
+5438399f6e363,"Glad Cling Wrap, 200 Sq Ft",2.24,0.09,Amazon.com,Amazon,10/6/2014,B0014CZ0TE
+5438399f6e363,"Saran Premium Plastic Wrap, 100 Sq Ft",2.27,0.09,Amazon.com,Amazon,10/7/2014,B0000DIWNI
+5438399f6e363,"Amy's Curried Lentil Soup, 14.5 Oz",2.49,0.1,Amazon.com,Amazon,10/8/2014,B002LTWHKY
+5438399f6e363,"Kettle Chips, Salt & Fresh Ground Pepper, 13 Oz",3.48,0.14,Amazon.com,Amazon,10/9/2014,B004XNN4QW
+5438399f6e363,"Alcon Opti-Free Replenish Disinfecting Solution, 10 Fl Oz",8.98,0.36,Amazon.com,Amazon,10/10/2014,B000PKJB4G
+543839dd66592,Lemongrass + Argan Stem Cell Shampoo - 8 oz - Liquid,11.19,0.73,Third Party,Amazon,10/11/2014,B005Z41P28
+543839dd66592,"Tidy Cats Scoop Instant Action, 14 Pounds",6.24,0.25,Amazon.com,Amazon,8/5/2014,B00HATC01G
+543839dd66592,"Gillette Fusion Men's Manual Razor Refills, 4 Count",13.99,0.56,Amazon.com,Amazon,8/6/2014,B000Q6T7HA
+54383a141e5f2,"Kettle Chips, Sea Salt, 8.5 Oz",2.53,0.1,Amazon.com,Amazon,8/7/2014,B004XNN2VE
+54383a141e5f2,"Seventh Generation White 140 Sheet Paper Towels, 6 Count",7.05,0.28,Amazon.com,Amazon,8/8/2014,B00IB0DAIU
+54383a141e5f2,Toms Wedge Black Canvas (10 womens),68.98,4.48,Third Party,Amazon,8/9/2014,B005DMAQ4A
+54380b0a55d94,Men's Vagabond,70,4.48,Sanuk Footwear,flex_offers,8/10/2014,436594490
+54383a141e5f2,Top International Deals,109,6.02,Hotels.com,flex_offers,8/11/2014,436594798
+54383a141e5f2,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",12.99,4.16,GoDaddy.com,flex_offers,8/12/2014,436613530
+54380b0a55d94,Free Shipping,-48.2,-1.54,Kohls Department Stores Inc,flex_offers,8/13/2014,436617904
+5438399f6e363,Free Shipping,107.99,3.46,Kohls Department Stores Inc,flex_offers,8/14/2014,436617902
+54383a141e5f2,Free Shipping,132.99,4.26,Kohls Department Stores Inc,flex_offers,8/15/2014,436617903
+5438399f6e363,Dell 4GB DRAM Memory Module. 4GB NON-ECC DDR3 1600MHZ 204PIN RAM. 4 GB - DRAM - 1600 MHz,38.88,1.56,Third Party,Amazon,8/16/2014,B00B2AN57C
+5438399f6e363,HighPoint RocketU 4-Port USB 3.0 PCI-Express 2.0 x4 HBA Controller RocketU 1144C,109,4.36,Amazon.com,Amazon,8/17/2014,B00DW5QGLM
+54383a141e5f2,VisionTek Radeon 7750 1 GB DDR5 PCI Express Graphics Cards (900503),267.14,10.68,Third Party,Amazon,8/18/2014,B007ADEPX8
+5438399f6e363,Canon PowerShot SX280 HS 12.1 MP CMOS Digital Camera with 20x Image Stabilized Zoom 25mm Wide-Angle Lens and 1080p Full-HD Video (Black) Super Bundle-,249,9.96,Third Party,Amazon,8/19/2014,B007HNCYRK
+543838ec6ebb0,"Anker® 2.4G Wireless Vertical Ergonomic Optical Mouse, 800 / 1200 /1600DPI, 5 Buttons - Black",23.99,0.96,Third Party,Amazon,8/20/2014,B00BIFNTMC
+54383a141e5f2,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",33.36,2.67,GoDaddy.com,flex_offers,8/21/2014,436661595
+5438399f6e363,Nikon D7000 Digital SLR (Body Only) (OLD MODEL),772.49,30.9,Third Party,Amazon,8/22/2014,B0042X9LC4
+54383a141e5f2,Chico's.com,185.25,2.97,Chico's,flex_offers,8/23/2014,436670939
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 32 GB)",818,32.72,Third Party,Amazon,8/24/2014,B00ACVI202
+5438399f6e363,Leave your heart in San Francisco! Fall in love with luxury at The St. Regis San Francisco from Travelocity.,638.35,10.22,Travelocity,flex_offers,8/25/2014,436681405
+5438399f6e363,Leave your heart in San Francisco! Fall in love with luxury at The St. Regis San Francisco from Travelocity.,371.16,2.4,Travelocity,flex_offers,8/26/2014,436681406
+5438399f6e363,The FTD� University of Michigan™ Wolverines™ Rose Bouquet - VASE INCLUDED,69.99,16,FTD.com,flex_offers,8/27/2014,436693710
+543839dd66592,Order No:20140525112780,0.35,0.14,Booking Buddy,pepper_jam,8/28/2014,32826326
+5438399f6e363,"Reunion, The: A Novel",0.99,0.06,Third Party,Amazon,8/29/2014,B008B9HQV8
+5438399f6e363,Bonhoeffer Speaks Today,2.99,0.19,Third Party,Amazon,8/30/2014,B003WEA4BG
+5438399f6e363,Top Songs,0.77,0.04,Apple iTunes,flex_offers,8/31/2014,436805932
+54380b0a55d94,JBL Carry Bag For EON510 Speaker - Black (EON10-BAG-DLX),129.98,8.44,Third Party,Amazon,9/1/2014,B0036UVRPS
+543c2f2915be9,JBL Carry Bag For EON510 Speaker - Black (EON10-BAG-DLX),129.98,8.44,Third Party,Amazon,9/2/2014,B0036UVRPS
+5438399f6e363,IPhone 4S Replacement battery (For all models) Full original capacity of 3.7V 1420mAh Li-ion.,20,0.8,Third Party,Amazon,9/3/2014,B00DE09Z90
+5438399f6e363,"GOgroove FlexSMART X2 Wireless In-Car Bluetooth FM Transmitter with Charging , Music Control , and Hands-Free Calling for Smartphones , Tablets , MP3 ",49.99,2,Third Party,Amazon,9/4/2014,B003PPGOC0
+5438399f6e363,"Pwr+® 9.6v Battery for Dewalt Dw9061, Dw9062, De9036, De9062, Dw9614; Black & Decker Ps120 Fire Storm 2.0 Ah Replacement Power Tool Battery",25.9,1.68,Third Party,Amazon,9/5/2014,B001FTLVOO
+543c2f2915be9,"GOgroove FlexSMART X2 Wireless In-Car Bluetooth FM Transmitter with Charging , Music Control , and Hands-Free Calling for Smartphones , Tablets , MP3 ",49.99,2,Third Party,Amazon,9/6/2014,B003PPGOC0
+54380b0a55d94,"Sony Media 2.5-Inch 1 TB External Hard Disk Drive, Black (HDE1/B)",67.99,2.72,Third Party,Amazon,9/7/2014,B008KSJQW2
+54383967ac0b7,LB1 High Performance New Battery for Sony VGP-BPS20/B Battery - 10.8V 6cells Laptop Notebook Computer 18 Months Warranty,39.95,1.6,Third Party,Amazon,9/8/2014,B009K85PSK
+5438399f6e363,Nature's Miracle Deep Cleaning Carpet Shampoo 64oz (1/2 Gallon),14.07,0.91,Amazon.com,Amazon,9/9/2014,B001K5E6BI
+5438399f6e363,Nature`s Miracle Pet Stain & Odor Remover (128 oz.),45.98,2.98,Third Party,Amazon,9/10/2014,B00008437W
+54380b0a55d94,"ADATA DashDrive Series UV128 16GB USB 3.0 Flash Drive, Black/Blue (AUV128-16G-RBE)",116,4.6,Amazon.com,Amazon,9/11/2014,B00B7JLZUC
+543817aa655a8,"Perixx DX-3000MAL, Gaming Aluminium Mouse Pad - 9.84""x8.27""x0.08"" Dimension - Non-slip Rubber base - Micro Sand Blasting Aluminium Surface with Fast a",119.9,4.8,Third Party,Amazon,9/12/2014,B00FJ84WI4
+5438399f6e363,"Anker® USB 3.0 & eSATA to SATA External Hard Drive Docking Station for 2.5 or 3.5in HDD, SSD [4TB Support]",119.97,4.8,Third Party,Amazon,9/13/2014,B005UA3I72
+5438399f6e363,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",8.19,0.66,GoDaddy.com,flex_offers,9/14/2014,436847173
+5438399f6e363,Garmin Forerunner 220 - Black/Red,249.99,10,Amazon.com,Amazon,9/15/2014,B00FBYY6CI
+543c2a19ea971,Garmin Forerunner 220 - Black/Red,249.99,10,Amazon.com,Amazon,9/16/2014,B00FBYY6CI
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 16 GB)",333,13.32,Third Party,Amazon,9/17/2014,B00ACVHKSC
+543836c498f6e,AmazonBasics Wired Keyboard (Black),114.9,4.6,Amazon.com,Amazon,9/18/2014,B005EOWBHC
+54383967ac0b7,Pro Case for Pocket Projector Pro,44.99,1.8,Third Party,Amazon,9/19/2014,B00HZNL00Y
+5438399f6e363,"30"" Retractable Projection Screen",149.99,6,Third Party,Amazon,9/20/2014,B00EP5EIVI
+54383a141e5f2,Sigma 210306 18-35mm F1.8 DC HSM Lens for Nikon APS-C DSLRs (Black),799,31.96,Amazon.com,Amazon,9/21/2014,B00DBL09FG
+54383967ac0b7,Buddy DesktopMic 7G (with FilteredAudio),899.75,36,Third Party,Amazon,9/22/2014,B005XBBEWE
+543836c498f6e,Shop for Anyone with Target's Gift Finder!,59.98,2.4,Target.com,flex_offers,9/23/2014,436925239
+543836c498f6e,"Wall Charger For Nintendo DSi (Lifetime Warranty, Bulk Packaging)",0.39,0.03,Third Party,Amazon,9/24/2014,B001PIY49O
+5438399f6e363,Smart Boys: Gameroom - Nintendo DS,8.49,0.55,Third Party,Amazon,9/25/2014,B000RZ8Z8M
+543c347c6ee0d,Smart Boys: Gameroom - Nintendo DS,8.49,0.55,Third Party,Amazon,9/26/2014,B000RZ8Z8M
+54383967ac0b7,74 x 22 Chaise cushion in Sunbrella Carnival Stripe (Multiple Colors Available),439.96,28.6,Third Party,Amazon,9/27/2014,B00JF6Z5MI
+54383967ac0b7,Namco Museum - Nintendo DS,4.53,0.29,Third Party,Amazon,9/28/2014,B000BIZR72
+5438399f6e363,Up - Nintendo DS,0.99,0.06,Third Party,Amazon,9/29/2014,B001MT4EVY
+5438399f6e363,Hotel Transylvania - Nintendo DS,7.69,0.5,Third Party,Amazon,9/30/2014,B00847PAZQ
+543c2a19ea971,Namco Museum - Nintendo DS,4.53,0.29,Third Party,Amazon,10/1/2014,B000BIZR72
+543c2dfa3f50c,Hotel Transylvania - Nintendo DS,7.69,0.5,Third Party,Amazon,10/2/2014,B00847PAZQ
+5438399f6e363,"Lorell Executive High-Back Chair, Mesh Fabric, 28-1/2""x28-1/2""x45, BK",156.94,10.2,Amazon.com,Amazon,10/3/2014,B000Q5XTE8
+5438399f6e363,Champs Sports Giftcards. The gift that always fits.,24.99,1.6,Champs Sports,flex_offers,10/4/2014,436959812
+54383967ac0b7,IPhone 4S Replacement battery (For all models) NO-TOOLS Full original capacity of 3.7V 1420mAh Li-ion.,17,0.68,Third Party,Amazon,10/5/2014,B00JDA1F2U
+54383a141e5f2,Poo-Pourri 3-piece Bathroom Deodorizer Set,24.43,1.59,Third Party,Amazon,10/6/2014,B0087E4VR4
+54383a141e5f2,Fluke Networks LSPRNTR-200 LinkSprinter 200 Network Tester with WiFi,299,23.92,Amazon.com,Amazon,10/7/2014,B00I5CKF0A
+54383a141e5f2,"Poo~Pourri Before-You-Go Toilet Spray 16-Ounce Bottle, Original",23.62,1.54,Amazon.com,Amazon,10/8/2014,B0071B09Y8
+5438399f6e363,Top International Deals,636,35.11,Hotels.com,flex_offers,10/9/2014,436970460
+543817aa655a8,Psycho Bunny Classic V-Neck in White,45,2.93,Third Party,Amazon,10/10/2014,B00KRJWZRA
+54380b0a55d94,"Lucky Brand Men's 361 Vintage Straight Leg Jean In Nirvana, Nirvana, 33x32",74.25,4.83,Amazon.com,Amazon,10/11/2014,B003T977FU
+5438399f6e363,"New Domains now available from GoDaddy! Get your .GURU, .MENU, .LUXURY and more!",16.38,1.31,GoDaddy.com,flex_offers,8/5/2014,437016197
+543839dd66592,Leave your heart in San Francisco! Fall in love with luxury at The St. Regis San Francisco from Travelocity.,179.63,2.87,Travelocity,flex_offers,8/6/2014,437021628
+5438399f6e363,Google Glass Explorer Edition(XE) Version 2.0 (Charcoal),3500,140,Third Party,Amazon,8/7/2014,3283005737
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 16 GB)",331.99,13.28,Third Party,Amazon,8/8/2014,B00ACVHKSC
+543839dd66592,"Linksys WRT1900AC Dual Band Smart Wi-Fi Wireless AC Router (2.4 + 5GHz), Frustration-Free Packaging",999.96,40,Amazon.com,Amazon,8/9/2014,B00K91DB7Y
+54383a141e5f2,Chico's.com,80.28,1.29,Chico's,flex_offers,8/10/2014,437062926
+54380b0a55d94,Order No:209641_26,74.26,1.49,NORDSTROM.com,link_share,8/11/2014,2.01E+23
+5438399f6e363,Order No:113710,89.5,1.79,NORDSTROM.com,link_share,8/12/2014,2.01E+23
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 32 GB)",759.98,30.4,Third Party,Amazon,8/13/2014,B00ACVI202
+543839dd66592,Order No:113710_38,67.13,1.34,NORDSTROM.com,link_share,8/14/2014,2.01E+23
+54383a141e5f2,Order No:1548,98,1.96,NORDSTROM.com,link_share,8/15/2014,2.01E+23
+5438399f6e363,Order No:187247-222731084-S,188.01,11.28,Hanky Panky,pepper_jam,8/16/2014,34174744
+543839dd66592,Order No:8045092789563,,26.18,Hotels.com,commission_junction,8/17/2014,405745991
+5438399f6e363,Order No:8023369466199,,28.38,Hotels.com,commission_junction,8/18/2014,405745991
+5438399f6e363,Corsair Vengeance K70 Mechanical Gaming Keyboard - Black Cherry MX Red (CH-9000011-NA),959.92,38.4,Amazon.com,Amazon,8/19/2014,B00CD1FC6G
+5438399f6e363,Corsair Vengeance K70 Mechanical Gaming Keyboard - Black Cherry MX Red (CH-9000011-NA),1079.91,43.2,Amazon.com,Amazon,8/20/2014,B00CD1FC6G
+54383a141e5f2,Leave your heart in San Francisco! Fall in love with luxury at The St. Regis San Francisco from Travelocity.,94.41,1.51,Travelocity,flex_offers,8/21/2014,437112755
+543839dd66592,"New Star Foodservice Restaurant Quality Fast Food Serving Baskets, 9.25 by 6-Inch, Black, Set of 12",23.1,1.5,Amazon.com,Amazon,8/22/2014,B009G68ZH4
+5438399f6e363,Dell RN442 PE 717W REDUNDANT PSU,170,6.8,Third Party,Amazon,8/23/2014,B005PWKPIA
+5438399f6e363,"Cakesupplyshop Packaged 100 Sheets 9x12"" Red and White Checkered Food Basket Liners & Wrapping Tissue",9.99,0.65,Third Party,Amazon,8/24/2014,B00LI1M800
+5438399f6e363,"Diamond Naturals Dry Food for Adult Dogs, Lamb and Rice Formula, 40 Pound Bag",41.99,2.73,Amazon.com,Amazon,8/25/2014,B000OCRNCW
+54383a141e5f2,"Diamond Naturals Dry Food for Adult Dog, Beef and Rice Formula, 40 Pound Bag",38.99,2.53,Amazon.com,Amazon,8/26/2014,B000084F1I
+54383a141e5f2,Lexmark 11C2956 Wireless Monochrome Printer,723.7,28.95,Third Party,Amazon,8/27/2014,B006X2DAN8
+54383967ac0b7,HP LaserJet 4250/4350 RM1-1082-000CN Fuser Assembly,134.45,5.38,Third Party,Amazon,8/28/2014,B005Z4Y1WE
+54383967ac0b7,NETGEAR DS108 8 Port 10/100 Mbps Dual Speed Hub,94.95,3.8,Third Party,Amazon,8/29/2014,B00000J4L5
+5438399f6e363,Chico's.com,77.41,1.24,Chico's,flex_offers,8/30/2014,437198511
+5438399f6e363,Order No:8007144891929,,7.65,Hotels.com,commission_junction,8/31/2014,405745991
+543836c498f6e,The Grand Budapest Hotel [Blu-ray],19.96,1.3,Amazon.com,Amazon,9/1/2014,B00JAQJNN0
+5438399f6e363,READY® Eyeshadow 4.0 - The Happy Place,22.56,1.47,Third Party,Amazon,9/2/2014,B008ESO12S
+54380b0a55d94,Bumble and Bumble Straight Blow Dry 5 oz,29,1.89,Third Party,Amazon,9/3/2014,B005Q8QKLY
+543817aa655a8,Bumble and Bumble Gentle Shampoo - 33.8 oz,57,3.71,Third Party,Amazon,9/4/2014,B000J3FNJG
+543836c498f6e,Kerastase Paris Resistance Ciment Thermique - 125ml,34,2.21,Third Party,Amazon,9/5/2014,B000U4WNC4
+54380b0a55d94,"Eagle Creek Travel Gear Pack-It Half Tube Cube, Red Fire, One Size",10.5,0.68,Amazon.com,Amazon,9/6/2014,B00F9S8QCM
+54383967ac0b7,"Eagle Creek Travel Gear Pack-It Tube Cube, Red Fire, One Size",12.5,0.81,Amazon.com,Amazon,9/7/2014,B00F9S8NO8
+5438399f6e363,"Eagle Creek Travel Gear Pack-It Shoe Sac, Black, One Size",13,0.85,Amazon.com,Amazon,9/8/2014,B00F9S8RHG
+5438399f6e363,"Eagle Creek Travel Gear Pack-It Cube Set, Red Fire, One Size",26.5,1.72,Amazon.com,Amazon,9/9/2014,B00F9S87RQ
+5438399f6e363,"Eagle Creek Travel Gear Pack-It Garment Folder Medium, Red Fire, One Size",28,1.82,Amazon.com,Amazon,9/10/2014,B00F9S81CC
+54383a141e5f2,"Eagle Creek Travel Gear Pack-It Compression Sac, Large",10,0.65,Amazon.com,Amazon,9/11/2014,B001M0O09O
+543817aa655a8,"Flint is a next gen, free app to accept credit card payments on iPhone. No card reader, no merchant account, low rates. Sign up now!",0,28,Flint,flex_offers,9/12/2014,437277476
+54383967ac0b7,"C2G / Cables to Go 53406 18 AWG Universal Power Cord for NEMA 5-15P to IEC320C13, Black (12 Feet/3.65 Meters)",5.99,0.24,Amazon.com,Amazon,9/13/2014,B002O0KM6G
+5438399f6e363,"Dixie Perfectouch Hot Cups, 160 Count, 10 Ounce",21.29,1.38,Third Party,Amazon,9/14/2014,B0041MR9R0
+543817aa655a8,RFC- 600A Compatible Water Filter for KENMORE---46 9991; 46 9996; 9991; 9996 GE---MWF ; MWF3PK ; MWFA ; MWFAP ; MWFDS ; MWFINT ; AQUA FRESH----WF287 S,17.95,0.72,Third Party,Amazon,9/15/2014,B00J2LQ1KQ
+54380b0a55d94,"Cable Matters 3 Pack, Gold Plated Hi-Speed USB 2.0 Type A to Micro-B Cable 3 Feet",7.99,0.32,Third Party,Amazon,9/16/2014,B00IG9LSGM
+5438399f6e363,"Fluke 561 HVAC Pro Infrared Thermometer, 2 AA Battery, -40 to +1022 Degree F Range",164.05,13.12,Amazon.com,Amazon,9/17/2014,B000WTHDUY
+5438399f6e363,"Camelbak Eddy Bottle (0.75-Liter/24-Ounce,Clear)",11.2,0.73,Amazon.com,Amazon,9/18/2014,B006ZT8JDK
+54383a141e5f2,Measy U4C Quad-Core Android 4.2 Mini PC TV Box Built-in Camera + Mic + Bluetooth,79.99,3.2,Third Party,Amazon,9/19/2014,B00EY8JUM8
+54383a141e5f2,"GE SmartWater MWF Refrigerator Water Filter, 3-Pack",122.99,7.99,Third Party,Amazon,9/20/2014,B00149JVOC
+54383967ac0b7,"Google Nexus 10 (Wi-Fi only, 32 GB)",775.98,31.04,Third Party,Amazon,9/21/2014,B00ACVI202
+54383a141e5f2,The FTD� University of Michigan™ Wolverines™ Rose Bouquet - VASE INCLUDED,59.99,16,FTD.com,flex_offers,9/22/2014,437424830
+54383a141e5f2,Order No:5622014,349.99,14,"Best Buy Co, Inc.",link_share,9/23/2014,BBY01-674612080384
+543817aa655a8,Acase iPhone 5s Case / iPhone 5 case - Superleggera PRO Dual Layer Protection case (Black),21.7,1.42,Third Party,Amazon,9/24/2014,B00AAJDASK
+5438399f6e363,"AmazonBasics USB Charging and Sync Cable for Apple iPhone 4, iPod, and iPad 3rd Generation - 3.2 Feet (1.0 Meter)",7.99,0.32,Amazon.com,Amazon,9/25/2014,B004SBBD8U
+5438399f6e363,Rikomagic Latest Android 4.2 Quad Core Mini PC MK802 IV Bluetooth 16GB Flash 2G DDR3 RK3188 A9,75.99,3.04,Third Party,Amazon,9/26/2014,B00CR6OVSM
+54383a141e5f2,Order No:8046086931061,,19.14,Hotels.com,commission_junction,9/27/2014,405745991
+54380b0a55d94,"Symbol 82-67705-01, BTRY-LS42RAAOE-01 800mAh Battery",52.77,2.1,Third Party,Amazon,9/28/2014,B00593KE9A
+543836c498f6e,pcDuino3 1GB ARM Cortex A7 Dual-Core Allwinner A20 Arduino Interface Mini PC,81.99,3.28,Third Party,Amazon,9/29/2014,B00JFOY8RI
+5438399f6e363,MINIX NEO X7 Quad Core 2GB 16GB Storage TV & Media Streaming Player,119.98,4.8,Third Party,Amazon,9/30/2014,B00EIAR5CY
+5438399f6e363,OfficeMax,62.97,2.38,OfficeMax,flex_offers,10/1/2014,437542020
+543839dd66592,"Natures Miracle Advanced Stain and Odor Remover Power Sprayer, 192-Ounce",35.94,2.34,Third Party,Amazon,10/2/2014,B0057WNRA6
+54383a141e5f2,"Panasonic Toughbook CF-52 Laptop Battery - Premium TechFuel 9 cell, Li-ion Battery",99.9,4,Third Party,Amazon,10/3/2014,B003TYNYU2
+543838ec6ebb0,Investigating Communication: An Introduction to Research Methods (2nd Edition),66,4.29,Third Party,Amazon,10/4/2014,205198260
+54383967ac0b7,"Attack of the Fiend (The Last Apprentice, Book 4)",0.9,0.06,Third Party,Amazon,10/5/2014,60891297
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 32 GB)",459.99,18.4,Third Party,Amazon,10/6/2014,B00ACVI202
+54383a141e5f2,"Google Nexus 10 (Wi-Fi only, 32 GB)",4342.32,173.7,Third Party,Amazon,10/7/2014,B00ACVI202
+5438399f6e363,"Diamond Naturals Dry Food for Adult Dog, Beef and Rice Formula, 40 Pound Bag",77.98,5.06,Amazon.com,Amazon,10/8/2014,B000084F1I
+5438399f6e363,Diamond Lamp for EIKI LC-XB28 (XB2500 Lamp) Projector with a Philips bulb inside housing,292.92,11.72,Third Party,Amazon,10/9/2014,B006FKR8H2
+5438399f6e363,Leave your heart in San Francisco! Fall in love with luxury at The St. Regis San Francisco from Travelocity.,178,4.27,Travelocity,flex_offers,10/10/2014,437751292
+543839dd66592,Order No:6502299,859.98,34.4,"Best Buy Co, Inc.",link_share,10/11/2014,BBY01-657298060784
+54383a141e5f2,Order No:9978254,119.98,1.2,"Best Buy Co, Inc.",link_share,8/5/2014,BBY01-657298060784
+543817aa655a8,AKG K 240 Semi-Open Studio Headphones,67,4.36,Third Party,Amazon,8/6/2014,B0001ARCFA
+543c3564bad55,AKG K 240 Semi-Open Studio Headphones,67,4.36,Third Party,Amazon,8/7/2014,B0001ARCFA
+543839dd66592,"One-A-Day Multivitamin, Men's Health Formula , 200 Tablet Bottle",11.98,0.78,Amazon.com,Amazon,8/8/2014,B001F71XAI
+543817aa655a8,"Discraft 175 gram Ultra Star Sport Disc, Bright Orange",8.69,0.56,Amazon.com,Amazon,8/9/2014,B0014LZVU8
+54380b0a55d94,The FTD� University of Michigan™ Wolverines™ Rose Bouquet - VASE INCLUDED,99.99,16,FTD.com,flex_offers,8/10/2014,437823660
+543817aa655a8,The FTD� University of Michigan™ Wolverines™ Rose Bouquet - VASE INCLUDED,74.99,16,FTD.com,flex_offers,8/11/2014,437823661
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 32 GB)",449.98,18,Third Party,Amazon,8/12/2014,B00ACVI202
+54380b0a55d94,The Last Apprentice: Clash of the Demons (Book 6),3.05,0.2,Third Party,Amazon,8/13/2014,61344648
+5438399f6e363,Leave your heart in San Francisco! Fall in love with luxury at The St. Regis San Francisco from Travelocity.,42,0.67,Travelocity,flex_offers,8/14/2014,437895265
+54380b0a55d94,"GAT Muscle Martini Nutritional Supplement, Mixed Berry Candy, 365 Gram",49.54,3.22,Amazon.com,Amazon,8/15/2014,B00COR02V4
+5438399f6e363,Intel 335 Series 2.5-Inch 240GB SATA3 Solid State Drive SSDSC2CT240A4K5,739.8,29.6,Third Party,Amazon,8/16/2014,B009SIJ7G8
+5438399f6e363,VARIDESK Single Plus,1300,52,Third Party,Amazon,8/17/2014,B00JRJBP6I
+5438399f6e363,"GAT Muscle Martini Nutritional Supplement, Mixed Berry Candy, 365 Gram",38,2.48,Third Party,Amazon,8/18/2014,B00COR02V4
+54383967ac0b7,Order No:8036065712805,,42.79,Hotels.com,commission_junction,8/19/2014,0
+54383967ac0b7,"Alex and Ani Earth Sultry ""Plume Feather"" Bangle",51.86,3.37,Amazon.com,Amazon,8/20/2014,B003ZYF35U
+543839dd66592,Pureology Pump for 33 ounce Liter Size Bottles,8.56,0.56,Third Party,Amazon,8/21/2014,B005O6PCE4
+54380b0a55d94,"Dual LCD Monitor Free Standing Desk Mount/ Stand Heavy Duty Fully Adjustable fits 2 /Two Screens up to 24"" ~ (by VIVO)",52.45,2.1,Third Party,Amazon,8/22/2014,B00C5H5DN0
+543817aa655a8,Origins Checks and Balances&#153; Frothy Face Wash 5 oz,30.99,2.01,Third Party,Amazon,8/23/2014,B001AHJJJA
+543836c498f6e,Pureology Hydrate Shampoo 33.8 oz & Condition 33.8 oz Duo Set,85,5.53,Third Party,Amazon,8/24/2014,B0030MNNFO
+543817aa655a8,Power Bright ERP400-12 220-50 Hz Power Inverter - European Models,46.99,1.88,Third Party,Amazon,8/25/2014,B0016L2UHS
+543817aa655a8,Black & Decker LDX120PK 20-Volt MAX Lithium-Ion Drill and Project Kit,89.88,5.84,Amazon.com,Amazon,8/26/2014,B00C625KVE
+5438399f6e363,UPG UB1250 Sealed Lead Acid Batteries,14.99,0.6,Third Party,Amazon,8/27/2014,B001DL9IBC
+54383a141e5f2,"TEKTON 2841 Everybit and Electronic Repair Screwdriver Bit Set, 135-Piece",35.33,2.3,Amazon.com,Amazon,8/28/2014,B008HYVG6I
+5438399f6e363,"Google Nexus 10 (Wi-Fi only, 32 GB)",389.99,15.6,Third Party,Amazon,8/29/2014,B00ACVI202
+543836c498f6e,High Back Executive PU Leather Ergonomic Office Desk Computer Chair O10,278.97,11.16,Third Party,Amazon,8/30/2014,B004ZVHKJE
+54383a141e5f2,"HP 56 Black & HP 57 Tri-color Original Ink Cartridges, 2 pack",49,1.96,Third Party,Amazon,8/31/2014,B000KDAJR6
+5438399f6e363,"Hibiclens Antimicrobial Skin Liquid Soap, 32 Fluid Ounce",21.92,0.88,Third Party,Amazon,9/1/2014,B00EV1D79A
+5438399f6e363,"ABS Import 8600-0131 Pro-Series Cast Iron Arbor Press, 1 Ton Capacity, 14"" Height (Pack of 1)",88.4,7.07,Amazon.com,Amazon,9/2/2014,B00E0NFWW4
+543836c498f6e,Order No:W0004438606258,11.48,0.46,"Wal-Mart.com USA, LLC",link_share,9/3/2014,2.68E+12
+54383967ac0b7,Order No:W0004155422717,7.97,0.32,"Wal-Mart.com USA, LLC",link_share,9/4/2014,2.68E+12
+54383967ac0b7,Order No:W0004438607558,13.23,0.53,"Wal-Mart.com USA, LLC",link_share,9/5/2014,2.68E+12
+5438399f6e363,Order No:W0004155427330,5.94,0.24,"Wal-Mart.com USA, LLC",link_share,9/6/2014,2.68E+12
+5438399f6e363,Order No:W0067604560127,7,0.28,"Wal-Mart.com USA, LLC",link_share,9/7/2014,2.68E+12
+543839dd66592,Order No:W0004155440929,5.94,0.24,"Wal-Mart.com USA, LLC",link_share,9/8/2014,2.68E+12
+543839dd66592,Order No:4503,123.98,6.2,GourmetGiftBaskets.com,link_share,9/9/2014,935176-1082135
+54383a141e5f2,Order No:4503,-12.4,-0.62,GourmetGiftBaskets.com,link_share,9/10/2014,935176-1082135
+543836c498f6e,Order No:AIRCOMPLETE,386,8,CheapOair.com,link_share,9/11/2014,21654245
+5438399f6e363,Order No:670169,149,17.88,NORDSTROM.com,link_share,9/12/2014,2.01E+23
+543839dd66592,AIR,318.01,4.5,Cheap Tickets,link_share,9/13/2014,PBCTIX1644947384
+54383967ac0b7,Order No:218557,27,0.81,macys.com,link_share,9/14/2014,M1036633381
+5438399f6e363,Order No:249692,25,0.75,macys.com,link_share,9/15/2014,M1036633381
+543817aa655a8,Order No:233061_20,85,1.7,NORDSTROM.com,link_share,9/16/2014,2.01E+22
+543836c498f6e,Order No:478134,30,0.6,NORDSTROM.com,link_share,9/17/2014,2.01E+22
+543838ec6ebb0,Order No:722843,-130,-2.6,NORDSTROM.com,link_share,9/18/2014,2.01E+22
+543839dd66592,Order No:517112,32,0.64,NORDSTROM.com,link_share,9/19/2014,2.01E+22
+543839dd66592,Order No:722843,130,2.6,NORDSTROM.com,link_share,9/20/2014,2.01E+22
+54383a141e5f2,Order No:984262,95,1.9,NORDSTROM.com,link_share,9/21/2014,2.01E+22
+54383967ac0b7,Order No:1362979,31.99,0.96,macys.com,link_share,9/22/2014,M1041285821
+5438399f6e363,Order No:1428831,34.39,1.03,macys.com,link_share,9/23/2014,M1041285821
+54380b0a55d94,Order No:329059,22,0.66,macys.com,link_share,9/24/2014,M1031670354
+54380b0a55d94,Order No:571795,15,0.45,macys.com,link_share,9/25/2014,M1031670354
+543817aa655a8,Order No:1029291,55,1.65,macys.com,link_share,9/26/2014,M1031670354
+543817aa655a8,Order No:36385,7,0.21,macys.com,link_share,9/27/2014,M1031670354
+543817aa655a8,Order No:838,26,0.78,macys.com,link_share,9/28/2014,M1031670354
+543836c498f6e,Order No:441772,48.5,1.46,macys.com,link_share,9/29/2014,M1031670354
+543836c498f6e,Order No:850750,35,1.05,macys.com,link_share,9/30/2014,M1031670354
+543839dd66592,Order No:94266,24,0.72,macys.com,link_share,10/1/2014,M1031670354
+543836c498f6e,Discount,-25,-1,{*}Lolly Wolly Doodle,link_share,10/2/2014,110335
+543836f5ce67e,Order No:EGC-25,25,1,{*}Lolly Wolly Doodle,link_share,10/3/2014,110335
+54380b0a55d94,Order No:762268,149.95,7.5,NORDSTROM.com,link_share,10/4/2014,2.01E+23
+543817aa655a8,Order No:844258,377.9,45.35,NORDSTROM.com,link_share,10/5/2014,2.01E+23
+54383967ac0b7,Order No:995872,66,1.32,NORDSTROM.com,link_share,10/6/2014,2.01E+23
+5438399f6e363,Order No:35753,88,1.76,NORDSTROM.com,link_share,10/7/2014,2.01E+23
+543839dd66592,Order No:392136,88,1.76,NORDSTROM.com,link_share,10/8/2014,2.01E+23
+54383967ac0b7,Order No:5604,34.99,1.75,GourmetGiftBaskets.com,link_share,10/9/2014,928670-1072805
+5438399f6e363,Order No:4803,29.99,1.5,GourmetGiftBaskets.com,link_share,10/10/2014,928670-1072814
+54380b0a55d94,Order No:681895,-90,-2.7,macys.com,link_share,8/6/2014,M1000884081
+54380b0a55d94,NORDSTROM,-69.5,-9.46,NORDSTROM.com,flex_offers,9/26/2014,435027104
+54380b0a55d94,NORDSTROM,-65,-8.84,NORDSTROM.com,flex_offers,9/27/2014,435027105
+54380b0a55d94,TOYS4US,-69.5,-9.46,TOYS4US,flex_offers,9/28/2014,435027104
+54380b0a55d94,WINETASTING,-65,-8.84,WINETASTING,flex_offers,9/29/2014,435027105
+54380b0a55d94,Garmin Approach S2 GPS Golf Watch with Worldwide Courses (Black),-245.98,-9.84,Amazon.com,Amazon,9/2/2014,B00B555ASQ
+54380b0a55d94,Garmin Approach S2 GPS Golf Watch with Worldwide Courses (Black),-245.98,-9.84,Amazon.com,Amazon,9/3/2014,B00B555ASQ
+54380b0a55d94,Lenovo IdeaPad Flex 15 15.6-Inch Touchscreen Laptop (59406981) Black,-2239.96,-89.6,Amazon.com,Amazon,10/5/2014,B00HIY9I4K
+54380b0a55d94,AmScope MU1403-CK 14MP Live Video USB3.0 Microscope Digital Camera 14 MP + Calibration Kit,-612.56,-49,Amazon.com,Amazon,8/19/2014,B00DUJY04A
+54380b0a55d94,Order No:722843,-130,-2.6,NORDSTROM.com,link_share,9/18/2014,2.01E+22

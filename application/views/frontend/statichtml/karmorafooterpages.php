@@ -1,0 +1,1 @@
+<?php echo $footerpages->page_content; ?>

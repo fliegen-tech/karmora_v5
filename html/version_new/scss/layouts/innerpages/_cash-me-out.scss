@@ -1,0 +1,135 @@
+.cash-me-out-sec {
+
+	.step-heading {
+		margin: 0 0 36px;
+
+		h2 {
+		font-family: 'Conv_TT Corals Thin-DEMO';
+		background-color: $primary_color;
+		color: $white_color;
+		padding: 15px;
+		font-size: 36px;
+		margin: 0px;
+		}
+	}
+
+	.charitable-gift {
+		margin-bottom: 36px !important;
+	}
+	.cash-me-out-payment {
+		margin: 0 0 18px;
+
+		p {
+			font-size: 16px;
+			line-height: 30px;
+			margin-bottom: 27px;
+
+			strong {
+				font-style: italic;
+			}
+		}
+
+		.form-group {
+			margin-bottom: 18px;
+
+			.input-field-label {
+				font-weight: bolder;
+			}
+			.form-control {
+				height: 40px;
+				line-height: 40px;
+				padding: 0 10px;
+				font-size: 14px;
+				border-radius: 0px;
+				color: $lowblack;
+			}
+
+			.for-amount {
+				position: relative;
+				padding-left: 20px;
+			}
+
+			.dollar-sign {
+
+				&:before {
+					position: absolute;
+					content: '$';
+					left: 27px;
+					top: 8px;
+					font-size: 16px;
+					color: $lowblack;
+					opacity: 0.7;
+				}
+			}
+
+			.text-muted {
+
+				a {
+					color: $primary_color-text;
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.charitable-btns {
+
+			.btn-joinnow {
+				background-color: $primary_color;
+				font-size: 24px;
+
+				&:before {
+					background-color: $primary_color-text;
+				}
+			}
+		}
+	}
+
+	.check-request {
+		margin: 36px 0 0;
+
+		h3 {
+			font-size: 36px;
+			margin: 0 0 36px;
+			padding-bottom: 9px;
+			text-align: center;
+			font-family: 'Conv_TT Corals Thin-DEMO';
+			border-bottom: 2px solid $primary_color;
+		}
+
+		p {
+			font-size: 16px;
+			line-height: 30px;
+
+			strong {
+				color: $primary_color-text;
+			}
+		}
+
+		#gift-table {
+			margin-bottom: 18px;
+		}
+
+		.list-contact-live {
+			padding: 0px;
+			margin: 0px;
+
+			li {
+				display: inline-block;
+				margin-left: 15px;
+
+				a {
+					font-size: 16px;
+					color: $primary_color-text;
+
+					img {
+						margin-left: 10px;
+					}
+				}
+
+				&:first-child {
+					margin-left: 0px;
+				}
+			}
+		}
+	}
+}

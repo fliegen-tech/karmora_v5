@@ -1,0 +1,225 @@
+.profit-sharing-sec {
+	padding-bottom: 0px;
+
+	.profit-sharing-cover {
+
+		.profit-img-cover {
+			text-align: center;
+
+				img {
+					width: 100%;
+				}
+
+			&:after {
+        height: calc(100% - 30px);
+        width: calc(100% - 60px);
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 30px;
+        background: transparent;
+        border: 3px solid $primary_color;
+        pointer-events: none;
+        transition-duration: .3s;
+      }
+		}
+
+		.profit-sharing-content {
+
+			h3 {
+				font-family: 'Conv_TT Corals Thin-DEMO';
+				font-size: 30px;
+				color: $primary_color_text;
+				margin: 0 0 18px;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 30px;
+
+				a {
+					color: $primary_color_text;
+				}
+			}
+		}
+	}
+
+	.qulify-cover {
+		margin: 36px 0 0;
+
+		h3 {
+			font-family: 'Conv_TT Corals Thin-DEMO';
+			font-size: 30px;
+			color: $primary_color_text;
+			margin: 0 0 18px;
+		}
+
+		ul {
+			margin: 0px;
+			padding: 0px;
+
+			li {
+				font-size: 16px;
+		    line-height: 30px;
+		    font-family: 'Arimo', sans-serif;
+		    padding-left: 0;
+		    margin-bottom: 18px;
+
+				&:last-child {
+					margin-bottom: 0px;
+				}
+
+				span {
+					vertical-align: middle;
+					padding-left: 15px;
+
+					a {
+						color: $primary_color-text;
+					}
+				}
+
+				&:before {
+					width: 20px;
+			    height: 20px;
+			    display: inline-block;
+			    content: '';
+			    background-color: $primary_color;
+			    border-radius: 50%;
+			    vertical-align: middle;
+			    margin: 0 .2em 0 -1.5em;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+}
+.profit-sharing-pool {
+	padding-top: 36px;
+}
+
+// compensation-page-sec
+
+.compensation-page-sec {
+
+	.profit-sharing-cover {
+		margin: 0 0 36px;
+
+		.top-heading-cover {
+			margin-bottom: 36px;
+
+			h1 {
+				font-size: 48px;
+			}
+		}
+
+		.profit-img-cover {
+			display: flex;
+		  align-items: center;
+			height: 380px;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		.recurring-cover {
+
+			img {
+				width: 100%;
+			}
+
+			&:after {
+        height: calc(100% - 30px);
+        width: calc(100% - 60px);
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 30px;
+        background: transparent;
+        border: 3px solid $primary_color;
+        pointer-events: none;
+        transition-duration: .3s;
+      }
+		}
+
+		.profit-cover {
+			height: 500px;
+
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.profit-sharing-content {
+
+			ul {
+				margin: 0px;
+				padding: 0px 0 0 25px;
+
+				li {
+					font-size: 16px;
+			    line-height: 30px;
+			    font-family: 'Arimo', sans-serif;
+			    padding-left: 0;
+			    margin-bottom: 18px;
+
+					&:last-child {
+						margin-bottom: 0px;
+					}
+
+
+					span {
+						vertical-align: middle;
+						padding-left: 15px;
+						display: inline-block;
+
+						a {
+							color: $primary_color-text;
+						}
+					}
+
+					&:before {
+						width: 20px;
+				    height: 20px;
+				    display: inline-block;
+				    content: '';
+				    background-color: $primary_color;
+				    border-radius: 50%;
+				    vertical-align: middle;
+				    margin: 0 .2em 0 -1.5em;
+						vertical-align: middle;
+					}
+				}
+			}
+
+			.list-profit {
+
+				li {
+
+					&:first-child {
+
+						span {
+							display: initial;
+						}
+					}
+
+					span {
+
+						strong {
+							margin-right: 10px;
+						}
+					}
+				}
+			}
+			.btn-joinnow {
+				background-color: $primary_color;
+				margin-top: 36px;
+
+				&:before {
+					background-color: $primary_color-text;
+				}
+			}
+		}
+	}
+}

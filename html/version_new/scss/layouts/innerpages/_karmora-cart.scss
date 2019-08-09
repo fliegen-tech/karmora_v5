@@ -1,0 +1,76 @@
+.cart-sec {
+
+	.checkout-tobar {
+		margin: 0 0 36px;
+
+		h3 {
+			font-family: 'Conv_TT Corals Thin-DEMO';
+			margin: 0px;
+			font-size: 48px;
+			color: $primary_color;
+		}
+
+		.btn-checkout {
+
+			img {
+				margin-right: 5px;
+				max-width: 30px;
+				margin-top: -2px;
+			}
+
+			&:before {
+				border-radius: 25px;
+			}
+		}
+	}
+
+	.cart-table {
+		margin: 0 0 18px;
+
+		table {
+
+			tbody {
+
+				tr {
+
+					td {
+
+						img {
+							width: 25%;
+						}
+
+						small {
+							display: block;
+						}
+
+						a {
+							color: $primary_color-text;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.updatecart {
+
+		.btn-checkout {
+			background-color: $primary_color;
+		}
+
+		.btn-checkout-1 {
+			background-color: $black_color;
+		}
+	}
+	.grand-total-table-2 {
+		margin: 18px 0;
+
+		td {
+	    padding: 10px 10px;
+	    border: 1px solid $color_gray;
+	    width: 200px;
+	    font-weight: bold;
+	    text-transform: uppercase;
+		}
+	}
+}

@@ -1,0 +1,82 @@
+.karmora-login-sec {
+
+  .top-heading-cover {
+
+    h1 {
+      font-size: 36px;
+      padding: 10px;
+      margin: 0px;
+      border-bottom: none;
+      background-color: $primary_color;
+      color: $white_color;
+    }
+  }
+
+  form {
+    margin-top: 0;
+    position: relative;
+    border-bottom: 1px solid $color_gray;
+    box-shadow: 0 0 5px 0 $color_gray;
+    padding: 18px 15px;
+
+    .form-group {
+      margin-bottom: 18px;
+
+      .input-field-label {
+        font-weight: bolder;
+      }
+
+      .form-control {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+        font-size: 14px;
+        border-radius: 0px;
+      }
+    }
+
+    .form-check {
+      margin: 0px;
+    }
+
+    .underlined-text {
+      text-decoration: none;
+
+      &:hover {
+        color: $primary_color-text;
+      }
+    }
+
+    &:before {
+      border-bottom: 1px solid $color_gray;
+      bottom: 2px;
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    &:after {
+      border-bottom: 1px solid $color_gray;
+      bottom: 5px;
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+    .loginbtn-cover {
+      margin: 18px 0 0;
+
+      .btn-joinnow {
+        width: 100%;
+        background-color: $primary_color;
+
+        &:before {
+          background-color: $primary_color-text;
+        }
+      }
+    }
+  }
+}
